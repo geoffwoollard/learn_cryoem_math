@@ -2,12 +2,12 @@
 Learn the mathematics of single particle electron cryomicroscopy (cryoEM)
 
 # Resources
-Singer, A., & Sigworth, F. J. (2020). Computational Methods for Single-Particle Cryo-EM, 1–40.
-Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305–325).
-Singer, A. (2018). Mathematics for cryo-electron microscopy.
-Grant, J. (2018). Getting Started in Cryo-EM. http://cryo-em-course.caltech.edu/videos
-Glaeser, R. (2007). Electron Crystallography of Biological Macromolecules. Oxford University Press.
-Frank, J. (1996). Electron Microscopy of Macromolecular Assemblies. In Three-Dimensional Electron Microscopy of Macromolecular Assemblies (pp. 12–53). Elsevier. http://doi.org/10.1016/B978-012265040-6/50002-3
+* Singer, A., & Sigworth, F. J. (2020). Computational Methods for Single-Particle Cryo-EM, 1–40.
+* Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305–325).
+* Singer, A. (2018). Mathematics for cryo-electron microscopy.
+* Grant, J. (2018). Getting Started in Cryo-EM. http://cryo-em-course.caltech.edu/videos
+* Glaeser, R. (2007). Electron Crystallography of Biological Macromolecules. Oxford University Press.
+* Frank, J. (1996). Electron Microscopy of Macromolecular Assemblies. In Three-Dimensional Electron Microscopy of Macromolecular Assemblies (pp. 12–53). Elsevier. http://doi.org/10.1016/B978-012265040-6/50002-3
 
 # Why?
 We can see living atoms with electrons. Electron microscopes use hundreds of thousands of volts to speed up single electrons to three quarters the speed of light. At such high speeds electrons have picometer wavelengths and can resolve the distances between atoms in biomolecules. Electron cryomicroscopy (cryoEM) won the 2017 Nobel prize in Chemistry, and pharmaceutical companies have invested in this technology for applications like structure based drug design. 
