@@ -2,12 +2,15 @@
 Learn the mathematics of single particle electron cryomicroscopy (cryoEM)
 
 # Resources
+## cryoEM
 * Singer, A., & Sigworth, F. J. (2020). Computational Methods for Single-Particle Cryo-EM, 1–40.
 * Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305–325).
 * Singer, A. (2018). Mathematics for cryo-electron microscopy.
 * Grant, J. (2018). Getting Started in Cryo-EM. http://cryo-em-course.caltech.edu/videos
 * Glaeser, R. (2007). Electron Crystallography of Biological Macromolecules. Oxford University Press.
 * Frank, J. (1996). Electron Microscopy of Macromolecular Assemblies. In Three-Dimensional Electron Microscopy of Macromolecular Assemblies (pp. 12–53). Elsevier. http://doi.org/10.1016/B978-012265040-6/50002-3
+
+## Math
 * Hobbie, R. K., & Roth, B. J. (2007). Intermediate Physics for Medicine and Biology (4th ed.). New York, NY: Springer New York. http://doi.org/10.1007/978-0-387-49885-0
   * Chapter 11: Method of Least Squares and Signal Analysis
   * Chapter 12: Images
