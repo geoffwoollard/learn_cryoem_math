@@ -11,6 +11,7 @@ Learn the mathematics of single particle electron cryomicroscopy (cryoEM)
 * Frank, J. (1996). Electron Microscopy of Macromolecular Assemblies. In Three-Dimensional Electron Microscopy of Macromolecular Assemblies (pp. 12–53). Elsevier. http://doi.org/10.1016/B978-012265040-6/50002-3
 
 ## General math
+* Coursera (2020). Introduction to advanced tomography. Technical University of Denmark. https://www.coursera.org/learn/cinemaxe
 * Hobbie, R. K., & Roth, B. J. (2007). Intermediate Physics for Medicine and Biology (4th ed.). New York, NY: Springer New York. http://doi.org/10.1007/978-0-387-49885-0
   * Chapter 11: Method of Least Squares and Signal Analysis
   * Chapter 12: Images
