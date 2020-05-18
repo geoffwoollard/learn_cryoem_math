@@ -8,6 +8,9 @@ Learn the mathematics of single particle electron cryomicroscopy (cryoEM)
 * Grant, J. (2018). Getting Started in Cryo-EM. http://cryo-em-course.caltech.edu/videos
 * Glaeser, R. (2007). Electron Crystallography of Biological Macromolecules. Oxford University Press.
 * Frank, J. (1996). Electron Microscopy of Macromolecular Assemblies. In Three-Dimensional Electron Microscopy of Macromolecular Assemblies (pp. 12–53). Elsevier. http://doi.org/10.1016/B978-012265040-6/50002-3
+* Hobbie, R. K., & Roth, B. J. (2007). Intermediate Physics for Medicine and Biology (4th ed.). New York, NY: Springer New York. http://doi.org/10.1007/978-0-387-49885-0
+  * Chapter 11: Method of Least Squares and Signal Analysis
+  * Chapter 12: Images
 
 # Why?
 We can see living atoms with electrons. Electron microscopes use hundreds of thousands of volts to speed up single electrons to three quarters the speed of light. At such high speeds electrons have picometer wavelengths and can resolve the distances between atoms in biomolecules. Electron cryomicroscopy (cryoEM) won the 2017 Nobel prize in Chemistry, and pharmaceutical companies have invested in this technology for applications like structure based drug design. 
