@@ -75,3 +75,35 @@ def comp_corr(a,b):
   '''
   corr = np.multiply(np.real(a), np.real(b)).sum() + np.multiply(np.imag(a), np.imag(b)).sum()
   return(corr)
+
+def simulate_data(image_2d,psize_A,N_particles=500,df_low=1e4,df_high=2e4,snr=3,bool_circle_mask=None):
+  assert image_2d.ndim == 2
+  nx = image_2d.shape[0]
+  image_2d_f = do_fft(image_2d) # ground truth image
+
+  true_angles = np.random.uniform(low=0,high=360, size=N_particles)
+
+  ctf_2ds = np.zeros((N_particles,nx,nx))
+  dfs = np.random.uniform(low=df_low,high=df_high,size=N_particles)
+  s, a = ctf.ctf_freqs(image_2d.shape,d=1/psize_A)
+
+  noise_std = image_2d_f.std() / snr
+
+  images_observed = np.zeros((N_particles,nx,nx), dtype=np.complex64)
+
+  sim_params_d = defaultdict(list)
+
+  for i in range(N_particles):
+    # rotate
+    image_2d_f_rot = do_complex_rotate(image_2d_f,angle=true_angles[i])
+    if bool_circle_mask is not None:
+      image_2d_f_rot[bool_circle_mask]=0
+    # ctf
+    ctf_2ds[i,:,:] = np.fft.fftshift(ctf.eval_ctf(s, a, def1=dfs[i], def2=dfs[i], angast=0, phase=0, kv=300, ac=0.1, cs=2.0, bf=0, lp=0))
+    image_2d_f_rot_ctf = image_2d_f_rot*ctf_2ds[i]
+    # noise
+    noise = np.random.normal(loc=0,scale=noise_std,size=nx*nx).reshape(nx,nx)
+    images_observed[i,:,:] = image_2d_f_rot_ctf + noise
+
+  sim_params_df = pd.DataFrame({'df1':dfs,'df2':dfs, 'pose2D':true_angles})
+  return(images_observed,sim_params_df)
