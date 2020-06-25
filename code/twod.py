@@ -12,14 +12,14 @@ def do_complex_rotate(arr,angle,rotate_func=rotate, **kwargs):
   i = rotate(np.imag(arr),angle=angle, reshape=False, **kwargs)
   return(r+i*1j)
 
- def cmask(index,radius,array):
+def cmask(index,radius,array):
   a,b = index
   nx,ny = array.shape
   y,x = np.ogrid[-a:nx-a,-b:ny-b]
   mask = x*x + y*y <= radius*radius
   return(mask)
 
- def do_2dplot(arr):
+def do_2dplot(arr):
   plt.imshow(arr, cmap='gray')
 
 def do_1dplot(arr,idx=None,**kwargs):
