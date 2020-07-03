@@ -7,6 +7,27 @@ import pyfftw, numpy
 import pyfftw.interfaces.numpy_fft
 from numba import jit
 
+def shift_zeropad_axis(x,shift,axis):
+  #if np.allclose(shift, np.zeros(2)): return(x)
+  
+  if axis == 0:
+    x = np.roll(x,shift,axis=axis)
+    
+    if shift > 0:
+      x[:shift,:] = 0
+    elif shift < 0:
+      x[shift:,:] = 0
+    else: pass
+  
+  else:
+    x = np.roll(x,shift,axis=axis)
+    if shift > 0:
+      x[:,:shift] = 0
+    elif shift < 0:
+      x[:,shift:] = 0
+    else: pass
+  return(x)
+
 def do_complex_rotate(arr,angle,rotate_func=rotate, **kwargs):
   r = rotate(np.real(arr),angle=angle, reshape=False, **kwargs)
   i = rotate(np.imag(arr),angle=angle, reshape=False, **kwargs)
