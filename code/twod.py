@@ -28,6 +28,16 @@ def shift_zeropad_axis(x,shift,axis):
     else: pass
   return(x)
 
+def comp_x_aligned(x,A_rot_shifted,angles,shifts_r,shifts_c):
+  x_aligned = np.zeros(A_rot_shifted[:,:,:,:,:].shape)
+  for angle_idx in range(angles.shape[0]):
+    x_rot = scipy.ndimage.rotate(x,angle=-angles[angle_idx],reshape=False) 
+    for shift_r_idx in range(shifts_r.shape[0]):
+      x_rot_shift = shift_zeropad_axis(x_rot,shift=-shifts_r[shift_r_idx],axis=0)
+      for shift_c_idx in range(shifts_c.shape[0]):
+          x_aligned[:,:,angle_idx,shift_r_idx,shift_c_idx] = shift_zeropad_axis(x_rot_shift,shift=-shifts_c[shift_c_idx],axis=1)
+  return(x_aligned)
+  
 def do_complex_rotate(arr,angle,rotate_func=rotate, **kwargs):
   r = rotate(np.real(arr),angle=angle, reshape=False, **kwargs)
   i = rotate(np.imag(arr),angle=angle, reshape=False, **kwargs)
