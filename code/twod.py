@@ -8,8 +8,7 @@ import pyfftw.interfaces.numpy_fft
 from numba import jit
 
 def shift_zeropad_axis(x,shift,axis):
-  #if np.allclose(shift, np.zeros(2)): return(x)
-  
+  assert axis in [0,1]
   if axis == 0:
     x = np.roll(x,shift,axis=axis)
     
@@ -37,7 +36,7 @@ def comp_x_aligned(x,A_rot_shifted,angles,shifts_r,shifts_c):
       for shift_c_idx in range(shifts_c.shape[0]):
           x_aligned[:,:,angle_idx,shift_r_idx,shift_c_idx] = shift_zeropad_axis(x_rot_shift,shift=-shifts_c[shift_c_idx],axis=1)
   return(x_aligned)
-  
+
 def do_complex_rotate(arr,angle,rotate_func=rotate, **kwargs):
   r = rotate(np.real(arr),angle=angle, reshape=False, **kwargs)
   i = rotate(np.imag(arr),angle=angle, reshape=False, **kwargs)
@@ -138,3 +137,18 @@ def simulate_data(image_2d,psize_A,N_particles=500,df_low=1e4,df_high=2e4,snr=3,
 
   sim_params_df = pd.DataFrame({'df1':dfs,'df2':dfs, 'pose2D':true_angles})
   return(images_observed,sim_params_df)
+
+def sum_ln_factorial(x):
+  '''
+  sum log of lectron count factorial over pixels
+  precompute pixel_values and their counts 
+  sum_a ln Xia!
+  '''
+  
+  value_counts = pd.Series(x.astype(np.uint64)[x>1]).value_counts() # 0 and 1 contribute nothing to sum
+  pixel_values = value_counts.index.values.astype(np.uint64)
+  counts = value_counts.values.astype(np.uint64)
+  lnxia = 0
+  for pixel_value, count in zip(pixel_values, counts):
+    lnxia += count*np.math.factorial(pixel_value)
+  return(lnxia)
