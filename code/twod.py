@@ -28,6 +28,9 @@ def shift_zeropad_axis(x,shift,axis):
   return(x)
 
 def comp_x_aligned(x,A_rot_shifted,angles,shifts_r,shifts_c):
+  '''
+  TODO: rewrite without A_rot_shifted, since just using for shape
+  '''
   x_aligned = np.zeros(A_rot_shifted[:,:,:,:,:].shape)
   for angle_idx in range(angles.shape[0]):
     x_rot = rotate(x,angle=-angles[angle_idx],reshape=False) 
@@ -152,3 +155,68 @@ def sum_ln_factorial(x):
   for pixel_value, count in zip(pixel_values, counts):
     lnxia += count*np.math.factorial(pixel_value)
   return(lnxia)
+
+@jit
+def rotate_bi(arr,angle):
+  '''
+  rotation with bilinear interpolation
+  cartesian to cartesian, no need to interpolate whole image onto polar. when convert to polar, just need to add angle of rotation
+  see http://polymathprogrammer.com/2008/10/06/image-rotation-with-bilinear-interpolation/
+  '''
+  arr_ = np.zeros_like(arr)
+  I,J = arr_.shape # loop over destination
+  
+  # rotation angle (rad)
+  rad = angle*np.pi/180
+
+  for i in range(I):
+    y = I//2 - i
+    for j in range(J):
+      # raster to cartesian
+      x = j - J//2
+      
+
+      # cartesian to polar
+      r = np.sqrt(x*x+y*y)
+      t = np.arctan2(y,x)
+
+
+      #polar to cartesian (in new ref frame)
+      x_ = r*np.cos(t-rad)
+      y_ = r*np.sin(t-rad)
+
+      # cartesian to raster
+      j_ = x_ + J//2
+      i_ = I//2 - y_
+
+      # floor and ceil (of one pixel)
+      i_floor = int(np.floor(i_))
+      j_floor = int(np.floor(j_))
+      i_ceil = int(np.ceil(i_))
+      j_ceil = int(np.ceil(j_))
+
+      # check bounds of the pixel are within image
+      test = (i_floor < 0 or j_floor < 0 or i_ceil >= I or j_ceil >= J or i_floor >= I or j_floor >= J or i_ceil < 0 or j_ceil < 0)
+      if test: continue
+    
+      di = i_ - i_floor
+      dj = j_ - j_floor
+
+      # corners (of one pixel)
+      top_left = arr[i_floor,j_floor]
+      top_right = arr[i_floor,j_ceil]
+      bot_left = arr[i_ceil,j_floor]
+      bot_right = arr[i_ceil,j_ceil]
+
+
+      # linearly interpolate horizontally between top neighbours
+      top = (1-dj)*top_left + dj*top_right
+
+      # linearly interpolate horizontally between bottom neighbours
+      bot = (1-dj)*bot_left + dj*bot_right
+
+      # linearly interpolate vertically between top and bottom interpolated results
+      p_ = (1-di)*top + di*bot
+
+      arr_[i,j] = p_ # this doesn't need to be rounded since not 8 bit
+  return(arr_)
