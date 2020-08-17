@@ -63,7 +63,7 @@ def do_1dplot(arr,idx=None,**kwargs):
 def log_abs(arr):
   return(np.log(1+np.abs(arr)))
 
-def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft):
+def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=True):
   '''
   we apply an alterating +1/-1 multiplicative before we go to/from Fourier space. 
   Later we apply this again to the transform.
@@ -76,7 +76,10 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft):
     arr2d_f = numpy_fft.fftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
     arr2d_f /= n1
   elif mode=='i':
-    arr2d_f = numpy_fft.ifftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1)).real
+    if only_real:
+      arr2d_f = numpy_fft.ifftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1)).real
+    else:
+      arr2d_f = numpy_fft.ifftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
     arr2d_f *= n1
   
   arr2d_f = neg_pos(arr2d_f.reshape(n1,n1).copy())
