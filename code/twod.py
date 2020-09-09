@@ -224,7 +224,18 @@ def rotate_bi(arr,angle):
       arr_[i,j] = p_ # this doesn't need to be rounded since not 8 bit
   return(arr_)
 
-def do_2d_align_poisson(X,lam_k,n_A_updates,deg_step=None,shift_span=0,sigma_shift=np.inf,bool_circle_mask=None,do_plot=True,do_log=False):
+def do_2d_align_poisson(X,
+  lam_k,
+  n_A_updates,
+  deg_step=None,
+  shift_span=0,
+  sigma_shift=np.inf,
+  bool_circle_mask=None,
+  do_plot=True,
+  figsize=(16,32),
+  do_log=False,
+  X_aligned=None,
+  A=None):
 
   A_prev = X.mean(0)
   A_next = A_prev.copy()
@@ -256,7 +267,11 @@ def do_2d_align_poisson(X,lam_k,n_A_updates,deg_step=None,shift_span=0,sigma_shi
   LL = np.zeros((n_A_updates,small_N))
   A_nexts = np.zeros((n_A_updates,) + A_next.shape)
 
-  if do_plot: fig, axes = plt.subplots(min(10,small_N)+4, n_A_updates,figsize=(16,32))
+  extra_plot_n=4
+  for obj in [A,X_aligned]:
+    if obj is None: plot_n -= 1
+
+  if do_plot: fig, axes = plt.subplots(min(10,small_N)+extra_plot_n, n_A_updates,figsize=figsize)
 
   for c in range(n_A_updates):
     if do_log: print(c)
@@ -312,7 +327,7 @@ def do_2d_align_poisson(X,lam_k,n_A_updates,deg_step=None,shift_span=0,sigma_shi
           log_sigma_shift = np.log(sigma_shift)
         else:
           log_sigma_shift = 0
-        
+
         ll += -np.log(Ui) + Ki - sum_ln_factorial(x) -0.5*np.log(2*np.pi) - np.log(sigma_shift)
         
       else: 
@@ -344,7 +359,7 @@ def do_2d_align_poisson(X,lam_k,n_A_updates,deg_step=None,shift_span=0,sigma_shi
     A_nexts[c] = A_next
     if do_plot: 
       axes[r+1,c].imshow(X[:small_N].mean(0),cmap='gray') ; axes[r+1,c].set_axis_off()
-      axes[r+2,c].imshow(X_aligned[:small_N].mean(0),cmap='gray') ; axes[r+2,c].set_axis_off()
-      axes[r+3,c].imshow(A,cmap='gray') ; axes[r+3,c].set_axis_off()
+      if X_aligned is not None: axes[r+2,c].imshow(X_aligned[:small_N].mean(0),cmap='gray') ; axes[r+2,c].set_axis_off()
+      if A is not None: axes[r+3,c].imshow(A,cmap='gray') ; axes[r+3,c].set_axis_off()
 
   return(A_nexts)
