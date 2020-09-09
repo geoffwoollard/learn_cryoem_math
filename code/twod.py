@@ -328,7 +328,7 @@ def do_2d_align_poisson(X,
         else:
           log_sigma_shift = 0
 
-        ll += -np.log(Ui) + Ki - sum_ln_factorial(x) -0.5*np.log(2*np.pi) - np.log(sigma_shift)
+        ll += -np.log(Ui) + Ki - sum_ln_factorial(x) -0.5*np.log(2*np.pi) - log_sigma_shift
         
       else: 
         Ui=0
