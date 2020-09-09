@@ -224,7 +224,7 @@ def rotate_bi(arr,angle):
       arr_[i,j] = p_ # this doesn't need to be rounded since not 8 bit
   return(arr_)
 
-def do_2d_align_poisson(X,n_A_updates,deg_step=None,shift_span=0,bool_circle_mask=None,do_plot=True,do_log=False):
+def do_2d_align_poisson(X,lam_k,n_A_updates,deg_step=None,shift_span=0,bool_circle_mask=None,do_plot=True,do_log=False):
 
   A_prev = X.mean(0)
   A_next = A_prev.copy()
