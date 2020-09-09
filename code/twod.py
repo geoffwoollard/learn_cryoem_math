@@ -223,3 +223,122 @@ def rotate_bi(arr,angle):
 
       arr_[i,j] = p_ # this doesn't need to be rounded since not 8 bit
   return(arr_)
+
+def do_2d_align_poisson(X,n_A_updates,deg_step=None,shift_span=0,bool_circle_mask=None,do_plot=True,do_log=False):
+
+  A_prev = X.mean(0)
+  A_next = A_prev.copy()
+
+  small_N = X.shape[0]
+  nx = X.shape[-1]
+
+  # mask
+  if bool_circle_mask is None:
+    bool_circle_mask = ~cmask(index=(nx//2,nx//2),radius=int(nx//2*0.85),array=np.ones_like(A_prev)).astype(np.bool)
+
+  # shifts
+  shifts_r = np.arange(-shift_span,shift_span+1, dtype=np.int32)
+  shifts_c = np.arange(-shift_span,shift_span+1, dtype=np.int32)
+  if shift_span==0: 
+    shifts_r = np.array([0])
+    shifts_c = np.array([0])
+
+  # angles
+  angles = np.arange(1,360,deg_step)
+  if deg_step is None:
+    angles = np.array([0])
+
+  # initialize
+  A_align = np.zeros((nx,nx,angles.shape[0],shifts_r.shape[0],shifts_r.shape[0] ))
+  x_aligned = np.zeros_like(A_align)
+  best_X = np.zeros((n_A_updates,small_N,nx,nx))
+  best_angles, best_shift_rs, best_shift_cs = np.zeros((n_A_updates,small_N)), np.zeros((n_A_updates,small_N)), np.zeros((n_A_updates,small_N))
+  LL = np.zeros((n_A_updates,small_N))
+  A_nexts = np.zeros((n_A_updates,) + A_next.shape)
+
+  if do_plot: fig, axes = plt.subplots(min(10,small_N)+4, n_A_updates,figsize=(16,32))
+
+  for c in range(n_A_updates):
+    if do_log: print(c)
+    
+    ll=0
+    A_prev = A_next.copy()
+    A_next = np.zeros_like(A_prev)
+
+    if do_plot: axes[0,c].imshow(A_prev,cmap='gray') ; axes[0,c].set_axis_off()
+
+    # reference alignments of template
+    for shift_r_idx, shift_r in enumerate(shifts_r):
+      A_shift_r = shift_zeropad_axis(A_prev,shift=shift_r,axis=0)
+      for shift_c_idx, shift_c in enumerate(shifts_c):
+        A_shift_r_c = shift_zeropad_axis(A_shift_r,shift=shift_c,axis=1)
+        for angle_idx, angle in enumerate(angles):
+          A_shift_r_c[bool_circle_mask] = 0 # TODO test if interpolation different with windowing
+          A_align[:,:,angle_idx,shift_r_idx,shift_c_idx] = rotate(A_shift_r_c,angle=angle, reshape=False)
+    
+    # terms that only depends on A
+    negs = A_align[~bool_circle_mask][A_align[~bool_circle_mask] < 0]
+    if negs.size < 0:
+      negs = A_align[~bool_circle_mask][A_align[~bool_circle_mask] > 0].min() # hack to clip to smallest non zero value
+    log_lam = np.log(A_align[~bool_circle_mask]+lam_k)
+    # table of norms
+    log_etolam = -(A_align[~bool_circle_mask].sum(axis=0)+(lam_k)*A_align[~bool_circle_mask].size) # the mask collapses the two xy image axes into one
+  
+    # pdf shifts, shift prior
+    log_prior_shift = np.zeros_like(A_align[0,0])
+    for shift_r_idx in range(shifts_r.shape[0]):
+      for shift_c_idx in range(shifts_c.shape[0]):
+        q2 = shifts_r[shift_r_idx]**2+shifts_c[shift_c_idx]**2
+        log_prior_shift[:,shift_r_idx,shift_c_idx] = -q2/(2*sigma_shift**2)
+
+    r=0
+    for i in range(small_N):
+      #print('image %i'%i)
+      x = X[i]
+          
+      #Ki, gi
+      log_lamtok = x[~bool_circle_mask].reshape(x[~bool_circle_mask].shape+(1,1,1,))*log_lam
+      log_gi_align = log_lamtok.sum(axis=0) + log_etolam + log_prior_shift
+      Ki = log_gi_align.max()
+      log_gi_align_stable = log_gi_align - Ki
+      gi_stable = np.exp(log_gi_align_stable, dtype=np.float128)
+
+      # Ui
+      gisum = gi_stable.sum()
+      if not np.isclose(gisum, 0): 
+        Ui = gisum**-1
+        # log lik
+        ll += -np.log(Ui) + Ki - sum_ln_factorial(x) -0.5*np.log(2*np.pi) - np.log(sigma_shift)
+      else: 
+        Ui=0
+
+      LL[c,i] = np.log(-ll)
+
+      # rev alignment
+      x_aligned = comp_x_aligned(x,A_align,angles,shifts_r,shifts_c)
+
+      # point estimate of best angle
+      angle_idx_best, shift_r_idx_best,shift_c_idx_best = np.unravel_index(np.argmax(gi_stable, axis=None), gi_stable.shape)
+      best_angles[c,i] = angles[angle_idx_best]
+      best_shift_rs[c,i] = shifts_r[shift_r_idx_best]
+      best_shift_cs[c,i] = shifts_c[shift_c_idx_best]
+      best_X[c,i,:,:] = x_aligned[:,:,angle_idx_best,shift_r_idx_best,shift_c_idx_best]
+
+      # Maximization (update A)
+      A_next += Ui*np.multiply(gi_stable.reshape((1,1,)+gi_stable.shape),x_aligned).sum(axis=(-1,-2,-3))
+
+      if i % np.ceil(X[:small_N].shape[0]/10) == 0: 
+        if do_log: print('i = %i, ll = %.2f, A_next min=%.2f, max=%.2f' % (i,ll,A_next[~bool_circle_mask].min(),A_next[~bool_circle_mask].max()))
+        if do_plot: 
+          axes[r+1,c].imshow(A_next,cmap='gray')
+          axes[r+1,c].set_axis_off()
+          r+=1
+
+    A_next /= small_N
+    A_nexts[c] = A_next
+    if do_plot: 
+      axes[r+1,c].imshow(X[:small_N].mean(0),cmap='gray') ; axes[r+1,c].set_axis_off()
+      axes[r+2,c].imshow(X_aligned[:small_N].mean(0),cmap='gray') ; axes[r+2,c].set_axis_off()
+      axes[r+3,c].imshow(A,cmap='gray') ; axes[r+3,c].set_axis_off()
+
+  return(A_nexts)
