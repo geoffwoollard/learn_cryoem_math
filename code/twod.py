@@ -336,14 +336,16 @@ def do_2d_align_poisson(X,
                                         x.reshape(newshape)[~bool_circle_mask],
                                         axis=0) # vectorized over alignment, axis 0 is pixels (flattened from bool_circle_mask)
         corr_A_x_ = sigma**-2*corr_A_x
+        print('corr_A_x_.shape',corr_A_x_.shape)
         log_gi_align = A_aligned_norm_ + corr_A_x_ + log_prior_shift
+        print('log_gi_align.shape',log_gi_align.shape)
       else:
         assert False, 'only poisson and gaussian stats implemented'
       
       Ki = log_gi_align.max()
       log_gi_align_stable = log_gi_align - Ki
       gi_stable = np.exp(log_gi_align_stable, dtype=np.float128)
-      print(gi_stable.shape)
+      print('gi_stable.shape',gi_stable.shape)
      
       # Ui
       gisum = gi_stable.sum()
