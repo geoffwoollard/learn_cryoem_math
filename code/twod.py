@@ -332,7 +332,7 @@ def do_2d_align_poisson(X,
 
       elif stats == 'gaussian':
         for angle_idx, angle in enumerate(angles):
-          corr_A_x[angle_idx] = comp_corr(A_rot[:,:,angle_idx][~bool_circle_mask],
+          corr_A_x[angle_idx] = comp_corr(A_align[:,:,angle_idx][~bool_circle_mask],
                                         x[~bool_circle_mask])
         corr_A_x_ = sigma**-2*corr_A_x
         log_gi_align = A_aligned_norm_ + corr_A_x_ + log_prior_shift
