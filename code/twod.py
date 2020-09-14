@@ -247,7 +247,7 @@ def do_2d_align_poisson(X,
   A=None,
   stats='poisson'):
 
-  timer(msg='starting initial setup',do_time)
+  timer('starting initial setup',do_time)
   if A_prev is None: A_prev = X.mean(0)
   assert A_prev.shape == X.mean(0).shape
   A_next = A_prev.copy()
@@ -293,7 +293,7 @@ def do_2d_align_poisson(X,
   if do_plot: fig, axes = plt.subplots(min(10,small_N)+extra_plot_n, n_A_updates,figsize=figsize)
 
   for c in range(n_A_updates):
-    if do_log: timer('n_A_updates=%i'%c)
+    timer('n_A_updates=%i'%c,do_time)
     
     ll=0
     A_prev = A_next.copy()
@@ -338,13 +338,13 @@ def do_2d_align_poisson(X,
     r=0
     sigma_update = 0
     for i in range(small_N):
-      do_time = (i % np.ceil(X[:small_N].shape[0]/10) == 0)
+      do_time_loop = do_time & (i % np.ceil(X[:small_N].shape[0]/10) == 0)
       #print('image %i'%i)
       x = X[i]
       x_bool = X_bool[i]
           
       #Ki, gi
-      timer('Ki, gi',do_time)
+      timer('Ki, gi',do_time_loop)
       if stats == 'poisson':
         mask = X_bool_circle_mask[i]
         #log_lamtok = x[~bool_circle_mask].reshape(x[~bool_circle_mask].shape+(1,1,1,))*log_lam
@@ -366,7 +366,7 @@ def do_2d_align_poisson(X,
       log_gi_align_stable = log_gi_align - Ki
       gi_stable = np.exp(log_gi_align_stable, dtype=np.float128)
      
-      timer('Ui',do_time)
+      timer('Ui',do_time_loop)
       # Ui
       gisum = gi_stable.sum()
       if not np.isclose(gisum, 0): 
@@ -382,7 +382,7 @@ def do_2d_align_poisson(X,
       LL[c,i] = np.log(-ll)
 
       # update noise model
-      timer('update noise model',do_time)
+      timer('update noise model',do_time_loop)
       if stats == 'gaussian':
         #newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
         diff  = np.subtract(A_align,x.reshape(newshape))
@@ -393,11 +393,11 @@ def do_2d_align_poisson(X,
         sigma_update += np.sqrt(sigma2_i)
 
       # rev alignment
-      timer('rev alignment',do_time)
+      timer('rev alignment',do_time_loop)
       x_aligned = comp_x_aligned(x,A_align,angles,shifts_r,shifts_c)
 
       # point estimate of best angle
-      timer('point estimate of best angle',do_time)
+      timer('point estimate of best angle',do_time_loop)
       angle_idx_best, shift_r_idx_best,shift_c_idx_best = np.unravel_index(np.argmax(gi_stable, axis=None), gi_stable.shape)
       best_angles[c,i] = angles[angle_idx_best]
       best_shift_rs[c,i] = shifts_r[shift_r_idx_best]
@@ -405,7 +405,7 @@ def do_2d_align_poisson(X,
       best_X[c,i,:,:] = x_aligned[:,:,angle_idx_best,shift_r_idx_best,shift_c_idx_best]
 
       # Maximization (update A)
-      timer('Maximization (update A)',do_time)
+      timer('Maximization (update A)',do_time_loop)
       A_next += Ui*np.multiply(gi_stable.reshape((1,1,)+gi_stable.shape),x_aligned).sum(axis=(-1,-2,-3))
 
       if i % np.ceil(X[:small_N].shape[0]/10) == 0: 
@@ -416,6 +416,7 @@ def do_2d_align_poisson(X,
           axes[r+1,c].imshow(A_next,cmap='gray')
           axes[r+1,c].set_axis_off()
           r+=1
+
 
     timer('finish')
     A_next /= small_N
