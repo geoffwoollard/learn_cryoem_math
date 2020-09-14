@@ -104,12 +104,12 @@ def neg_pos(arr2d):
   return(arr2d)
 
 
-def comp_corr(a,b):
+def comp_corr(a,b,axis):
   '''
   cross correlation in Fourier space
   the cross correlation of the real and imaginary parts and adds them up
   '''
-  corr = np.multiply(np.real(a), np.real(b)).sum() + np.multiply(np.imag(a), np.imag(b)).sum()
+  corr = np.multiply(np.real(a), np.real(b)).sum(axis=axis) + np.multiply(np.imag(a), np.imag(b)).sum(axis=axis)
   return(corr)
 
 def simulate_data(image_2d,psize_A,N_particles=500,df_low=1e4,df_high=2e4,snr=3,bool_circle_mask=None):
@@ -334,7 +334,8 @@ def do_2d_align_poisson(X,
         for angle_idx, angle in enumerate(angles):
           newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
           corr_A_x[angle_idx] = comp_corr(A_align[:,:,angle_idx][~bool_circle_mask],
-                                        x.reshape(newshape)[~bool_circle_mask])
+                                        x.reshape(newshape)[~bool_circle_mask],
+                                        axis=0) # vectorized over alignment, axis 0 is pixels (flattened from bool_circle_mask)
         corr_A_x_ = sigma**-2*corr_A_x
         log_gi_align = A_aligned_norm_ + corr_A_x_ + log_prior_shift
       else:
