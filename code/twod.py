@@ -225,7 +225,8 @@ def rotate_bi(arr,angle):
   return(arr_)
 
 def do_2d_align_poisson(X,
-  lam_k,
+  A_prev=None,
+  noise_param_d=None, #lam_k, sigma
   n_A_updates,
   deg_step=None,
   shift_span=0,
@@ -235,9 +236,11 @@ def do_2d_align_poisson(X,
   figsize=(16,32),
   do_log=False,
   X_aligned=None,
-  A=None):
+  A=None,
+  stats='poisson'):
 
-  A_prev = X.mean(0)
+  if A_prev is None: A_prev = X.mean(0)
+  assert A_prev.shape == X.mean(0).shape
   A_next = A_prev.copy()
 
   small_N = X.shape[0]
@@ -292,13 +295,22 @@ def do_2d_align_poisson(X,
           A_align[:,:,angle_idx,shift_r_idx,shift_c_idx] = rotate(A_shift_r_c,angle=angle, reshape=False)
     
     # terms that only depends on A
-    negs = A_align[~bool_circle_mask][A_align[~bool_circle_mask] < 0]
-    if negs.size < 0:
-      negs = A_align[~bool_circle_mask][A_align[~bool_circle_mask] > 0].min() # hack to clip to smallest non zero value
-    log_lam = np.log(A_align[~bool_circle_mask]+lam_k)
-    # table of norms
-    log_etolam = -(A_align[~bool_circle_mask].sum(axis=0)+(lam_k)*A_align[~bool_circle_mask].size) # the mask collapses the two xy image axes into one
-  
+    if stats=='poisson':
+      lam_k = noise_param_d['lam_k']
+      negs = A_align[~bool_circle_mask][A_align[~bool_circle_mask] < 0]
+      if negs.size < 0:
+        negs = A_align[~bool_circle_mask][A_align[~bool_circle_mask] > 0].min() # hack to clip to smallest non zero value
+      log_lam = np.log(A_align[~bool_circle_mask]+lam_k)
+      # table of norms
+      log_etolam = -(A_align[~bool_circle_mask].sum(axis=0)+(lam_k)*A_align[~bool_circle_mask].size) # the mask collapses the two xy image axes into one
+    elif stats == 'gaussian':
+      sigma = noise_param_d['sigma']
+      #A_aligned_norm = np.linalg.norm(A_align[:,:,:],axis=(0,1))**2
+      A_aligned_norm = np.linalg.norm(A_align[~bool_circle_mask],axis=0)
+      A_aligned_norm_  = -(2*sigma**2)**-1*A_aligned_norm
+    else:
+      assert False, 'only poisson and gaussian stats implemented'
+
     # pdf shifts, shift prior
     log_prior_shift = np.zeros_like(A_align[0,0])
     for shift_r_idx in range(shifts_r.shape[0]):
@@ -312,12 +324,23 @@ def do_2d_align_poisson(X,
       x = X[i]
           
       #Ki, gi
-      log_lamtok = x[~bool_circle_mask].reshape(x[~bool_circle_mask].shape+(1,1,1,))*log_lam
-      log_gi_align = log_lamtok.sum(axis=0) + log_etolam + log_prior_shift
+      if stats == 'poisson'
+        log_lamtok = x[~bool_circle_mask].reshape(x[~bool_circle_mask].shape+(1,1,1,))*log_lam
+        log_gi_align = log_lamtok.sum(axis=0) + log_etolam + log_prior_shift
+
+      elif stats == 'gaussian':
+        for angle_idx, angle in enumerate(angles):
+          corr_A_x[angle_idx] = comp_corr(A_rot[:,:,angle_idx][~bool_circle_mask],
+                                        x[~bool_circle_mask])
+        corr_A_x_ = sigma**-2*corr_A_x
+        log_gi_align = A_aligned_norm_ + corr_A_x_ + log_prior_shift
+      else:
+        assert False, 'only poisson and gaussian stats implemented'
+      
       Ki = log_gi_align.max()
       log_gi_align_stable = log_gi_align - Ki
       gi_stable = np.exp(log_gi_align_stable, dtype=np.float128)
-
+     
       # Ui
       gisum = gi_stable.sum()
       if not np.isclose(gisum, 0): 
