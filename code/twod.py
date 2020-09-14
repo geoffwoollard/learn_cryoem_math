@@ -225,9 +225,9 @@ def rotate_bi(arr,angle):
   return(arr_)
 
 def do_2d_align_poisson(X,
+  n_A_updates,
   A_prev=None,
   noise_param_d=None, #lam_k, sigma
-  n_A_updates,
   deg_step=None,
   shift_span=0,
   sigma_shift=np.inf,
