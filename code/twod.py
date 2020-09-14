@@ -270,6 +270,9 @@ def do_2d_align_poisson(X,
   LL = np.zeros((n_A_updates,small_N))
   A_nexts = np.zeros((n_A_updates,) + A_next.shape)
 
+  if stats == 'gaussian':
+      sigma = noise_param_d['sigma']
+
   extra_plot_n=4
   for obj in [A,X_aligned]:
     if obj is None: plot_n -= 1
@@ -304,8 +307,6 @@ def do_2d_align_poisson(X,
       # table of norms
       log_etolam = -(A_align[~bool_circle_mask].sum(axis=0)+(lam_k)*A_align[~bool_circle_mask].size) # the mask collapses the two xy image axes into one
     elif stats == 'gaussian':
-      sigma = noise_param_d['sigma']
-      #A_aligned_norm = np.linalg.norm(A_align[:,:,:],axis=(0,1))**2
       A_aligned_norm = np.linalg.norm(A_align[~bool_circle_mask],axis=0)
       A_aligned_norm_  = -(2*sigma**2)**-1*A_aligned_norm
     else:
@@ -319,6 +320,7 @@ def do_2d_align_poisson(X,
         log_prior_shift[:,shift_r_idx,shift_c_idx] = -q2/(2*sigma_shift**2)
 
     r=0
+    sigma_update = 0
     for i in range(small_N):
       #print('image %i'%i)
       x = X[i]
@@ -358,6 +360,16 @@ def do_2d_align_poisson(X,
 
       LL[c,i] = np.log(-ll)
 
+      # update noise model
+      if stats == 'gaussian':
+        newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
+        diff  = np.subtract(A_align,x.reshape(newshape))
+        errors = np.linalg.norm(diff[~bool_circle_mask],axis=0)**2
+        sigma2_i = (gi*errors).sum()
+        sigma2_i /= gi.sum()
+        sigma_update += np.sqrt(sigma2_i)
+        if do_log: print('sigma_i',np.sqrt(sigma2_i))
+
       # rev alignment
       x_aligned = comp_x_aligned(x,A_align,angles,shifts_r,shifts_c)
 
@@ -380,6 +392,10 @@ def do_2d_align_poisson(X,
 
     A_next /= small_N
     A_nexts[c] = A_next
+    if stats == 'gaussian': 
+      if do_log: print('sigma_update',np.sqrt(sigma_update))
+      sigma = sigma_update
+
     if do_plot: 
       axes[r+1,c].imshow(X[:small_N].mean(0),cmap='gray') ; axes[r+1,c].set_axis_off()
       if X_aligned is not None: axes[r+2,c].imshow(X_aligned[:small_N].mean(0),cmap='gray') ; axes[r+2,c].set_axis_off()
