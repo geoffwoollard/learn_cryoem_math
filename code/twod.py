@@ -270,6 +270,8 @@ def do_2d_align_poisson(X,
   LL = np.zeros((n_A_updates,small_N))
   A_nexts = np.zeros((n_A_updates,) + A_next.shape)
 
+  n_pixels = (~bool_circle_mask).sum() 
+
   if stats == 'gaussian':
       sigma = noise_param_d['sigma']
 
@@ -343,7 +345,6 @@ def do_2d_align_poisson(X,
       Ki = log_gi_align.max()
       log_gi_align_stable = log_gi_align - Ki
       gi_stable = np.exp(log_gi_align_stable, dtype=np.float128)
-      print('gi_stable.shape',gi_stable.shape)
      
       # Ui
       gisum = gi_stable.sum()
@@ -369,6 +370,7 @@ def do_2d_align_poisson(X,
         errors = np.linalg.norm(diff[~bool_circle_mask],axis=0)**2
         sigma2_i = (gi_stable*errors).sum()
         sigma2_i /= gisum
+        sigma2_i /= n_pixels
         sigma_update += np.sqrt(sigma2_i)
         if do_log: print('sigma_i',np.sqrt(sigma2_i))
 
