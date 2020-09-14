@@ -343,6 +343,7 @@ def do_2d_align_poisson(X,
       Ki = log_gi_align.max()
       log_gi_align_stable = log_gi_align - Ki
       gi_stable = np.exp(log_gi_align_stable, dtype=np.float128)
+      print(gi_stable.shape)
      
       # Ui
       gisum = gi_stable.sum()
