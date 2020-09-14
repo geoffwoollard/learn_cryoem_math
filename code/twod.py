@@ -340,6 +340,7 @@ def do_2d_align_poisson(X,
     sigma_update = 0
     for i in range(small_N):
       do_time_loop = do_time & (i % np.ceil(X[:small_N].shape[0]/10) == 0)
+      timer('top of loop',do_time_loop)
       #print('image %i'%i)
       x = X[i]
       x_bool = X_bool[i]
@@ -409,6 +410,7 @@ def do_2d_align_poisson(X,
       timer('Maximization (update A)',do_time_loop)
       A_next += Ui*np.multiply(gi_stable.reshape((1,1,)+gi_stable.shape),x_aligned).sum(axis=(-1,-2,-3))
 
+      timer('print',do_time_loop)
       if i % np.ceil(X[:small_N].shape[0]/10) == 0: 
         if do_log: print('i = %i, ll = %.2f, A_next min=%.2f, max=%.2f' % (i,ll,A_next[~bool_circle_mask].min(),A_next[~bool_circle_mask].max()))
         if stats == 'gaussian':
@@ -417,6 +419,7 @@ def do_2d_align_poisson(X,
           axes[r+1,c].imshow(A_next,cmap='gray')
           axes[r+1,c].set_axis_off()
           r+=1
+      timer('end of loop',do_time_loop)
 
 
     timer('finish')
