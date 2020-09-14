@@ -336,9 +336,7 @@ def do_2d_align_poisson(X,
                                         x.reshape(newshape)[~bool_circle_mask],
                                         axis=0) # vectorized over alignment, axis 0 is pixels (flattened from bool_circle_mask)
         corr_A_x_ = sigma**-2*corr_A_x
-        print('corr_A_x_.shape',corr_A_x_.shape)
         log_gi_align = A_aligned_norm_ + corr_A_x_ + log_prior_shift
-        print('log_gi_align.shape',log_gi_align.shape)
       else:
         assert False, 'only poisson and gaussian stats implemented'
       
@@ -397,8 +395,9 @@ def do_2d_align_poisson(X,
     A_next /= small_N
     A_nexts[c] = A_next
     if stats == 'gaussian': 
-      if do_log: print('sigma_update',np.sqrt(sigma_update))
-      sigma = sigma_update
+      sigma_update /= small_N
+      if do_log: print('sigma_update',sigma_update)
+      if noise_param_d['do_update_sigma']: sigma = sigma_update
 
     if do_plot: 
       axes[r+1,c].imshow(X[:small_N].mean(0),cmap='gray') ; axes[r+1,c].set_axis_off()
