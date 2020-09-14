@@ -332,8 +332,9 @@ def do_2d_align_poisson(X,
 
       elif stats == 'gaussian':
         for angle_idx, angle in enumerate(angles):
+          newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
           corr_A_x[angle_idx] = comp_corr(A_align[:,:,angle_idx][~bool_circle_mask],
-                                        x[~bool_circle_mask])
+                                        x.reshape(newshape)[~bool_circle_mask])
         corr_A_x_ = sigma**-2*corr_A_x
         log_gi_align = A_aligned_norm_ + corr_A_x_ + log_prior_shift
       else:
@@ -362,7 +363,7 @@ def do_2d_align_poisson(X,
 
       # update noise model
       if stats == 'gaussian':
-        newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
+        #newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
         diff  = np.subtract(A_align,x.reshape(newshape))
         errors = np.linalg.norm(diff[~bool_circle_mask],axis=0)**2
         sigma2_i = (gi*errors).sum()
