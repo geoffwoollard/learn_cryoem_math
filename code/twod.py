@@ -388,7 +388,8 @@ def do_2d_align_poisson(X,
 
       if i % np.ceil(X[:small_N].shape[0]/10) == 0: 
         if do_log: print('i = %i, ll = %.2f, A_next min=%.2f, max=%.2f' % (i,ll,A_next[~bool_circle_mask].min(),A_next[~bool_circle_mask].max()))
-        if do_log: print('sigma_i',np.sqrt(sigma2_i))
+        if stats == 'gaussian':
+          if do_log: print('sigma_i',np.sqrt(sigma2_i))
         if do_plot: 
           axes[r+1,c].imshow(A_next,cmap='gray')
           axes[r+1,c].set_axis_off()
