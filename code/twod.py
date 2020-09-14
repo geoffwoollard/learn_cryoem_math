@@ -324,7 +324,7 @@ def do_2d_align_poisson(X,
       x = X[i]
           
       #Ki, gi
-      if stats == 'poisson'
+      if stats == 'poisson':
         log_lamtok = x[~bool_circle_mask].reshape(x[~bool_circle_mask].shape+(1,1,1,))*log_lam
         log_gi_align = log_lamtok.sum(axis=0) + log_etolam + log_prior_shift
 
