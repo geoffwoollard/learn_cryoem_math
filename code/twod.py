@@ -366,8 +366,8 @@ def do_2d_align_poisson(X,
         #newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
         diff  = np.subtract(A_align,x.reshape(newshape))
         errors = np.linalg.norm(diff[~bool_circle_mask],axis=0)**2
-        sigma2_i = (gi*errors).sum()
-        sigma2_i /= gi.sum()
+        sigma2_i = (gi_stable*errors).sum()
+        sigma2_i /= gisum
         sigma_update += np.sqrt(sigma2_i)
         if do_log: print('sigma_i',np.sqrt(sigma2_i))
 
