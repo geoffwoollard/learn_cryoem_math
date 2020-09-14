@@ -332,7 +332,7 @@ def do_2d_align_poisson(X,
 
       elif stats == 'gaussian':
         newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
-        corr_A_x = comp_corr(A_align[:,:,angle_idx][~bool_circle_mask],
+        corr_A_x = comp_corr(A_align[~bool_circle_mask],
                                         x.reshape(newshape)[~bool_circle_mask],
                                         axis=0) # vectorized over alignment, axis 0 is pixels (flattened from bool_circle_mask)
         corr_A_x_ = sigma**-2*corr_A_x
