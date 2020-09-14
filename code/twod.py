@@ -6,6 +6,8 @@ import mrc
 import pyfftw, numpy
 import pyfftw.interfaces.numpy_fft
 from numba import jit
+from datetime import datetime
+
 
 def shift_zeropad_axis(x,shift,axis):
   assert axis in [0,1]
@@ -224,6 +226,11 @@ def rotate_bi(arr,angle):
       arr_[i,j] = p_ # this doesn't need to be rounded since not 8 bit
   return(arr_)
 
+
+def timer(msg='',do=True):
+  now = datetime.now()
+  if do: print(msg,now.strftime("%H:%M:%S"))
+
 def do_2d_align_poisson(X,
   n_A_updates,
   A_prev=None,
@@ -235,10 +242,12 @@ def do_2d_align_poisson(X,
   do_plot=True,
   figsize=(16,32),
   do_log=False,
+  do_time=False,
   X_aligned=None,
   A=None,
   stats='poisson'):
 
+  timer(msg='starting initial setup',do_time)
   if A_prev is None: A_prev = X.mean(0)
   assert A_prev.shape == X.mean(0).shape
   A_next = A_prev.copy()
@@ -269,11 +278,13 @@ def do_2d_align_poisson(X,
   best_angles, best_shift_rs, best_shift_cs = np.zeros((n_A_updates,small_N)), np.zeros((n_A_updates,small_N)), np.zeros((n_A_updates,small_N))
   LL = np.zeros((n_A_updates,small_N))
   A_nexts = np.zeros((n_A_updates,) + A_next.shape)
-
   n_pixels = (~bool_circle_mask).sum() 
 
   if stats == 'gaussian':
       sigma = noise_param_d['sigma']
+  elif stats == 'poisson':
+    X_bool = X.astype(dtype=np.bool)
+    X_bool_circle_mask = np.logical_and(~bool_circle_mask,X_bool)
 
   extra_plot_n=4
   for obj in [A,X_aligned]:
@@ -282,7 +293,7 @@ def do_2d_align_poisson(X,
   if do_plot: fig, axes = plt.subplots(min(10,small_N)+extra_plot_n, n_A_updates,figsize=figsize)
 
   for c in range(n_A_updates):
-    if do_log: print(c)
+    if do_log: timer('n_A_updates=%i'%c)
     
     ll=0
     A_prev = A_next.copy()
@@ -291,6 +302,7 @@ def do_2d_align_poisson(X,
     if do_plot: axes[0,c].imshow(A_prev,cmap='gray') ; axes[0,c].set_axis_off()
 
     # reference alignments of template
+    timer('reference alignments of template',do_time)
     for shift_r_idx, shift_r in enumerate(shifts_r):
       A_shift_r = shift_zeropad_axis(A_prev,shift=shift_r,axis=0)
       for shift_c_idx, shift_c in enumerate(shifts_c):
@@ -300,6 +312,7 @@ def do_2d_align_poisson(X,
           A_align[:,:,angle_idx,shift_r_idx,shift_c_idx] = rotate(A_shift_r_c,angle=angle, reshape=False)
     
     # terms that only depends on A
+    timer('terms that only depends on A',do_time)
     if stats=='poisson':
       lam_k = noise_param_d['lam_k']
       negs = A_align[~bool_circle_mask][A_align[~bool_circle_mask] < 0]
@@ -315,6 +328,7 @@ def do_2d_align_poisson(X,
       assert False, 'only poisson and gaussian stats implemented'
 
     # pdf shifts, shift prior
+    timer('pdf shifts, shift prior',do_time)
     log_prior_shift = np.zeros_like(A_align[0,0])
     for shift_r_idx in range(shifts_r.shape[0]):
       for shift_c_idx in range(shifts_c.shape[0]):
@@ -324,12 +338,18 @@ def do_2d_align_poisson(X,
     r=0
     sigma_update = 0
     for i in range(small_N):
+      do_time = (i % np.ceil(X[:small_N].shape[0]/10) == 0)
       #print('image %i'%i)
       x = X[i]
+      x_bool = X_bool[i]
           
       #Ki, gi
+      timer('Ki, gi',do_time)
       if stats == 'poisson':
-        log_lamtok = x[~bool_circle_mask].reshape(x[~bool_circle_mask].shape+(1,1,1,))*log_lam
+        mask = X_bool_circle_mask[i]
+        #log_lamtok = x[~bool_circle_mask].reshape(x[~bool_circle_mask].shape+(1,1,1,))*log_lam
+        log_lam = np.log(A_align[mask]+lam_k) # new masking
+        log_lamtok = x[mask].reshape(x[mask].shape+(1,1,1,))*log_lam
         log_gi_align = log_lamtok.sum(axis=0) + log_etolam + log_prior_shift
 
       elif stats == 'gaussian':
@@ -346,6 +366,7 @@ def do_2d_align_poisson(X,
       log_gi_align_stable = log_gi_align - Ki
       gi_stable = np.exp(log_gi_align_stable, dtype=np.float128)
      
+      timer('Ui',do_time)
       # Ui
       gisum = gi_stable.sum()
       if not np.isclose(gisum, 0): 
@@ -355,15 +376,13 @@ def do_2d_align_poisson(X,
           log_sigma_shift = np.log(sigma_shift)
         else:
           log_sigma_shift = 0
-
         ll += -np.log(Ui) + Ki - sum_ln_factorial(x) -0.5*np.log(2*np.pi) - log_sigma_shift
-        
       else: 
         Ui=0
-
       LL[c,i] = np.log(-ll)
 
       # update noise model
+      timer('update noise model',do_time)
       if stats == 'gaussian':
         #newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
         diff  = np.subtract(A_align,x.reshape(newshape))
@@ -374,9 +393,11 @@ def do_2d_align_poisson(X,
         sigma_update += np.sqrt(sigma2_i)
 
       # rev alignment
+      timer('rev alignment',do_time)
       x_aligned = comp_x_aligned(x,A_align,angles,shifts_r,shifts_c)
 
       # point estimate of best angle
+      timer('point estimate of best angle',do_time)
       angle_idx_best, shift_r_idx_best,shift_c_idx_best = np.unravel_index(np.argmax(gi_stable, axis=None), gi_stable.shape)
       best_angles[c,i] = angles[angle_idx_best]
       best_shift_rs[c,i] = shifts_r[shift_r_idx_best]
@@ -384,6 +405,7 @@ def do_2d_align_poisson(X,
       best_X[c,i,:,:] = x_aligned[:,:,angle_idx_best,shift_r_idx_best,shift_c_idx_best]
 
       # Maximization (update A)
+      timer('Maximization (update A)',do_time)
       A_next += Ui*np.multiply(gi_stable.reshape((1,1,)+gi_stable.shape),x_aligned).sum(axis=(-1,-2,-3))
 
       if i % np.ceil(X[:small_N].shape[0]/10) == 0: 
@@ -395,6 +417,7 @@ def do_2d_align_poisson(X,
           axes[r+1,c].set_axis_off()
           r+=1
 
+    timer('finish')
     A_next /= small_N
     A_nexts[c] = A_next
     if stats == 'gaussian': 
