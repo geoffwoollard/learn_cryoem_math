@@ -7,6 +7,7 @@ import pyfftw, numpy
 import pyfftw.interfaces.numpy_fft
 from numba import jit
 from datetime import datetime
+datetime.utcnow().isoformat(sep=' ', timespec='milliseconds')
 
 
 def shift_zeropad_axis(x,shift,axis):
@@ -227,9 +228,9 @@ def rotate_bi(arr,angle):
   return(arr_)
 
 
-def timer(msg='',do=True):
+def timer(msg='',do=True,ms=3):
   now = datetime.now()
-  if do: print(msg,now.strftime("%H:%M:%S"))
+  if do: print(now.strftime("%H:%M:%S:%f")[:-ms],msg)
 
 def do_2d_align_poisson(X,
   n_A_updates,
