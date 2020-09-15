@@ -338,12 +338,12 @@ def do_2d_align_poisson(X,
 
     r=0
     sigma_update = 0
+    # TODO: vectorize over x (or chunk), for speed up
     for i in range(small_N):
       do_time_loop = do_time & (i % np.ceil(X[:small_N].shape[0]/10) == 0)
       timer('top of loop',do_time_loop)
       #print('image %i'%i)
       x = X[i]
-      x_bool = X_bool[i]
           
       #Ki, gi
       timer('Ki, gi',do_time_loop)
