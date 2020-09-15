@@ -284,8 +284,9 @@ def do_2d_align_poisson(X,
   if stats == 'gaussian':
       sigma = noise_param_d['sigma']
   elif stats == 'poisson':
-    X_bool = X.astype(dtype=np.bool)
-    X_bool_circle_mask = np.logical_and(~bool_circle_mask,X_bool)
+    pass
+  X_bool = X.astype(dtype=np.bool)
+  X_bool_circle_mask = np.logical_and(~bool_circle_mask,X_bool)
 
   extra_plot_n=4
   for obj in [A,X_aligned]:
@@ -347,8 +348,8 @@ def do_2d_align_poisson(X,
           
       #Ki, gi
       timer('Ki, gi',do_time_loop)
+      mask = X_bool_circle_mask[i]
       if stats == 'poisson':
-        mask = X_bool_circle_mask[i]
         #log_lamtok = x[~bool_circle_mask].reshape(x[~bool_circle_mask].shape+(1,1,1,))*log_lam
         log_lam = np.log(A_align[mask]+lam_k) # new masking
         log_lamtok = x[mask].reshape(x[mask].shape+(1,1,1,))*log_lam
@@ -356,9 +357,9 @@ def do_2d_align_poisson(X,
 
       elif stats == 'gaussian':
         newshape = x.shape + tuple(np.ones(A_align.ndim-2,dtype=np.int32))
-        corr_A_x = comp_corr(A_align[~bool_circle_mask],
-                                        x.reshape(newshape)[~bool_circle_mask],
-                                        axis=0) # vectorized over alignment, axis 0 is pixels (flattened from bool_circle_mask)
+        corr_A_x = comp_corr(A_align[mask],
+          x[mask].reshape([-1,]+[1]*(A_align.ndim-2)),
+          axis=0) # vectorized over alignment, axis 0 is pixels (flattened from bool_circle_mask)
         corr_A_x_ = sigma**-2*corr_A_x
         log_gi_align = A_aligned_norm_ + corr_A_x_ + log_prior_shift
       else:
