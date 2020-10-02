@@ -13,7 +13,7 @@ def make_neg_pos_3d(arr3d):
           neg_pos_3d[r1,r2,r3] *= -1.0
   return(neg_pos_3d)
 
-def fft3d(arr3d,neg_pos_3d=None,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=True):
+def fft3d(arr3d,mode,neg_pos_3d=None,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=True):
   if neg_pos_3d is None:
     neg_pos_3d = make_neg_pos_3d(arr3d)
   if arr3d.shape[0]%4 != 0:
