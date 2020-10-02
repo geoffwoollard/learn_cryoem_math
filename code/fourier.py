@@ -1,4 +1,5 @@
-import pyfftw, numpy
+import pyfftw
+import numpy as np
 import pyfftw.interfaces.numpy_fft
 from numba import jit
 
