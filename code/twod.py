@@ -75,15 +75,14 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=True):
   n1,n2 = arr2d.shape
   assert n1==n2
   arr2d = neg_pos(arr2d.copy())
+  arr2d_f = numpy_fft.fftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
+
   if mode=='f':
-    arr2d_f = numpy_fft.fftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
     arr2d_f /= n1
   elif mode=='i':
-    if only_real:
-      arr2d_f = numpy_fft.ifftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1)).real
-    else:
-      arr2d_f = numpy_fft.ifftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
     arr2d_f *= n1
+
+  if only_real: arr2d_f = arr2d_f.real
   
   arr2d_f = neg_pos(arr2d_f.reshape(n1,n1).copy())
   return(arr2d_f)
