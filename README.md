@@ -72,6 +72,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Grob, P., Bean, D., Typke, D., Li, X., Nogales, E., & Glaeser, R. M. (2013). Ranking TEM cameras by their response to electron shot noise. Ultramicroscopy, 133, 1–7. http://doi.org/10.1016/j.ultramic.2013.01.003
   * Details of stats of DFT/FFT of noise image. Poisson counting stats assumed, in high electron count limit, where the detector detects the energy from the counts, and each depositing event (measured contribution to the pixel value) is a general random variable with only the mean and variance known/fixed.
 * Sauter, N. K., Kern, J., Yano, J., & Holton, J. M. (2020). Towards the spatial resolution of metalloprotein charge states by detailed modeling of XFEL crystallographic diffraction. Acta Crystallographica Section D: Structural Biology, 76, 176–192. http://doi.org/10.1107/S2059798320000418
+* Jensen, G. J., & Vos, M. (2020). Electron Microscopy University. Retrieved from https://em-learning.com/
+  * includes a whole section of videos on detectors. A good introduction to detector physics.
 
 ### Linear Algebra
 * Abdi, H. (2007). The Eigen-Decomposition: Eigenvalues and Eigenvectors. Encyclopedia of Measurements and Statistics, 1–10.
@@ -121,24 +123,24 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 ## CryoEM algorithms / data processing
 
 ### Overview of algorithms
+* Cong, Y., & Ludtke, S. J. (2010). Single Particle Analysis at High Resolution. In Methods in Enzymology (1st ed., Vol. 482, pp. 211–235). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82009-9
+* Scheres, S. H. W. (2010). Classification of Structural Heterogeneity by Maximum-Likelihood Methods. In Methods in Enzymology (1st ed., Vol. 482, pp. 295–320). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82012-9
 * Jensen, G. J. (2014). Getting Started in Cryo-EM. Retrieved from http://cryo-em-course.caltech.edu/videos
+* Sigworth, F. J. (2016). Principles of cryo-EM single-particle image processing. Microscopy (Oxford, England), 65(1), 57–67. http://doi.org/10.1093/jmicro/dfv370
+* Singer, A. (2018). Mathematics for cryo-electron microscopy.
 * Sigworth, F., & Tagare, H. (2020). Cryo-EM Principles. Retrieved from https://cryoemprinciples.yale.edu/
 * Singer, A., & Sigworth, F. J. (2020). Computational Methods for Single-Particle Cryo-EM, 1–40.
 * Bendory, T., Bartesaghi, A., & Singer, A. (2020). Single-Particle Cryo-Electron Microscopy: Mathematical Theory, Computational Challenges, and Opportunities. IEEE Signal Processing Magazine, 37(2), 58–76. http://doi.org/10.1109/MSP.2019.2957822
-* Cong, Y., & Ludtke, S. J. (2010). Single Particle Analysis at High Resolution. In Methods in Enzymology (1st ed., Vol. 482, pp. 211–235). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82009-9
-* Scheres, S. H. W. (2010). Classification of Structural Heterogeneity by Maximum-Likelihood Methods. In Methods in Enzymology (1st ed., Vol. 482, pp. 295–320). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82012-9
-* Singer, A. (2018). Mathematics for cryo-electron microscopy.
-* Sigworth, F. J. (2016). Principles of cryo-EM single-particle image processing. Microscopy (Oxford, England), 65(1), 57–67. http://doi.org/10.1093/jmicro/dfv370
 
 ### Expectation-Maximization
+* Sigworth, F. J. (1998). A Maximum-Likelihood Approach to Single-Particle Image Refinement. Journal of Structural Biology, 122(3), 328–339. http://doi.org/10.1006/jsbi.1998.4014
+  * First application of expecation-maximization in cryoEM, although different language (maximum-liklihood) used by the author. Synthetic data analyzed in successfull attempt to overcome template bias in 2D class averages.
 * Do, C. B., & Batzoglou, S. (2008). What is the expectation maximization algorithm? Nature Biotechnology, 26(8), 897–899. http://doi.org/10.1038/nbt1406
 * Sigworth, F. J., Doerschuk, P. C., Carazo, J.-M., & Scheres, S. H. W. (2010). An Introduction to Maximum-Likelihood Methods in Cryo-EM. In Methods in Enzymology (1st ed., Vol. 482, pp. 263–294). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82011-7
 * Tagare, H. D., Barthel, A., & Sigworth, F. J. (2010). An adaptive Expectation–Maximization algorithm with GPU implementation for electron cryomicroscopy. Journal of Structural Biology, 171(3), 256–265. http://doi.org/10.1016/j.jsb.2010.06.004
 * Scheres, S. H. W. (2010). Classification of Structural Heterogeneity by Maximum-Likelihood Methods. In Methods in Enzymology (1st ed., Vol. 482, pp. 295–320). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82012-9
 * Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305–325).
   * Superb! Very good place to start. Very pedagogical treamtment and motivation of the EM algorithm, in real space under Gaussian stats. 1D case (shifts) discussed first to motivate 2D case (shits and rotation). Care taken to explain what the motation means (subscripts, what is a vector, what is a scalar, etc.). Notebooks used to make the textbook are available on this repo by permission from the authors. 
-* Sigworth, F. J. (1998). A Maximum-Likelihood Approach to Single-Particle Image Refinement. Journal of Structural Biology, 122(3), 328–339. http://doi.org/10.1006/jsbi.1998.4014
-  * First application of expecation-maximization in cryoEM, although different language (maximum-liklihood) used by the author. Synthetic data analyzed in successfull attempt to overcome template bias in 2D class averages.
   
 ### Resolution (FSC, SSNR, etc)
 * Penczek, P. A. (2010). Resolution Measures in Molecular Electron Microscopy. In Methods in Enzymology (1st ed., Vol. 482, pp. 73–100). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82003-8
@@ -152,16 +154,16 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 
 ### Variational Autoencoders
 * Doersch, C. (2016). Tutorial on Variational Autoencoders, 1–23.
-* Zhong, E. D., Bepler, T., Davis, J. H., & Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images, 1–20.
 * Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., & Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
-
-## Tomgraphy
-* Natterer, F. (1986). VII: Mathematical Tools. In The Mathematics of Computerized Tomography (pp. 180–212).
-  * Terse notation requires familiarity with domain and mathematical symbols.
-* Technical University of Denmark. (2020). Introduction to advanced tomography. https://www.coursera.org/learn/cinemaxe
-* Block, W. (2004). Computed Tomography Notes, Part 1 Challenges with Projection X-ray Systems. Retrieved from https://www.medphysics.wisc.edu/~block/bme530lectures/ct1.pdf
+* Zhong, E. D., Bepler, T., Davis, J. H., & Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images, 1–20.
 
 ### Reconstruction
 * Ludike, S. J., & Wah Chiu. (2002). Image restoration in sets of noisy electron micrographs. In Proceedings IEEE International Symposium on Biomedical Imaging (pp. 745–748). IEEE. http://doi.org/10.1109/ISBI.2002.1029365
 * Penczek, P. A. (2010). Fundamentals of Three-Dimensional Reconstruction from Projections. In Methods in Enzymology (1st ed., Vol. 482, pp. 1–33). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82001-4
 * Penczek, P. A. (2010). Image restoration in cryo-electron microscopy. Methods in Enzymology (1st ed., Vol. 482). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82002-6
+
+## Tomgraphy
+* Natterer, F. (1986). VII: Mathematical Tools. In The Mathematics of Computerized Tomography (pp. 180–212).
+  * Terse notation requires familiarity with domain and mathematical symbols.
+* Block, W. (2004). Computed Tomography Notes, Part 1 Challenges with Projection X-ray Systems. Retrieved from https://www.medphysics.wisc.edu/~block/bme530lectures/ct1.pdf
+* Technical University of Denmark. (2020). Introduction to advanced tomography. https://www.coursera.org/learn/cinemaxe
