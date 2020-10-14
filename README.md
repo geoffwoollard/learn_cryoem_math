@@ -12,6 +12,8 @@ The mathematics of cryoEM spans several disciplines, from the physics of electro
 
 In this repo I would like to open up the black box of cryoEM computation, and exhibit the mathematical objects contained inside. Those sufficiently curious and motivated can teach themselves more about cryoEM data processing by playing with simple models in interactive programming notebooks, made publicly available here.
 
+**NB: If there is a particular computational aspect of cryoEM analysis that you are curious about, feel free to request (via [Issues](https://github.com/geoffwoollard/learn_cryoem_math/issues) in this repo) some learning materials. I will do my best to develop some code and data to play with for interactive learning.**
+
 # Resources
 ## Online Resources
 * Jensen, G. J. (2014). Getting Started in Cryo-EM. Retrieved from http://cryo-em-course.caltech.edu/videos
