@@ -126,6 +126,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Kirkland, E. J. (2016). Computation in electron microscopy. Acta Crystallographica Section A Foundations and Advances, 72(1), 1–27. http://doi.org/10.1107/S205327331501757X
 * McMullan, G., Faruqi, A. R., & Henderson, R. (2016). Direct Electron Detectors. In Methods in Enzymology (1st ed., Vol. 579, pp. 1–17). Elsevier Inc. http://doi.org/10.1016/bs.mie.2016.05.056
   * Excellent historical overview of improvements in electron detectors, especially the 1990s and 2000s. Good place to start for further delving into detector literature, especially in the journals *Ultramicroscopy* and *Nuclear Instruments & Methods in Physics Research Section A—Accelerators, Spectrometers, Detectors and Associated Equipment*.
+* Maigné, A., & Wolf, M. (2018). Low-dose electron energy-loss spectroscopy using electron counting direct detectors. Microscopy, 67(suppl_1), i86–i97. http://doi.org/10.1093/jmicro/dfx088
+  * Characterization of a Gatan K2 for EELS on a biological protein embedded in amorphous ice. Promising applications for time resolved spectra measurments on cryoEM samples.
 * Booth, C. (2019). Detection Technologies for Cryo-Electron Microscopy.
 * Datta, A., Ban, Y., Ding, M., Chee, S. W., Shi, J., & Loh, N. D. (2019). ReCoDe: A Data Reduction and Compression Description for High Throughput Time-Resolved Electron Microscopy.
 * Kirkland, E. J. (2020). Advanced Computing in Electron Microscopy. Cham: Springer International Publishing. http://doi.org/10.1007/978-3-030-33260-0
