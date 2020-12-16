@@ -174,7 +174,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Doersch, C. (2016). Tutorial on Variational Autoencoders, 1–23.
 * Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., & Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
 * Zhong, E. D., Bepler, T., Davis, J. H., & Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images, 1–20.
-
+* Miolane, N., Poitevin, F., Holmes, S., & Li, Y. T. (2019). Estimation of orientation and camera parameters from cryo-electron microscopy images with variational autoencoders and generative adversarial networks. ArXiv.
+  * Ribosome (one simulated dataset in same 2D pose, three emprical datasets from differetne 2D classes) analyzed with a VAE-GAN architecture. In latent space, defocus and rotations are disentagled (in unsupervised way).
 ### Reconstruction
 * Ludike, S. J., & Wah Chiu. (2002). Image restoration in sets of noisy electron micrographs. In Proceedings IEEE International Symposium on Biomedical Imaging (pp. 745–748). IEEE. http://doi.org/10.1109/ISBI.2002.1029365
 * Penczek, P. A. (2010). Fundamentals of Three-Dimensional Reconstruction from Projections. In Methods in Enzymology (1st ed., Vol. 482, pp. 1–33). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82001-4
