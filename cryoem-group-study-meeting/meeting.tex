@@ -69,9 +69,9 @@ Th 14 Jan 2020 & \tiny{9 AM PST} & blur & phase-contrast in the EM   \\
  \hline
 Th 21 Jan 2021 & \tiny{9 AM PST} & sharpen & phase-contrast in the EM   \\ 
  \hline
-Th 28 Jan 2021 & \tiny{9 AM PST} & blur & 2D Expectation-maximization   \\ 
+Th 28 Jan 2021 & \tiny{9 AM PST} & blur & 2D expectation-maximization   \\ 
  \hline
-Th 4 Feb 2021 & \tiny{9 AM PST} & sharpen & 2D Expectation-maximization   \\ 
+Th 4 Feb 2021 & \tiny{9 AM PST} & sharpen & 2D expectation-maximization   \\ 
  \hline
 Th 11 Feb 2021 & \tiny{9 AM PST} & blur &  image formation (forward model)   \\ 
  \hline
@@ -81,7 +81,11 @@ Th 18 Feb 2021 & \tiny{9 AM PST} & sharpen & image formation (forward model), mu
 % \hline
 %Th 11 Mar 2021 & \tiny{9 AM PST} & sharpen & cryoDRGN (variational autoencoders) with Ellen Zhong  \\ 
  \hline
- Mar 2021 & \tiny{9 AM PST} & ... & Wah Chiu et al, lectures, ...  \\ [1ex] 
+TBD & \tiny{9 AM PST} & blur/sharpen & 3D rotations (quaternions, axis-angle, ...) \\ 
+ \hline
+TBD & \tiny{9 AM PST} & blur/sharpen & 2D $\rightarrow$  3D (Fourier slice theorem, interpolation) \\ 
+ \hline
+TBD & \tiny{9 AM PST} & blur/sharpen & Wah Chiu et al, lectures, ...  \\ [1ex] 
  \hline
  ... 2021 ... & ... &  ... & ...  \\ 
  \hline
@@ -324,6 +328,24 @@ What would this image look like if the CTF was applied (i.e. through convolution
 %%\begin{itemize}
 %%	\item
 %%\end{itemize}
+
+%\pagebreak
+%\subsection{... 2021 - Blur}
+%\textendash{Pre-reading}
+%\begin{itemize}
+%	\item \href{https://youtu.be/d4EgbgTm0Bg}{Visualizing quaternions (4d numbers) with stereographic projection}
+%	\item \href{https://youtu.be/zjMuIxRvygQ}{Quaternions and 3d rotation, explained interactively}
+%	\item \href{https://eater.net/quaternions/}{Visualizing quaternions An explorable video series}
+%	\item \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Wiki: Quaternions and spatial rotation}
+%
+%\end{itemize}
+%\textendash {Questions}
+%\begin{itemize}
+%	\item Go to the \href{https://eater.net/quaternions/video/doublecover}{doublecover} interactive, and select the 4D tab on the bottom. Find the quaternion that corresponds to a rotation of 90 deg in the cw direction about the z axis.
+%	\item Quaterions can be used to describe the rotation of the point $ r= \langle r_x,r_y,r_x \rangle \in \mathbb{R}^3$ about angle $\theta$ in the direction of vector $\langle q_x,q_y,q_z \rangle$ as follows. $p_{rotated} = q*p*q^{-1}$, where $q = \langle \cos(\theta/2),q_x\sin(\theta/2),q_y\sin(\theta/2),q_j\sin(\theta/2)\rangle$ and \\ $q^{-1}=\langle \cos(-\theta/2),q_x\sin(-\theta/2),q_y\sin(-\theta/2),q_z\sin(-\theta/2) \rangle$ encode the rotation; $\vec r$ is represented as the quaternion $p=(0,r_x,r_y,r_z)$. Question: using pencil and paper, compute the rotation of the point $ r=\langle1,0,0\rangle$ about the z-axis by $\theta=180^{\circ}$ (ccw or cw, it's the same for this angle). Do you get $r=\langle-1,0,0\rangle$? You will have to use the quaternion multiplication table ($ij=k$, etc.), and know how to interconvert quaternions to cartesian 3D vectors.
+%\end{itemize}
+
+
 
 \pagebreak
 \subsection{March 2021}
