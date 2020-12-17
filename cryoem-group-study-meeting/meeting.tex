@@ -69,19 +69,19 @@ Th 14 Jan 2020 & \tiny{9 AM PST} & blur & phase-contrast in the EM   \\
  \hline
 Th 21 Jan 2021 & \tiny{9 AM PST} & sharpen & phase-contrast in the EM   \\ 
  \hline
-Th 28 Jan 2021 & \tiny{9 AM PST} & blur & 2D expectation-maximization   \\ 
+Th 28 Jan 2021 & \tiny{9 AM PST} & blur & image formation (forward model)   \\ 
  \hline
-Th 4 Feb 2021 & \tiny{9 AM PST} & sharpen & 2D expectation-maximization   \\ 
+Th 4 Feb 2021 & \tiny{9 AM PST} & sharpen & image formation (forward model), multislice   \\ 
  \hline
-Th 11 Feb 2021 & \tiny{9 AM PST} & blur &  image formation (forward model)   \\ 
+Th 11 Feb 2021 & \tiny{9 AM PST} & blur &  2D expectation-maximization \\ 
  \hline
-Th 18 Feb 2021 & \tiny{9 AM PST} & sharpen & image formation (forward model), multislice   \\ 
+Th 18 Feb 2021 & \tiny{9 AM PST} & sharpen &  2D expectation-maximization   \\ 
 % \hline
 %Th 4 Mar 2021 & \tiny{9 AM PST} & blur & cryoDRGN (variational autoencoders) with Ellen Zhong  \\ 
 % \hline
 %Th 11 Mar 2021 & \tiny{9 AM PST} & sharpen & cryoDRGN (variational autoencoders) with Ellen Zhong  \\ 
  \hline
-TBD & \tiny{9 AM PST} & blur/sharpen & 3D rotations (quaternions, axis-angle, ...) \\ 
+TBD & \tiny{9 AM PST} & blur/sharpen & \tiny{coordinate systems (polar, spherical, ...), 3D rotations (quaternions, axis-angle, ...)} \\ 
  \hline
 TBD & \tiny{9 AM PST} & blur/sharpen & 2D $\rightarrow$  3D (Fourier slice theorem, interpolation) \\ 
  \hline
@@ -249,31 +249,6 @@ What would this image look like if the CTF was applied (i.e. through convolution
 \subsection{28 Jan 2021 - Blur}
 \textendash{Pre-reading}
 \begin{itemize}
-	\item \href{https://repository.upenn.edu/cgi/viewcontent.cgi?article=1665&context=physics_papers}{Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305?325).}
-	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 2 - 2D/3D reconstruction'} in High-resolution imaging course at UTDelft.
-\end{itemize}
-%\textendash {Questions}
-%\begin{itemize}
-%	\item Some popular cryoEM software does 2D classification in Fourier space. Do these equations work in Fourier space? What would have to be changed?
-%	\item In Nelson's treatment, there was only one class. To do multiple classes, what would have to be changed? What is happening during a typical 2D classification 'round'? What is constant during a round and what is updated between rounds?
-%\end{itemize}
-
-\subsection{4 Feb 2021 - Sharpen}
-\textendash{Pre-reading}
-\begin{itemize}
-	\item \href{https://repository.upenn.edu/cgi/viewcontent.cgi?article=1665&context=physics_papers}{Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305?325).}
-	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 2 - 2D/3D reconstruction'} in the High-resolution imaging course at TUDelft.
-\end{itemize}
-%\textendash {Questions}
-%\begin{itemize}
-%	\item How does a prior affect the Log loss function? What functional forms of the priors are convenient for optimization, and what is their interpretation in terms of probability?
-%	\item It can be shown that iid Gaussian additive noise in real space is also Gaussian additive noise in Fourier space. See \href{https://dsp.stackexchange.com/questions/24170/what-are-the-statistics-of-the-discrete-fourier-transform-of-white-gaussian-nois}{this dsp.stackexchange.com post} for example. Try to generalize this somehow. What happens for iid Gaussian additive noise that is radially dependent in Fourier space, or pixel dependent in real space?
-%\end{itemize}
-
-\pagebreak
-\subsection{11 Feb 2021 - Blur}
-\textendash{Pre-reading}
-\begin{itemize}
 	\item \href{https://youtu.be/tzv5c5K7MEk?t=4690}{NCCAT SPA short course 2020, Lecture 4: Algorithms and foundational math Part I \& 2, Fred Sigworth} (1:18:10 - 1:28:46, ~10 min)
 	\end{itemize}
 %\textendash {Questions}
@@ -281,7 +256,7 @@ What would this image look like if the CTF was applied (i.e. through convolution
 %	\item How is real noise different from Gaussian additive noise? What makes it different? If particles come from different types of grids (thin continuous carbon, single layer graphene) can they be combined into one large dataset to solve a structure? Why don't researchers pool different datasets of the same particle (e.g. from different EMPIAR entries) to solve a high resolution structure with tens of millions of particles?
 %\end{itemize}f
 
-\subsection{18 Feb 2021 - Sharpen}
+\subsection{4 Feb 2021 - Sharpen}
 \textendash{Pre-reading}
 \begin{itemize}
 	\item Section '2. Theory' in Vulovi\'{c}, M., Ravelli, R. B. G., van Vliet, L. J., Koster, A. J., Lazi\'{c}, I., L\"ocken, U., ? Rieger, B. (2013). Image formation modeling in cryo-electron microscopy. Journal of Structural Biology, 183(1), 19?32. \url{http://doi.org/10.1016/j.jsb.2013.05.008}
@@ -295,6 +270,32 @@ What would this image look like if the CTF was applied (i.e. through convolution
 %	\item Equation 7 in Vulovi\'{c} et al. shows the DQE/NTF being applied. In practice, the DQE/MTF/NTF is often plotted in 1D in papers. What would be the difference between doing the convolution of the DQE/NTF in 2D versus 1D?
 %	\item Eqation 5 in Vulovi\'{c} et al. shows the 'complex CTF'. What is the difference between this and the $\sin$ CTF that is often used? When is it appropriate to use one versus the other treatment?
 %\end{itemize}
+
+\pagebreak
+\subsection{11 Feb 2021 - Blur}
+\textendash{Pre-reading}
+\begin{itemize}
+	\item \href{https://repository.upenn.edu/cgi/viewcontent.cgi?article=1665&context=physics_papers}{Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305?325).}
+	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 2 - 2D/3D reconstruction'} in High-resolution imaging course at UTDelft.
+\end{itemize}
+%\textendash {Questions}
+%\begin{itemize}
+%	\item Some popular cryoEM software does 2D classification in Fourier space. Do these equations work in Fourier space? What would have to be changed?
+%	\item In Nelson's treatment, there was only one class. To do multiple classes, what would have to be changed? What is happening during a typical 2D classification 'round'? What is constant during a round and what is updated between rounds?
+%\end{itemize}
+
+\subsection{18 Feb 2021 - Sharpen}
+\textendash{Pre-reading}
+\begin{itemize}
+	\item \href{https://repository.upenn.edu/cgi/viewcontent.cgi?article=1665&context=physics_papers}{Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305?325).}
+	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 2 - 2D/3D reconstruction'} in the High-resolution imaging course at TUDelft.
+\end{itemize}
+%\textendash {Questions}
+%\begin{itemize}
+%	\item How does a prior affect the Log loss function? What functional forms of the priors are convenient for optimization, and what is their interpretation in terms of probability?
+%	\item It can be shown that iid Gaussian additive noise in real space is also Gaussian additive noise in Fourier space. See \href{https://dsp.stackexchange.com/questions/24170/what-are-the-statistics-of-the-discrete-fourier-transform-of-white-gaussian-nois}{this dsp.stackexchange.com post} for example. Try to generalize this somehow. What happens for iid Gaussian additive noise that is radially dependent in Fourier space, or pixel dependent in real space?
+%\end{itemize}
+
 
 
 %\pagebreak
