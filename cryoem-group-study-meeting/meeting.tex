@@ -115,91 +115,8 @@ Thanks to the interactive learning material developed by \href{http://cryoem.tud
 If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu/about/news/grant-jensen-cryo-em}{popular} online course \href{https://jensenlab.caltech.edu/courses/}{'Getting Started in Cryo-EM' }, now would be a good time to do so. I think enough people have gone through this on their own that we will mainly draw from other material. 
 
 \pagebreak
-\subsection{19 Nov 2020}
-\subsubsection{Blur}
-\textendash {Pre-reading}
-\begin{itemize}
-\item \href{https://youtu.be/CZkPG95eoS0}{Complex numbers and the complex exponential} (10 min)
-\item \href{https://cryoemprinciples.yale.edu/sites/default/files/files/1%20Review%20of%20Complex%20Numbers.pdf}{Review	of complex	numbers} (3 pages)
-\item \href{https://youtu.be/m2Hm1ziZFZg}{Defocus phase contrast} (35 min)
+\section{Upcoming Meetings}
 
-\end{itemize}
-\textendash {Questions}
-\begin{itemize}
-\item What is physically happening to the sample when the electron is detected at small diffraction angles vs large diffraction angles? What else can happen to the electron?
-%Watch video 2.1 (10 min). Towards the end (7:40 mark) Dr. Sigworth makes some interesting 2D/3D plots showing the real and imaginary part of exp(i theta). Code up a way to plot this and share it with everyone. For example, you could publish a coding notebook on something like GitHub.
-\end{itemize}
-
-\subsubsection{Sharpen}
-\textendash{Pre-reading}
-\begin{itemize}
-	\item \href{https://youtu.be/m2Hm1ziZFZg}{Defocus phase contrast} (35 min)
-	\item 6.2 The Wave Equation for Fast Electrons in 'Advanced Computing in Electron Microscopy', Kirkland (2000), pp. 156-159.
-\end{itemize}
-\textendash {Questions}
-\begin{itemize}
-\item In Sigworth's derivation of $|\Psi|^2$ in the 'Defocus phase contrast' video, he made various assumptions such as small theta, small epsilon. Under what extreme conditions would they break down. Do these occur in cryoEM? In other experimental regimes besides what is typical in cryoEM?
-\item Around the 23-25 min mark of the 'Defocus phase contrast' video the CTF seems to oscillate to zeros. Is this observed in practice? Why or why not?
-\item Work through the derivation with pencil and eraser, justifying each step as best you can. come with your questions to the group study.
-\item Biological samples are made of atoms that give faint contrast, when compared to samples with higher atomic numbers. Where does the atomic number of the sample come into the equations presented here? 
-\end{itemize}
-
-\pagebreak
-\subsection{3 Dec 2020 - Blur}
-\textendash {Pre-reading}
-\begin{itemize}
-	\item \href{https://youtu.be/27bNryOu84g}{The Fourier transform in one dimension} (35 min)
-	\item \href{https://cryoemprinciples.yale.edu/sites/default/files/files/3%20Fourier1D.pdf}{The 1D Fourier Transform} (7 pages)
-	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 1 - Fundamentals of Image Processing'} in the High-resolution imaging course at TUDelft. Note there are multiple notebooks: Introduction, Fourier Series, Frequency Spectrum, 2-D Fourier Analysis. See the links at the bottom. For this week, work through notebooks "ip\_basics\_part1", "ip\_basics\_part2", "ip\_basics\_part3".
-\end{itemize}
-\textendash {Questions}
-\begin{itemize}
-	\item Prove the linearity, scale, shift, convolution properties of the FT in 1D.
-	\item Equation 4 in \href{https://cryoemprinciples.yale.edu/sites/default/files/files/3%20Fourier1D.pdf}{The 1D Fourier Transform} expresses how "a narrower function of x transforms into a broader function of u". Can you think of some examples of this in practice? Hint: what happens when you change magnification? 
-	\item Assume you have a 128 \AA box size, with pixel size of 1 \AA. What is the spacing spacing between bins in Fourier space, if there are 64 bins in the negative direction and 64 bins in the positive direction? What length ranges (in units of \AA) do the first few and last few frequency bins correspond to?  How many frequency bins are between 10 and 5 \AA, versus 5 and 2.5 \AA? \\ Hint: $\langle..., [0,1/128), [1/128,2/128), ... , [\frac{128/2-2}{128}, \frac{128/2-1}{128}),  [\frac{128/2-1}{128}, \frac{128/2}{128})\rangle$.
-\end{itemize}
-
-\pagebreak
-\subsection{10 Dec 2020 - Sharpen}
-\textendash {Pre-reading}
-\begin{itemize}
-\item \href{https://youtu.be/J1ViNmmQnd0}{The Fourier transform in two and three dimensions} (43 min)
-	\item \href{https://cryoemprinciples.yale.edu/sites/default/files/files/4%20Fourier2D-3D.pdf}{2D and 3D Fourier transforms} (9 pages)
-	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 1 - Fundamentals of Image Processing'} in the High-resolution imaging course at TUDelft. Note there are multiple notebooks: Frequency Spectrum, 2-D Fourier Analysis. See the links at the bottom. For this week, play with notebooks "ip\_basics\_part4", "ip\_basics\_part5".
-	\item Optional
-	\begin{itemize}
-		\item \href{http://www.fftw.org/links.html}{Explanatory Material:} "Tutorials and introductions to Fourier transforms and FFTs, in no particular order." \url{fftw.org}
-		\item \href{http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/PIRODDI1/NUFT/NUFT.html}{Roberta Piroddi and Maria Petrou. Non-Uniform Fourier Transform: A Tutorial}
-		\item \url{https://en.wikipedia.org/wiki/Non-uniform_discrete_Fourier_transform}
-	\end{itemize}
-\end{itemize}
-
-\textendash{Questions}
-\begin{itemize}
-	\item Sample a simple function (e.g. $\exp$, $\sin$, gaussian) in 1D or 2D. Then use some library to compute the FFT. Then compute the DFT in your own implementation. How close is the error? Work our the solution analytically for the continuous case. What should the answer be at some discrete points according to the continuous case, and how is it different from what the FFT gave? What is the typical floating point error? What was the speedup of the FFT, and how does this compare to the theoretical limit?
-	\item In practice, how long are FFTs taking (2D and 3D)? How does this compare with other computational bottlenecks like disk I/O and interpolation?
-	\item What are some numerical issues or bottlenecks that can arise when using an implementation of the FFT in practice? What are some ways to overcome them?
-\end{itemize}
-
-\pagebreak
-\subsection{17 Dec 2020 - Blur}
-\textendash {Pre-reading}
-\begin{itemize}
-	\item \href{https://youtu.be/_F-YDwY9X30}{Fourier transform: convolution, sampling and Nyquist} (37 min)
-	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 1 - Fundamentals of Image Processing'} in the High-resolution imaging course at TUDelft. Note there are multiple notebooks: 2-D Fourier Analysis, Convolutions. See the links at the bottom. For this week, work through notebook "ip\_basics\_part6".
-\end{itemize}
-\textendash {Questions}
-\begin{itemize}
-	\item Solve the "homework problem" (without peeking at the answer!) in the first part of \href{https://youtu.be/_F-YDwY9X30}{Fourier transform: convolution, sampling and Nyquist}. If $g(x) = e^{-\pi(x-2)^2} - e^{-\pi(x+2)^2}$, what is $G(u)$?
-	\item By the Convolution theorem $f(x)=g(x)*h(x) \Rightarrow F(u)=G(u)H(u)$. Since $F(u)=G(u)H(u)=H(u)G(u)$ we should have $f(x)=g(x)*h(x)=h(x)*g(x)$. Show explicitly the commutativity of the convolution operator: i.e., $g(x)*h(x)=\int dt \ g(t)h(x-t)=\int dt \ h(t)g(x-t)=h(x)*g(x)$
-	\item Look at the animation in the notebook "ip\_basics\_part6". Write down the mathematical object that is being visualized, including integration bounds. What does one snapshot of the animation represent?
-	\item When does convolution (physically or computationally) happen in cryoEM happen? Be specific when connecting things back to the math, e.g. what is being convolved, what is it's functional form, and how many dimensions are involved?
-	\item When we convolve with a {\it broad/wide} gaussian function, what is happening in Fourier space? How does this relate to Fourier filtering? Hint, use the convolution theorem.
-
-	
-\end{itemize}
-
-\pagebreak
 \subsection{7 Jan 2021 - Sharpen}
 \textendash{Pre-reading}
 \begin{itemize}
@@ -209,7 +126,7 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \textendash {Questions}
 \begin{itemize}
 	\item Around the 16 min mark in \href{https://youtu.be/_F-YDwY9X30}{Fourier transform: convolution, sampling and Nyquist}, we see that the de-convoluted (recovered) signal blows up around the origin, where there is a delta function. From the math, why exactly did this happen? Is there a way to over come this blowing up effect?
-	\item Let $f_a=e^{-ax^2}$. Show that $f_1*(f_2*f_3) = (f_1*f_2)*f_3$. Note that $\int dx \ e^{-ax^2} = \sqrt{\pi/a}; (a>0)$
+	\item Let $f_a=e^{-ax^2} \ ; \ a>0$. Show that $f_1*(f_2*f_3) = (f_1*f_2)*f_3$. Note that $\int_{-\infty}^{+\infty} dx \ e^{-ax^2} = \sqrt{\pi/a}$
 	\item The notebook "ip\_basics\_part6" has an interactive where the size of the kernel (Sobel, Gaussian, etc) can be changed. Convoluting with larger kernels could be a more expensive computation, but we could speed it up by doing this in Fourier space by the convolution theorem. If we take the FT of the image and kernel, there sizes to not match, so how can we multiply them element wise? How would you match the pixel sizes and do things in Fourier space to achieve the same result as the real space convolution?
 	\item In the last part of "ip\_basics\_part6", the Fourier filtering versus the convolution filtering appear the same for Guassian blur, but different for box blur, and very different for sharpen. What might be causing this? Vary the kernel size and notice the different run times. Is doing things in Fourier space always quicker? 
 	\item How can we increase the Nyquist frequency during data collection to get higher resolution information? What is the trade off? What should guide our choice of an optimal Nyquist, given our particular microscope and specimen?
@@ -259,7 +176,7 @@ What would this image look like if the CTF was applied (i.e. through convolution
 \subsection{4 Feb 2021 - Sharpen}
 \textendash{Pre-reading}
 \begin{itemize}
-	\item Section '2. Theory' in Vulovi\'{c}, M., Ravelli, R. B. G., van Vliet, L. J., Koster, A. J., Lazi\'{c}, I., L\"ocken, U., ? Rieger, B. (2013). Image formation modeling in cryo-electron microscopy. Journal of Structural Biology, 183(1), 19?32. \url{http://doi.org/10.1016/j.jsb.2013.05.008}
+	\item Section '2. Theory' in Vulovi\'{c}, M., Ravelli, R. B. G., van Vliet, L. J., Koster, A. J., Lazi\'{c}, I., L\"ocken, U., Rieger, B. (2013). Image formation modeling in cryo-electron microscopy. Journal of Structural Biology, 183(1), 19?32. \url{http://doi.org/10.1016/j.jsb.2013.05.008}
 	\begin{itemize}
 		\item Supplementary material associated with the article (18 pages)
 	\end{itemize}
@@ -351,5 +268,94 @@ What would this image look like if the CTF was applied (i.e. through convolution
 \pagebreak
 \subsection{March 2021}
 By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogales will hopefully be out, and we can see how it looks. We could also plan some lectures.
+
+\pagebreak
+\section{Past Meetings}
+
+
+\subsection{19 Nov 2020}
+\subsubsection{Blur}
+\textendash {Pre-reading}
+\begin{itemize}
+\item \href{https://youtu.be/CZkPG95eoS0}{Complex numbers and the complex exponential} (10 min)
+\item \href{https://cryoemprinciples.yale.edu/sites/default/files/files/1%20Review%20of%20Complex%20Numbers.pdf}{Review	of complex	numbers} (3 pages)
+\item \href{https://youtu.be/m2Hm1ziZFZg}{Defocus phase contrast} (35 min)
+
+\end{itemize}
+\textendash {Questions}
+\begin{itemize}
+\item What is physically happening to the sample when the electron is detected at small diffraction angles vs large diffraction angles? What else can happen to the electron?
+%Watch video 2.1 (10 min). Towards the end (7:40 mark) Dr. Sigworth makes some interesting 2D/3D plots showing the real and imaginary part of exp(i theta). Code up a way to plot this and share it with everyone. For example, you could publish a coding notebook on something like GitHub.
+\end{itemize}
+
+\subsubsection{Sharpen}
+\textendash{Pre-reading}
+\begin{itemize}
+	\item \href{https://youtu.be/m2Hm1ziZFZg}{Defocus phase contrast} (35 min)
+	\item 6.2 The Wave Equation for Fast Electrons in 'Advanced Computing in Electron Microscopy', Kirkland (2000), pp. 156-159.
+\end{itemize}
+\textendash {Questions}
+\begin{itemize}
+\item In Sigworth's derivation of $|\Psi|^2$ in the 'Defocus phase contrast' video, he made various assumptions such as small theta, small epsilon. Under what extreme conditions would they break down. Do these occur in cryoEM? In other experimental regimes besides what is typical in cryoEM?
+\item Around the 23-25 min mark of the 'Defocus phase contrast' video the CTF seems to oscillate to zeros. Is this observed in practice? Why or why not?
+\item Work through the derivation with pencil and eraser, justifying each step as best you can. come with your questions to the group study.
+\item Biological samples are made of atoms that give faint contrast, when compared to samples with higher atomic numbers. Where does the atomic number of the sample come into the equations presented here? 
+\end{itemize}
+
+\pagebreak
+\subsection{3 Dec 2020 - Blur}
+\textendash {Pre-reading}
+\begin{itemize}
+	\item \href{https://youtu.be/27bNryOu84g}{The Fourier transform in one dimension} (35 min)
+	\item \href{https://cryoemprinciples.yale.edu/sites/default/files/files/3%20Fourier1D.pdf}{The 1D Fourier Transform} (7 pages)
+	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 1 - Fundamentals of Image Processing'} in the High-resolution imaging course at TUDelft. Note there are multiple notebooks: Introduction, Fourier Series, Frequency Spectrum, 2-D Fourier Analysis. See the links at the bottom. For this week, work through notebooks "ip\_basics\_part1", "ip\_basics\_part2", "ip\_basics\_part3".
+\end{itemize}
+\textendash {Questions}
+\begin{itemize}
+	\item Prove the linearity, scale, shift, convolution properties of the FT in 1D.
+	\item Equation 4 in \href{https://cryoemprinciples.yale.edu/sites/default/files/files/3%20Fourier1D.pdf}{The 1D Fourier Transform} expresses how "a narrower function of x transforms into a broader function of u". Can you think of some examples of this in practice? Hint: what happens when you change magnification? 
+	\item Assume you have a 128 \AA box size, with pixel size of 1 \AA. What is the spacing spacing between bins in Fourier space, if there are 64 bins in the negative direction and 64 bins in the positive direction? What length ranges (in units of \AA) do the first few and last few frequency bins correspond to?  How many frequency bins are between 10 and 5 \AA, versus 5 and 2.5 \AA? \\ Hint: $\langle..., [0,1/128), [1/128,2/128), ... , [\frac{128/2-2}{128}, \frac{128/2-1}{128}),  [\frac{128/2-1}{128}, \frac{128/2}{128})\rangle$.
+\end{itemize}
+
+\pagebreak
+\subsection{10 Dec 2020 - Sharpen}
+\textendash {Pre-reading}
+\begin{itemize}
+\item \href{https://youtu.be/J1ViNmmQnd0}{The Fourier transform in two and three dimensions} (43 min)
+	\item \href{https://cryoemprinciples.yale.edu/sites/default/files/files/4%20Fourier2D-3D.pdf}{2D and 3D Fourier transforms} (9 pages)
+	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 1 - Fundamentals of Image Processing'} in the High-resolution imaging course at TUDelft. Note there are multiple notebooks: Frequency Spectrum, 2-D Fourier Analysis. See the links at the bottom. For this week, play with notebooks "ip\_basics\_part4", "ip\_basics\_part5".
+	\item Optional
+	\begin{itemize}
+		\item \href{http://www.fftw.org/links.html}{Explanatory Material:} "Tutorials and introductions to Fourier transforms and FFTs, in no particular order." \url{fftw.org}
+		\item \href{http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/PIRODDI1/NUFT/NUFT.html}{Roberta Piroddi and Maria Petrou. Non-Uniform Fourier Transform: A Tutorial}
+		\item \url{https://en.wikipedia.org/wiki/Non-uniform_discrete_Fourier_transform}
+	\end{itemize}
+\end{itemize}
+
+\textendash{Questions}
+\begin{itemize}
+	\item Sample a simple function (e.g. $\exp$, $\sin$, gaussian) in 1D or 2D. Then use some library to compute the FFT. Then compute the DFT in your own implementation. How close is the error? Work our the solution analytically for the continuous case. What should the answer be at some discrete points according to the continuous case, and how is it different from what the FFT gave? What is the typical floating point error? What was the speedup of the FFT, and how does this compare to the theoretical limit?
+	\item In practice, how long are FFTs taking (2D and 3D)? How does this compare with other computational bottlenecks like disk I/O and interpolation?
+	\item What are some numerical issues or bottlenecks that can arise when using an implementation of the FFT in practice? What are some ways to overcome them?
+\end{itemize}
+
+\pagebreak
+\subsection{17 Dec 2020 - Blur}
+\textendash {Pre-reading}
+\begin{itemize}
+	\item \href{https://youtu.be/_F-YDwY9X30}{Fourier transform: convolution, sampling and Nyquist} (37 min)
+	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 1 - Fundamentals of Image Processing'} in the High-resolution imaging course at TUDelft. Note there are multiple notebooks: 2-D Fourier Analysis, Convolutions. See the links at the bottom. For this week, work through notebook "ip\_basics\_part6".
+\end{itemize}
+\textendash {Questions}
+\begin{itemize}
+	\item Solve the "homework problem" (without peeking at the answer!) in the first part of \href{https://youtu.be/_F-YDwY9X30}{Fourier transform: convolution, sampling and Nyquist}. If $g(x) = e^{-\pi(x-2)^2} - e^{-\pi(x+2)^2}$, what is $G(u)$?
+	\item By the Convolution theorem $f(x)=g(x)*h(x) \Rightarrow F(u)=G(u)H(u)$. Since $F(u)=G(u)H(u)=H(u)G(u)$ we should have $f(x)=g(x)*h(x)=h(x)*g(x)$. Show explicitly the commutativity of the convolution operator: i.e., $g(x)*h(x)=\int dt \ g(t)h(x-t)=\int dt \ h(t)g(x-t)=h(x)*g(x)$
+	\item Look at the animation in the notebook "ip\_basics\_part6". Write down the mathematical object that is being visualized, including integration bounds. What does one snapshot of the animation represent?
+	\item When does convolution (physically or computationally) happen in cryoEM happen? Be specific when connecting things back to the math, e.g. what is being convolved, what is it's functional form, and how many dimensions are involved?
+	\item When we convolve with a {\it broad/wide} gaussian function, what is happening in Fourier space? How does this relate to Fourier filtering? Hint, use the convolution theorem.
+
+	
+\end{itemize}
+
 
 \end{document}  
