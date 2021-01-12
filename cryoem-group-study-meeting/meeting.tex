@@ -95,10 +95,6 @@ Th 4 Feb 2021 & \tiny{9 AM PST} & sharpen & image formation (forward model), mul
 Th 11 Feb 2021 & \tiny{9 AM PST} & blur &  2D expectation-maximization \\ 
  \hline
 Th 18 Feb 2021 & \tiny{9 AM PST} & sharpen &  2D expectation-maximization   \\ 
-% \hline
-%Th 4 Mar 2021 & \tiny{9 AM PST} & blur & cryoDRGN (variational autoencoders) with Ellen Zhong  \\ 
-% \hline
-%Th 11 Mar 2021 & \tiny{9 AM PST} & sharpen & cryoDRGN (variational autoencoders) with Ellen Zhong  \\ 
  \hline
 Th 25 Feb 2021 & \tiny{9 AM PST} & blur & coordinate systems \& rotations  \\ 
  \hline
@@ -108,7 +104,13 @@ Th 11 March 2021 & \tiny{9 AM PST} & blur & interpolation  \\
  \hline
  Th 18 March 2021 & \tiny{9 AM PST} & sharpen & interpolation  \\ 
  \hline
-Th 25 March 2021 & \tiny{9 AM PST} & blur/sharpen & \tiny{Guest lecture: D. Dynerman, 3D reconstruction via direct Fourier inversion}  \\ 
+Th 25 March 2021 & \tiny{9 AM PST} & blur & \tiny{Guest lecture: TBC D. Dynerman, 3D reconstruction via direct Fourier inversion}  \\ 
+ \hline
+ Th 1 Apr 2021 & \tiny{9 AM PST} & sharpen & \tiny{3D reconstruction via direct Fourier inversion}  \\ 
+ \hline
+Th 8 Apr 2021 & \tiny{9 AM PST} & sharpen & variational autoencoders  \\ 
+ \hline
+Th 15 Apr 2021 & \tiny{9 AM PST} & sharpen & cryoDRGN (variational autoencoders) with Ellen Zhong  \\ 
  \hline
 TBD & \tiny{9 AM PST} & blur/sharpen & Wah Chiu et al, lectures, ...  \\ [1ex] 
  \hline
@@ -285,47 +287,46 @@ What would this image look like if the CTF was applied (i.e. through convolution
 	\item Investigate how sensitive  \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} is to noise, by sampling a function, corrupting it with noise, and seeing how smooth things have to be for the interpolation to work out well. Can you find a situation where there are pathologies? 
 \end{itemize}
 
-\subsection{25 March 2021 - Blur - Guest lecture: Dr. David Dynerman, 3D Reconstruction via Direct Fourier Inversion.}
+\subsection{25 March 2021 - Blur - TBC Guest lecture: Dr. David Dynerman, 3D Reconstruction via Direct Fourier Inversion.}
 
-
-%\pagebreak
-%\subsection{25 Feb 2021 - Blur}
-%\textendash{Pre-reading}
-%\begin{itemize}
-%	\item Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., \& Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
-%	\item Zhong, E. D., Bepler, T., Davis, J. H., \& Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images. ICLR 2020, 1-20.
-%	\item \href{https://www.siarez.com/projects/variational-autoencoder}{Variational autoencoder interactive demos with deeplearn.js}
-%	
-%\end{itemize}
-%%\textendash {Questions}
-%%\begin{itemize}
-%%	\item
-%%\end{itemize}
-%
-%
-%\subsection{4 March 2021 - Sharpen}
-%\textendash{Pre-reading}
-%\begin{itemize}
-%	\item \href{https://www.siarez.com/projects/variational-autoencoder}{Variational autoencoder interactive demos with deeplearn.js}
-%	\begin{itemize}
-%		\item Doersch, C. (2016). Tutorial on Variational Autoencoders, 1-23. \url{https://arxiv.org/pdf/1606.05908.pdf} (23 pages)
-%	\end{itemize}
-%	\item \href{https://youtu.be/_2PZxw4FzDU}{015 Jensen's inequality \& Kullback Leibler divergence} (10 min)
-%	\item \href{https://www.youtube.com/watch?v=uaaqyVS9-rM&feature=youtu.be}{Ali Ghodsi, Lec : Deep Learning, Variational Autoencoder, Oct 12 2017 [Lect 6.2]} (1 hr)
-%	\item \href{https://youtu.be/P78QYjWh5sM}{Deep Learning Lecture 14: Karol Gregor on Variational Autoencoders and Image Generation} (43 min)
-%	\item \href{http://videolectures.net/deeplearning2015_courville_autoencoder_extension/}{Aaron Courville. 2015. Variational Autoencoder and Extensions. Deep Learning Summer School, Montreal.} (1.5 hrs)
-%\end{itemize}
-%%\textendash {Questions}
-%%\begin{itemize}
-%%	\item
-%%\end{itemize}
-
-
-
+\subsection{1 Apr 2021 - Sharpen - 3D Reconstruction via Direct Fourier Inversion.}
 
 
 \pagebreak
-\subsection{March 2021}
+\subsection{8 Apr 2021 - Sharpen - Variational Autoencoders }
+\textendash{Pre-reading}
+\begin{itemize}
+	\item Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., \& Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
+	\item Zhong, E. D., Bepler, T., Davis, J. H., \& Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images. ICLR 2020, 1-20. \url{https://arxiv.org/pdf/1909.05215.pdf}
+	\item Nature Methods paper on cryoDRGN (to appear ~Feb 2021)
+	\item \href{https://www.siarez.com/projects/variational-autoencoder}{Variational autoencoder interactive demos with deeplearn.js}
+	
+\end{itemize}
+%\textendash {Questions}
+%\begin{itemize}
+%	\item
+%\end{itemize}
+
+\subsection{15 Apr 2021 - Sharpen - Guest Lecture with Ellen Zhong, cryoDRGN \& Variational Autoencoders}
+\textendash{Pre-reading}
+\begin{itemize}
+	\item \href{https://www.siarez.com/projects/variational-autoencoder}{Variational autoencoder interactive demos with deeplearn.js}
+	\begin{itemize}
+		\item Doersch, C. (2016). Tutorial on Variational Autoencoders, 1-23. \url{https://arxiv.org/pdf/1606.05908.pdf} (23 pages)
+	\end{itemize}
+	\item \href{https://youtu.be/_2PZxw4FzDU}{015 Jensen's inequality \& Kullback Leibler divergence} (10 min)
+	\item \href{https://www.youtube.com/watch?v=uaaqyVS9-rM&feature=youtu.be}{Ali Ghodsi, Lec : Deep Learning, Variational Autoencoder, Oct 12 2017 [Lect 6.2]} (1 hr)
+	\item \href{https://youtu.be/P78QYjWh5sM}{Deep Learning Lecture 14: Karol Gregor on Variational Autoencoders and Image Generation} (43 min)
+	\item \href{http://videolectures.net/deeplearning2015_courville_autoencoder_extension/}{Aaron Courville. 2015. Variational Autoencoder and Extensions. Deep Learning Summer School, Montreal.} (1.5 hrs)
+\end{itemize}
+%\textendash {Questions}
+%\begin{itemize}
+%	\item
+%\end{itemize}
+
+
+\pagebreak
+\subsection{spring 2021}
 By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogales will hopefully be out, and we can see how it looks. We could also plan some lectures.
 
 \pagebreak
