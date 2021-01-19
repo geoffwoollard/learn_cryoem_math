@@ -146,25 +146,6 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \section{Upcoming Meetings}
 
 \pagebreak
-\subsection{14 Jan 2020 - Blur - Phase-contrast in the EM}
-\textendash{Pre-reading}
-\begin{itemize}
-	\item \href{https://cryoemprinciples.yale.edu/sites/default/files/files/2%20Phase%20contrast.pdf}{Phase-contrast imaging in the EM'} (10 pages)
-	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 1 - Fundamentals of Image Processing'} in the High-resolution imaging course at TUDelft. Note there are multiple notebooks. Go to the one on the CTF ('ip\_basics\_part7').
-\end{itemize}
-\textendash {Questions}
-\begin{enumerate}
-	\item See panel (b) in the \href{https://static5.olympus-lifescience.com/data/olympusmicro/primer/images/mtf/modulationfigure6.jpg?rev=480E}{'signal star'} image. What would this image look like if the CTF was applied (i.e. through convolution)?
-	\item As defined in equation 11 of \href{https://cryoemprinciples.yale.edu/sites/default/files/files/2%20Phase%20contrast.pdf}{'Phase-contrast imaging in the EM'}, what happens when the B factor is negative versus positive?
-	\item In practice, on the scope, the CTF is easier to see in an FFT if you are at high mag. Why? Can you relate this back to the math? How is magnification playing into the equation?
-	\item Can you tell the difference between underfocus and overfocus by eye? Try putting what you see into words? Why do they look different?
-	\item As defined in equation 11 in \href{https://cryoemprinciples.yale.edu/sites/default/files/files/2%20Phase%20contrast.pdf}{'Phase-contrast imaging in the EM'}, what physical behaviour is involved in this B factor? What other factors of B are there in cryoEM and what physical behaviour is involved in those B factors? Why are they all called B-factors?
-	\item With reference to equation 11 in \href{https://cryoemprinciples.yale.edu/sites/default/files/files/2%20Phase%20contrast.pdf}{'Phase-contrast imaging in the EM'}: "B has units of nm$^2$ or $ \AA^2$ and is called the 'B-factor' or 'envelope factor'. Good cryo-EM images have B values of $50-100 \AA^2$, but even these values are not so ideal. At $B = 100  \AA^ 2$ spatial frequencies of $5 \AA^2$ are attenuated to 1/e of their original amplitude, and higher spatial frequencies are attenuated even more". Go to 'ip\_basics\_part7' and play with B. Is there agreement between the B factor explanation and the interactive notebook? Take a closer look at how the interactive notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/blob/master/binder/hri_practical01/shared/misc.py#L757}{codes up the B factor} and what pixel size is used/assumed.
-	\item Play with the amplitude contrast. Do you 'want' more or less amplitude contrast? If the amplitude contrast is off, how will this effect CTF fitting? Can you think of a good reason why many CTF estimators do not fit amplitude contrast? If you are unsure as to the amplitude contrast, what should you do?
-	\item Play around with 'plot\_ctf\_img\_interactive' in Question 4 of 'ip\_basics\_part7'. Turn on 'ctf\_multiply'. Can you see how the information is delocalized more when the defocus increases? How defocused can the image get? Where does the information delocalize to? When collecting data on a real micrograph (versus computationally applying the CTF to a synthetic image the size of a particle), what issues would you have?
-\end{enumerate}
-
-\pagebreak
 \subsection{21 Jan 2021 - Sharpen - Phase-contrast in the EM}
 \textendash{Pre-reading}
 \begin{itemize}
@@ -429,5 +410,24 @@ By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogal
 	\item How can we increase the Nyquist frequency during data collection to get higher resolution information? What is the trade off? What should guide our choice of an optimal Nyquist, given our particular microscope and specimen?
 	\item Code up a simple example illustrating the convolution theorem, where you also actually do the convolution in real space. How close is it to the answer where you did the multiplication in Fourier space? What was the speedup? Now try speeding up the calculation by of the convolution in real space by making the convolution kernel smaller. How good of an approximation is this? Use a 2D projection of a 3D density map and a meaningful kernel (e.g. low pass filter) to build your intuition in a useful way.
 \end{itemize}
+
+\subsection{14 Jan 2020 - Blur - Phase-contrast in the EM}
+\textendash{Pre-reading}
+\begin{itemize}
+	\item \href{https://cryoemprinciples.yale.edu/sites/default/files/files/2%20Phase%20contrast.pdf}{Phase-contrast imaging in the EM'} (10 pages)
+	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 1 - Fundamentals of Image Processing'} in the High-resolution imaging course at TUDelft. Note there are multiple notebooks. Go to the one on the CTF ('ip\_basics\_part7').
+\end{itemize}
+\textendash {Questions}
+\begin{enumerate}
+	\item See panel (b) in the \href{https://static5.olympus-lifescience.com/data/olympusmicro/primer/images/mtf/modulationfigure6.jpg?rev=480E}{'signal star'} image. What would this image look like if the CTF was applied (i.e. through convolution)?
+	\item As defined in equation 11 of \href{https://cryoemprinciples.yale.edu/sites/default/files/files/2%20Phase%20contrast.pdf}{'Phase-contrast imaging in the EM'}, what happens when the B factor is negative versus positive?
+	\item In practice, on the scope, the CTF is easier to see in an FFT if you are at high mag. Why? Can you relate this back to the math? How is magnification playing into the equation?
+	\item Can you tell the difference between underfocus and overfocus by eye? Try putting what you see into words? Why do they look different?
+	\item As defined in equation 11 in \href{https://cryoemprinciples.yale.edu/sites/default/files/files/2%20Phase%20contrast.pdf}{'Phase-contrast imaging in the EM'}, what physical behaviour is involved in this B factor? What other factors of B are there in cryoEM and what physical behaviour is involved in those B factors? Why are they all called B-factors?
+	\item With reference to equation 11 in \href{https://cryoemprinciples.yale.edu/sites/default/files/files/2%20Phase%20contrast.pdf}{'Phase-contrast imaging in the EM'}: "B has units of nm$^2$ or $ \AA^2$ and is called the 'B-factor' or 'envelope factor'. Good cryo-EM images have B values of $50-100 \AA^2$, but even these values are not so ideal. At $B = 100  \AA^ 2$ spatial frequencies of $5 \AA^2$ are attenuated to 1/e of their original amplitude, and higher spatial frequencies are attenuated even more". Go to 'ip\_basics\_part7' and play with B. Is there agreement between the B factor explanation and the interactive notebook? Take a closer look at how the interactive notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/blob/master/binder/hri_practical01/shared/misc.py#L757}{codes up the B factor} and what pixel size is used/assumed.
+	\item Play with the amplitude contrast. Do you 'want' more or less amplitude contrast? If the amplitude contrast is off, how will this effect CTF fitting? Can you think of a good reason why many CTF estimators do not fit amplitude contrast? If you are unsure as to the amplitude contrast, what should you do?
+	\item Play around with 'plot\_ctf\_img\_interactive' in Question 4 of 'ip\_basics\_part7'. Turn on 'ctf\_multiply'. Can you see how the information is delocalized more when the defocus increases? How defocused can the image get? Where does the information delocalize to? When collecting data on a real micrograph (versus computationally applying the CTF to a synthetic image the size of a particle), what issues would you have?
+\end{enumerate}
+
 
 \end{document}  
