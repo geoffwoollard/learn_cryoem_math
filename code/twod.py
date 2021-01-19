@@ -279,6 +279,7 @@ def do_2d_align_poisson(X,
   LL = np.zeros((n_A_updates,small_N))
   A_nexts = np.zeros((n_A_updates,) + A_next.shape)
   n_pixels = (~bool_circle_mask).sum() 
+  gis = np.zeros((n_A_updates,small_N,angles))
 
   if stats == 'gaussian':
       sigma = noise_param_d['sigma']
@@ -289,7 +290,7 @@ def do_2d_align_poisson(X,
 
   extra_plot_n=4
   for obj in [A,X_aligned]:
-    if obj is None: plot_n -= 1
+    if obj is None: extra_plot_n -= 1
 
   if do_plot: fig, axes = plt.subplots(min(10,small_N)+extra_plot_n, n_A_updates,figsize=figsize)
 
@@ -367,6 +368,7 @@ def do_2d_align_poisson(X,
       Ki = log_gi_align.max()
       log_gi_align_stable = log_gi_align - Ki
       gi_stable = np.exp(log_gi_align_stable, dtype=np.float128)
+      gis[c,i,:] = gi_stable
      
       timer('Ui',do_time_loop)
       # Ui
@@ -431,8 +433,11 @@ def do_2d_align_poisson(X,
       if noise_param_d['do_update_sigma']: sigma = sigma_update
 
     if do_plot: 
-      axes[r+1,c].imshow(X[:small_N].mean(0),cmap='gray') ; axes[r+1,c].set_axis_off()
-      if X_aligned is not None: axes[r+2,c].imshow(X_aligned[:small_N].mean(0),cmap='gray') ; axes[r+2,c].set_axis_off()
-      if A is not None: axes[r+3,c].imshow(A,cmap='gray') ; axes[r+3,c].set_axis_off()
+      r+=1 ; axes[r,c].imshow(X[:small_N].mean(0),cmap='gray') ; axes[r,c].set_axis_off()
+      if X_aligned is not None: 
+        r+=1; axes[r,c].imshow(X_aligned[:small_N].mean(0),cmap='gray') ; axes[r,c].set_axis_off()
+
+      if A is not None: 
+        r+=1 ; axes[r,c].imshow(A,cmap='gray') ; axes[r,c].set_axis_off()
 
   return(A_nexts)
