@@ -18,6 +18,7 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 ## Online Resources
 * Jensen, G. J. (2014). Getting Started in Cryo-EM. Retrieved from http://cryo-em-course.caltech.edu/videos
    * Recommended place to start for total beginners. Coursera style.
+* MRC-LMB Electron Cryo-microscopy Course 2017 (recorded lectures). Retrieved from https://www2.mrc-lmb.cam.ac.uk/research/scientific-training/electron-microscopy/
 * Jensen, G. J., & Vos, M. (2020). Electron Microscopy University. Retrieved from https://em-learning.com/
   * 70 hours of videos. From intro to very advanced. Theoretical white board lectures and videos of someone operating the microscope. Includes important concepts hard to find elsewhere (vacuum theory, heuristics of data collection / experimental design).
 * Sigworth, F., & Tagare, H. (2020). Cryo-EM Principles. Retrieved from https://cryoemprinciples.yale.edu/
@@ -87,6 +88,13 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Silvestrov, D. (2014). Lecture 10 : Characteristic Functions.
 * Eriksson, J., Ollila, E., & Koivunen, V. (2009). Statistics for complex random variables revisited. In 2009 IEEE International Conference on Acoustics, Speech and Signal Processing (Vol. 2, pp. 3565–3568). IEEE. http://doi.org/10.1109/ICASSP.2009.4960396
 * Wikipedia. (2020). Complex Random Variable. Retrieved from https://en.wikipedia.org/wiki/Complex_random_variable
+
+### Machine Learning (incl. general statistics / probability theory & related topics)
+* Duda RO, Hart PE, Stork DG. (2000) Pattern Classification. John Wiley & Sons.
+  * a somewhat dated view on machine learning & pattern recognition, but nevertheless a good introduction to the basic algorithms. 
+* MacKay DJC. (2003) Information Theory, Inference, and Learning Algorithms. Cambridge University Press. http://www.inference.org.uk/mackay/itila/book.html (free PDF download)
+* Bishop CM. (2006) Pattern Recognition and Machine Learning. Springer Berlin / Heidelberg
+* Hastie T, Tibshirani R, Friedman J. (2008) The Elements of Statistical Learning: Data Mining, Inference, and Prediction. https://web.stanford.edu/~hastie/ElemStatLearn/ (free PDF download)
 
 ## Physics (electon optics, lenses, detector)
 * Shaw, R. (1978). Evaluating the efficient of imaging processes. Reports on Progress in Physics, 41(7), 1103–1155. http://doi.org/10.1088/0034-4885/41/7/003
@@ -158,9 +166,10 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Tagare, H. D., Barthel, A., & Sigworth, F. J. (2010). An adaptive Expectation–Maximization algorithm with GPU implementation for electron cryomicroscopy. Journal of Structural Biology, 171(3), 256–265. http://doi.org/10.1016/j.jsb.2010.06.004
 * Scheres, S. H. W. (2010). Classification of Structural Heterogeneity by Maximum-Likelihood Methods. In Methods in Enzymology (1st ed., Vol. 482, pp. 295–320). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82012-9
 * Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305–325).
-  * Superb! Very good place to start. Very pedagogical treamtment and motivation of the EM algorithm, in real space under Gaussian stats. 1D case (shifts) discussed first to motivate 2D case (shits and rotation). Care taken to explain what the motation means (subscripts, what is a vector, what is a scalar, etc.). Notebooks used to make the textbook are available on this repo by permission from the authors. 
+  * Superb! Very good place to start. Very pedagogical treatment and motivation of the EM algorithm, in real space under Gaussian stats. 1D case (shifts) discussed first to motivate 2D case (shits and rotation). Care taken to explain what the motation means (subscripts, what is a vector, what is a scalar, etc.). Notebooks used to make the textbook are available on this repo by permission from the authors. 
   
 ### Resolution (FSC, SSNR, etc)
+* Harauz G, van Heel M. (1986) Exact filters for general geometry three dimensional reconstruction. Optik (Stuttg) 4: 146-156.
 * Penczek, P. A. (2010). Resolution Measures in Molecular Electron Microscopy. In Methods in Enzymology (1st ed., Vol. 482, pp. 73–100). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82003-8
 * Kucukelbir, A., Sigworth, F. J., & Tagare, H. D. (2014). Quantifying the local resolution of cryo-EM density maps. Nature Methods, 11(1), 63–65. http://doi.org/10.1038/nmeth.2727
 * Penczek, P. A. (2020). Reliable cryo-EM resolution estimation with modified Fourier shell correlation. IUCrJ, 7(6), 1–14. http://doi.org/10.1107/s2052252520011574
@@ -168,20 +177,23 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * van Heel, M., & Schatz, M. (2020). Information: to Harvest, to Have and to Hold, 1–43.
 
 ### Ewald Sphere
+* Wolf M, DeRosier DJ, Grigorieff N. (2006) Ewald sphere correction for single-particle electron microscopy. Ultramicroscopy 4-5: 376-82.
 * Leong, P. A., Yu, X., Zhou, Z. H., & Jensen, G. J. (2010). Correcting for the Ewald Sphere in High-Resolution Single-Particle Reconstructions. In Methods in Enzymology (1st ed., Vol. 482, pp. 369–380). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82015-4
+* Russo CJ, Henderson R. (2018) Ewald sphere correction using a single side-band image processing algorithm. Ultramicroscopy: 26-33.
 
 ### Variational Autoencoders
 * Doersch, C. (2016). Tutorial on Variational Autoencoders, 1–23.
 * Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., & Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
 * Zhong, E. D., Bepler, T., Davis, J. H., & Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images, 1–20.
 * Miolane, N., Poitevin, F., Holmes, S., & Li, Y. T. (2019). Estimation of orientation and camera parameters from cryo-electron microscopy images with variational autoencoders and generative adversarial networks. ArXiv.
-  * Ribosome (one simulated dataset in same 2D pose, three emprical datasets from differetne 2D classes) analyzed with a VAE-GAN architecture. In latent space, defocus and rotations are disentagled (in unsupervised way).
+  * Ribosome (one simulated dataset in same 2D pose, three empirical datasets from different 2D classes) analyzed with a VAE-GAN architecture. In latent space, defocus and rotations are disentagled (in unsupervised way).
+  
 ### Reconstruction
 * Ludike, S. J., & Wah Chiu. (2002). Image restoration in sets of noisy electron micrographs. In Proceedings IEEE International Symposium on Biomedical Imaging (pp. 745–748). IEEE. http://doi.org/10.1109/ISBI.2002.1029365
 * Penczek, P. A. (2010). Fundamentals of Three-Dimensional Reconstruction from Projections. In Methods in Enzymology (1st ed., Vol. 482, pp. 1–33). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82001-4
 * Penczek, P. A. (2010). Image restoration in cryo-electron microscopy. Methods in Enzymology (1st ed., Vol. 482). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82002-6
 
-## Tomgraphy
+## Tomography
 * Natterer, F. (1986). VII: Mathematical Tools. In The Mathematics of Computerized Tomography (pp. 180–212).
   * Terse notation requires familiarity with domain and mathematical symbols.
 * Block, W. (2004). Computed Tomography Notes, Part 1 Challenges with Projection X-ray Systems. Retrieved from https://www.medphysics.wisc.edu/~block/bme530lectures/ct1.pdf
