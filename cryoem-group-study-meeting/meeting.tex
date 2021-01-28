@@ -146,28 +146,17 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \section{Upcoming Meetings}
 
 \pagebreak
-\subsection{21 Jan 2021 - Sharpen - Phase-contrast in the EM}
-\textendash{Pre-reading}
-\begin{itemize}
-	\item  Philippsen et al. 2007. "The contrast-imaging function for tilted specimens" \url{https://www.sciencedirect.com/science/article/pii/S0304399106001525}
-	\item Voortman et al. 2011. "A fast algorithm for computing and correcting the CTF for tilted, thick specimens in TEM" \url{https://www.sciencedirect.com/science/article/pii/S0304399111000878}
-	\item Voortman et al. 2012. "Fast, spatially varying CTF correction in TEM" \url{https://pubmed.ncbi.nlm.nih.gov/22728402/}	
-\end{itemize}
-%\textendash {Questions}
-%\begin{itemize}
-%	\item 
-%\end{itemize}
-
-\pagebreak
 \subsection{28 Jan 2021 - Blur - Image Formation (Forward Model)}
 \textendash{Pre-reading}
 \begin{itemize}
 	\item \href{https://youtu.be/tzv5c5K7MEk?t=4690}{NCCAT SPA short course 2020, Lecture 4: Algorithms and foundational math Part I \& 2, Fred Sigworth} (1:18:10 - 1:28:46, ~10 min)
 	\end{itemize}
 \textendash {Questions}
-\begin{itemize}
-	\item How is real noise different from Gaussian additive noise? What makes it different? If particles come from different types of grids (thin continuous carbon, single layer graphene) can they be combined into one large dataset to solve a structure? Why don't researchers pool different datasets of the same particle (e.g. from different EMPIAR entries) to solve a high resolution structure with tens of millions of particles?
-\end{itemize}
+\begin{enumerate}
+	\item How is real noise different from Gaussian additive noise? What makes it different? 
+	\item  If particles come from different types of grids (thin continuous carbon, single layer graphene) can they be combined into one large dataset to solve a structure?
+	\item Why don't researchers pool different datasets of the same particle (e.g. from different EMPIAR entries) to solve a high resolution structure with tens of millions of particles?
+\end{enumerate}
 
 \subsection{4 Feb 2021 - Sharpen - Image Formation (Forward Model), Multislice}
 \textendash{Pre-reading}
@@ -179,10 +168,11 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 	\item 6.4 The Multislice Solution in 'Advanced Computing in Electron Microscopy', Kirkland (2000), pp. 162-165
 \end{itemize}
 \textendash {Questions}
-\begin{itemize}
+\begin{enumerate}
 	\item Equation 7 in Vulovi\'{c} et al. shows the DQE/NTF being applied. In practice, the DQE/MTF/NTF is often plotted in 1D in papers. What would be the difference between doing the convolution of the DQE/NTF in 2D versus 1D?
-	\item Eqation 5 in Vulovi\'{c} et al. shows the 'complex CTF'. What is the difference between this and the $\sin$ CTF that is often used? When is it appropriate to use one versus the other treatment?
-\end{itemize}
+	\item Equation 5 in Vulovi\'{c} et al. shows the 'complex CTF'. What is the difference between this and the $\sin$ CTF that is often used? When is it appropriate to use one versus the other treatment?
+	\item Simpler models assume additive gaussian noise and pixel independence, for instance see \href{https://youtu.be/tzv5c5K7MEk?t=4690}{NCCAT SPA short course 2020, Lecture 4: Algorithms and foundational math Part I \& 2, Fred Sigworth} (1:18:10 - 1:28:46, ~10 min). Is this the case in Vulovi\'{c} et al.? If so, what sorts of models would break the pixel independence? 
+\end{enumerate}
 
 \pagebreak
 \subsection{11 Feb 2021 - Blur - 2D Expectation-maximization}
@@ -429,5 +419,16 @@ By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogal
 	\item Play around with 'plot\_ctf\_img\_interactive' in Question 4 of 'ip\_basics\_part7'. Turn on 'ctf\_multiply'. Can you see how the information is delocalized more when the defocus increases? How defocused can the image get? Where does the information delocalize to? When collecting data on a real micrograph (versus computationally applying the CTF to a synthetic image the size of a particle), what issues would you have?
 \end{enumerate}
 
+\subsection{21 Jan 2021 - Sharpen - Phase-contrast in the EM}
+\textendash{Pre-reading}
+\begin{itemize}
+	\item  Philippsen et al. 2007. "The contrast-imaging function for tilted specimens" \url{https://www.sciencedirect.com/science/article/pii/S0304399106001525}
+	\item Voortman et al. 2011. "A fast algorithm for computing and correcting the CTF for tilted, thick specimens in TEM" \url{https://www.sciencedirect.com/science/article/pii/S0304399111000878}
+	\item Voortman et al. 2012. "Fast, spatially varying CTF correction in TEM" \url{https://pubmed.ncbi.nlm.nih.gov/22728402/}	
+\end{itemize}
+%\textendash {Questions}
+%\begin{itemize}
+%	\item 
+%\end{itemize}
 
 \end{document}  
