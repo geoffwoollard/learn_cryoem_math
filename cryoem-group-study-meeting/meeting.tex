@@ -158,20 +158,23 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 	\item Why don't researchers pool different datasets of the same particle (e.g. from different EMPIAR entries) to solve a high resolution structure with tens of millions of particles?
 \end{enumerate}
 
+\pagebreak
 \subsection{4 Feb 2021 - Sharpen - Image Formation (Forward Model), Multislice}
 \textendash{Pre-reading}
-\begin{itemize}
+\begin{enumerate}
 	\item Section '2. Theory' in Vulovi\'{c}, M., Ravelli, R. B. G., van Vliet, L. J., Koster, A. J., Lazi\'{c}, I., L\"ocken, U., Rieger, B. (2013). Image formation modeling in cryo-electron microscopy. Journal of Structural Biology, 183(1), 19?32. \url{http://doi.org/10.1016/j.jsb.2013.05.008}
 	\begin{itemize}
 		\item Supplementary material associated with the article (18 pages)
 	\end{itemize}
 	\item 6.4 The Multislice Solution in 'Advanced Computing in Electron Microscopy', Kirkland (2000), pp. 162-165
-\end{itemize}
+	\item Theory' section in Koeck, P. J. B., \& Karshikoff, A. (2015). Limitations of the linear and the projection approximations in three-dimensional transmission electron microscopy of fully hydrated proteins. Journal of Microscopy, 259(3), 197?209. \url{http://doi.org/10.1111/jmi.12253}
+\end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
 	\item Equation 7 in Vulovi\'{c} et al. shows the DQE/NTF being applied. In practice, the DQE/MTF/NTF is often plotted in 1D in papers. What would be the difference between doing the convolution of the DQE/NTF in 2D versus 1D?
 	\item Equation 5 in Vulovi\'{c} et al. shows the 'complex CTF'. What is the difference between this and the $\sin$ CTF that is often used? When is it appropriate to use one versus the other treatment?
-	\item Simpler models assume additive gaussian noise and pixel independence, for instance see \href{https://youtu.be/tzv5c5K7MEk?t=4690}{NCCAT SPA short course 2020, Lecture 4: Algorithms and foundational math Part I \& 2, Fred Sigworth} (1:18:10 - 1:28:46, ~10 min). Is this the case in Vulovi\'{c} et al.? If so, what sorts of models would break the pixel independence? 
+	\item Simpler models assume additive gaussian noise and pixel independence, for instance see \href{https://youtu.be/tzv5c5K7MEk?t=4690}{NCCAT SPA short course 2020, Lecture 4: Algorithms and foundational math Part I \& 2, Fred Sigworth} (1:18:10 - 1:28:46, ~10 min). Is this the case in Vulovi\'{c} et al.? If so, what sorts of models would break the pixel independence?
+	\item For the sake of argument, let's say that our goal is to use more accurate forward models (multislice based, higher order series expansions phase and amplitude object), instead of projection. In practice, how would one go about doing 3D reconstruction with these more accurate forward models? What would be the computational bottlenecks in doing so?
 \end{enumerate}
 
 \pagebreak
