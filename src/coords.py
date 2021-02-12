@@ -45,3 +45,5 @@ def EA_to_R3 (phi, theta, psi=None):
         R = np.dot(R, R_in);
 
     return R
+
+def deg_to_rad(deg): return(deg*np.pi/180)
