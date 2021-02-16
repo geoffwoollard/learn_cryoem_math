@@ -70,7 +70,9 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=True):
   '''
   we apply an alterating +1/-1 multiplicative before we go to/from Fourier space. 
   Later we apply this again to the transform.
+  TODO: look into pyfftw.interfaces.numpy_fft.irfftn
   '''
+
   assert arr2d.ndim == 2
   n1,n2 = arr2d.shape
   assert n1==n2
