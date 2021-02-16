@@ -252,7 +252,9 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 
 \textendash {Questions}
 \begin{itemize}
-	\item Code up your own implementation of some sort of interpolation, that works in a similar way as \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}, ie data point coordinates, data values (at those coordinates), and points at which to interpolate data. What is the bottle neck? How would you speed it up? 
+	\item Take a look at \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}. When we are interpolating in Fourier space in 3D, what is points, values, and xi? How big are they?
+	\item Does interpolating with complex numbers cause any problems?
+	\item Search through the code of some cryoEM software packages and find where they are doing interpolation. You could look for the forward model (simulating data) or for the interpolating of the 3D Fourier map before taking the inverse Fourier transform to get the map in real space. What are the dimensions? Can you tell if it is linear interpolation, or some other method?
 \end{itemize}
 
 \subsection{18 March 2021 - Sharpen - Interpolation}
@@ -265,7 +267,8 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 
 \textendash {Questions}
 \begin{itemize} 
-	\item Go through the \href{source}{https://github.com/scipy/scipy/blob/v1.5.4/scipy/interpolate/interpnd.pyx} of \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} . What is the bottle neck for interpolation?
+	\item Go through the \href{source}{https://github.com/scipy/scipy/blob/v1.5.4/scipy/interpolate/interpnd.pyx} of \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} . What is the bottle neck for interpolation? You can try to read through the code, and also empirically benchmark things (e.g. sample a 2D or 3D Gaussian, which will give you real values, then compute the Gaussian function at these points, and interpolate on a cartesian grid at a specified granularity).
+	\item Code up your own implementation of some sort of interpolation, that works in a similar way as \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}, ie data point coordinates, data values (at those coordinates), and points at which to interpolate data. What is the bottle neck? How would you speed it up? 
 	\item Investigate how sensitive  \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} is to noise, by sampling a function, corrupting it with noise, and seeing how smooth things have to be for the interpolation to work out well. Can you find a situation where there are pathologies? 
 \end{itemize}
 
