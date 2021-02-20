@@ -19,7 +19,8 @@ def coords_n_by_d(coords_1d=None,N=None,d=3):
     X = np.meshgrid(coords_1d,coords_1d,coords_1d)
   coords = np.zeros((X[0].size,d))
   for di in range(d):
-    coords[di] = X[di].flatten()
+    coords[:,di] = X[di].flatten()
+  if d == 3: coords[:,[0,1]] = coords[:,[1,0]]
 
   return(coords)
 
