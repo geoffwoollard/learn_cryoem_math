@@ -73,10 +73,10 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch
   TODO: look into pyfftw.interfaces.numpy_fft.irfftn
   '''
 
-  assert (arr2d.ndim == 2) or (batch and arr2d.ndim == 3)
+  assert (arr2d.ndim == 2 and not batch) or (batch and arr2d.ndim == 3)
   n1,n2 = arr2d.shape[-2:]
   assert n1==n2
-  arr2d = neg_pos(arr2d.copy()).reshape(-1,n1,n1)
+  arr2d = neg_pos(arr2d.reshape(-1,n1,n1).copy())
   
   if mode=='f':
     arr2d_f = numpy_fft.fftn(arr2d,axes=(-2,-1))
