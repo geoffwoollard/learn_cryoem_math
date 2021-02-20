@@ -74,9 +74,9 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch
   '''
 
   assert arr2d.ndim == 2 or batch
-  n1,n2 = arr2d.shape
+  n1,n2 = arr2d.shape[-2:]
   assert n1==n2
-  arr2d = neg_pos(arr2d.copy())
+  arr2d = neg_pos(arr2d.copy(),batch=batch)
   
   if mode=='f':
     arr2d_f = numpy_fft.fftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
@@ -87,7 +87,7 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch
 
   if only_real: arr2d_f = arr2d_f.real
   
-  arr2d_f = neg_pos(arr2d_f.reshape(n1,n1).copy())
+  arr2d_f = neg_pos(arr2d_f.reshape(n1,n1).copy(),,batch=batch)
   return(arr2d_f)
 
 def do_fft(arr2d,**kwargs):
@@ -97,15 +97,23 @@ def do_ifft(arr2d,**kwargs):
   return(fft2d(arr2d,mode='i',only_real=True,**kwargs))
 
 @jit
-def neg_pos(arr2d):
+def neg_pos(arr2d,batch):
   '''
   each pixel switches from positive to negative in checker board pattern
   '''
-  assert arr2d.ndim == 2
-  for r in range(arr2d.shape[0]):
-    for c in range(arr2d.shape[1]):
-      if (r+c)%2:
-        arr2d[r,c] *= -1
+  if arr2d.ndim == 2:
+    for r in range(arr2d.shape[0]):
+      for c in range(arr2d.shape[1]):
+        if (r+c)%2:
+          arr2d[r,c] *= -1
+  elif batch and arr2d.ndim == 3:
+    for n_particle in range(arr2d.shape[1]):
+      for r in range(arr2d.shape[1]):
+        for c in range(arr2d.shape[2]):
+          if (r+c)%2:
+            arr2d[n_particle,r,c] *= -1
+  else:
+    assert False
   return(arr2d)
 
 
