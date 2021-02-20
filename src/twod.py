@@ -87,7 +87,7 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch
 
   if only_real: arr2d_f = arr2d_f.real
   
-  arr2d_f = neg_pos(arr2d_f.reshape(n1,n1).copy(),,batch=batch)
+  arr2d_f = neg_pos(arr2d_f.reshape(n1,n1).copy(),batch=batch)
   return(arr2d_f)
 
 def do_fft(arr2d,**kwargs):
