@@ -66,22 +66,23 @@ def do_1dplot(arr,idx=None,**kwargs):
 def log_abs(arr):
   return(np.log(1+np.abs(arr)))
 
-def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=True):
+def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch=False):
   '''
   we apply an alterating +1/-1 multiplicative before we go to/from Fourier space. 
   Later we apply this again to the transform.
   TODO: look into pyfftw.interfaces.numpy_fft.irfftn
   '''
 
-  assert arr2d.ndim == 2
+  assert arr2d.ndim == 2 or batch
   n1,n2 = arr2d.shape
   assert n1==n2
   arr2d = neg_pos(arr2d.copy())
-  arr2d_f = numpy_fft.fftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
-
+  
   if mode=='f':
+    arr2d_f = numpy_fft.fftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
     arr2d_f /= n1
   elif mode=='i':
+    arr2d_f = numpy_fft.ifftn(arr2d.reshape(-1,n1,n1),axes=(-2,-1))
     arr2d_f *= n1
 
   if only_real: arr2d_f = arr2d_f.real
@@ -90,10 +91,10 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=True):
   return(arr2d_f)
 
 def do_fft(arr2d,**kwargs):
-  return(fft2d(arr2d,mode='f',**kwargs))
+  return(fft2d(arr2d,mode='f',only_real=False,**kwargs))
 
 def do_ifft(arr2d,**kwargs):
-  return(fft2d(arr2d,mode='i',**kwargs))
+  return(fft2d(arr2d,mode='i',only_real=True,**kwargs))
 
 @jit
 def neg_pos(arr2d):
