@@ -87,7 +87,7 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch
 
   if only_real: arr2d_f = arr2d_f.real
   
-  arr2d_f = neg_pos(arr2d_f.reshape(n1,n1).copy(),batch=batch)
+  arr2d_f = neg_pos(arr2d_f.copy(),batch=batch)
   return(arr2d_f)
 
 def do_fft(arr2d,**kwargs):
@@ -101,7 +101,9 @@ def neg_pos(arr2d,batch):
   '''
   each pixel switches from positive to negative in checker board pattern
   '''
-  if arr2d.ndim == 2:
+  if not batch:
+    N = int(np.sqrt(arr2d.size))
+    arr2d = arr2d.reshape(N,N)
     for r in range(arr2d.shape[0]):
       for c in range(arr2d.shape[1]):
         if (r+c)%2:
