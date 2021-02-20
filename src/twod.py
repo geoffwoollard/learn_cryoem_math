@@ -108,7 +108,7 @@ def neg_pos(arr2d,batch):
   #     for c in range(arr2d.shape[1]):
   #       if (r+c)%2:
   #         arr2d[r,c] *= -1
-  assert arr2d.ndim == 3: # extra axis
+  assert arr2d.ndim == 3 # extra axis
     for n_particle in range(arr2d.shape[0]):
       for r in range(arr2d.shape[1]):
         for c in range(arr2d.shape[2]):
