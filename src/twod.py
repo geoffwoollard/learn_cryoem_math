@@ -101,15 +101,15 @@ def neg_pos(arr2d,batch):
   '''
   each pixel switches from positive to negative in checker board pattern
   '''
-  if not batch:
-    N = int(np.sqrt(arr2d.size))
-    arr2d = arr2d.reshape(N,N)
-    for r in range(arr2d.shape[0]):
-      for c in range(arr2d.shape[1]):
-        if (r+c)%2:
-          arr2d[r,c] *= -1
-  elif batch and arr2d.ndim == 3:
-    for n_particle in range(arr2d.shape[1]):
+  # if not batch:
+  #   N = int(np.sqrt(arr2d.size))
+  #   arr2d = arr2d.reshape(N,N)
+  #   for r in range(arr2d.shape[0]):
+  #     for c in range(arr2d.shape[1]):
+  #       if (r+c)%2:
+  #         arr2d[r,c] *= -1
+  assert arr2d.ndim == 3: # extra axis
+    for n_particle in range(arr2d.shape[0]):
       for r in range(arr2d.shape[1]):
         for c in range(arr2d.shape[2]):
           if (r+c)%2:
