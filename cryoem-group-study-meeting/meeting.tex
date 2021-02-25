@@ -61,7 +61,7 @@ Here are some resources from \url{khanacademy.org} for brushing up on your math
 	\item \href{https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library}{Unit: Random variables}
 \end{enumerate}
 
-There is also a great series from \href{https://www.youtube.com/c/3blue1brown}{3Blue1Brown} on \href{https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab}{The Essence of Linear Algebra}, focusing on visual intuition of  linear transformations.
+There is also a great series from \href{https://www.youtube.com/c/3blue1brown}{3Blue1Brown} on \href{https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab}{The Essence of Linear Algebra}, focusing on visual intuition of  linear transformations; and the \href{https://youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr}{Essence of calculus}: "The goal here is to make calculus feel like something that you yourself could have discovered."
 
 \subsubsection{Physics}
 \begin{itemize}
@@ -159,23 +159,7 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \section{Upcoming Meetings}
 
 \pagebreak
-\subsection{18 Feb 2021 - Sharpen - 2D Expectation-maximization}
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item Eddy, S. R. (2004). What is Bayesian statistics? Nature Biotechnology, 22(9), 1177?1178. \url{http://doi.org/10.1038/nbt0904-1177}
-	\item \href{https://repository.upenn.edu/cgi/viewcontent.cgi?article=1665&context=physics_papers}{Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305?325).}
-	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 2 - 2D/3D reconstruction'} in the High-resolution imaging course at TUDelft.
-\end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item The primer on Bayesian statistics by S. Eddy concludes: "Using Bayesian methods, we can instead integrate over varying degrees of uncertainty in different aspects of the analysis." What is uncertain in the different aspects of cryoEM analysis? What would be good priors for each of these aspects? In practice, are people taking into account the uncertainty of these parameters, or using point estimates? Why?
-	\item Some popular cryoEM software does 2D classification in Fourier space. Why do these equations work in Fourier space? What would have to be changed?
-	\item In Nelson's treatment, there was only one 2D class. To do multiple classes, what would have to be changed? What is happening during a typical 2D classification 'round'? What is constant during a round and what is updated between rounds?
-	\item How does a prior affect the Log loss function? What functional forms of the priors are convenient for optimization, and what is their interpretation in terms of probability?
-	\item It can be shown that iid Gaussian additive noise in real space is also Gaussian additive noise in Fourier space. See \href{https://dsp.stackexchange.com/questions/24170/what-are-the-statistics-of-the-discrete-fourier-transform-of-white-gaussian-nois}{this dsp.stackexchange.com post} for example. Try to generalize this somehow. What happens for iid Gaussian additive noise that is radially dependent in Fourier space, or pixel dependent in real space?
-\end{enumerate}
 
-\pagebreak
 
 \subsection{25 Feb 2021 - Blur - Coordinate Systems \& Rotations}
 \textendash{Pre-reading}
@@ -456,5 +440,21 @@ By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogal
 %\begin{itemize}
 %	
 %\end{itemize}
+
+\subsection{18 Feb 2021 - Sharpen - 2D Expectation-maximization}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Eddy, S. R. (2004). What is Bayesian statistics? Nature Biotechnology, 22(9), 1177?1178. \url{http://doi.org/10.1038/nbt0904-1177}
+	\item \href{https://repository.upenn.edu/cgi/viewcontent.cgi?article=1665&context=physics_papers}{Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305?325).}
+	\item Interactive coding notebook \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{'Practical 2 - 2D/3D reconstruction'} in the High-resolution imaging course at TUDelft.
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item The primer on Bayesian statistics by S. Eddy concludes: "Using Bayesian methods, we can instead integrate over varying degrees of uncertainty in different aspects of the analysis." What is uncertain in the different aspects of cryoEM analysis? What would be good priors for each of these aspects? In practice, are people taking into account the uncertainty of these parameters, or using point estimates? Why?
+	\item Some popular cryoEM software does 2D classification in Fourier space. Why do these equations work in Fourier space? What would have to be changed?
+	\item In Nelson's treatment, there was only one 2D class. To do multiple classes, what would have to be changed? What is happening during a typical 2D classification 'round'? What is constant during a round and what is updated between rounds?
+	\item How does a prior affect the Log loss function? What functional forms of the priors are convenient for optimization, and what is their interpretation in terms of probability?
+	\item It can be shown that iid Gaussian additive noise in real space is also Gaussian additive noise in Fourier space. See \href{https://dsp.stackexchange.com/questions/24170/what-are-the-statistics-of-the-discrete-fourier-transform-of-white-gaussian-nois}{this dsp.stackexchange.com post} for example. Try to generalize this somehow. What happens for iid Gaussian additive noise that is radially dependent in Fourier space, or pixel dependent in real space?
+\end{enumerate}
 
 \end{document}  
