@@ -14,7 +14,7 @@ def make_neg_pos_3d(arr3d):
           neg_pos_3d[r1,r2,r3] *= -1.0
   return(neg_pos_3d)
 
-def fft3d(arr3d,mode,neg_pos_3d=None,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=True):
+def fft3d(arr3d,mode,neg_pos_3d=None,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False):
   if neg_pos_3d is None:
     neg_pos_3d = make_neg_pos_3d(arr3d)
   if arr3d.shape[0]%4 != 0:
@@ -33,10 +33,10 @@ def fft3d(arr3d,mode,neg_pos_3d=None,numpy_fft=pyfftw.interfaces.numpy_fft,only_
   arr3d_f *= neg_pos_3d
   return(arr3d_f)
 
-def do_fft(arr3d,d=3,**kwargs):
+def do_fft(arr3d,d=3,only_real=False,**kwargs):
   assert d == 3, 'only 3d implemented'
   return(fft3d(arr3d,mode='f',**kwargs))
 
-def do_ifft(arr3d,d=3,**kwargs):
+def do_ifft(arr3d,d=3,only_real=True,**kwargs):
   assert d == 3, 'only 3d implemented'
   return(fft3d(arr3d,mode='i',**kwargs))
