@@ -113,7 +113,7 @@ Th 25 Feb 2021 & \tiny{8 AM PST} & blur & coordinate systems \& rotations  \\
  \hline
  Th 4 March 2021 & \tiny{8 AM PST} & sharpen & coordinate systems \& rotations  \\ 
  \hline
-Th 11 March 2021 & \tiny{8 AM PST} & blur & interpolation  \\ 
+Th 11 March 2021 & \tiny{7:30 AM PST} & blur & interpolation  \\ 
  \hline
  Th 18 March 2021 & \tiny{8 AM PST} & sharpen & interpolation  \\ 
  \hline
@@ -157,60 +157,39 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{4 March 2021 - Sharpen - Coordinate Systems \& Rotations}
-\textendash{Pre-reading}
-\begin{itemize}
-	\item \href{https://www.coursera.org/lecture/robotics-flight/axis-angle-representations-for-rotations-4hTtQ}{Axis/Angle Representations for Rotations}
-	\item \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4. Orthogonal Transformations and Rotations in Mathematical Techniques in Structural Biology, pp. 25-31}
-    	\item \href{https://youtu.be/d4EgbgTm0Bg}{Visualizing quaternions (4d numbers) with stereographic projection}
-	\item \href{https://youtu.be/zjMuIxRvygQ}{Quaternions and 3d rotation, explained interactively}
-	\item \href{https://eater.net/quaternions/}{Visualizing quaternions An explorable video series}
-	\item \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Wiki: Quaternions and spatial rotation}
-\end{itemize}
-\textendash {Questions}
-\begin{itemize}
-	\item all problems from \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4.5 Problems in {\it Mathematical Techniques in Structural Biology},  pp. 30-31}
-	\item Go to the \href{https://eater.net/quaternions/video/doublecover}{doublecover} interactive, and select the 4D tab on the bottom. Find the quaternion that corresponds to a rotation of 90 deg in the cw direction about the z axis.
-	\item Quaterions can be used to describe the rotation of the point $ r= \langle r_x,r_y,r_x \rangle \in \mathbb{R}^3$ about angle $\theta$ in the direction of vector $\langle q_x,q_y,q_z \rangle$ as follows. $p_{rotated} = q*p*q^{-1}$, where $q = \langle \cos(\theta/2),q_x\sin(\theta/2),q_y\sin(\theta/2),q_j\sin(\theta/2)\rangle$ and \\ $q^{-1}=\langle \cos(-\theta/2),q_x\sin(-\theta/2),q_y\sin(-\theta/2),q_z\sin(-\theta/2) \rangle$ encode the rotation; $\vec r$ is represented as the quaternion $p=(0,r_x,r_y,r_z)$. Question: using pencil and paper, compute the rotation of the point $ r=\langle1,0,0\rangle$ about the z-axis by $\theta=180^{\circ}$ (ccw or cw, it's the same for this angle). Do you get $r=\langle-1,0,0\rangle$? You will have to use the quaternion multiplication table ($ij=k$, etc.), and know how to interconvert quaternions to cartesian 3D vectors.
-	\item Study the sections \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion to and from the matrix representation}{Conversion to and from the matrix representation} and \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Performance_comparisons}{Performance comparisons} on the wiki page for \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Quaternions and spatial rotation}. If we want to rotate many xyz points in space with a 3D rotation, what is the efficient way to do this? Taking into account interconversions between different rotation conventions (Euler angles, rotation matrices, axis-angle, and quaternions) how should we efficiently store rotations versus do rotations?
-	\item Besides storing and doing rotations, we have to search over rotations. Wikipedia has a section on \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Differentiation_with_respect_to_the_rotation_quaternion}{Differentiation with respect to the rotation quaternion}. Unpack the equation for $\frac{\partial {\bf p'}}{\partial {\bf q}}$. Would this equation ever be useful in cryoEM? When would we want to estimate the rotation by optimization, and how would we do so with this equation?
-%	In some scenarios, it may be useful to compute the gradient of a rotation, wrt
-%	
-%	If one uses Euler angles to parametrize rotations in cryoEM reconstruction, one can find the alignment of a particle by minimizing (by following the gradient), for instance, the L2 loss of the raw particle and the predicted projection, wrt each Euler angle. If  
-	
-\end{itemize}
-
 \pagebreak
 
 \subsection{11 March 2021 - Blur - Interpolation}
 \textendash{Pre-reading}
-\begin{itemize}
+\begin{enumerate}
 	\item \href{https://youtu.be/AqscP7rc8_M}{2016. Resizing Images - Computerphile} (bilinear and nearest-neighbour interpolation)
 	\item \href{https://youtu.be/poY_nGzEEWM}{2016. Bicubic Interpolation - Computerphile}
 	\item \url https://en.wikipedia.org/wiki/Interpolation
-\end{itemize}
+\end{enumerate}
 
 \textendash {Questions}
-\begin{itemize}
+\begin{enumerate}
 	\item Take a look at \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}. When we are interpolating in Fourier space in 3D, what is points, values, and xi? How big are they?
 	\item Does interpolating with complex numbers cause any problems?
 	\item Search through the code of some cryoEM software packages and find where they are doing interpolation. You could look for the forward model (simulating data) or for the interpolating of the 3D Fourier map before taking the inverse Fourier transform to get the map in real space. What are the dimensions? Can you tell if it is linear interpolation, or some other method?
-\end{itemize}
+\end{enumerate}
 
+\pagebreak
 \subsection{18 March 2021 - Sharpen - Interpolation}
 \textendash{Pre-reading}
-\begin{itemize}
+\begin{enumerate}
 	\item \href{https://www.paulinternet.nl/?page=bicubic}{Explanation and Java/C++ implementation of (bi)cubic interpolation}
 	\item \url{https://en.wikipedia.org/wiki/Bicubic_interpolation}
 	\item \href{https://web.archive.org/web/20051024202307/http://www.geovista.psu.edu/sites/geocomp99/Gc99/082/gc_082.htm}{Application of interpolation to elevation samples}
-\end{itemize}
+\end{enumerate}
 
 \textendash {Questions}
-\begin{itemize} 
+\begin{enumerate} 
 	\item Go through the \href{source}{https://github.com/scipy/scipy/blob/v1.5.4/scipy/interpolate/interpnd.pyx} of \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} . What is the bottle neck for interpolation? You can try to read through the code, and also empirically benchmark things (e.g. sample a 2D or 3D Gaussian, which will give you real values, then compute the Gaussian function at these points, and interpolate on a cartesian grid at a specified granularity).
 	\item Code up your own implementation of some sort of interpolation, that works in a similar way as \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}, ie data point coordinates, data values (at those coordinates), and points at which to interpolate data. What is the bottle neck? How would you speed it up? 
-	\item Investigate how sensitive  \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} is to noise, by sampling a function, corrupting it with noise, and seeing how smooth things have to be for the interpolation to work out well. Can you find a situation where there are pathologies? 
-\end{itemize}
+	\item Investigate how sensitive \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} is to noise, by sampling a function, corrupting it with noise, and seeing how smooth things have to be for the interpolation to work out well. Can you find a situation where there are pathologies? 
+	\item How is \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.map_coordinates.html#scipy.ndimage.map_coordinates}{scipy.ndimage.map\_coordinates} different from \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}?
+\end{enumerate}
 
 \subsection{25 March 2021 - Blur - TBC Guest lecture: Dr. David Dynerman, 3D Reconstruction via Direct Fourier Inversion.}
 
@@ -459,6 +438,29 @@ By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogal
 \begin{enumerate}
 	\item Problems 4, 6, 7, from \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4.5 Problems  in {\it  Mathematical Techniques in Structural Biology},  pp. 30-31}
 	\item Implement the pseudo-code in Figure 1 of \href{http://www.close-range.com/docs/Computing_Euler_angles_from_a_rotation_matrix.pdf}{Gregory G. Slabaugh. Computing Euler angles from a rotation matrix}, and use it to compute the Euler angles from a rotation matrix.
+\end{enumerate}
+
+\subsection{4 March 2021 - Sharpen - Coordinate Systems \& Rotations}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://www.coursera.org/lecture/robotics-flight/axis-angle-representations-for-rotations-4hTtQ}{Axis/Angle Representations for Rotations}
+	\item \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4. Orthogonal Transformations and Rotations in Mathematical Techniques in Structural Biology, pp. 25-31}
+    	\item \href{https://youtu.be/d4EgbgTm0Bg}{Visualizing quaternions (4d numbers) with stereographic projection}
+	\item \href{https://youtu.be/zjMuIxRvygQ}{Quaternions and 3d rotation, explained interactively}
+	\item \href{https://eater.net/quaternions/}{Visualizing quaternions An explorable video series}
+	\item \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Wiki: Quaternions and spatial rotation}
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item all problems from \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4.5 Problems in {\it Mathematical Techniques in Structural Biology},  pp. 30-31}
+	\item Go to the \href{https://eater.net/quaternions/video/doublecover}{doublecover} interactive, and select the 4D tab on the bottom. Find the quaternion that corresponds to a rotation of 90 deg in the cw direction about the z axis.
+	\item Quaterions can be used to describe the rotation of the point $ r= \langle r_x,r_y,r_x \rangle \in \mathbb{R}^3$ about angle $\theta$ in the direction of vector $\langle q_x,q_y,q_z \rangle$ as follows. $p_{rotated} = q*p*q^{-1}$, where $q = \langle \cos(\theta/2),q_x\sin(\theta/2),q_y\sin(\theta/2),q_j\sin(\theta/2)\rangle$ and \\ $q^{-1}=\langle \cos(-\theta/2),q_x\sin(-\theta/2),q_y\sin(-\theta/2),q_z\sin(-\theta/2) \rangle$ encode the rotation; $\vec r$ is represented as the quaternion $p=(0,r_x,r_y,r_z)$. Question: using pencil and paper, compute the rotation of the point $ r=\langle1,0,0\rangle$ about the z-axis by $\theta=180^{\circ}$ (ccw or cw, it's the same for this angle). Do you get $r=\langle-1,0,0\rangle$? You will have to use the quaternion multiplication table ($ij=k$, etc.), and know how to interconvert quaternions to cartesian 3D vectors.
+	\item Study the sections \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion to and from the matrix representation}{Conversion to and from the matrix representation} and \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Performance_comparisons}{Performance comparisons} on the wiki page for \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Quaternions and spatial rotation}. If we want to rotate many xyz points in space with a 3D rotation, what is the efficient way to do this? Taking into account interconversions between different rotation conventions (Euler angles, rotation matrices, axis-angle, and quaternions) how should we efficiently store rotations versus do rotations?
+	\item Besides storing and doing rotations, we have to search over rotations. Wikipedia has a section on \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Differentiation_with_respect_to_the_rotation_quaternion}{Differentiation with respect to the rotation quaternion}. Unpack the equation for $\frac{\partial {\bf p'}}{\partial {\bf q}}$. Would this equation ever be useful in cryoEM? When would we want to estimate the rotation by optimization, and how would we do so with this equation?
+%	In some scenarios, it may be useful to compute the gradient of a rotation, wrt
+%	
+%	If one uses Euler angles to parametrize rotations in cryoEM reconstruction, one can find the alignment of a particle by minimizing (by following the gradient), for instance, the L2 loss of the raw particle and the predicted projection, wrt each Euler angle. If  
+	
 \end{enumerate}
 
 \end{document}  
