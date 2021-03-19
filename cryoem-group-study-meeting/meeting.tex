@@ -119,11 +119,27 @@ Th 11 March 2021 & \tiny{7:30 AM PST} & blur & interpolation  \\
  \hline
 Th 25 March 2021 & \tiny{8 AM PST} & blur & \tiny{Guest lecture: TBC D. Dynerman, 3D reconstruction via direct Fourier inversion}  \\ 
  \hline
- Th 1 Apr 2021 & \tiny{8 AM PST} & sharpen & \tiny{3D reconstruction via direct Fourier inversion}  \\ 
+Th 1 Apr 2021 & \tiny{8 AM PST} & sharpen & \tiny{3D reconstruction via direct Fourier inversion}  \\ 
  \hline
 Th 8 Apr 2021 & \tiny{8 AM PST} & sharpen & variational autoencoders  \\ 
  \hline
 Th 15 Apr 2021 & \tiny{8 AM PST} & sharpen & cryoDRGN (variational autoencoders) with Ellen Zhong  \\ 
+ \hline
+Th 22 Apr 2021 & \tiny{8 AM PST} & blur/sharpen & office hours  \\ 
+ \hline
+Th 29 Apr 2021 & \tiny{8 AM PST} & blur/sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody}  \\ 
+ \hline
+Th 6 May 2021 & \tiny{8 AM PST} & sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody} \\ 
+ \hline
+Th 13 May 2021 & \tiny{8 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\ 
+ \hline
+Th 20 May 2021 & \tiny{8 AM PST} & blur/sharpen & office hours  \\ 
+ \hline
+Th 27 May 2021 & \tiny{8 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\ 
+ \hline
+Th 3 June 2021 & \tiny{8 AM PST} & blur/sharpen & office hours  \\ 
+ \hline
+Th 10 June 2021 & \tiny{8 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\
  \hline
 TBD & \tiny{8 AM PST} & blur/sharpen & Wah Chiu et al, lectures, ...  \\ [1ex] 
  \hline
@@ -158,23 +174,7 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \section{Upcoming Meetings}
 
 \pagebreak
-\subsection{18 March 2021 - Sharpen - Interpolation}
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item \href{https://www.paulinternet.nl/?page=bicubic}{Explanation and Java/C++ implementation of (bi)cubic interpolation}
-	\item \url{https://en.wikipedia.org/wiki/Bicubic_interpolation}
-	\item \href{https://web.archive.org/web/20051024202307/http://www.geovista.psu.edu/sites/geocomp99/Gc99/082/gc_082.htm}{Application of interpolation to elevation samples}
-\end{enumerate}
 
-\textendash {Questions}
-\begin{enumerate} 
-	\item Go through the \href{https://github.com/scipy/scipy/blob/v1.5.4/scipy/interpolate/interpnd.pyx}{source} of \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} . What is the bottle neck for interpolation? You can try to read through the code, and also empirically benchmark things (e.g. sample a 2D or 3D Gaussian, which will give you real values, then compute the Gaussian function at these points, and interpolate on a cartesian grid at a specified granularity).
-	\item Code up your own implementation of some sort of interpolation, that works in a similar way as \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}, ie data point coordinates, data values (at those coordinates), and points at which to interpolate data. What is the bottle neck? How would you speed it up? 
-	\item Investigate how sensitive \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} is to noise, by sampling a function, corrupting it with noise, and seeing how smooth things have to be for the interpolation to work out well. Can you find a situation where there are pathologies? 
-	\item How is \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.map_coordinates.html#scipy.ndimage.map_coordinates}{scipy.ndimage.map\_coordinates} different from \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}?
-\end{enumerate}
-
-\pagebreak
 \subsection{25 March 2021 - Blur - TBC Guest lecture: Dr. David Dynerman, 3D Reconstruction via Direct Fourier Inversion.}
 
 \subsection{1 Apr 2021 - Sharpen - 3D Reconstruction via Direct Fourier Inversion.}
@@ -182,38 +182,171 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \pagebreak
 \subsection{8 Apr 2021 - Sharpen - Variational Autoencoders }
 \textendash{Pre-reading}
-\begin{itemize}
+\begin{enumerate}
 	\item \href{https://www.siarez.com/projects/variational-autoencoder}{Variational autoencoder interactive demos with deeplearn.js}
-	\begin{itemize}
+	\begin{enumerate}
 		\item Doersch, C. (2016). Tutorial on Variational Autoencoders, 1-23. \url{https://arxiv.org/pdf/1606.05908.pdf} (23 pages)
-	\end{itemize}
+	\end{enumerate}
 	\item \href{https://youtu.be/_2PZxw4FzDU}{015 Jensen's inequality \& Kullback Leibler divergence} (10 min)
 	\item \href{https://www.youtube.com/watch?v=uaaqyVS9-rM&feature=youtu.be}{Ali Ghodsi, Lec : Deep Learning, Variational Autoencoder, Oct 12 2017 [Lect 6.2]} (1 hr)
 	\item \href{https://youtu.be/P78QYjWh5sM}{Deep Learning Lecture 14: Karol Gregor on Variational Autoencoders and Image Generation} (43 min)
 	\item \href{http://videolectures.net/deeplearning2015_courville_autoencoder_extension/}{Aaron Courville. 2015. Variational Autoencoder and Extensions. Deep Learning Summer School, Montreal.} (1.5 hrs)
-\end{itemize}
+\end{enumerate}
 \textendash {Questions}
-\begin{itemize}
+\begin{enumerate}
 	\item Code up a variational autoencoder on some toy data. For example in \href{https://tiao.io/post/tutorial-on-variational-autoencoders-with-a-concise-keras-implementation/}{Keras} or \href{https://towardsdatascience.com/variational-autoencoder-demystified-with-pytorch-implementation-3a06bee395ed}{PyTorch}
-\end{itemize}
+\end{enumerate}
 
-\subsection{15 Apr 2021 - Sharpen - Guest Lecture with Ellen Zhong, cryoDRGN \& Variational Autoencoders}
+\subsection{15 Apr 2021 - Sharpen - Guest Lecture with Ellen Zhong (MIT), cryoDRGN \& Variational Autoencoders}
 \textendash{Pre-reading}
-\begin{itemize}
+\begin{enumerate}
 	\item \href{https://youtu.be/yft_qhErStg}{Ellen Zhong. 2020. CryoDRGN: Deep generative models for reconstructing heterogeneous protein structures from cryo-EM. SBGrid Consortium (40 min).}
 	\item Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., \& Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
 	\item Zhong, E. D., Bepler, T., Davis, J. H., \& Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images. ICLR 2020, 1-20. \url{https://arxiv.org/pdf/1909.05215.pdf}
 	\item Nature Methods paper on cryoDRGN (to appear $\sim$ Feb 2021)
-\end{itemize}
+\end{enumerate}
 \textendash {Questions}
-\begin{itemize}
+\begin{enumerate}
 	\item Install \href{https://github.com/zhonge/cryodrgn}{cryoDRGN} and run it on your own data.
-\end{itemize}
+\end{enumerate}
+
+\subsection{22 Apr 2021 - Blur/Sharpen - Office Hours }
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://youtu.be/eRPue0-Pkw4}{S2C2 CryoEM Image Processing Workshop: Day 1} (5 hrs)
+	\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
+	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
+	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
+	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
+\end{enumerate}
+
+
+\subsection{29 Apr 2021 - Blur - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& prody}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836427/}{Bahar, I., Lezon, T. R., Bakan, A., \& Shrivastava, I. H. (2010). Normal Mode Analysis of Biomolecular Structures: Functional Mechanisms of Membrane Proteins. Chemical Reviews, 110(3), 1463-1497. http://doi.org/10.1021/cr900095e}
+	\item Prody \href{http://prody.csb.pitt.edu/}{website}
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Have a look at some \href{http://prody.csb.pitt.edu/tutorials/}{prody tutorials}
+	\item How can physics based models, the type prody uses, be incorporated into cryoEM data processing and analysis?
+\end{enumerate}
+
+\subsection{6 May 2021 - Sharpen - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& prody}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item "2. Theory" section (pp. 1470-1477) in \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836427/}{Bahar, I., Lezon, T. R., Bakan, A., \& Shrivastava, I. H. (2010). Normal Mode Analysis of Biomolecular Structures: Functional Mechanisms of Membrane Proteins. Chemical Reviews, 110(3), 1463-1497. http://doi.org/10.1021/cr900095e}
+	\item Prody \href{https://github.com/prody/ProDy}{source}, especially \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{dynamics}
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item How can physics based models, the type prody uses, be incorporated into cryoEM data processing and analysis?
+	\item What are the computational bottlenecks (runtime, memory) in the types of approaches in \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{prody.dynamics}?
+\end{enumerate}
+
+\subsection{13 May 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course) }
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://youtu.be/-EAQm8wgLbc}{Part 2: Fourier Transforms for Beginners - G. Jensen} (1 min)
+	\item \href{https://youtu.be/OESy_ltOCvI}{Part 2: 1-D Sine Waves and Their Sums - G. Jensen} (33 min)
+	\item \href{https://youtu.be/IUaqeoMK5y4}{Part 2: 1-D Reciprocal Space - G. Jensen} (20 min)
+%	\item \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images - G. Jensen} (19 min)
+%	\item \href{https://youtu.be/fEyLh9HqsWU}{Part 2: 2-D Transforms and Filters - G. Jensen} (33 min)
+%	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
+%	\item \href{https://youtu.be/MQm6ZP1F6ms}{Part 2: Convolution and Cross-Correlation - G. Jensen} (15 min)
+	\end{enumerate}
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item Install 
+%\end{enumerate}
+
+\subsection{20 May 2021 - Blur/Sharpen - Office Hours}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://youtu.be/ehXqLnV_Jr4}{S2C2 CryoEM Image Processing Workshop: Day 2 Part 1} (3h:20m)
+	\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
+	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
+	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
+	\item Some cryoEM discussion forums have "power users" that really understand things thouroughlly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
+\end{enumerate}
+
+\subsection{27 May 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course)}
+\textendash{Pre-reading}
+\begin{enumerate}
+%	\item \href{https://youtu.be/-EAQm8wgLbc}{Part 2: Fourier Transforms for Beginners - G. Jensen} (1 min)
+%	\item \href{https://youtu.be/OESy_ltOCvI}{Part 2: 1-D Sine Waves and Their Sums - G. Jensen} (33 min)
+%	\item \href{https://youtu.be/IUaqeoMK5y4}{Part 2: 1-D Reciprocal Space - G. Jensen} (20 min)
+	\item \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images - G. Jensen} (19 min)
+	\item \href{https://youtu.be/fEyLh9HqsWU}{Part 2: 2-D Transforms and Filters - G. Jensen} (33 min)
+%	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
+%	\item \href{https://youtu.be/MQm6ZP1F6ms}{Part 2: Convolution and Cross-Correlation - G. Jensen} (15 min)
+	\end{enumerate}
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item Install 
+%\end{enumerate}
+
+\subsection{3 June May 2021 - Blur/Sharpen - Office Hours}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://youtu.be/HXIipHORI2Y}{S2C2 CryoEM Image Processing Workshop: Day 2 Part 2} (3h:40m)
+	\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
+	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
+	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
+	\item Some cryoEM discussion forums have "power users" that really understand things thouroughlly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
+\end{enumerate}
+
+\subsection{10 June 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course)}
+\textendash{Pre-reading}
+\begin{enumerate}
+%	\item \href{https://youtu.be/-EAQm8wgLbc}{Part 2: Fourier Transforms for Beginners - G. Jensen} (1 min)
+%	\item \href{https://youtu.be/OESy_ltOCvI}{Part 2: 1-D Sine Waves and Their Sums - G. Jensen} (33 min)
+%	\item \href{https://youtu.be/IUaqeoMK5y4}{Part 2: 1-D Reciprocal Space - G. Jensen} (20 min)
+%	\item \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images - G. Jensen} (19 min)
+%	\item \href{https://youtu.be/fEyLh9HqsWU}{Part 2: 2-D Transforms and Filters - G. Jensen} (33 min)
+	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
+	\item \href{https://youtu.be/MQm6ZP1F6ms}{Part 2: Convolution and Cross-Correlation - G. Jensen} (15 min)
+	\end{enumerate}
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item Install 
+%\end{enumerate}
 
 
 \pagebreak
-\subsection{Spring 2021}
+\subsection{Spring/Summer 2021}
 By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogales will hopefully be out, and we can see how it looks. We could also plan some lectures.
+
+%\subsection{20 May 2021 - Sharpen - Electron Optics: Lens Aberations }
+%\textendash{Pre-reading}
+%\begin{enumerate}
+%	\item "2.3 Lens Abberations" (pp. 31-40) in Reimer, L., \& Kohl, H. (2008). Transmission Electron Microscopy Physics of Image Formation. Springer series in optical sciences (Vol. 51). http://doi.org/10.1007/978-0-387-34758-5
+%	\end{enumerate}
+%%\textendash {Questions}
+%%\begin{enumerate}
+%%	\item Install 
+%%\end{enumerate}
+
+%\subsection{3 June May 2021 - Sharpen - Electron Optics: Electron Waves and Phase Shifts }
+%\textendash{Pre-reading}
+%\begin{enumerate}
+%	\item "3.1 Electron Waves and Phase Shifts" (pp. 45-55) in Reimer, L., \& Kohl, H. (2008). Transmission Electron Microscopy Physics of Image Formation. Springer series in optical sciences (Vol. 51). http://doi.org/10.1007/978-0-387-34758-5
+%	\end{enumerate}
+%%\textendash {Questions}
+%%\begin{enumerate}
+%%	\item Install 
+%%\end{enumerate}
+
 
 \pagebreak
 \section{Past Meetings}
@@ -459,6 +592,22 @@ By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogal
 	\item Take a look at \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}. When we are interpolating in Fourier space in 3D, what is points, values, and xi? How big are they?
 	\item Does interpolating with complex numbers cause any problems?
 	\item Search through the code of some cryoEM software packages and find where they are doing interpolation. You could look for the forward model (simulating data) or for the interpolating of the 3D Fourier map before taking the inverse Fourier transform to get the map in real space. What are the dimensions? Can you tell if it is linear interpolation, or some other method?
+\end{enumerate}
+
+\subsection{18 March 2021 - Sharpen - Interpolation}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://www.paulinternet.nl/?page=bicubic}{Explanation and Java/C++ implementation of (bi)cubic interpolation}
+	\item \url{https://en.wikipedia.org/wiki/Bicubic_interpolation}
+	\item \href{https://web.archive.org/web/20051024202307/http://www.geovista.psu.edu/sites/geocomp99/Gc99/082/gc_082.htm}{Application of interpolation to elevation samples}
+\end{enumerate}
+
+\textendash {Questions}
+\begin{enumerate} 
+	\item Go through the \href{https://github.com/scipy/scipy/blob/v1.5.4/scipy/interpolate/interpnd.pyx}{source} of \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} . What is the bottle neck for interpolation? You can try to read through the code, and also empirically benchmark things (e.g. sample a 2D or 3D Gaussian, which will give you real values, then compute the Gaussian function at these points, and interpolate on a cartesian grid at a specified granularity).
+	\item Code up your own implementation of some sort of interpolation, that works in a similar way as \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}, ie data point coordinates, data values (at those coordinates), and points at which to interpolate data. What is the bottle neck? How would you speed it up? 
+	\item Investigate how sensitive \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} is to noise, by sampling a function, corrupting it with noise, and seeing how smooth things have to be for the interpolation to work out well. Can you find a situation where there are pathologies? 
+	\item How is \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.map_coordinates.html#scipy.ndimage.map_coordinates}{scipy.ndimage.map\_coordinates} different from \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}?
 \end{enumerate}
 
 \end{document}  
