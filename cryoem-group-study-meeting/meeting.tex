@@ -131,7 +131,7 @@ Th 29 Apr 2021 & \tiny{8 AM PST} & blur/sharpen & \tiny{Guest Lecture: J. Kriege
  \hline
 Th 6 May 2021 & \tiny{8 AM PST} & sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody} \\ 
  \hline
-Th 13 May 2021 & \tiny{8 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\ 
+Th 13 May 2021 & \tiny{8 AM PST} & blur & \tiny{Guest Lecture: Yong Zi Tan. Becoming a power user: Tilting}  \\ 
  \hline
 Th 20 May 2021 & \tiny{8 AM PST} & blur/sharpen & office hours  \\ 
  \hline
@@ -175,8 +175,34 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 
 \pagebreak
 
-\subsection{25 March 2021 - Blur - TBC Guest lecture: Dr. David Dynerman, 3D Reconstruction via Direct Fourier Inversion.}
+\subsection{25 March 2021 - Blur - Guest lecture: Dr. David Dynerman, 3D Reconstruction via Direct Fourier Inversion.}
+\href{https://www.linkedin.com/in/david-dynerman-6a4a47101/}{Dr. David Dynerman} is currently the Chief Scientific Officer at \href{https://www.thepublichealthco.com/}{The Public Health Company}. Prior to this he lectured on cryoEM at Berkeley, where he also worked with Eva Nogales (Molecular \& Cell Biology) and Bernd Sturmfels (Mathematics) to develop new algorithms for 2D $\rightarrow$ 3D reconstruction in cryo-electron microscopy. His lecture will explain direct Fourier inversion (2D $\rightarrow$ 3D reconstruction). \\ \\
+\textendash{Audience} 
+\\
+This lecture will be structured so that beginners will (hopefully) learn some useful basics, while folks with more background will gain an orientation of the topic with road signs on where to dive in for more detail.
+\\ \\
+\textendash{Learning objectives}
+\begin{enumerate}
+  \item understand the basic principles of how direct Fourier inversion produces 3D reconstructions from 2D images
+  \item understand the basics of two key technical aspects of Fourier inversion: Fourier interpolation and back projection
+  \item understand what kinds of map artifacts can arise during direct Fourier inversion
+\end{enumerate}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
+	\item \href{https://youtu.be/_Ngybc0Rjo0}{Part 4: 3-D Reconstruction - G. Jensen} (11 min)
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item How could we visualize a single particle slice in a 3D map - either in real space or reciprocal space? How would this type of visualization help you? What other visualizations would be suitable?
+	\item How does understanding Fourier interpolation and back projection help use data processing software, refine high quality maps, and solve structures?
+	\item Do you think Fourier inversion will always be used in cryoEM data processing, or will other methods eventually replace it?
+	\item What other research fields also use similar techniques (medical imaging, materials science, etc), and how much do practitioners in those fields understand about Fourier inversion?
+	\item How much do you want/need to know about Fourier inversion, and what will help you build intuition?
+\end{enumerate}
 
+
+\pagebreak
 \subsection{1 Apr 2021 - Sharpen - 3D Reconstruction via Direct Fourier Inversion.}
 
 \pagebreak
@@ -233,6 +259,7 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \textendash {Questions}
 \begin{enumerate}
 	\item Have a look at some \href{http://prody.csb.pitt.edu/tutorials/}{prody tutorials}
+	\item In reality, each single particle image is a slightly different conformation. Let's assume that individual particles are fluctuations around an average reference state, and that the fluctuations are described well by the 'large breathing motions' described by normal mode approaches. How does this type of heterogeneity affect the final reconstruction? If heterogeneous particles go into one structure, what might happen to the error in their alignment estimation?
 	\item How can physics based models, the type prody uses, be incorporated into cryoEM data processing and analysis?
 \end{enumerate}
 
@@ -248,17 +275,11 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 	\item What are the computational bottlenecks (runtime, memory) in the types of approaches in \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{prody.dynamics}?
 \end{enumerate}
 
-\subsection{13 May 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course) }
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item \href{https://youtu.be/-EAQm8wgLbc}{Part 2: Fourier Transforms for Beginners - G. Jensen} (1 min)
-	\item \href{https://youtu.be/OESy_ltOCvI}{Part 2: 1-D Sine Waves and Their Sums - G. Jensen} (33 min)
-	\item \href{https://youtu.be/IUaqeoMK5y4}{Part 2: 1-D Reciprocal Space - G. Jensen} (20 min)
-%	\item \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images - G. Jensen} (19 min)
-%	\item \href{https://youtu.be/fEyLh9HqsWU}{Part 2: 2-D Transforms and Filters - G. Jensen} (33 min)
-%	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
-%	\item \href{https://youtu.be/MQm6ZP1F6ms}{Part 2: Convolution and Cross-Correlation - G. Jensen} (15 min)
-	\end{enumerate}
+\subsection{13 May 2021 - Blur/Sharpen - Guest Lecture: Yong Zi Tan (The Hospital for Sick Children, Toronto, Canada). Becoming a power user: Tilting}
+%\textendash{Pre-reading}
+%\begin{enumerate}
+%	\item 
+%	\end{enumerate}
 %\textendash {Questions}
 %\begin{enumerate}
 %	\item Install 
