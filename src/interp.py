@@ -33,7 +33,7 @@ def interp_vec(F,r0,r1,dd,N):
   good_idx = np.logical_and(~under_grid_idx,~over_grid_idx)
 
 
-  F_3d_interp = np.zeros((N,N,N))
+  F_3d_interp = np.zeros((N,N,N)).astype(F.dtype)
   count_3d_interp = np.zeros((N,N,N))
   ones = np.ones(N*N)[good_idx]
   F_flat = F.flatten()[good_idx]
