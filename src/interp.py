@@ -21,10 +21,6 @@ def diff(xy0_rot):
 
 def interp_vec(F,r0,r1,dd,N):
 
-  # F_idx_x, F_idx_y = (xy0 + N//2)[:,[0,1]].astype(np.int).T # unrotated indeces
-  # F[F_idx_x,F_idx_y] # just F flattened!
-
-
   r0_idx = r0 + N//2
   r1_idx = r1 + N//2
 
