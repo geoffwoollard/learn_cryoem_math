@@ -174,36 +174,27 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \section{Upcoming Meetings}
 
 \pagebreak
+\subsection{1 Apr 2021 - Sharpen - 3D Reconstruction via Direct Fourier Inversion.}
 
-\subsection{25 March 2021 - Blur - Guest lecture: Dr. David Dynerman, 3D Reconstruction via Direct Fourier Inversion.}
-\href{https://www.linkedin.com/in/david-dynerman-6a4a47101/}{Dr. David Dynerman} is currently the Chief Scientific Officer at \href{https://www.thepublichealthco.com/}{The Public Health Company}. Prior to this he lectured on cryoEM at Berkeley, where he also worked with Eva Nogales (Molecular \& Cell Biology) and Bernd Sturmfels (Mathematics) to develop new algorithms for 2D $\rightarrow$ 3D reconstruction in cryo-electron microscopy. His lecture will explain direct Fourier inversion (2D $\rightarrow$ 3D reconstruction). \\ \\
-\textendash{Audience} 
-\\
-This lecture will be structured so that beginners will (hopefully) learn some useful basics, while folks with more background will gain an orientation of the topic with road signs on where to dive in for more detail.
-\\ \\
 \textendash{Learning objectives}
 \begin{enumerate}
-  \item understand the basic principles of how direct Fourier inversion produces 3D reconstructions from 2D images
-  \item understand the basics of two key technical aspects of Fourier inversion: Fourier interpolation and back projection
-  \item understand what kinds of map artifacts can arise during direct Fourier inversion
+  \item understand implementation details of 2D $\rightarrow$ 3D Fourier inversion
+  \item understand what kinds of map artifacts can arise during Fourier inversion
+  \item play with Fourier inversion of simple shapes, to build intuition
 \end{enumerate}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
-	\item \href{https://youtu.be/_Ngybc0Rjo0}{Part 4: 3-D Reconstruction - G. Jensen} (11 min)
+	\item \href{https://www.projectrhea.org/rhea/index.php/ECE637_tomographic_reconstruction_fourier_slice_theorem_S13_mhossain}{The Bouman Lectures on Image Processing. A Slecture by Maliha Hossain. Subtopic 6: Fourier Slice Theorem. 2013} (notes and 25 min video)
+ 	\item \href{https://youtu.be/YIvTpW3IevI}{ASTRA Toolbox: Fourier Slice Theorem} (3 min)
+	\item \href{https://youtu.be/DcmL1JGoiPs}{ASTRA Toolbox: Proof of Fourier Slice Theorem} (2 min)
+	\item \href{https://youtu.be/pZ7JlXagT0w}{ASTRA Toolbox: Filtered Backprojection (FBP)} (4 min)
 \end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
-	\item How could we visualize a single particle slice in a 3D map - either in real space or reciprocal space? How would this type of visualization help you? What other visualizations would be suitable?
-	\item How does understanding Fourier interpolation and back projection help use data processing software, refine high quality maps, and solve structures?
-	\item Do you think Fourier inversion will always be used in cryoEM data processing, or will other methods eventually replace it?
-	\item What other research fields also use similar techniques (medical imaging, materials science, etc), and how much do practitioners in those fields understand about Fourier inversion?
-	\item How much do you want/need to know about Fourier inversion, and what will help you build intuition?
+	\item Go to \href{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/nb/fourier_slice_2D_3D_with_trilinear.ipynb}{this coding notebook} on Fourier inversion. Play around with things to build your intuition. You can look into the code that is doing the Fourier transforms or interpolation to see what is "inside the black box". Are there any artefacts in the reconstruction? What happens where there are less particles, errors in the alignments?
+	\item Let's say you are trying to do a reconstruction, and you see some artefacts that are difficult to interpret, but that might be caused by angular estimates, preferred orientations, contrast/SNR is not good enough - or a combination of all of those causal factors. How could you play around with a synthetic example to track down what is causing artefacts in your reconstruction?
 \end{enumerate}
 
-
-\pagebreak
-\subsection{1 Apr 2021 - Sharpen - 3D Reconstruction via Direct Fourier Inversion.}
 
 \pagebreak
 \subsection{8 Apr 2021 - Sharpen - Variational Autoencoders }
@@ -629,6 +620,32 @@ By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogal
 	\item Code up your own implementation of some sort of interpolation, that works in a similar way as \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}, ie data point coordinates, data values (at those coordinates), and points at which to interpolate data. What is the bottle neck? How would you speed it up? 
 	\item Investigate how sensitive \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata} is to noise, by sampling a function, corrupting it with noise, and seeing how smooth things have to be for the interpolation to work out well. Can you find a situation where there are pathologies? 
 	\item How is \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.map_coordinates.html#scipy.ndimage.map_coordinates}{scipy.ndimage.map\_coordinates} different from \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html}{scipy.interpolate.griddata}?
+\end{enumerate}
+
+\subsection{25 March 2021 - Blur - Guest lecture: Dr. David Dynerman, 3D Reconstruction via Direct Fourier Inversion.}
+\href{https://www.linkedin.com/in/david-dynerman-6a4a47101/}{Dr. David Dynerman} is currently the Chief Scientific Officer at \href{https://www.thepublichealthco.com/}{The Public Health Company}. Prior to this he lectured on cryoEM at Berkeley, where he also worked with Eva Nogales (Molecular \& Cell Biology) and Bernd Sturmfels (Mathematics) to develop new algorithms for 2D $\rightarrow$ 3D reconstruction in cryo-electron microscopy. His lecture will explain direct Fourier inversion (2D $\rightarrow$ 3D reconstruction). \\ \\
+\textendash{Audience} 
+\\
+This lecture will be structured so that beginners will (hopefully) learn some useful basics, while folks with more background will gain an orientation of the topic with road signs on where to dive in for more detail.
+\\ \\
+\textendash{Learning objectives}
+\begin{enumerate}
+  \item understand the basic principles of how direct Fourier inversion produces 3D reconstructions from 2D images
+  \item understand the basics of two key technical aspects of Fourier inversion: Fourier interpolation and back projection
+  \item understand what kinds of map artifacts can arise during direct Fourier inversion
+\end{enumerate}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
+	\item \href{https://youtu.be/_Ngybc0Rjo0}{Part 4: 3-D Reconstruction - G. Jensen} (11 min)
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item How could we visualize a single particle slice in a 3D map - either in real space or reciprocal space? How would this type of visualization help you? What other visualizations would be suitable?
+	\item How does understanding Fourier interpolation and back projection help use data processing software, refine high quality maps, and solve structures?
+	\item Do you think Fourier inversion will always be used in cryoEM data processing, or will other methods eventually replace it?
+	\item What other research fields also use similar techniques (medical imaging, materials science, etc), and how much do practitioners in those fields understand about Fourier inversion?
+	\item How much do you want/need to know about Fourier inversion, and what will help you build intuition?
 \end{enumerate}
 
 \end{document}  

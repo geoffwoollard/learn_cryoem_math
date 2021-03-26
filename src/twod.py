@@ -92,11 +92,11 @@ def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch
 
   return(arr2d_f)
 
-def do_fft(arr2d,**kwargs):
-  return(fft2d(arr2d,mode='f',only_real=False,**kwargs))
+def do_fft(arr2d,only_real=False,**kwargs):
+  return(fft2d(arr2d,mode='f',only_real=only_real,**kwargs))
 
-def do_ifft(arr2d,**kwargs):
-  return(fft2d(arr2d,mode='i',only_real=True,**kwargs))
+def do_ifft(arr2d,only_real=True,**kwargs):
+  return(fft2d(arr2d,mode='i',only_real=only_real,**kwargs))
 
 @jit
 def neg_pos(arr2d):
