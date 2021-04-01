@@ -1,5 +1,5 @@
 import numpy as np
-from numba import njit
+from numba import njit, prange
 
 def make_gauss_2d(xv,yv,mu,sigma):
   g = np.exp(-( (xv-mu[0])**2 + (yv-mu[1])**2)  /(2*sigma**2) )
@@ -38,7 +38,7 @@ def parallel_add_patch_from_idx(idx,d2,N,n_trunc,sigma):
       g_2d[one_gauss_patch_y_line_idxs] += gi_y_line
 
   return(g_2d)
-  
+
 def make_proj_mask(atoms, xy, sigma, n_trunc,parallel_diff=True):
   N = np.sqrt(xy.shape[0]).astype(int)
   X = np.round(atoms[0]).astype(np.int32) + N//2
