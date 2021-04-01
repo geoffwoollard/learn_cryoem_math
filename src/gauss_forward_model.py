@@ -5,6 +5,12 @@ def make_gauss_2d(xv,yv,mu,sigma):
   g = np.exp(-( (xv-mu[0])**2 + (yv-mu[1])**2)  /(2*sigma**2) )
   return(g)
 
+def make_map_3d(atoms,xyz,sigma):
+  C = 1/np.sqrt(2*np.pi*sigma**2)
+  diff = xyz.reshape(-1,3,1) - atoms[:3,:].reshape(1,3,-1)
+  a = -1/(2*sigma**2)
+  map_3d = (C**3*np.exp(a*((diff**2).sum(1))).sum(1).reshape(N,N,N))
+  return(map_3d)
 
 @njit(parallel=True)
 def parallel_add_patch_including_diff(xy,N,atoms,idx,n_trunc,sigma):

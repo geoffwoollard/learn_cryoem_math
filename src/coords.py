@@ -48,3 +48,29 @@ def EA_to_R3 (phi, theta, psi=None):
     return R
 
 def deg_to_rad(deg): return(deg*np.pi/180)
+
+def get_random_quat(num_pts):
+    """
+    Get num_pts of unit quaternions on the 4 hemisphere with a uniform random distribution.
+    :param num_pts: The number of quaternions to return
+    :return: Quaternion list of shape [number of quaternion, 4]
+    """
+    u = np.random.rand(3, num_pts)
+    u1, u2, u3 = [u[x] for x in range(3)]
+
+    quat = np.zeros((4, num_pts))
+    quat[0] = np.sqrt(1 - u1) * np.sin(np.pi * u2 / 2)
+    quat[1] = np.sqrt(1 - u1) * np.cos(np.pi * u2 / 2)
+    quat[2] = np.sqrt(u1) * np.sin(np.pi * u3 / 2)
+    quat[3] = np.sqrt(u1) * np.cos(np.pi * u3 / 2)
+
+    return np.transpose(quat)
+
+def quaternion_to_R(q):
+  a,b,c,d = q[0], q[1], q[2], q[3]
+  R = np.array([
+                [a**2+b**2-c**2-d**2 , 2*b*c-2*a*d , 2*b*d+2*a*c],
+                [2*b*c+2*a*d , a**2-b**2+c**2-d**2 , 2*c*d-2*a*b],
+                [2*b*d-2*a*c , 2*c*d+2*a*b , a**2-b**2-c**2+d**2]
+                ])
+  return(R)
