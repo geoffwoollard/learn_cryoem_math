@@ -117,11 +117,11 @@ Th 11 March 2021 & \tiny{7:30 AM PST} & blur & interpolation  \\
  \hline
  Th 18 March 2021 & \tiny{8 AM PST} & sharpen & interpolation  \\ 
  \hline
-Th 25 March 2021 & \tiny{8 AM PST} & blur & \tiny{Guest lecture: TBC D. Dynerman, 3D reconstruction via direct Fourier inversion}  \\ 
+Th 25 March 2021 & \tiny{8 AM PST} & blur & \tiny{Guest lecture: D. Dynerman, 3D reconstruction via direct Fourier inversion}  \\ 
  \hline
-Th 1 Apr 2021 & \tiny{8 AM PST} & sharpen & \tiny{3D reconstruction via direct Fourier inversion}  \\ 
+Th 1 Apr 2021 & \tiny{8 AM PST} & sharpen & 3D reconstruction via  Fourier inversion  \\ 
  \hline
-Th 8 Apr 2021 & \tiny{8 AM PST} & sharpen & variational autoencoders  \\ 
+Th 8 Apr 2021 & \tiny{9 AM PST} & sharpen & variational autoencoders  \\ 
  \hline
 Th 15 Apr 2021 & \tiny{8 AM PST} & sharpen & cryoDRGN (variational autoencoders) with Ellen Zhong  \\ 
  \hline
@@ -174,59 +174,51 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 \section{Upcoming Meetings}
 
 \pagebreak
-\subsection{1 Apr 2021 - Sharpen - 3D Reconstruction via Direct Fourier Inversion.}
-
+\subsection{8 Apr 2021 - Sharpen - Variational Autoencoders }
 \textendash{Learning objectives}
 \begin{enumerate}
-  \item understand implementation details of 2D $\rightarrow$ 3D Fourier inversion
-  \item understand what kinds of map artifacts can arise during Fourier inversion
-  \item play with Fourier inversion of simple shapes, to build intuition
+  \item understand the theory of variational autoencoders, in order to intelligently use methods such as cryoDRGN
 \end{enumerate}
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item \href{https://www.projectrhea.org/rhea/index.php/ECE637_tomographic_reconstruction_fourier_slice_theorem_S13_mhossain}{The Bouman Lectures on Image Processing. A Slecture by Maliha Hossain. Subtopic 6: Fourier Slice Theorem. 2013} (notes and 25 min video)
- 	\item \href{https://youtu.be/YIvTpW3IevI}{ASTRA Toolbox: Fourier Slice Theorem} (3 min)
-	\item \href{https://youtu.be/DcmL1JGoiPs}{ASTRA Toolbox: Proof of Fourier Slice Theorem} (2 min)
-	\item \href{https://youtu.be/pZ7JlXagT0w}{ASTRA Toolbox: Filtered Backprojection (FBP)} (4 min)
-\end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item Go to \href{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/nb/fourier_slice_2D_3D_with_trilinear.ipynb}{this coding notebook} on Fourier inversion. Play around with things to build your intuition. You can look into the code that is doing the Fourier transforms or interpolation to see what is "inside the black box". Are there any artefacts in the reconstruction? What happens where there are less particles, errors in the alignments?
-	\item Let's say you are trying to do a reconstruction, and you see some artefacts that are difficult to interpret, but that might be caused by angular estimates, preferred orientations, contrast/SNR is not good enough - or a combination of all of those causal factors. How could you play around with a synthetic example to track down what is causing artefacts in your reconstruction?
-\end{enumerate}
-
-
-\pagebreak
-\subsection{8 Apr 2021 - Sharpen - Variational Autoencoders }
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item \href{https://www.siarez.com/projects/variational-autoencoder}{Variational autoencoder interactive demos with deeplearn.js}
 	\begin{enumerate}
 		\item Doersch, C. (2016). Tutorial on Variational Autoencoders, 1-23. \url{https://arxiv.org/pdf/1606.05908.pdf} (23 pages)
 	\end{enumerate}
-	\item \href{https://youtu.be/_2PZxw4FzDU}{015 Jensen's inequality \& Kullback Leibler divergence} (10 min)
-	\item \href{https://www.youtube.com/watch?v=uaaqyVS9-rM&feature=youtu.be}{Ali Ghodsi, Lec : Deep Learning, Variational Autoencoder, Oct 12 2017 [Lect 6.2]} (1 hr)
-	\item \href{https://youtu.be/P78QYjWh5sM}{Deep Learning Lecture 14: Karol Gregor on Variational Autoencoders and Image Generation} (43 min)
-	\item \href{http://videolectures.net/deeplearning2015_courville_autoencoder_extension/}{Aaron Courville. 2015. Variational Autoencoder and Extensions. Deep Learning Summer School, Montreal.} (1.5 hrs)
+	\item \href{https://www.jeremyjordan.me/variational-autoencoders/}{Jeremy Jordan - Variational autoencoders}
+	\item \href{https://towardsdatascience.com/intuitively-understanding-variational-autoencoders-1bfe67eb5daf}{Intuitively Understanding Variational Autoencoders}
+%	\item \href{https://youtu.be/_2PZxw4FzDU}{015 Jensen's inequality \& Kullback Leibler divergence} (10 min)
+%	\item \href{https://www.youtube.com/watch?v=uaaqyVS9-rM&feature=youtu.be}{Ali Ghodsi, Lec : Deep Learning, Variational Autoencoder, Oct 12 2017 [Lect 6.2]} (1 hr)
+%	\item \href{https://youtu.be/P78QYjWh5sM}{Deep Learning Lecture 14: Karol Gregor on Variational Autoencoders and Image Generation} (43 min)
+%	\item \href{http://videolectures.net/deeplearning2015_courville_autoencoder_extension/}{Aaron Courville. 2015. Variational Autoencoder and Extensions. Deep Learning Summer School, Montreal.} (1.5 hrs)
 \end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
+	\item Describe the "latent space" in your own words. What other ideas does it relate to in structural biology?
+	\item Regarding the "reparameterization trick": what is being reparameterized and why did we need to do this "trick"?
+	\item Go through the figures in the blog post \href{https://www.jeremyjordan.me/variational-autoencoders/}{"Jeremy Jordan - Variational autoencoders"} and explain the take home of each figure.
+	\item Why do {\it variational} autoencoders (vs. just plain vanilla autoencoders) allow us to smoothly interpolate between observations?
+	\item A variational autoencoder reconstructs its own input. I we are interested in reconstructing 3D structures from 2D  cryoEM observations, how can we use variational approaches to generate 3D models? Consider how concretely we would compute reconstruction loss
 	\item Code up a variational autoencoder on some toy data. For example in \href{https://tiao.io/post/tutorial-on-variational-autoencoders-with-a-concise-keras-implementation/}{Keras} or \href{https://towardsdatascience.com/variational-autoencoder-demystified-with-pytorch-implementation-3a06bee395ed}{PyTorch}
 \end{enumerate}
 
+\pagebreak
 \subsection{15 Apr 2021 - Sharpen - Guest Lecture with Ellen Zhong (MIT), cryoDRGN \& Variational Autoencoders}
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item \href{https://youtu.be/yft_qhErStg}{Ellen Zhong. 2020. CryoDRGN: Deep generative models for reconstructing heterogeneous protein structures from cryo-EM. SBGrid Consortium (40 min).}
-	\item Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., \& Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
-	\item Zhong, E. D., Bepler, T., Davis, J. H., \& Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images. ICLR 2020, 1-20. \url{https://arxiv.org/pdf/1909.05215.pdf}
-	\item Nature Methods paper on cryoDRGN (to appear $\sim$ Feb 2021)
+	\item Zhong, E. D., Bepler, T., Berger, B., \& Davis, J. H. (2021). CryoDRGN: reconstruction of heterogeneous cryo-EM structures using neural networks. Nature Methods, 18(2), 176-185. \url{http://doi.org/10.1038/s41592-020-01049-4}
+	\begin{enumerate}
+		\item Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., \& Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
+		\item Zhong, E. D., Bepler, T., Davis, J. H., \& Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images. ICLR 2020, 1-20. \url{https://arxiv.org/pdf/1909.05215.pdf}
+	\end{enumerate}
 \end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
-	\item Install \href{https://github.com/zhonge/cryodrgn}{cryoDRGN} and run it on your own data.
+	\item Do this \href{https://www.notion.so/cryoDRGN-tutorial-b932c021cb2c415282f182048bac16ff}{cryoDRGN tutorial}
 \end{enumerate}
 
+\pagebreak
 \subsection{22 Apr 2021 - Blur/Sharpen - Office Hours }
 \textendash{Pre-reading}
 \begin{enumerate}
@@ -336,7 +328,7 @@ If you haven't already gone through Grant Jensen's \href{https://www.caltech.edu
 
 
 \pagebreak
-\subsection{Spring/Summer 2021}
+\subsection{Summer 2021}
 By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogales will hopefully be out, and we can see how it looks. We could also plan some lectures.
 
 %\subsection{20 May 2021 - Sharpen - Electron Optics: Lens Aberations }
@@ -651,5 +643,33 @@ This lecture will be structured so that beginners will (hopefully) learn some us
 {\tiny \url{https://utoronto.zoom.us/rec/share/iUQlpdJvEwJ4Z-GU3bQjJzccyPSJg0iocKhN5RFwyHXMKkuIpR5I3alav3UKfk4T.hA7WqNfNCNPpbqN7}}
 
 Access Passcode: 041\&NOnv+F
+
+\subsection{1 Apr 2021 - Sharpen - 3D Reconstruction via Direct Fourier Inversion.}
+
+\textendash{Learning objectives}
+\begin{enumerate}
+  \item understand implementation details of 2D $\rightarrow$ 3D Fourier inversion
+  \item understand what kinds of map artifacts can arise during Fourier inversion
+  \item play with Fourier inversion of simple shapes, to build intuition
+\end{enumerate}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://www.projectrhea.org/rhea/index.php/ECE637_tomographic_reconstruction_fourier_slice_theorem_S13_mhossain}{The Bouman Lectures on Image Processing. A Slecture by Maliha Hossain. Subtopic 6: Fourier Slice Theorem. 2013} (notes and 25 min video)
+ 	\item \href{https://youtu.be/YIvTpW3IevI}{ASTRA Toolbox: Fourier Slice Theorem} (3 min)
+	\item \href{https://youtu.be/DcmL1JGoiPs}{ASTRA Toolbox: Proof of Fourier Slice Theorem} (2 min)
+	\item \href{https://youtu.be/pZ7JlXagT0w}{ASTRA Toolbox: Filtered Backprojection (FBP)} (4 min)
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Go to \href{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/nb/fourier_slice_2D_3D_with_trilinear.ipynb}{this coding notebook} on Fourier inversion. Play around with things to build your intuition. You can look into the code that is doing the Fourier transforms or interpolation to see what is "inside the black box". Are there any artefacts in the reconstruction? What happens where there are less particles, errors in the alignments?
+	\item Let's say you are trying to do a reconstruction, and you see some artefacts that are difficult to interpret, but that might be caused by angular estimates, preferred orientations, contrast/SNR is not good enough - or a combination of all of those causal factors. How could you play around with a synthetic example to track down what is causing artefacts in your reconstruction?
+\end{enumerate}
+
+\textendash{Meeting Recording} \\
+{\tiny \url{https://utoronto.zoom.us/rec/share/I-d6u1KSWACwZr0fwSBjOVGFHTs2DIUeNn2U1VhiNeLd-onFbd7Z3AQHeTq\_Imdb.taZbZeiA\_6tTUTZa}}
+
+Access Passcode: \texttt{qdF\^{}I7.\^{}c9}
+
+
 
 \end{document}  
