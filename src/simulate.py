@@ -39,6 +39,7 @@ def simulate(map_r,psize,n_particles,snr,N_crop,
 
     CTFs = transfer.random_ctfs(N,
                                 psize,
+                                n_particles,
                                 df_min=df_min,
                                 df_max=df_max,
                                 df_diff_min=df_diff_min,

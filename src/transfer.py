@@ -61,6 +61,7 @@ def eval_ctf(s, a, def1, def2, angast=0, phase=0, kv=300, ac=0.1, cs=2.0, bf=0, 
 def random_ctfs(
     N,
     psize,
+    n_particles,
     df_min=15000,
     df_max=20000,
     df_diff_min=100,
