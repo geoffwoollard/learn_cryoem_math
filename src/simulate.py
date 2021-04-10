@@ -55,7 +55,6 @@ def simulate(map_r,psize,n_particles,snr,N_crop,
 
 
     proj_f = np.zeros((n_particles,N,N),dtype=np.complex64)
-	snr = 1
 	for idx in range(n_particles):
 	  if idx % max(1,(n_particles//10)) == 0: print(idx)
 	  R = Rs[:,:,idx]
