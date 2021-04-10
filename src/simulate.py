@@ -21,7 +21,7 @@ def simulate(map_r,psize,n_particles,snr,N_crop,
             do_log=True,
             random_seed=0
             ):
-    assert map_r.shape.size == 3
+    assert len(map_r.shape) == 3
     assert np.unique(map_r.shape).size == 1
     N = map_r.shape[0]
     assert N%2 == 0, 'even pixel length'
