@@ -2,7 +2,7 @@ import numpy as np
 import numba
 
 
-def ctf_freqs(N, , psize=1.0, d=2):
+def ctf_freqs(N, psize=1.0, d=2):
   """
   :param shape: Shape tuple.
   :param d: Frequency spacing in inverse Å (1 / pixel size).
