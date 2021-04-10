@@ -57,3 +57,31 @@ def eval_ctf(s, a, def1, def2, angast=0, phase=0, kv=300, ac=0.1, cs=2.0, bf=0, 
     if bf != 0:  # Enforce envelope.
         ctf *= np.exp(-k4 * s_2)
     return ctf
+
+def random_ctfs(
+    N,
+    psize,
+    df_min=15000,
+    df_max=20000,
+    df_diff_min=100,
+    df_diff_max=500,
+    df_ang_min=0,
+    df_ang_max=360,
+    kv=300,
+    cs=2.0,
+    ac=0.1,
+    phase=0,
+    bf=0,
+    do_log=True
+    ):
+    dfs = np.random.uniform(low=df_min,high=df_max,size=n_particles)
+    df_diff = np.random.uniform(low=df_diff_min,high=df_diff_max,size=n_particles)
+    df1s = dfs - df_diff/2
+    df2s = dfs + df_diff/2
+    df_ang_deg = np.random.uniform(low=df_ang_min,high=df_ang_max,size=n_particles)
+    CTFs = np.empty((n_particles,N,N))
+    freq_A_2d, angles_rad = transfer.ctf_freqs(N,psize,d=2)
+    for idx in range(n_particles):
+      if do_log and idx % max(1,(n_particles//10)) == 0: print(idx)
+    CTFs[idx] = eval_ctf(freq_A_2d, angles_rad, def1=df1s[idx], def2=df2s[idx], angast=df_ang_deg[idx], phase=phase, kv=kv, ac=ac, cs=cs, bf=bf)
+    return(CTFs)
