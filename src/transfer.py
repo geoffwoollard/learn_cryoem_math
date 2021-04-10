@@ -10,17 +10,15 @@ def ctf_freqs(N, , psize=1.0, d=2):
   """
 
   if d == 1:
-  	freq_pix_1d = np.arange(0,0.5,1/N)
-  	return(freq_pix_1d*psize)
+    freq_pix_1d = np.arange(0,0.5,1/N)
+    return(freq_pix_1d*psize)
   elif d == 2:
-  	freq_pix_1d = np.arange(-0.5,0.5,1/N)
-  x,y = np.meshgrid(freq_1d,freq_1d)
-  rho = np.sqrt(x**2+y**2)
-  angles_rad = np.arctan2(y, x)
-  freq_A_2d = rho * psize
-  return(freq_A_2d,angles_rad)
-
-freq_A_2d, angles_rad = ctf_freqs(shape=(N,N),d=1/psize)
+    freq_pix_1d = np.arange(-0.5,0.5,1/N)
+    x,y = np.meshgrid(freq_1d,freq_1d)
+    rho = np.sqrt(x**2+y**2)
+    angles_rad = np.arctan2(y, x)
+    freq_A_2d = rho * psize
+    return(freq_A_2d,angles_rad)
 
 @numba.jit(cache=True, nopython=True, nogil=True)
 def eval_ctf(s, a, def1, def2, angast=0, phase=0, kv=300, ac=0.1, cs=2.0, bf=0, lp=0):
