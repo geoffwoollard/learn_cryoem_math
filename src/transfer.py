@@ -2,13 +2,18 @@ import numpy as np
 import numba
 
 
-def ctf_freqs(shape, d=1.0, full=True):
+def ctf_freqs(N, , psize=1.0, d=2):
   """
   :param shape: Shape tuple.
   :param d: Frequency spacing in inverse Å (1 / pixel size).
   :param full: When false, return only unique Fourier half-space for real data. 
   """
-  freq_pix_1d = np.arange(-0.5,0.5,1/N)
+
+  if d == 1:
+  	freq_pix_1d = np.arange(0,0.5,1/N)
+  	return(freq_pix_1d*psize)
+  elif d == 2:
+  	freq_pix_1d = np.arange(-0.5,0.5,1/N)
   x,y = np.meshgrid(freq_1d,freq_1d)
   rho = np.sqrt(x**2+y**2)
   angles_rad = np.arctan2(y, x)
@@ -20,6 +25,7 @@ freq_A_2d, angles_rad = ctf_freqs(shape=(N,N),d=1/psize)
 @numba.jit(cache=True, nopython=True, nogil=True)
 def eval_ctf(s, a, def1, def2, angast=0, phase=0, kv=300, ac=0.1, cs=2.0, bf=0, lp=0):
     """
+    # https://github.com/asarnow/pyem/blob/master/pyem/ctf.py
     :param s: Precomputed frequency grid for CTF evaluation.
     :param a: Precomputed frequency grid angles.
     :param def1: 1st prinicipal underfocus distance (Å).
