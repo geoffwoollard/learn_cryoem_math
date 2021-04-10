@@ -14,7 +14,7 @@ def ctf_freqs(N, psize=1.0, d=2):
     return(freq_pix_1d*psize)
   elif d == 2:
     freq_pix_1d = np.arange(-0.5,0.5,1/N)
-    x,y = np.meshgrid(freq_1d,freq_1d)
+    x,y = np.meshgrid(freq_pix_1d,freq_pix_1d)
     rho = np.sqrt(x**2+y**2)
     angles_rad = np.arctan2(y, x)
     freq_A_2d = rho * psize
