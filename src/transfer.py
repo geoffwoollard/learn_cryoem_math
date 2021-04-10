@@ -83,6 +83,6 @@ def random_ctfs(
     CTFs = np.empty((n_particles,N,N))
     freq_A_2d, angles_rad = ctf_freqs(N,psize,d=2)
     for idx in range(n_particles):
-      if do_log and idx % max(1,(n_particles//10)) == 0: print(idx)
-    CTFs[idx] = eval_ctf(freq_A_2d, angles_rad, def1=df1s[idx], def2=df2s[idx], angast=df_ang_deg[idx], phase=phase, kv=kv, ac=ac, cs=cs, bf=bf)
+        if do_log and idx % max(1,(n_particles//10)) == 0: print(idx)
+        CTFs[idx] = eval_ctf(freq_A_2d, angles_rad, def1=df1s[idx], def2=df2s[idx], angast=df_ang_deg[idx], phase=phase, kv=kv, ac=ac, cs=cs, bf=bf)
     return(CTFs, df1s, df2s, df_ang_deg)
