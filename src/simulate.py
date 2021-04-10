@@ -37,7 +37,7 @@ def simulate(map_r,psize,n_particles,snr,N_crop,
     qs = coords.get_random_quat(n_particles)
     Rs = coords.quaternion_to_R(qs.T)
 
-    CTFs = transfer.random_ctfs(N,
+    CTFs, df1s, df2s, df_ang_deg = transfer.random_ctfs(N,
                                 psize,
                                 n_particles,
                                 df_min=df_min,
