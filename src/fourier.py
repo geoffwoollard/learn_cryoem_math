@@ -20,11 +20,13 @@ def fft3d(arr3d,mode,neg_pos_3d=None,numpy_fft=pyfftw.interfaces.numpy_fft,only_
   if arr3d.shape[0]%4 != 0:
       neg_pos_3d *= -1
 
-  arr3d_f = numpy_fft.fftn(neg_pos_3d*arr3d)
+  
   
   if mode == 'f':
+    arr3d_f = numpy_fft.fftn(neg_pos_3d*arr3d)
     arr3d_f /= np.sqrt(np.prod(arr3d_f.shape))
   elif mode == 'i':
+    arr3d_f = numpy_fft.ifftn(neg_pos_3d*arr3d)
     arr3d_f *= np.sqrt(np.prod(arr3d_f.shape))
 
   if only_real:
