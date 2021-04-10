@@ -67,13 +67,13 @@ def simulate(map_r,psize,n_particles,snr,N_crop,
     proj_r = np.zeros((n_particles,N_crop,N_crop))
     for idx in range(n_particles):
       proj_r[idx] = twod.do_ifft(proj_f[idx,i:f,i:f]).real
-    psize_crop = psize_original*N/N_crop
+    psize_crop = psize*N/N_crop
 
     signal = np.std(proj_r)
     noise = signal/snr
     proj_r_noise = np.random.normal(loc=proj_r,scale=noise)
 
-    meta_data_df = pd.DataFrame({'df1_A':df1s,'df2_A':df2s,'df_ang_deg':df_ang_deg,'kev':kv,'ac':ac,'cs_mm':cs,
+    meta_data_df = pd.DataFrame({'N':N_crop,'psize':psize_crop,'snr':snr,'df1_A':df1s,'df2_A':df2s,'df_ang_deg':df_ang_deg,'kev':kv,'ac':ac,'cs_mm':cs,
               'rotation_quaternion':[np.array2string(q) for q in qs]
             })
 
