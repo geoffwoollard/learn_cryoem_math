@@ -65,7 +65,7 @@ def simulate(map_r,psize,n_particles,snr,N_crop,
     i,f = N//2-N_crop//2, N//2+N_crop//2
     proj_r = np.zeros((n_particles,N_crop,N_crop))
     for idx in range(n_particles):
-      proj_r[idx] = fourier.do_ifft(proj_f[idx,i:f,i:f],d=2).real
+      proj_r[idx] = fourier.do_ifft(proj_f[idx,i:f,i:f],d=2)
     psize_crop = psize*N/N_crop
 
     signal = np.std(proj_r)
