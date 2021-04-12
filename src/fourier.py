@@ -46,9 +46,9 @@ def do_fft(arr,d=3,only_real=False,**kwargs):
 def do_ifft(arr,d=3,only_real=True,**kwargs):
   assert d in [2,3], 'only 2d/3d implemented'
   if d == 2:
-    return(fft2d(arr,mode='i',**kwargs))
+    return(fft2d(arr,mode='i',only_real=only_real,**kwargs))
   elif d == 3:
-    return(fft3d(arr,mode='i',**kwargs))
+    return(fft3d(arr,mode='i',only_real=only_real,**kwargs))
 
 def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch=False):
   '''
