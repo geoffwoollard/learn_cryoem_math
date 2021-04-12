@@ -4,9 +4,9 @@ import numba
 
 def ctf_freqs(N, psize=1.0, d=2):
   """
-  :param shape: Shape tuple.
-  :param d: Frequency spacing in inverse Å (1 / pixel size).
-  :param full: When false, return only unique Fourier half-space for real data. 
+  :param N: pixels
+  :param psize: pixel size in Å 
+  :param d: dimension
   """
 
   if d == 1:
