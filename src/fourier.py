@@ -34,21 +34,21 @@ def fft3d(arr3d,mode,neg_pos_3d=None,numpy_fft=pyfftw.interfaces.numpy_fft,only_
   arr3d_f *= neg_pos_3d
   return(arr3d_f)
 
-def do_fft(arr3d,d=3,only_real=False,**kwargs):
+def do_fft(arr,d=3,only_real=False,**kwargs):
   assert d in [2,3], 'only 2d/3d implemented'
   if d == 2:
-    return(fft2d(arr2d,mode='f',**kwargs))
+    return(fft2d(arr,mode='f',**kwargs))
   elif d == 3:
-    return(fft3d(arr3d,mode='f',**kwargs))
+    return(fft3d(arr,mode='f',**kwargs))
   
 
 
-def do_ifft(arr3d,d=3,only_real=True,**kwargs):
+def do_ifft(arr,d=3,only_real=True,**kwargs):
   assert d in [2,3], 'only 2d/3d implemented'
   if d == 2:
-    return(fft2d(arr2d,mode='i',**kwargs))
+    return(fft2d(arr,mode='i',**kwargs))
   elif d == 3:
-    return(fft3d(arr3d,mode='i',**kwargs))
+    return(fft3d(arr,mode='i',**kwargs))
 
 def fft2d(arr2d,mode,numpy_fft=pyfftw.interfaces.numpy_fft,only_real=False,batch=False):
   '''
