@@ -79,9 +79,9 @@ Th 15 Apr 2021 & \tiny{8 AM PST} & sharpen & cryoDRGN (variational autoencoders)
  \hline
 Th 22 Apr 2021 & \tiny{8 AM PST} & blur/sharpen & office hours  \\ 
  \hline
-Th 29 Apr 2021 & \tiny{8 AM PST} & blur/sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody}  \\ 
+Th 29 Apr 2021 & \tiny{9 AM PST} & blur/sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody}  \\ 
  \hline
-Th 6 May 2021 & \tiny{8 AM PST} & sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody} \\ 
+Th 6 May 2021 & \tiny{9 AM PST} & sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody} \\ 
  \hline
 Th 13 May 2021 & \tiny{8 AM PST} & blur & \tiny{Guest Lecture: Yong Zi Tan. Becoming a power user: Tilting}  \\ 
  \hline
@@ -100,7 +100,7 @@ TBD & \tiny{8 AM PST} & blur/sharpen & Wah Chiu et al, lectures, ...  \\ [1ex]
 \end{tabular}
 \end{center}
 
-
+\pagebreak
 \section{General Information}
 
 Feel free to share this document and direct people to sign up at \url{https://forms.gle/BUeUW14vV4pyQbDDA} so I have the emails in one place. Online meeting links are emailed to those on this list. {\bf Please join the Slack group and ask questions there, rather than emailing me.}
@@ -110,10 +110,10 @@ Over 2/3 of the audience are grad students. There rest of the audience is a mix 
 
 {\bf  Blur stream}: Beginners and intermediates with may have years of expertise doing sample prep, collecting data on the scope, making maps, and building models. However, many people with such expertise expressed a desire to go deeper into the fundamentals, and understand things better under the hood, and requested help to become more confident in the math. One person put it bluntly, "I am interested in being more than a button pusher."
 
-{\bf Sharpen stream}: This stream can be for people with a high degree of expertise that are looking to sharpen their skills, and interact with other experts. For example: methods developers with perhaps not that much experience processing datasets from start to finish, university instructors, facility managers who have a strong working knowledge but want to go deeper into the foundations and refresh, people with strong math and physics backgrounds that are fairly new but will catch on quickly, experts in crystallography that are switching over to cryoEM but that have a strong theoretical basis in the underlying math already.
+{\bf Sharpen stream}: This stream can be for people with a high degree of expertise that are looking to sharpen their skills, and interact with other experts. For example: methods developers looking to make friends with each other, university instructors, facility managers who have a strong working knowledge but want to go deeper into the foundations and refresh, people with strong math and physics backgrounds that are fairly new but will catch on quickly, experts in crystallography that are switching over to cryoEM but that have a strong theoretical basis in the underlying math already.
 
 \subsection{Pre-requisites}
-This is a sort of lower bound, so that you don't show up and become lost or frustrated, especially in the blur stream.
+This is a sort of lower bound, so that you don't show up and become lost or frustrated, especially in the blur stream. Not all of this background is needed. To learn about trilinear interpolation, you don't need to know anything about electron optics.
 
 \subsubsection{Math}
 You should be able to hit the ground running if you did alright in first year undergraduate calculus or did a second and third year statistics/physics/chemistry course with a quantitative and computational emphasis. If it's been a while you may want to quickly run through some online videos (khan academy for example) and brush up. You don't have to be strong in pure math (real analysis, proofs)
@@ -159,66 +159,20 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 \section{Learning Resources}
 
-A good place to start is Grant Jensen's \href{https://www.caltech.edu/about/news/grant-jensen-cryo-em}{popular} online course \href{https://jensenlab.caltech.edu/courses/}{'Getting Started in Cryo-EM' }.
+\begin{enumerate}
+	\item A good place to start is Grant Jensen's \href{https://www.caltech.edu/about/news/grant-jensen-cryo-em}{popular} online course \href{https://jensenlab.caltech.edu/courses/}{'Getting Started in Cryo-EM' }.
 
-After getting up to speed on the prerequisites, another good next step is the content developed by Dr Frederick Sigworth and others at \url{https://cryoemprinciples.yale.edu/video-lectures}. If you are having problems with links, then try viewing his content on YouTube.
+	\item After getting up to speed on the prerequisites, another good next step is the content developed by Dr Frederick Sigworth and others at \url{https://cryoemprinciples.yale.edu/video-lectures}. If you are having problems with links, then try viewing his content on YouTube.
 
-Also, I highly recommend the interactive learning material developed by \href{http://cryoem.tudelft.nl/group/arjen-jakobi/}{Arjen Jakobi}, for a course on \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{High-Resolution Imaging at TUDelft}: "The practicals are computational assignments in the form of interactive Jupyter notebooks hosted in a virtual learning environment. These notebooks contain code that can be executed to perform certain tasks or visualize results; you do not need any active knowledge of coding to work through the notebook." For the curious, the code that generates the visualizations is available on the repository.
+	\item  Also, I highly recommend the interactive learning material developed by \href{http://cryoem.tudelft.nl/group/arjen-jakobi/}{Arjen Jakobi}, for a course on \href{https://gitlab.tudelft.nl/aj-lab/teaching/-/wikis/NB4020}{High-Resolution Imaging at TUDelft}: "The practicals are computational assignments in the form of interactive Jupyter notebooks hosted in a virtual learning environment. These notebooks contain code that can be executed to perform certain tasks or visualize results; you do not need any active knowledge of coding to work through the notebook." For the curious, the code that generates the visualizations is available on the repository.
+ 
+	\item I have made an annotated bibliography organized thematically \href{https://github.com/geoffwoollard/learn_cryoem_math#resources}{here}.
 
-I have made an annotated bibliography organized thematically \href{https://github.com/geoffwoollard/learn_cryoem_math#resources}{here}.
-
-Coding notebooks to play around with are \href{https://github.com/geoffwoollard/learn_cryoem_math/tree/master/nb}{here}. If there is incompatibility between the notebook and the \href{https://github.com/geoffwoollard/learn_cryoem_math/tree/master/src}{code base} in the repo, that is because the code base has been updated. Older version of the code are available via past commits.
+	\item Coding notebooks to play around with are \href{https://github.com/geoffwoollard/learn_cryoem_math/tree/master/nb}{here}. If there is incompatibility between the notebook and the \href{https://github.com/geoffwoollard/learn_cryoem_math/tree/master/src}{code base} in the repo, that is because the code base has been updated. Older version of the code are available via past commits.
+\end{enumerate}
 
 \pagebreak
 \section{Upcoming Meetings}
-
-\pagebreak
-\subsection{15 Apr 2021 - Sharpen - Guest Lecture with Ellen Zhong (MIT), cryoDRGN \& Variational Autoencoders}
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item \href{https://youtu.be/yft_qhErStg}{Ellen Zhong. 2020. CryoDRGN: Deep generative models for reconstructing heterogeneous protein structures from cryo-EM. SBGrid Consortium (40 min).}
-	\item Zhong, E. D., Bepler, T., Berger, B., \& Davis, J. H. (2021). CryoDRGN: reconstruction of heterogeneous cryo-EM structures using neural networks. Nature Methods, 18(2), 176-185. \url{http://doi.org/10.1038/s41592-020-01049-4}
-	\begin{enumerate}
-		\item Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., \& Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
-		\item Zhong, E. D., Bepler, T., Davis, J. H., \& Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images. ICLR 2020, 1-20. \url{https://arxiv.org/pdf/1909.05215.pdf}
-	\end{enumerate}
-\end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item Do this \href{https://www.notion.so/cryoDRGN-tutorial-b932c021cb2c415282f182048bac16ff}{cryoDRGN tutorial}
-	\item Look through the "Log" from the command
-	\begin{lstlisting}
-cryodrgn train_vae data/128/particles.128.mrcs \
-	--ctf data/ctf.pkl  \
-	--poses data/poses.pkl  \
-	--zdim 8  \
-	-n 50  \
-	--uninvert-data  \
-	-o tutorial/00_vae128 > tutorial_00.log							
-	\end{lstlisting}		
-	Take a deep breath and go through it line by line calmly and patiently. What do you understand? What is confusing?	Using the Log output as a guide, can you draw a schematic picture of the architecture?
-	\item The tutorial suggests 50 epochs for training. Can you learn anything from the other epochs? What would indicate that you should run more/less epochs?
-	\item Consider the figure with the caption "kmeans20 volumes: vol\_000.mrc to vol\_019.mrc". What do these results tell you about the particles? What would be some next steps upon seeing these results?	
-	\item Compare the location of the 20 density maps in PCA vs UMAP space. How are they the same and how are they different?
-	\item The tutorial notes that "Principal component trajectories can also produce nonphysical "motions", e.g. if there is discrete variability in the structure." What evidence form cryoDRGN supports discrete vs continuous variability?	 What role can domain knowledge play here?
-	\item The tutorial explains how to filter out junk. What other ways are there to filter out junk and how does cryoDRGN compare with these? When would you use one over another?
-	\item Look at "rhe resulting 6 clusters" from the GMM. On the right panel, why are there particles scattered/delocalized? Carefully read how the GMM in the tutorial was done. It might help to look up UMAP (For the curious I would recommend this \href{https://youtu.be/nq6iPZVUxZU}{SciPy talk} by one of the original UMAP authors). Note that this is a sort of "trick question".	
-	\item The tutorial reports that "in practice, we often find that junk particles are located as outliers in the distribution of latent encodings." Why do you think this happens? What rules of thumb should you use to decide how many junk particles you should set aside. What problems might this cause, and how could you check if these problems were occurring? 
-	\item It's nice to have fast code, but day and week long experiments put things in perspective. What counts as "long" and "short" run times for data processing. How long are you willing to wait. Be honest, because this can help developers provide methods that people end up using in practice.
-	\item Compare the density maps with junk at 128 pixels vs high resolution without junk at 256 pixels.
-	\item Look at the high resolution "PC trajectories" (movies). In your own words, how would you describe this trajectory? What might the biological meaning of it be? Non-biological? What work would we have to do to untangle biological from non-biological conclusions?
-	\item Look at the "plot of the learning curve (i.e. average loss per epoch)". What can we conclude from this graph? What else might it look like, and what should we do in that case?
-	\item Let's say you are interested in determining to what extent conformations are discrete or continuous (e.g. an ion channel opening). Describe a workflow, including the generation of an initial reference (volume, pose, ctf), to investigate this. What steps would be involved, what would you look for at each step, and about how long would each step take.
-	\item Look at how the reconstruction changes with the number of particles.  Use the lasso tool to select small and smaller subsets and compare by eye in a 3D viewer.
-	\item "CryoDRGN's graph traversal algorithm builds a nearest neighbor graph between all the latent embeddings, and then performs dijkstra's algorithm to find the shortest path on the graph between the anchors nodes." What biological meaning might such a path have? What other features of a path would have biological (or should we say physical) meaning? How might we extend \href{https://youtu.be/GazC3A4OQTE}{Dijkstra's algorithm} to find other interesting paths?
-	\item Let's assume that our sample was experiencing conformational heterogeneity in a defined way: with one degree of freedom, but with two Gaussian distributed clusters along this degree of freedom. For example a protein opening and closing, where there is a Gaussian distribution around the open and closed state, along the coordinate connecting the two. If we used cryoDRGN on such a dataset, what would our results look like? How would things change as the spread of the Gaussians increased so that they bled into each other?
-	\item A cryoEM dataset is frozen in time, and represents a time average. Sometimes we are interested in inferring the temporal sequence of events, for instance consider the conformational states of \href{https://youtu.be/y-uuk4Pr2i8}{Kinesin}. But is a temporal sequence always obvious from different states? Imagine different scenarios that might be easier and harder to infer a temporal sequence from the type of data available in cryoEM, and the analysis offered by cryoDRGN.
-%	\item Look through the "Example output log" from the command 
-%	\begin{lstlisting}
-%	analyze tutorial/00_vae128 49 --flip --Apix 3.275
-%	\end{lstlisting}
-%	Take a deep breath and go through it line by line calmly and patiently. What do you understand? What is confusing? Using the $\texttt{'model\_args'}$ as a guide, can you draw a schematic picture of the architecture?
-\end{enumerate}
 
 \pagebreak
 \subsection{22 Apr 2021 - Blur/Sharpen - Office Hours }
@@ -234,7 +188,7 @@ cryodrgn train_vae data/128/particles.128.mrcs \
 	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
 \end{enumerate}
 
-
+\pagebreak
 \subsection{29 Apr 2021 - Blur - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& prody}
 \textendash{Pre-reading}
 \begin{enumerate}
@@ -253,6 +207,7 @@ cryodrgn train_vae data/128/particles.128.mrcs \
 \begin{enumerate}
 	\item "2. Theory" section (pp. 1470-1477) in \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836427/}{Bahar, I., Lezon, T. R., Bakan, A., \& Shrivastava, I. H. (2010). Normal Mode Analysis of Biomolecular Structures: Functional Mechanisms of Membrane Proteins. Chemical Reviews, 110(3), 1463-1497. http://doi.org/10.1021/cr900095e}
 	\item Prody \href{https://github.com/prody/ProDy}{source}, especially \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{dynamics}
+	\item Zhang, Y., Krieger, J., Mikulska-Ruminska, K., Kaynak, B., Sorzano, C. O. S., Carazo, J. M., ... Bahar, I. (2021). State-dependent sequential allostery exhibited by chaperonin TRiC/CCT revealed by network analysis of Cryo-EM maps. Progress in Biophysics and Molecular Biology, 160, 104-120. \url{http://doi.org/10.1016/j.pbiomolbio.2020.08.006}
 \end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
@@ -699,5 +654,53 @@ Access Passcode: \texttt{qdF\^{}I7.\^{}c9}
 	\item A variational autoencoder reconstructs its own input. I we are interested in reconstructing 3D structures from 2D  cryoEM observations, how can we use variational approaches to generate 3D models? Consider how concretely we would compute reconstruction loss
 	\item Code up a variational autoencoder on some toy data. For example in \href{https://tiao.io/post/tutorial-on-variational-autoencoders-with-a-concise-keras-implementation/}{Keras} or \href{https://towardsdatascience.com/variational-autoencoder-demystified-with-pytorch-implementation-3a06bee395ed}{PyTorch}
 \end{enumerate}
+
+\subsection{15 Apr 2021 - Sharpen - Guest Lecture with Ellen Zhong (MIT), cryoDRGN \& Variational Autoencoders}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://www.notion.so/cryoDRGN-tutorial-b932c021cb2c415282f182048bac16ff}{cryoDRGN tutorial}
+	\item \href{https://youtu.be/yft_qhErStg}{Ellen Zhong. 2020. CryoDRGN: Deep generative models for reconstructing heterogeneous protein structures from cryo-EM. SBGrid Consortium (40 min).}
+	\item Zhong, E. D., Bepler, T., Berger, B., \& Davis, J. H. (2021). CryoDRGN: reconstruction of heterogeneous cryo-EM structures using neural networks. Nature Methods, 18(2), 176-185. \url{http://doi.org/10.1038/s41592-020-01049-4}
+	\begin{enumerate}
+		\item Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., \& Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
+		\item Zhong, E. D., Bepler, T., Davis, J. H., \& Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images. ICLR 2020, 1-20. \url{https://arxiv.org/pdf/1909.05215.pdf}
+	\end{enumerate}
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Look through the "Log" from the command
+	\begin{lstlisting}
+cryodrgn train_vae data/128/particles.128.mrcs \
+	--ctf data/ctf.pkl  \
+	--poses data/poses.pkl  \
+	--zdim 8  \
+	-n 50  \
+	--uninvert-data  \
+	-o tutorial/00_vae128 > tutorial_00.log							
+	\end{lstlisting}		
+	Take a deep breath and go through it line by line calmly and patiently. What do you understand? What is confusing?	Using the Log output as a guide, can you draw a schematic picture of the architecture?
+	\item The tutorial suggests 50 epochs for training. Can you learn anything from the other epochs? What would indicate that you should run more/less epochs?
+	\item Consider the figure with the caption "kmeans20 volumes: vol\_000.mrc to vol\_019.mrc". What do these results tell you about the particles? What would be some next steps upon seeing these results?	
+	\item Compare the location of the 20 density maps in PCA vs UMAP space. How are they the same and how are they different?
+	\item The tutorial notes that "Principal component trajectories can also produce nonphysical "motions", e.g. if there is discrete variability in the structure." What evidence form cryoDRGN supports discrete vs continuous variability?	 What role can domain knowledge play here?
+	\item The tutorial explains how to filter out junk. What other ways are there to filter out junk and how does cryoDRGN compare with these? When would you use one over another?
+	\item Look at "rhe resulting 6 clusters" from the GMM. On the right panel, why are there particles scattered/delocalized? Carefully read how the GMM in the tutorial was done. It might help to look up UMAP (For the curious I would recommend this \href{https://youtu.be/nq6iPZVUxZU}{SciPy talk} by one of the original UMAP authors). Note that this is a sort of "trick question".	
+	\item The tutorial reports that "in practice, we often find that junk particles are located as outliers in the distribution of latent encodings." Why do you think this happens? What rules of thumb should you use to decide how many junk particles you should set aside. What problems might this cause, and how could you check if these problems were occurring? 
+	\item It's nice to have fast code, but day and week long experiments put things in perspective. What counts as "long" and "short" run times for data processing. How long are you willing to wait. Be honest, because this can help developers provide methods that people end up using in practice.
+	\item Compare the density maps with junk at 128 pixels vs high resolution without junk at 256 pixels.
+	\item Look at the high resolution "PC trajectories" (movies). In your own words, how would you describe this trajectory? What might the biological meaning of it be? Non-biological? What work would we have to do to untangle biological from non-biological conclusions?
+	\item Look at the "plot of the learning curve (i.e. average loss per epoch)". What can we conclude from this graph? What else might it look like, and what should we do in that case?
+	\item Let's say you are interested in determining to what extent conformations are discrete or continuous (e.g. an ion channel opening). Describe a workflow, including the generation of an initial reference (volume, pose, ctf), to investigate this. What steps would be involved, what would you look for at each step, and about how long would each step take.
+	\item Look at how the reconstruction changes with the number of particles.  Use the lasso tool to select small and smaller subsets and compare by eye in a 3D viewer.
+	\item "CryoDRGN's graph traversal algorithm builds a nearest neighbor graph between all the latent embeddings, and then performs dijkstra's algorithm to find the shortest path on the graph between the anchors nodes." What biological meaning might such a path have? What other features of a path would have biological (or should we say physical) meaning? How might we extend \href{https://youtu.be/GazC3A4OQTE}{Dijkstra's algorithm} to find other interesting paths?
+	\item Let's assume that our sample was experiencing conformational heterogeneity in a defined way: with one degree of freedom, but with two Gaussian distributed clusters along this degree of freedom. For example a protein opening and closing, where there is a Gaussian distribution around the open and closed state, along the coordinate connecting the two. If we used cryoDRGN on such a dataset, what would our results look like? How would things change as the spread of the Gaussians increased so that they bled into each other?
+	\item A cryoEM dataset is frozen in time, and represents a time average. Sometimes we are interested in inferring the temporal sequence of events, for instance consider the conformational states of \href{https://youtu.be/y-uuk4Pr2i8}{Kinesin}. But is a temporal sequence always obvious from different states? Imagine different scenarios that might be easier and harder to infer a temporal sequence from the type of data available in cryoEM, and the analysis offered by cryoDRGN.
+%	\item Look through the "Example output log" from the command 
+%	\begin{lstlisting}
+%	analyze tutorial/00_vae128 49 --flip --Apix 3.275
+%	\end{lstlisting}
+%	Take a deep breath and go through it line by line calmly and patiently. What do you understand? What is confusing? Using the $\texttt{'model\_args'}$ as a guide, can you draw a schematic picture of the architecture?
+\end{enumerate}
+
 
 \end{document}  
