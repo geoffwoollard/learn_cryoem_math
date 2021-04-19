@@ -10,6 +10,7 @@
 \usepackage{multirow}
 \usepackage{ulem}
 \usepackage{listings}
+\usepackage{url}
 \lstset{frameround=fttt,language=Python,breaklines=true}
 
 
@@ -206,13 +207,14 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item "2. Theory" section (pp. 1470-1477) in \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836427/}{Bahar, I., Lezon, T. R., Bakan, A., \& Shrivastava, I. H. (2010). Normal Mode Analysis of Biomolecular Structures: Functional Mechanisms of Membrane Proteins. Chemical Reviews, 110(3), 1463-1497. http://doi.org/10.1021/cr900095e}
-	\item Prody \href{https://github.com/prody/ProDy}{source}, especially \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{dynamics}
 	\item Zhang, Y., Krieger, J., Mikulska-Ruminska, K., Kaynak, B., Sorzano, C. O. S., Carazo, J. M., ... Bahar, I. (2021). State-dependent sequential allostery exhibited by chaperonin TRiC/CCT revealed by network analysis of Cryo-EM maps. Progress in Biophysics and Molecular Biology, 160, 104-120. \url{http://doi.org/10.1016/j.pbiomolbio.2020.08.006}
+	\item Prody \href{https://github.com/prody/ProDy}{source}, especially \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{dynamics} and the \href{https://github.com/prody/ProDy/blob/master/prody/proteins/emdfile.py#L466}{Topology Representing Networks} class.
 \end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
-	\item How can physics based models, the type prody uses, be incorporated into cryoEM data processing and analysis?
+	\item How can physics based models, the type Prody uses, be incorporated into cryoEM data processing and analysis?
 	\item What are the computational bottlenecks (runtime, memory) in the types of approaches in \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{prody.dynamics}?
+	\item Look at the tutorial on \href{http://prody.csb.pitt.edu/tutorials/cryoem_tutorial/em_analysis.html#map-pseudo-atoms-to-pdb-atomic-model}{Processing Cryo-EM Electron Density Maps}. How many pseudo atoms were used to represent the map? Do you think this is reasonable? How many degrees of freedom to M pseudo atoms represent? How many degrees of freedom are needed to encode a map in an NxN real spaced grid? In a low pass Fourier space or Fourier cropped map (e.g. a $k_x$ by $k_y$ cube or sphere of radius $|k|$ pixels)?
 \end{enumerate}
 
 \subsection{13 May 2021 - Blur/Sharpen - Guest Lecture: Yong Zi Tan (The Hospital for Sick Children, Toronto, Canada). Becoming a power user: Tilting}
@@ -701,6 +703,10 @@ cryodrgn train_vae data/128/particles.128.mrcs \
 %	\end{lstlisting}
 %	Take a deep breath and go through it line by line calmly and patiently. What do you understand? What is confusing? Using the $\texttt{'model\_args'}$ as a guide, can you draw a schematic picture of the architecture?
 \end{enumerate}
+\textendash{Meeting Recording} \\
+{\tiny \url{https://utoronto.zoom.us/rec/share/Zh_SoIGK_JzYBpWjMuOK_oVNIZeBkjBFhjuskbTq-fmxwK3JyIX8LHmG7O2xeo6j.fkEa4BQKud093XyX}}
+
+Access Passcode: \texttt{4nyaZv8AW\#}
 
 
 \end{document}  
