@@ -80,9 +80,9 @@ Th 15 Apr 2021 & \tiny{8 AM PST} & sharpen & cryoDRGN (variational autoencoders)
  \hline
 Th 22 Apr 2021 & \tiny{9 AM PST} & blur/sharpen & office hours  \\ 
  \hline
-Th 29 Apr 2021 & \tiny{9 AM PST} & blur/sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody}  \\ 
+Th 29 Apr 2021 & \tiny{9 AM PST} & blur/sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& ProDy}  \\ 
  \hline
-Th 6 May 2021 & \tiny{9 AM PST} & sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& prody} \\ 
+Th 6 May 2021 & \tiny{9 AM PST} & sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& ProDy} \\ 
  \hline
 Th 13 May 2021 & \tiny{8 AM PST} & blur & \tiny{Guest Lecture: Yong Zi Tan. Becoming a power user: Tilting}  \\ 
  \hline
@@ -176,64 +176,56 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \section{Upcoming Meetings}
 
 \pagebreak
-\subsection{22 Apr 2021 - Blur/Sharpen - Office Hours }
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item \href{https://youtu.be/eRPue0-Pkw4}{S2C2 CryoEM Image Processing Workshop: Day 1} (5 hrs). See schedule at the \href{https://youtu.be/eRPue0-Pkw4?t=570}{9:30 min mark}. Have a look at:
-	\begin{enumerate}
-		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=3666s}{1:01:06 Import movies}
-		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=5455s}{1:30:55 Motion correction}
-		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=7214s}{2:00:14 CTF estimation}
-		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=8272s}{2:17:52 Exposure curation}
-		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=9581s}{2:39:41 Particle picking}
-		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=12790s}{3:33:10 2D classification}
-	\end{enumerate}
-\end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
-	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
-	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
-	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
-\end{enumerate}
 
-\pagebreak
-\subsection{29 Apr 2021 - Blur - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& prody}
+\subsection{29 Apr 2021 - Blur - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& ProDy}
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836427/}{Bahar, I., Lezon, T. R., Bakan, A., \& Shrivastava, I. H. (2010). Normal Mode Analysis of Biomolecular Structures: Functional Mechanisms of Membrane Proteins. Chemical Reviews, 110(3), 1463-1497. http://doi.org/10.1021/cr900095e}
-	\item Prody \href{http://prody.csb.pitt.edu/}{website}
+	\item ProDy \href{http://prody.csb.pitt.edu/}{website}
 \end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
-	\item Have a look at some \href{http://prody.csb.pitt.edu/tutorials/}{prody tutorials}
-	\item In reality, each single particle image is a slightly different conformation. Let's assume that individual particles are fluctuations around an average reference state, and that the fluctuations are described well by the 'large breathing motions' described by normal mode approaches. How does this type of heterogeneity affect the final reconstruction? If heterogeneous particles go into one structure, what might happen to the error in their alignment estimation?
-	\item How can physics based models, the type prody uses, be incorporated into cryoEM data processing and analysis?
+	\item Have a look at some \href{http://prody.csb.pitt.edu/tutorials/}{ProDy tutorials}
+	\item In reality, each single particle image is a slightly different conformation. Let's assume that individual particles are fluctuations around an average reference state, and that the fluctuations are described well by the 'large breathing motions' described by normal mode approaches. How does this type of heterogeneity affect the final reconstruction? If heterogeneous particles go into one structure, what might happen to their alignment estimation?
+	\item How can physics based models, the type ProDy uses, be incorporated into cryoEM data processing algorithms and downstream analysis?
 \end{enumerate}
 
-\subsection{6 May 2021 - Sharpen - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& prody}
+\pagebreak
+\subsection{6 May 2021 - Sharpen - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& ProDy}
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item "2. Theory" section (pp. 1470-1477) in \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836427/}{Bahar, I., Lezon, T. R., Bakan, A., \& Shrivastava, I. H. (2010). Normal Mode Analysis of Biomolecular Structures: Functional Mechanisms of Membrane Proteins. Chemical Reviews, 110(3), 1463-1497. http://doi.org/10.1021/cr900095e}
 	\item Zhang, Y., Krieger, J., Mikulska-Ruminska, K., Kaynak, B., Sorzano, C. O. S., Carazo, J. M., ... Bahar, I. (2021). State-dependent sequential allostery exhibited by chaperonin TRiC/CCT revealed by network analysis of Cryo-EM maps. Progress in Biophysics and Molecular Biology, 160, 104-120. \url{http://doi.org/10.1016/j.pbiomolbio.2020.08.006}
-	\item Prody \href{https://github.com/prody/ProDy}{source}, especially \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{dynamics} and the \href{https://github.com/prody/ProDy/blob/master/prody/proteins/emdfile.py#L466}{Topology Representing Networks} class.
+	\item ProDy \href{https://github.com/prody/ProDy}{source}, especially \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{dynamics} and the \href{https://github.com/prody/ProDy/blob/master/prody/proteins/emdfile.py#L466}{Topology Representing Networks} class.
 \end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
-	\item How can physics based models, the type Prody uses, be incorporated into cryoEM data processing and analysis?
+	\item How can physics based models, the type ProDy uses, be incorporated into cryoEM data processing and analysis?
 	\item What are the computational bottlenecks (runtime, memory) in the types of approaches in \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{prody.dynamics}?
 	\item Look at the tutorial on \href{http://prody.csb.pitt.edu/tutorials/cryoem_tutorial/em_analysis.html#map-pseudo-atoms-to-pdb-atomic-model}{Processing Cryo-EM Electron Density Maps}. How many pseudo atoms were used to represent the map? Do you think this is reasonable? How many degrees of freedom to M pseudo atoms represent? How many degrees of freedom are needed to encode a map in an NxN real spaced grid? In a low pass Fourier space or Fourier cropped map (e.g. a $k_x$ by $k_y$ cube or sphere of radius $|k|$ pixels)?
 \end{enumerate}
 
+\pagebreak
 \subsection{13 May 2021 - Blur/Sharpen - Guest Lecture: Yong Zi Tan (The Hospital for Sick Children, Toronto, Canada). Becoming a power user: Tilting}
-%\textendash{Pre-reading}
-%\begin{enumerate}
-%	\item 
-%	\end{enumerate}
-%\textendash {Questions}
-%\begin{enumerate}
-%	\item Install 
-%\end{enumerate}
+\textendash{Learning Objectives}
+\begin{enumerate}
+	\item Understand when tilting is needed and why.
+	\item Understand how tilting physically works.
+	\item Understand how to optimize tilting.
+	\item Understand how to mathematical treat tilted data.
+\end{enumerate}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Tan, Y. Z., Baldwin, P. R., Davis, J. H., Williamson, J. R., Potter, C. S., Carragher, B., \& Lyumkis, D. (2017). Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nature Methods, 14(8), 793-796. http://doi.org/10.1038/nmeth.4347
+	\item Baldwin, P. R., \& Lyumkis, D. (2020). Non-uniformity of projection distributions attenuates resolution in Cryo-EM. Progress in Biophysics and Molecular Biology, 150, 160-183. http://doi.org/10.1016/j.pbiomolbio.2019.09.002
+	\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Why might some samples have a preferred orientation? What can be done besides tilting to mitigate this?
+	\item How uniform are typical cryoEM datasets? How much preferred orientations can be tolerated before there are major problems? 
+	\item Diagnosing preferred orientations a 3D angular distribution plot assumes that the alignments are estimated well. However, preferred orientations may be so problematic that a 3D reconstruction cannot be determined. If this is the case, what could we do to check if preferred orientations were indeed a problem?
+	\item Tilted and non-tiled data can be combined, and the ratio optimized. Propose a concrete plan to optimize this ratio. Use specific numbers of particles, tilts - what exactly is being optimized?
+\end{enumerate}
 
 \subsection{20 May 2021 - Blur/Sharpen - Office Hours}
 \textendash{Pre-reading}
@@ -715,6 +707,27 @@ cryodrgn train_vae data/128/particles.128.mrcs \
 {\tiny \url{https://utoronto.zoom.us/rec/share/Zh_SoIGK_JzYBpWjMuOK_oVNIZeBkjBFhjuskbTq-fmxwK3JyIX8LHmG7O2xeo6j.fkEa4BQKud093XyX}}
 
 Access Passcode: \texttt{4nyaZv8AW\#}
+
+\subsection{22 Apr 2021 - Blur/Sharpen - Office Hours }
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \href{https://youtu.be/eRPue0-Pkw4}{S2C2 CryoEM Image Processing Workshop: Day 1} (5 hrs). See schedule at the \href{https://youtu.be/eRPue0-Pkw4?t=570}{9:30 min mark}. Have a look at:
+	\begin{enumerate}
+		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=3666s}{1:01:06 Import movies}
+		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=5455s}{1:30:55 Motion correction}
+		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=7214s}{2:00:14 CTF estimation}
+		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=8272s}{2:17:52 Exposure curation}
+		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=9581s}{2:39:41 Particle picking}
+		\item \href{https://www.youtube.com/watch?v=eRPue0-Pkw4&t=12790s}{3:33:10 2D classification}
+	\end{enumerate}
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
+	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
+	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
+	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
+\end{enumerate}
 
 
 \end{document}  
