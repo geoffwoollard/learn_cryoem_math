@@ -16,7 +16,7 @@ def coords_n_by_d(coords_1d=None,N=None,d=3):
     coords[:,di] = X[di].flatten()
   # make compatible with flatten
   if d == 3: coords[:,[0,1]] = coords[:,[1,0]]
-  elif d == 2: coords[:,[0,1]] = coords[:,[1,0]]
+  # elif d == 2: coords[:,[0,1]] = coords[:,[1,0]]
 
   return(coords)
 
