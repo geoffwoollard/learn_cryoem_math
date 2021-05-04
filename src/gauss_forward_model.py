@@ -6,6 +6,12 @@ def make_gauss_2d(xv,yv,mu,sigma):
   return(g)
 
 def make_map_3d(atoms,xyz,N,sigma,method='batch_grid',cutoff=8):
+  """
+  batch_grid method loops through grid points, applying cutoff. 
+    only the grid coordinates near protein can be passed in 
+    (thus grid pts we know are emptry can be not even passed in, 
+    as long as we have a way to reshape xyz to the grid again)
+  """
 
   if method == 'batch_grid':
     map_3d = np.zeros(xyz.shape[0])
