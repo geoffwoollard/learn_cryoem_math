@@ -1,4 +1,4 @@
-import numpy as np
+ import numpy as np
 import numba
 
 
@@ -24,6 +24,7 @@ def ctf_freqs(N, psize=1.0, d=2):
 def eval_ctf(s, a, def1, def2, angast=0, phase=0, kv=300, ac=0.1, cs=2.0, bf=0, lp=0):
     """
     # https://github.com/asarnow/pyem/blob/master/pyem/ctf.py
+    for an explanation of the functional form of the CTF, see Rohou, A., & Grigorieff, N. (2015). CTFFIND4 : Fast and accurate defocus estimation from electron micrographs, 192, 216–221. http://doi.org/10.1016/j.jsb.2015.08.008
     :param s: Precomputed frequency grid for CTF evaluation.
     :param a: Precomputed frequency grid angles.
     :param def1: 1st prinicipal underfocus distance (Å).
