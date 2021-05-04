@@ -5,12 +5,32 @@ def make_gauss_2d(xv,yv,mu,sigma):
   g = np.exp(-( (xv-mu[0])**2 + (yv-mu[1])**2)  /(2*sigma**2) )
   return(g)
 
-def make_map_3d(atoms,xyz,N,sigma):
-  C = 1/np.sqrt(2*np.pi*sigma**2)
-  diff = xyz.reshape(-1,3,1) - atoms[:3,:].reshape(1,3,-1)
-  a = -1/(2*sigma**2)
-  map_3d = (C**3*np.exp(a*((diff**2).sum(1))).sum(1).reshape(N,N,N))
+def make_map_3d(atoms,xyz,N,sigma,method='batch_grid',cutoff=8):
+
+  if method == 'batch_grid':
+    map_3d = np.zeros(xyz.shape[0])
+    cutoff2 = cutoff*cutoff
+    for grid_idx in range(xyz.shape[0]):
+      r = xyz[grid_idx].reshape(3,1)
+      dist2 = (((r - atoms))**2).sum(0)
+      mask = dist2 < cutoff2
+      map_3d[grid_idx] += np.exp(a*dist2[mask]).sum() # TODO **a after?
+
+  else:
+    C = 1/np.sqrt(2*np.pi*sigma**2)
+    diff = xyz.reshape(-1,3,1) - atoms[:3,:].reshape(1,3,-1)
+    a = -1/(2*sigma**2)
+    map_3d = (C**3*np.exp(a*((diff**2).sum(1))).sum(1).reshape(N,N,N))
+
   return(map_3d)
+
+def make_map_2d(atoms_2d,xy,N,sigma):
+  assert atoms_2d.shape[0] == 2
+  C = 1/np.sqrt(2*np.pi*sigma**2)
+  diff = xy.reshape(-1,2,1) - atoms_2d[:2,:].reshape(1,2,-1)
+  a = -1/(2*sigma**2)
+  map_2d = (C**2*np.exp(a*((diff**2).sum(1))).sum(1).reshape(N,N))
+  return(map_2d)
 
 @njit(parallel=True)
 def parallel_add_patch_including_diff(xy,N,atoms,idx,n_trunc,sigma):
