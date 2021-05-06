@@ -131,6 +131,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Jensen, G. J. (2014). Getting Started in Cryo-EM. Retrieved from http://cryo-em-course.caltech.edu/videos
 * Vulović, M., Voortman, L. M., Van Vliet, L. J., & Rieger, B. (2014). When to use the projection assumption and the weak-phase object approximation in phase contrast cryo-EM. Ultramicroscopy, 136, 61–66. http://doi.org/10.1016/j.ultramic.2013.08.002
 * Öktem, O. (2015). Mathematics of Electron Tomography. In Handbook of Mathematical Methods in Imaging (pp. 937–1031). New York, NY: Springer New York. http://doi.org/10.1007/978-1-4939-0790-8_43
+* Afanasyev, P., Ravelli, R. B. G., Matadeen, R., De Carlo, S., Van Duinen, G., Alewijnse, B., … Van Heel, M. (2015). A posteriori correction of camera characteristics from large image data sets. Scientific Reports, 5, 1–9. http://doi.org/10.1038/srep10317
+  * Correction of detector defects (dust, electronics) from large batch of images. Post-factum gain correction. `camera_norm` code in IMAGIC. Discussion of what causes these artefacts (dust, etc), equations of how to estimate the parameters to correct, and examples from read datasets of 1000s of micrographs. 
 * Kirkland, E. J. (2016). Computation in electron microscopy. Acta Crystallographica Section A Foundations and Advances, 72(1), 1–27. http://doi.org/10.1107/S205327331501757X
 * McMullan, G., Faruqi, A. R., & Henderson, R. (2016). Direct Electron Detectors. In Methods in Enzymology (1st ed., Vol. 579, pp. 1–17). Elsevier Inc. http://doi.org/10.1016/bs.mie.2016.05.056
   * Excellent historical overview of improvements in electron detectors, especially the 1990s and 2000s. Good place to start for further delving into detector literature, especially in the journals *Ultramicroscopy* and *Nuclear Instruments & Methods in Physics Research Section A—Accelerators, Spectrometers, Detectors and Associated Equipment*.
@@ -145,6 +147,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Saxton, W. O. (2020). Advances in Imaging and Electron Physics: Computer Techniques for Image Processing in Electron Microscopy. (M. Hÿtch & P. W. Hawkes, Eds.).
   * Multichapter reprints from Advances in Electronics and Electron Physics, Supplement 10, 1978. Although much of the numerical implementation details are dated, the modelling choices and their motivations can be discerned.
 * Sigworth, F., & Tagare, H. (2020). Cryo-EM Principles. Retrieved from https://cryoemprinciples.yale.edu/
+* Himes, B. A., & Grigorieff, N. (2021). Cryo-TEM simulations of amorphous radiation-sensitive samples using multislice wave propagation. BioRxiv, 6. http://doi.org/10.1101/2021.02.19.431636
+  * advanced forward model. Theory section with abundant references to published literature, especially the physics literature. Focuses on an the "accurate representation of molecular density", "compensating for the isolated atom superposition approximation", "modeling radiation damage", modeling the solvent envelope", the "accurate representation of solvent noise" and "amplitude contrast". Results show simulated micrographs and show how they follow physical trends that are more close to experiments, and also on the same quantitiative scale. Currently in C++ in cisTEM. Future work includes speeding up wtih GPU impelementation.
   
 ## CryoEM algorithms / data processing
 
