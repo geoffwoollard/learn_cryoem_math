@@ -147,6 +147,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Saxton, W. O. (2020). Advances in Imaging and Electron Physics: Computer Techniques for Image Processing in Electron Microscopy. (M. Hÿtch & P. W. Hawkes, Eds.).
   * Multichapter reprints from Advances in Electronics and Electron Physics, Supplement 10, 1978. Although much of the numerical implementation details are dated, the modelling choices and their motivations can be discerned.
 * Sigworth, F., & Tagare, H. (2020). Cryo-EM Principles. Retrieved from https://cryoemprinciples.yale.edu/
+* Himes, B. A., & Grigorieff, N. (2021). Cryo-TEM simulations of amorphous radiation-sensitive samples using multislice wave propagation. BioRxiv, 6. http://doi.org/10.1101/2021.02.19.431636
+  * advanced forward model. Theory section with abundant references to published literature, especially the physics literature. Focuses on an the "accurate representation of molecular density", "compensating for the isolated atom superposition approximation", "modeling radiation damage", modeling the solvent envelope", the "accurate representation of solvent noise" and "amplitude contrast". Results show simulated micrographs and show how they follow physical trends that are more close to experiments, and also on the same quantitiative scale. Currently in C++ in cisTEM. Future work includes speeding up wtih GPU impelementation.
   
 ## CryoEM algorithms / data processing
 
