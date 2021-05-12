@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.ndimage import map_coordinates
+import coords
 
 def rotate_map_3d(map_3d, rot, order=1, xyz=None):
   """
