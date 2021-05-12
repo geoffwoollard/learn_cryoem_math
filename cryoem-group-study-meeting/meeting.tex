@@ -84,17 +84,17 @@ Th 29 Apr 2021 & \tiny{9 AM PST} & blur/sharpen & \tiny{Guest Lecture: J. Kriege
  \hline
 Th 6 May 2021 & \tiny{9 AM PST} & sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& ProDy} \\ 
  \hline
-Th 13 May 2021 & \tiny{8 AM PST} & blur & \tiny{Guest Lecture: Yong Zi Tan. Becoming a power user: Tilting}  \\ 
+Th 13 May 2021 & \tiny{9 AM PST} & blur & \tiny{Guest Lecture: Yong Zi Tan \& Philip Baldwin. Master class: preferred orientation}  \\ 
  \hline
-Th 20 May 2021 & \tiny{8 AM PST} & blur/sharpen & office hours  \\ 
+Th 20 May 2021 & \tiny{9 AM PST} & blur/sharpen & office hours  \\ 
  \hline
-Th 27 May 2021 & \tiny{8 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\ 
+Th 27 May 2021 & \tiny{9 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\ 
  \hline
-Th 3 June 2021 & \tiny{8 AM PST} & blur/sharpen & office hours  \\ 
+Th 3 June 2021 & \tiny{9 AM PST} & blur/sharpen & office hours  \\ 
  \hline
-Th 10 June 2021 & \tiny{8 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\
+Th 10 June 2021 & \tiny{9 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\
  \hline
-TBD & \tiny{8 AM PST} & blur/sharpen & Wah Chiu et al, lectures, ...  \\ [1ex] 
+TBD & \tiny{9 AM PST} & blur/sharpen & Wah Chiu et al, lectures, ...  \\ [1ex] 
  \hline
  ... 2021 ... & ... &  ... & ...  \\ 
  \hline
@@ -176,42 +176,55 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \section{Upcoming Meetings}
 
 \pagebreak
-\subsection{6 May 2021 - Sharpen - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& ProDy}
-\textendash{Pre-reading}
+\subsection{13 May 2021 - Blur/Sharpen - Master class: preferred orientation. Yong Zi Tan (The Hospital for Sick Children, Toronto, Canada) \& Philip Baldwin (Salk Institute for Biological Studies \& Baylor College of Medicine).}
+
+\textendash{Learning Objective:}
+\begin{itemize}
+	\item Understand, diagnose, and solve the problem of preferred orientation.
+\end{itemize}
+\textendash{The Problem}
+\begin{itemize}
+	\item What is preferred orientation? Why do samples suffer from preferred orientation?
 \begin{enumerate}
-	\item "2. Theory" section (pp. 1470-1477) in \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836427/}{Bahar, I., Lezon, T. R., Bakan, A., \& Shrivastava, I. H. (2010). Normal Mode Analysis of Biomolecular Structures: Functional Mechanisms of Membrane Proteins. Chemical Reviews, 110(3), 1463-1497. http://doi.org/10.1021/cr900095e}
-	\item Zhang, Y., Krieger, J., Mikulska-Ruminska, K., Kaynak, B., Sorzano, C. O. S., Carazo, J. M., ... Bahar, I. (2021). State-dependent sequential allostery exhibited by chaperonin TRiC/CCT revealed by network analysis of Cryo-EM maps. Progress in Biophysics and Molecular Biology, 160, 104-120. \url{http://doi.org/10.1016/j.pbiomolbio.2020.08.006}
-	\item ProDy \href{https://github.com/prody/ProDy}{source}, especially \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{dynamics} and the \href{https://github.com/prody/ProDy/blob/master/prody/proteins/emdfile.py#L466}{Topology Representing Networks} class.
+\item Blog post by Nanoimaging Services on Preferred Orientation (easy to understand) {\tiny\url{https://www.nanoimagingservices.com/blogs/post/solving-the-challenges-of-preferred-orientation-in-cryoem-sample-preparation?utm_source=Zoho&amp;utm_medium=social&amp;utm_campaign=May3}}
+	\item Noble, A.J., Dandey, V.P., Wei, H., Brasch, J., Chase, J., Acharya, P., Tan, Y.Z., Zhang, Z., Kim, L.Y.,
+Scapin, G. and Rapp, M., 2018. Routine single particle CryoEM sample and grid characterization by
+tomography. Elife, 7, p.e34257. \url{https://elifesciences.org/articles/34257}
 \end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item How can physics based models, the type ProDy uses, be incorporated into cryoEM data processing and analysis?
-	\item What are the computational bottlenecks (runtime, memory) in the types of approaches in \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{prody.dynamics}?
-	\item Look at the tutorial on \href{http://prody.csb.pitt.edu/tutorials/cryoem_tutorial/em_analysis.html#map-pseudo-atoms-to-pdb-atomic-model}{Processing Cryo-EM Electron Density Maps}. How many pseudo atoms were used to represent the map? Do you think this is reasonable? How many degrees of freedom to M pseudo atoms represent? How many degrees of freedom are needed to encode a map in an NxN real spaced grid? In a low pass Fourier space or Fourier cropped map (e.g. a $k_x$ by $k_y$ cube or sphere of radius $|k|$ pixels)?
-\end{enumerate}
+\end{itemize}
+\textendash{Diagnosing the Problem}
+\begin{itemize}
+	\item How do we know we have a preferred orientation problem? What is the consequence of it? How would we quantify the degree of preferred orientation?
+	\begin{enumerate}
+		\item Baldwin, P.R. and Lyumkis, D., 2020. Non-uniformity of projection distributions attenuates resolution
+in Cryo-EM. Progress in biophysics and molecular biology, 150, pp.160-183. \url{https://www.sciencedirect.com/science/article/abs/pii/S0079610719301087}
+		\item Tan, Y.Z., Baldwin, P.R., Davis, J.H., Williamson, J.R., Potter, C.S., Carragher, B. and Lyumkis, D., 2017.
+Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nature
+methods, 14(8), pp.793-796. \url{https://www.nature.com/articles/nmeth.4347}
+	\end{enumerate}
+	\item What is the 3DFSC? How does it relate to FSC and how does it diagnose preferred
+orientation issues?
+	\begin{itemize}
+	\item {\bf COMPLETE BEFORE MEETING}. Let's analyze some read data with the 3DFSC, using a webserver \url{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/cryoem-group-study-meeting/20200513_practical_3DFSC.pdf}
+	\end{itemize}
+\end{itemize}
+\textendash{Solving the Problem}
+\begin{itemize}
+	\item What are the ways to mitigate preferred orientation?
+	\item How does tilting mitigate preferred orientation? Pros and cons?
+\end{itemize}
+
+%	\item Tan, Y. Z., Baldwin, P. R., Davis, J. H., Williamson, J. R., Potter, C. S., Carragher, B., \& Lyumkis, D. (2017). Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nature Methods, 14(8), 793-796. http://doi.org/10.1038/nmeth.4347
+	
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item Why might some samples have a preferred orientation? What can be done besides tilting to mitigate this?
+%	\item How uniform are typical cryoEM datasets? How much preferred orientations can be tolerated before there are major problems? 
+%	\item Diagnosing preferred orientations a 3D angular distribution plot assumes that the alignments are estimated well. However, preferred orientations may be so problematic that a 3D reconstruction cannot be determined. If this is the case, what could we do to check if preferred orientations were indeed a problem?
+%	\item Tilted and non-tiled data can be combined, and the ratio optimized. Propose a concrete plan to optimize this ratio. Use specific numbers of particles, tilts - what exactly is being optimized?
+%\end{enumerate}
 
 \pagebreak
-\subsection{13 May 2021 - Blur/Sharpen - Guest Lecture: Yong Zi Tan (The Hospital for Sick Children, Toronto, Canada). Becoming a power user: Tilting}
-\textendash{Learning Objectives}
-\begin{enumerate}
-	\item Understand when tilting is needed and why.
-	\item Understand how tilting physically works.
-	\item Understand how to optimize tilting.
-	\item Understand how to mathematical treat tilted data.
-\end{enumerate}
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item Tan, Y. Z., Baldwin, P. R., Davis, J. H., Williamson, J. R., Potter, C. S., Carragher, B., \& Lyumkis, D. (2017). Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nature Methods, 14(8), 793-796. http://doi.org/10.1038/nmeth.4347
-	\item Baldwin, P. R., \& Lyumkis, D. (2020). Non-uniformity of projection distributions attenuates resolution in Cryo-EM. Progress in Biophysics and Molecular Biology, 150, 160-183. http://doi.org/10.1016/j.pbiomolbio.2019.09.002
-	\end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item Why might some samples have a preferred orientation? What can be done besides tilting to mitigate this?
-	\item How uniform are typical cryoEM datasets? How much preferred orientations can be tolerated before there are major problems? 
-	\item Diagnosing preferred orientations a 3D angular distribution plot assumes that the alignments are estimated well. However, preferred orientations may be so problematic that a 3D reconstruction cannot be determined. If this is the case, what could we do to check if preferred orientations were indeed a problem?
-	\item Tilted and non-tiled data can be combined, and the ratio optimized. Propose a concrete plan to optimize this ratio. Use specific numbers of particles, tilts - what exactly is being optimized?
-\end{enumerate}
-
 \subsection{20 May 2021 - Blur/Sharpen - Office Hours}
 \textendash{Pre-reading}
 \begin{enumerate}
@@ -222,7 +235,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
 	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
 	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
-	\item Some cryoEM discussion forums have "power users" that really understand things thouroughlly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
+	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
 \end{enumerate}
 
 \subsection{27 May 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course)}
@@ -732,5 +745,20 @@ Access Passcode: \texttt{4nyaZv8AW\#}
 {\tiny \url{https://utoronto.zoom.us/rec/share/-nAL6ZajeveRYxzFGjtZZBd5DTlpCe1fDyT1xhtvDSGxxzh36gYMVOPJerrZGO3U.Iyo-PxJegZPkm7qH}}
 
 Access Passcode: \texttt{@biL0D3=tw}
+
+\subsection{6 May 2021 - Sharpen - Guest Lecture with Dr. James Krieger (University of Pittsburgh), normal mode analysis \& ProDy}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item "2. Theory" section (pp. 1470-1477) in \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2836427/}{Bahar, I., Lezon, T. R., Bakan, A., \& Shrivastava, I. H. (2010). Normal Mode Analysis of Biomolecular Structures: Functional Mechanisms of Membrane Proteins. Chemical Reviews, 110(3), 1463-1497. http://doi.org/10.1021/cr900095e}
+	\item Zhang, Y., Krieger, J., Mikulska-Ruminska, K., Kaynak, B., Sorzano, C. O. S., Carazo, J. M., ... Bahar, I. (2021). State-dependent sequential allostery exhibited by chaperonin TRiC/CCT revealed by network analysis of Cryo-EM maps. Progress in Biophysics and Molecular Biology, 160, 104-120. \url{http://doi.org/10.1016/j.pbiomolbio.2020.08.006}
+	\item ProDy \href{https://github.com/prody/ProDy}{source}, especially \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{dynamics} and the \href{https://github.com/prody/ProDy/blob/master/prody/proteins/emdfile.py#L466}{Topology Representing Networks} class.
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item How can physics based models, the type ProDy uses, be incorporated into cryoEM data processing and analysis?
+	\item What are the computational bottlenecks (runtime, memory) in the types of approaches in \href{https://github.com/prody/ProDy/tree/master/prody/dynamics}{prody.dynamics}?
+	\item Look at the tutorial on \href{http://prody.csb.pitt.edu/tutorials/cryoem_tutorial/em_analysis.html#map-pseudo-atoms-to-pdb-atomic-model}{Processing Cryo-EM Electron Density Maps}. How many pseudo atoms were used to represent the map? Do you think this is reasonable? How many degrees of freedom to M pseudo atoms represent? How many degrees of freedom are needed to encode a map in an NxN real spaced grid? In a low pass Fourier space or Fourier cropped map (e.g. a $k_x$ by $k_y$ cube or sphere of radius $|k|$ pixels)?
+\end{enumerate}
+
 
 \end{document}  
