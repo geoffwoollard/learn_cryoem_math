@@ -24,5 +24,5 @@ def rotate_map_3d(map_3d, rot, order=1, xyz=None):
   if xyz is None:
     xyz = coords.coords_n_by_d(N=N,d=3) # xyz points cooresponding to the voxel coordinates
   xyz_rot = (rot.T.dot(xyz.T) + N//2)
-  map_3d_rot = map_coordinates(sphere,xyz_rot,order=order).reshape(N,N,N) # reshaped coresponding to xyz. if use mask can do custom reshape
+  map_3d_rot = map_coordinates(map_3d,xyz_rot,order=order).reshape(N,N,N) # reshaped coresponding to xyz. if use mask can do custom reshape
   return map_3d_rot 
