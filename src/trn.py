@@ -25,6 +25,7 @@ def trn_rm0(map_3d,M,random_seed=None):
   """
   assert np.unique(map_3d.shape).size == 1, 'map must be cube, not non-cubic rectangular parallelepiped'
   N = map_3d.shape[0]
+  assert N%2 == 0, 'N must be even'
   map_3d /= map_3d.sum() # 3d map to probability density
   map_3d_flat = map_3d.flatten()
   map_3d_idx = np.arange(map_3d_flat.shape[0])
@@ -32,9 +33,10 @@ def trn_rm0(map_3d,M,random_seed=None):
 
   # this scales with M (the number of chosen items), not map_3d_idx (the possibilities to choose from)
   samples_idx = np.random.choice(map_3d_idx,size=M,replace=True,p=map_3d_flat) # chosen voxel indeces
-  xyz = coords.coords_n_by_d(N=N,d=3)
+  coords_1d = np.arange(-N//2,N//2)
+  xyz = coords.coords_n_by_d(coords_1d,d=3)
   rm0 = xyz[samples_idx] # pick out coordinates that where chosen. note that this assumes map_3d_idx matches with rows of xyz
-  return rm0,map_3d_flat,map_3d_idx,xyz 
+  return rm0,map_3d_flat,map_3d_idx,xyz,coords_1d
 
 def trn_iterate(rm0,
   map_3d_flat,
