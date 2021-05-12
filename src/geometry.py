@@ -18,11 +18,16 @@ def rotate_map_3d(map_3d, rot, order=1, xyz=None):
     Note that the `coordinates` are relative to the indexing where input[0,0,0] is the top right (not the middle). 
     Stricly speaking this returns the value of the non rotated input at the rotated coordinates, and this rotates the frame and keep the input fixed. 
     This is the same as doing the inverse rotation of the object and keeping the frame fixed. (that's why we use rot.T)
+  param:
+    map_3d : numpy.ndarray shape (N,N,N)
+    rot : numpy.ndarray, shape (3,3)
+  return
+    map_3d_rot : numpy.ndarray shape (N,N,N). rotated map_3d
   """
   assert np.unique(map_3d.shape).size == 1, 'map must be cube, not non-cubic rectangular parallelepiped'
   N = map_3d.shape[0]
   if xyz is None:
     xyz = coords.coords_n_by_d(N=N,d=3) # xyz points cooresponding to the voxel coordinates
   xyz_rot = (rot.T.dot(xyz.T) + N//2)
-  map_3d_rot = map_coordinates(map_3d,xyz_rot,order=order).reshape(N,N,N) # reshaped coresponding to xyz. if use mask can do custom reshape
+  map_3d_rot = map_coordinates(map_3d,xyz_rot,order=order).reshape(N,N,N) # reshaped coresponding to xyz. TODO if use mask can do custom reshape
   return map_3d_rot 
