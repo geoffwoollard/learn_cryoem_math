@@ -137,3 +137,23 @@ def trn_iterate(rm0,
       ts_save[save_idx] = t
       save_idx+=1
   return rms,rs,ts_save
+
+def trn_wrapper(map_3d,
+                threshold,
+                M=1000,
+                random_seed=None,
+                n_save=10,
+                e0=0.3,
+                ef=0.05,
+                l0_factor=0.005,
+                lf=0.5,
+                tf_factor=8, # typically M*8
+                do_log=True,
+                log_n=10
+                ):
+  map_th = map_3d.copy()
+  map_th[map_th < threshold] = 0
+  rm0,map_3d_flat,map_3d_idx,xyz,coords_1d = trn_rm0(map_th,M=M,random_seed=random_seed)
+  rms,rs,ts_save = trn_iterate(rm0,map_3d_flat,map_3d_idx,xyz,n_save=n_save,e0=e0,ef=ef,l0=M*l0_factor,lf=lf,tf=M*tf_factor,do_log=do_log,log_n=log_n)
+  map_3d_th_norm = map_3d_flat.reshape(map_3d.shape)
+  return rm0,map_3d_th_norm,map_3d_idx,xyz,coords_1d,rms,rs,ts_save
