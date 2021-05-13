@@ -89,7 +89,7 @@ def trn_iterate(rm0,
     ef : float
       final step size
     l0 : float
-      initial scaling of rank
+      initial scaling of rank. larger tightens things up (pulls together). smaller spreads things out
     lf : float
       initial scaling of rank
     tf : int
