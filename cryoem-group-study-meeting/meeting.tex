@@ -84,15 +84,17 @@ Th 29 Apr 2021 & \tiny{9 AM PST} & blur/sharpen & \tiny{Guest Lecture: J. Kriege
  \hline
 Th 6 May 2021 & \tiny{9 AM PST} & sharpen & \tiny{Guest Lecture: J. Krieger, normal mode analysis \& ProDy} \\ 
  \hline
-Th 13 May 2021 & \tiny{9 AM PST} & blur & \tiny{Guest Lecture: Yong Zi Tan \& Philip Baldwin. Master class: preferred orientation}  \\ 
+Th 13 May 2021 & \tiny{9 AM PST} & blur & \tiny{Guest: Yong Zi Tan. Master class: preferred orientation}  \\ 
  \hline
-Th 20 May 2021 & \tiny{9 AM PST} & blur/sharpen & office hours  \\ 
+Th 20 May 2021 & \tiny{9 AM PST} & sharpen & \tiny{Guest: Philip Baldwin. Master class: preferred orientation}  \\ 
  \hline
 Th 27 May 2021 & \tiny{9 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\ 
  \hline
 Th 3 June 2021 & \tiny{9 AM PST} & blur/sharpen & office hours  \\ 
  \hline
 Th 10 June 2021 & \tiny{9 AM PST} & blur & \tiny{Fourier transforms and reciprocal space for the beginner (G. Jensen's course)}  \\
+ \hline
+TBD & \tiny{9 AM PST} & blur & Guest: Ben Himes. Journal club: multisclice  \\
  \hline
 TBD & \tiny{9 AM PST} & blur/sharpen & Wah Chiu et al, lectures, ...  \\ [1ex] 
  \hline
@@ -174,69 +176,46 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 \pagebreak
 \section{Upcoming Meetings}
-
 \pagebreak
-\subsection{13 May 2021 - Blur/Sharpen - Master class: preferred orientation. Yong Zi Tan (The Hospital for Sick Children, Toronto, Canada) \& Philip Baldwin (Salk Institute for Biological Studies \& Baylor College of Medicine).}
 
-\textendash{Learning Objective:}
-\begin{itemize}
-	\item Understand, diagnose, and solve the problem of preferred orientation.
-\end{itemize}
-\textendash{The Problem}
-\begin{itemize}
-	\item What is preferred orientation? Why do samples suffer from preferred orientation?
+\subsection{20 May 2021 - Sharpen - Master class: preferred orientation. Philip Baldwin (Salk Institute for Biological Studies \& Baylor College of Medicine).}
+\textendash{Learning objectives}
 \begin{enumerate}
-\item Blog post by Nanoimaging Services on Preferred Orientation (easy to understand) {\tiny\url{https://www.nanoimagingservices.com/blogs/post/solving-the-challenges-of-preferred-orientation-in-cryoem-sample-preparation?utm_source=Zoho&amp;utm_medium=social&amp;utm_campaign=May3}}
-	\item Noble, A.J., Dandey, V.P., Wei, H., Brasch, J., Chase, J., Acharya, P., Tan, Y.Z., Zhang, Z., Kim, L.Y.,
-Scapin, G. and Rapp, M., 2018. Routine single particle CryoEM sample and grid characterization by
-tomography. Elife, 7, p.e34257. \url{https://elifesciences.org/articles/34257}
+	\item Understand how sampling quantitatively affects resolution
+	\item Have a visual intuition for what parts of Fourier space are missing in different preferred orientation scenarios.
+	\item Understand the assumptions underling the sampling compensation factor (SCF), when they hold and when they break down.
 \end{enumerate}
-\end{itemize}
-\textendash{Diagnosing the Problem}
+\textendash{Pre-reading \& Questions}
 \begin{itemize}
-	\item How do we know we have a preferred orientation problem? What is the consequence of it? How would we quantify the degree of preferred orientation?
+	\item Baldwin, P.R. and Lyumkis, D., 2020. Non-uniformity of projection distributions attenuates resolution
+in Cryo-EM. Progress in biophysics and molecular biology, 150, pp.160-183. \url{https://www.biorxiv.org/content/10.1101/635938v2}. 
+{\it Note that biorxiv preprint and Progress in biophysics and molecular biology article number the equations referred to below identically.}
 	\begin{enumerate}
-		\item Baldwin, P.R. and Lyumkis, D., 2020. Non-uniformity of projection distributions attenuates resolution
-in Cryo-EM. Progress in biophysics and molecular biology, 150, pp.160-183. \url{https://www.sciencedirect.com/science/article/abs/pii/S0079610719301087}
-		\item Tan, Y.Z., Baldwin, P.R., Davis, J.H., Williamson, J.R., Potter, C.S., Carragher, B. and Lyumkis, D., 2017.
-Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nature
-methods, 14(8), pp.793-796. \url{https://www.nature.com/articles/nmeth.4347}
+		\item What is the Spectral signal-to-noise ratio (SSNR) and how is it related to the FSC? For typical FSC curves (sigmoid like), what would the SSNR look like? 
+		\item Why does the SSNR not increase with more data when there is preferred orientations, and what effect this has on the FSC?
+		\item Explain the assumptions going from Eq. 2.10 to 2.11 in your own words.
+		\item During iterative refinement, how would you compute the pieces that go into Eq 2.13: $E^2(k),  \langle|X|^2\rangle, \langle|N(\vec k)|^2\rangle, \langle \frac{1}{Sp(\vec k)}\rangle$
+		\item What mathematical steps did you not understand, either mathematically, or the physical assumptions justifying certain mathematical leaps?
 	\end{enumerate}
-	\item What is the 3DFSC? How does it relate to FSC and how does it diagnose preferred
-orientation issues?
-	\begin{itemize}
-	\item {\bf COMPLETE BEFORE MEETING}. Let's analyze some read data with the 3DFSC, using a webserver \url{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/cryoem-group-study-meeting/20200513_practical_3DFSC.pdf}
-	\end{itemize}
+	\item 3DFSC webserver \url{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/cryoem-group-study-meeting/20200513_practical_3DFSC.pdf}
+	\begin{enumerate}
+		\item Submit your own job to the 3DFSC webserver (halfmaps, full map, pixel size). Open the .cmd file in Chimera and have it ready for the meeting.
+	\end{enumerate}
 \end{itemize}
-\textendash{Solving the Problem}
-\begin{itemize}
-	\item What are the ways to mitigate preferred orientation?
-	\item How does tilting mitigate preferred orientation? Pros and cons?
-\end{itemize}
+\pagebreak
 
-%	\item Tan, Y. Z., Baldwin, P. R., Davis, J. H., Williamson, J. R., Potter, C. S., Carragher, B., \& Lyumkis, D. (2017). Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nature Methods, 14(8), 793-796. http://doi.org/10.1038/nmeth.4347
-	
+%\subsection{20 May 2021 - Blur/Sharpen - Office Hours}
+%\textendash{Pre-reading}
+%\begin{enumerate}
+%	\item \href{https://youtu.be/ehXqLnV_Jr4}{S2C2 CryoEM Image Processing Workshop: Day 2 Part 1} (3h:20m)
+%	\end{enumerate}
 %\textendash {Questions}
 %\begin{enumerate}
-%	\item Why might some samples have a preferred orientation? What can be done besides tilting to mitigate this?
-%	\item How uniform are typical cryoEM datasets? How much preferred orientations can be tolerated before there are major problems? 
-%	\item Diagnosing preferred orientations a 3D angular distribution plot assumes that the alignments are estimated well. However, preferred orientations may be so problematic that a 3D reconstruction cannot be determined. If this is the case, what could we do to check if preferred orientations were indeed a problem?
-%	\item Tilted and non-tiled data can be combined, and the ratio optimized. Propose a concrete plan to optimize this ratio. Use specific numbers of particles, tilts - what exactly is being optimized?
+%	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
+%	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
+%	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
+%	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
 %\end{enumerate}
-
-\pagebreak
-\subsection{20 May 2021 - Blur/Sharpen - Office Hours}
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item \href{https://youtu.be/ehXqLnV_Jr4}{S2C2 CryoEM Image Processing Workshop: Day 2 Part 1} (3h:20m)
-	\end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
-	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
-	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
-	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
-\end{enumerate}
 
 \subsection{27 May 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course)}
 \textendash{Pre-reading}
@@ -253,6 +232,12 @@ orientation issues?
 %\begin{enumerate}
 %	\item Install 
 %\end{enumerate}
+%\textendash {Discussion group leaders}
+%\begin{enumerate}
+%	\item Arunabh Athreya 
+%\end{enumerate}
+
+
 
 \subsection{3 June May 2021 - Blur/Sharpen - Office Hours}
 \textendash{Pre-reading}
@@ -283,8 +268,20 @@ orientation issues?
 %	\item Install 
 %\end{enumerate}
 
+\subsection{TBD 2021 - sharpen - Journal club: multisclice. Ben Himes (HHMI Janelia Research Campus)}
+\subsubsection{Blur}
+\textendash {Pre-reading}
+\begin{itemize}
+	\item Himes, B. A., \& Grigorieff, N. (2021). Cryo-TEM simulations of amorphous radiation-sensitive samples using multislice wave propagation. BioRxiv, 6. \url{http://doi.org/10.1101/2021.02.19.431636} \url{https://www.biorxiv.org/content/10.1101/2021.02.19.431636v2}
+\end{itemize}
+\textendash {Questions}
+\begin{itemize}
+	\item What are the extensions of this paper compared to past treatments?
+	\item What is not modelled?
+	\item What are the computational bottlenecks in simulating images using multislice?
+	\item Out of all the sources of noise, which ones dominate? How can this be tested/quantified?
+\end{itemize}
 
-\pagebreak
 \subsection{Summer 2021}
 By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogales will hopefully be out, and we can see how it looks. We could also plan some lectures.
 
@@ -761,4 +758,56 @@ Access Passcode: \texttt{@biL0D3=tw}
 \end{enumerate}
 
 
+\subsection{13 May 2021 - Blur/Sharpen - Master class: preferred orientation. Yong Zi Tan (The Hospital for Sick Children, Toronto, Canada)}
+
+\textendash{Learning Objective:}
+\begin{itemize}
+	\item Understand, diagnose, and solve the problem of preferred orientation.
+\end{itemize}
+\textendash{The Problem}
+\begin{itemize}
+	\item What is preferred orientation? Why do samples suffer from preferred orientation?
+\begin{enumerate}
+\item Blog post by Nanoimaging Services on Preferred Orientation (easy to understand) {\tiny\url{https://www.nanoimagingservices.com/blogs/post/solving-the-challenges-of-preferred-orientation-in-cryoem-sample-preparation?utm_source=Zoho&amp;utm_medium=social&amp;utm_campaign=May3}}
+	\item Noble, A.J., Dandey, V.P., Wei, H., Brasch, J., Chase, J., Acharya, P., Tan, Y.Z., Zhang, Z., Kim, L.Y.,
+Scapin, G. and Rapp, M., 2018. Routine single particle CryoEM sample and grid characterization by
+tomography. Elife, 7, p.e34257. \url{https://elifesciences.org/articles/34257}
+\end{enumerate}
+\end{itemize}
+\textendash{Diagnosing the Problem}
+\begin{itemize}
+	\item How do we know we have a preferred orientation problem? What is the consequence of it? How would we quantify the degree of preferred orientation?
+	\begin{enumerate}
+		\item Baldwin, P.R. and Lyumkis, D., 2020. Non-uniformity of projection distributions attenuates resolution
+in Cryo-EM. Progress in biophysics and molecular biology, 150, pp.160-183. \url{https://www.sciencedirect.com/science/article/abs/pii/S0079610719301087}
+		\item Tan, Y.Z., Baldwin, P.R., Davis, J.H., Williamson, J.R., Potter, C.S., Carragher, B. and Lyumkis, D., 2017.
+Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nature
+methods, 14(8), pp.793-796. \url{https://www.nature.com/articles/nmeth.4347}
+	\end{enumerate}
+	\item What is the 3DFSC? How does it relate to FSC and how does it diagnose preferred
+orientation issues?
+	\begin{itemize}
+	\item {\bf COMPLETE BEFORE MEETING}. Let's analyze some read data with the 3DFSC, using a webserver \url{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/cryoem-group-study-meeting/20200513_practical_3DFSC.pdf}
+	\end{itemize}
+\end{itemize}
+\textendash{Solving the Problem}
+\begin{itemize}
+	\item What are the ways to mitigate preferred orientation?
+	\item How does tilting mitigate preferred orientation? Pros and cons?
+\end{itemize}
+
+\textendash{Meeting Recording} \\
+{\tiny \url{https://utoronto.zoom.us/rec/share/ly-8b5zAE_Ms0GDQq6nk0DMqpsVmF0rHH9hpc64oGlue9Cl070ck5VlzD2YIFaBF.6eDHwBlsaOavK_7c}}
+
+Access Passcode: \texttt{1h5CGMTg\%6}
+
+%	\item Tan, Y. Z., Baldwin, P. R., Davis, J. H., Williamson, J. R., Potter, C. S., Carragher, B., \& Lyumkis, D. (2017). Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nature Methods, 14(8), 793-796. http://doi.org/10.1038/nmeth.4347
+	
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item Why might some samples have a preferred orientation? What can be done besides tilting to mitigate this?
+%	\item How uniform are typical cryoEM datasets? How much preferred orientations can be tolerated before there are major problems? 
+%	\item Diagnosing preferred orientations a 3D angular distribution plot assumes that the alignments are estimated well. However, preferred orientations may be so problematic that a 3D reconstruction cannot be determined. If this is the case, what could we do to check if preferred orientations were indeed a problem?
+%	\item Tilted and non-tiled data can be combined, and the ratio optimized. Propose a concrete plan to optimize this ratio. Use specific numbers of particles, tilts - what exactly is being optimized?
+%\end{enumerate}
 \end{document}  
