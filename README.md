@@ -33,7 +33,7 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
    * Good historical overview and mathematical excursions. Narrative style. Works out analytical calculations. Before the major gains in resolution, and emphasis on 2D crystals.
 * Glaeser, R. M., Nogales, E., & Chiu, W. (Eds.). (2021). Single-particle Cryo-EM of Biological Macromolecules. IOP Publishing. http://doi.org/10.1088/978-0-7503-3039-8
   * 1 Introduction and overview
-    * 1.1. Visualizing biological molecules to understand life’s principles. Gives an honest overview of the current state of the art by citing recent studies and putting them in historical perspective.
+    * 1.1 Visualizing biological molecules to understand life’s principles. Gives an honest overview of the current state of the art by citing recent studies and putting them in historical perspective.
     * 1.2 Recovery of 3D structures from images of weak-phase objects. Commentary on weak phase and projection approximations and explanation of what the mathematical equations are physically modeling the image. Comparisons to X-ray crystalography.
   * 2 Sample preparation
     * 2.2 Initial screening of samples in negative stain. Includes detailed protocols for the "black-art" of negative staining, and advice on what can be interpreted about the sample from data processing.
@@ -41,7 +41,18 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
     * 2.4 Requirement to make very thin specimens for cryo-EM. Inelastic scattering, too thick/thin. Useful advice for screening and data collection. Helpful to build intuition for what is physically happening to the sample and why this prevents good quality data from being collected.
     * 2.5 Current strategies for optimizing preparation of cryo-grids. Air-water interface and phyics of thin films. How to trouble shoot. Review of different freezing hardware devices.
   * 3 Data collection
-    * Radiation damage in cryo-EM.
+    * 3.2 Radiation damage in cryo-EM. Sources of radiation damage, role of electron energy, exposure weighting, beam-induced motion, charging. This chapter helps untangle these related ideas and cites the emprical studies that support the current consensus about what is physically causing damage and how it quantitatively behaves.
+    * 3.3 Low-dose protocols for recording images. Automatic data collection, grid atlast, focusing, etc.
+    * 3.4 Practical considerations: defocus, stigmation, coma-free illumination, and phase plates. Focus on phase plates. Loss of information from defocus explained with simple figure. Literature cited on volta and laser phase plate development.
+    * 3.5 Practical considerations: movie-mode data acquisition. Magnification, dose rate, total dose. Brieft overview.
+  * 4 Data processing
+    * 4.2 Automated extraction of particles. Going from micrographs to particles. Challenges of particle picking: manual, template, neural network. Extraction. Cleanup with 2D class and 3D ab initio.
+    * 4.3 CTF estimation and image correction (restoration). Mathematical details of CTF equations, including astigmatism. Estimating the CTF from experimental images. Correcting images with Wiener-filtering. Brieft remarks on higher order corrections.
+    * 4.4 Merging data from structurally homogeneous subsets. How many particles are needed: in ideal theoretical cases and in practice. Review of 3D reconstruction: algebraic, Fourier methods based on central-slice theorem, tilting, common lines, random initialization, validation.
+    * 4.5 3D classification of structurally heterogeneous particles. Brief summary of masking, symmetry, continuous motion.
+    * 4.6 Preferred orientation: how to recognize and deal with adverse effects. Causes, effects, and mitigation of preferred orientation. Ample literature cited. Links to software tools developed by author to quantitate preferred orientations, their effect on resolution, etc.
+    * 4.7 B factors and map sharpening. Commentary on what causes the B-factor and what it is modeling. How to estimate and advice on sharpening in practice. Table of diverse reporting of B factors in literature.
+    * 4.8 Optical aberrations and Ewald sphere curvature. 
 
 ## Math
 ### Fourier
