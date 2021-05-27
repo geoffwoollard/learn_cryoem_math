@@ -35,8 +35,14 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
   * 1 Introduction and overview
     * 1.1. Visualizing biological molecules to understand life’s principles. Gives an honest overview of the current state of the art by citing recent studies and putting them in historical perspective.
     * 1.2 Recovery of 3D structures from images of weak-phase objects. Commentary on weak phase and projection approximations and explanation of what the mathematical equations are physically modeling the image. Comparisons to X-ray crystalography.
-  * 2 Sample preparation.
-    * 2.2 Initial screening of samples in negative stain
+  * 2 Sample preparation
+    * 2.2 Initial screening of samples in negative stain. Includes detailed protocols for the "black-art" of negative staining, and advice on what can be interpreted about the sample from data processing.
+    * 2.3 Standard method of making grids for cryo-EM. Grids, glow-discharging, freezing.
+    * 2.4 Requirement to make very thin specimens for cryo-EM. Inelastic scattering, too thick/thin. Useful advice for screening and data collection. Helpful to build intuition for what is physically happening to the sample and why this prevents good quality data from being collected.
+    * 2.5 Current strategies for optimizing preparation of cryo-grids. Air-water interface and phyics of thin films. How to trouble shoot. Review of different freezing hardware devices.
+  * 3 Data collection
+    * Radiation damage in cryo-EM.
+
 ## Math
 ### Fourier
 * Lighthill, M. J. (1958). An Introduction to Fourier Analysis and Generalised Functions. An Introduction to Fourier Analysis and Generalised Functions. Cambridge University Press. http://doi.org/10.1017/CBO9781139171427.001
