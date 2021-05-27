@@ -31,7 +31,12 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Frank, J. (1996). Electron Microscopy of Macromolecular Assemblies. In Three-Dimensional Electron Microscopy of Macromolecular Assemblies (pp. 12–53). Elsevier. http://doi.org/10.1016/B978-012265040-6/50002-3
 * Glaeser, R. (2007). Electron Crystallography of Biological Macromolecules. Oxford University Press.
    * Good historical overview and mathematical excursions. Narrative style. Works out analytical calculations. Before the major gains in resolution, and emphasis on 2D crystals.
-
+* Glaeser, R. M., Nogales, E., & Chiu, W. (Eds.). (2021). Single-particle Cryo-EM of Biological Macromolecules. IOP Publishing. http://doi.org/10.1088/978-0-7503-3039-8
+  * 1 Introduction and overview
+    * 1.1. Visualizing biological molecules to understand life’s principles. Gives an honest overview of the current state of the art by citing recent studies and putting them in historical perspective.
+    * 1.2 Recovery of 3D structures from images of weak-phase objects. Commentary on weak phase and projection approximations and explanation of what the mathematical equations are physically modeling the image. Comparisons to X-ray crystalography.
+  * 2 Sample preparation.
+    * 2.2 Initial screening of samples in negative stain
 ## Math
 ### Fourier
 * Lighthill, M. J. (1958). An Introduction to Fourier Analysis and Generalised Functions. An Introduction to Fourier Analysis and Generalised Functions. Cambridge University Press. http://doi.org/10.1017/CBO9781139171427.001
