@@ -52,7 +52,17 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
     * 4.5 3D classification of structurally heterogeneous particles. Brief summary of masking, symmetry, continuous motion.
     * 4.6 Preferred orientation: how to recognize and deal with adverse effects. Causes, effects, and mitigation of preferred orientation. Ample literature cited. Links to software tools developed by author to quantitate preferred orientations, their effect on resolution, etc.
     * 4.7 B factors and map sharpening. Commentary on what causes the B-factor and what it is modeling. How to estimate and advice on sharpening in practice. Table of diverse reporting of B factors in literature.
-    * 4.8 Optical aberrations and Ewald sphere curvature. 
+    * 4.8 Optical aberrations and Ewald sphere curvature. Symmetrical and antisymmetrical components of the phase shift, γ. Order of aberrations, Zernike polynomials: astigmatism and defocus; axial coma; trefoil or three-fold astigmatism; spherical aberration and; four-fold astigmatism or tetrafoil. Practical considerations when estimating, including how estimates of different orders influence each other. At what point a single molecule is thick enough to feel the curvature of the Ewald sphere.
+  * 5 Map validation
+    * 5.2 Measures of resolution: FSC and local resolution. FSC and SSNR, pathologies to FSC from masking, limited defoci diversity. Local resolution. Instructive chapter helping interpret statistical meaning of metircs and what sort of conclusions they can and can't justify.
+    * 5.3 Recognizing the effect of bias and over-fitting. Build-up of extraneous map features due to aligned noise during iterative refinement. Affect on FSC. Local overfitting and what map artefacts look like. New algorithmic data processing solutions and why/how they work at a high level.
+    * 5.4 Estimates of alignment accuracy. SNR dependency on masking and box size, investigating alignment errors with synthetic data, affect of alignment accuracy on resolution. Some basic quantitative treatment of alignment errors, a topic that is not discussed much since there is no ground truth alignemnt of experimental data.
+  * 6 Model building and validation
+    * 6.2 Using known components or homologs: model building. Review of software for medium to low resolution maps: rigid body, flexible for resolutions worse than ~4 A.
+    * 6.3 Building atomistic models in cryo-EM density maps. Flow chart of practical advice. Overview of ~22 software tools, with a few sentences to a paragraph written about each. Fit to densty, map-model FSC.
+    * 6.4 Quality evaluation of cryo-EM map-derived models. Overview of different map-model metrics: map-model FSC, atom inclusion, average density value, cross correlation, Z-score, EMRinger, Q-score. Q-score resolution depdency and per amino acid / nucleotide base, water molecules and ions. Model only metrics.
+    * 6.5 How algorithms from crystallography are helping electron cryo- microscopy. Review of phenix software and how they can be modularly used with each other in map improvement, map interpreatation, model building, model optimization, validation. Tools include phenix.auto_sharpen, phenix.resolve_cryo_em, phenix.combine_focused_maps, phenix.auto_sharpen, phenix.real_space_refine, phenix.superpose_maps, phenix.dock_in_map, phenix.map_to_model, phenix.trace_and_build, phenix.combine_models, phenix.sequence_from_map, phenix.map_box, phenix.mtriage, phenix.comprehensive_validation, phenix.reduce, phenix.probe, phenix.kinemage, phenix.mr_rosetta. Lot's of literature cited and useful heuristics given.
+    * 6.6 Archiving structures and data. EMPIAR, EMDB, PDB. Data validation. Sample sequence and ligands. OneDep. Metadata.
 
 ## Math
 ### Fourier
