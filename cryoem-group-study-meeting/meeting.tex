@@ -182,57 +182,18 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \section{Upcoming Meetings}
 \pagebreak
 
-%\subsection{20 May 2021 - Blur/Sharpen - Office Hours}
-%\textendash{Pre-reading}
-%\begin{enumerate}
-%	\item \href{https://youtu.be/ehXqLnV_Jr4}{S2C2 CryoEM Image Processing Workshop: Day 2 Part 1} (3h:20m)
-%	\end{enumerate}
-%\textendash {Questions}
-%\begin{enumerate}
-%	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
-%	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
-%	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
-%	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
-%\end{enumerate}
-
-\subsection{27 May 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course)}
-\textendash{Pre-reading}
-\begin{enumerate}
-%	\item \href{https://youtu.be/-EAQm8wgLbc}{Part 2: Fourier Transforms for Beginners - G. Jensen} (1 min)
-%	\item \href{https://youtu.be/OESy_ltOCvI}{Part 2: 1-D Sine Waves and Their Sums - G. Jensen} (33 min)
-%	\item \href{https://youtu.be/IUaqeoMK5y4}{Part 2: 1-D Reciprocal Space - G. Jensen} (20 min)
-	\item \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images - G. Jensen} (19 min)
-	\item \href{https://youtu.be/fEyLh9HqsWU}{Part 2: 2-D Transforms and Filters - G. Jensen} (33 min)
-%	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
-%	\item \href{https://youtu.be/MQm6ZP1F6ms}{Part 2: Convolution and Cross-Correlation - G. Jensen} (15 min)
-	\end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item In \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images}, Grant Jensen shows some visualizations of 2D waves. He enters values for h, k, amplitude, and phase, and a wave appears on the screen. Let's say we wanted to "spin a wave around" the origin. For instance make 360 waves that were each rotated by 1 degree. What values would we enter?
-	\item If we took the Fourier transform of one of the 2D waves in \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images}, what would it look like? What happens as the wave is translated?
-	\item Sometimes people see "water rings" in the power spectra during CTF estimation. How exactly does it arise, and why is it a ring? What makes it more or less bright? What controls the ring's width/spread?
-	\item How would you make a checker-board-like pattern (e.g. 8x8) with Jensen's wave program?
-	\item If we Fourier crop (hard low pass filter) a 3D map (256 pixels, $1 \AA$ / pixel) at $8 \AA$, how many "waves" go into the map?
-	\item Around 15:20 in \href{https://youtu.be/fEyLh9HqsWU?t=920s}{Part 2: 2-D Transforms and Filters} Jensen remarks that the location of pixels in Fourier space is perpendicular to the location of the crest of the waves in real space. If we are on the scope and take a live FFT of a gridded pattern (pieces of a lattice, rotated in all sorts of directions), we see a ring. What happens to the ring in the FFT when we translate the stage in one direction.
-\end{enumerate}
-\textendash {Discussion group leaders}
-\begin{itemize}
-	\item Arunabh Athreya 
-\end{itemize}
-
-
-\pagebreak
 \subsection{3 June May 2021 - Blur/Sharpen - Office Hours}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item \href{https://youtu.be/HXIipHORI2Y}{S2C2 CryoEM Image Processing Workshop: Day 2 Part 2} (3h:40m)
+	\item \href{https://youtu.be/ehXqLnV_Jr4}{S2C2 CryoEM Image Processing Workshop: Day 2 Part 1} (3h:20m)
+%	\item \href{https://youtu.be/HXIipHORI2Y}{S2C2 CryoEM Image Processing Workshop: Day 2 Part 2} (3h:40m)
 	\end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
-	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
+	\item Some data processing algorithms have many parameters, and it can be difficult to understand what exactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
 	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
 	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
-	\item Some cryoEM discussion forums have "power users" that really understand things thouroughlly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
+	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
 \end{enumerate}
 
 \subsection{10 June 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course)}
@@ -725,7 +686,7 @@ Access Passcode: \texttt{4nyaZv8AW\#}
 \end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
-	\item Some data processing algorithms have many parameters, and it can be difficult to understand what eactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
+	\item Some data processing algorithms have many parameters, and it can be difficult to understand what exactly they are all doing, which ones go together, and when you would use them, how they would change things, and when you'd know that things are working. Find some parameters in a data processing algorithm that you don't understand, and bring it to the office hours to discuss. If you have time, run some jobs by changing a few parameters.
 	\item Some people would like to know more about how an cryoEM algorithm works, but can't follow the original paper describing. Bring some results you've generated from some cryoEM data processing algorithm to discuss.
 	\item Some data processing algorithms generate intermediate plots. If you know how to interpret these plots, they can help diagnose if the algorithm it working how you think it should be. Bring some plots that you have difficulty understanding to the office hours to discuss.  
 	\item Some cryoEM discussion forums have "power users" that really understand things thoroughly. If you can follow how they are thinking, you can learn a lot, trouble shoot your data processing problems, and move your projects along. Find some posts and threads with these power users, and bring them to the office hours to discuss.
@@ -844,6 +805,29 @@ in Cryo-EM. Progress in biophysics and molecular biology, 150, pp.160-183. \url{
 	\item Baldwin, P. R., \& Lyumkis, D. (2021). Tools for visualizing and analyzing Fourier space sampling in Cryo-EM. Progress in Biophysics and Molecular Biology, 160, 53-65. \url{http://doi.org/10.1016/j.pbiomolbio.2020.06.003}
 \end{itemize}
 
-
+\subsection{27 May 2021 - Blur - Fourier transforms and reciprocal space for the beginner (Grant Jensen's course)}
+\textendash{Pre-reading}
+\begin{enumerate}
+%	\item \href{https://youtu.be/-EAQm8wgLbc}{Part 2: Fourier Transforms for Beginners - G. Jensen} (1 min)
+%	\item \href{https://youtu.be/OESy_ltOCvI}{Part 2: 1-D Sine Waves and Their Sums - G. Jensen} (33 min)
+%	\item \href{https://youtu.be/IUaqeoMK5y4}{Part 2: 1-D Reciprocal Space - G. Jensen} (20 min)
+	\item \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images - G. Jensen} (19 min)
+	\item \href{https://youtu.be/fEyLh9HqsWU}{Part 2: 2-D Transforms and Filters - G. Jensen} (33 min)
+%	\item \href{https://youtu.be/INtehLmqfmA}{Part 2: 3-D Waves and Transforms - G. Jensen} (13 min)
+%	\item \href{https://youtu.be/MQm6ZP1F6ms}{Part 2: Convolution and Cross-Correlation - G. Jensen} (15 min)
+	\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item In \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images}, Grant Jensen shows some visualizations of 2D waves. He enters values for h, k, amplitude, and phase, and a wave appears on the screen. Let's say we wanted to "spin a wave around" the origin. For instance make 360 waves that were each rotated by 1 degree. What values would we enter?
+	\item If we took the Fourier transform of one of the 2D waves in \href{https://youtu.be/nyk75ufbP74}{Part 2: 2-D Waves and Images}, what would it look like? What happens as the wave is translated?
+	\item Sometimes people see "water rings" in the power spectra during CTF estimation. How exactly does it arise, and why is it a ring? What makes it more or less bright? What controls the ring's width/spread?
+	\item How would you make a checker-board-like pattern (e.g. 8x8) with Jensen's wave program?
+	\item If we Fourier crop (hard low pass filter) a 3D map (256 pixels, $1 \AA$ / pixel) at $8 \AA$, how many "waves" go into the map?
+	\item Around 15:20 in \href{https://youtu.be/fEyLh9HqsWU?t=920s}{Part 2: 2-D Transforms and Filters} Jensen remarks that the location of pixels in Fourier space is perpendicular to the location of the crest of the waves in real space. If we are on the scope and take a live FFT of a gridded pattern (pieces of a lattice, rotated in all sorts of directions), we see a ring. What happens to the ring in the FFT when we translate the stage in one direction.
+\end{enumerate}
+\textendash {Discussion group leaders}
+\begin{itemize}
+	\item Arunabh Athreya 
+\end{itemize}
 
 \end{document}  
