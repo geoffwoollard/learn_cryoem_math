@@ -212,12 +212,30 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
   * modified FSC with real space masking done at end. Fourier shell still taken of each half map, but then goes back to real space and applies mask before correlation. Have to do an inverse FT for each shell, but can be parallelized.
 * van Heel, M., & Schatz, M. (2020). Information: to Harvest, to Have and to Hold, 1–43.
 
+### B-factor
+* Rosenthal, P. B., & Henderson, R. (2003). Optimal Determination of Particle Orientation, Absolute Hand, and Contrast Loss in Single-particle Electron Cryomicroscopy. Journal of Molecular Biology, 333(4), 721–745. http://doi.org/10.1016/j.jmb.2003.07.013
+  * Classic paper that studies "amplitude spectrum" B-factor, which can be computed from a map: "the loss of contrast in the map at high resolution [depends on ...] causes such as radiation damage, imaging imperfections, and errors in the reconstruction procedure." Includes good "Theoretical Background" section on "Guinier analysis", "Loss of contrast", and "Contrast restoration".
+ * Singer, A. (2021). Wilson Statistics : Derivation , Generalization , and Applications to Electron Cryomicroscopy. BioRxiv, 1–16.
+   * "the first rigorous mathematical derivation of Wilson statistics", which is the high frequency regime of the power spectra (Guinier is the low frequency)
+
 ### Ewald Sphere
 * Wolf M, DeRosier DJ, Grigorieff N. (2006) Ewald sphere correction for single-particle electron microscopy. Ultramicroscopy 4-5: 376-82.
 * Leong, P. A., Yu, X., Zhou, Z. H., & Jensen, G. J. (2010). Correcting for the Ewald Sphere in High-Resolution Single-Particle Reconstructions. In Methods in Enzymology (1st ed., Vol. 482, pp. 369–380). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82015-4
 * Russo CJ, Henderson R. (2018) Ewald sphere correction using a single side-band image processing algorithm. Ultramicroscopy: 26-33.
 
-### Variational Autoencoders
+### PCA
+* Sorzano, C. O. S., & Carazo, J. M. (2021). Principal component analysis is limited to low-resolution analysis in cryoEM. Acta Crystallographica Section D Structural Biology, 77(6), 835–839. http://doi.org/10.1107/s2059798321002291
+  * 4 page paper that goes over some of the math and gives advice on interpretability (reconstructured volume vs components along eigenvolumes, or eivenvolumes alone). Connections mentioned in passing with other literature on 3D deformations: Taylor expansions of the volume, Laplacian analysis of a graph, generalized Fourier transforms to arbitrary geometrical shapes (spherical harmonics for surface of sphere, Bessel functions for cylindar, prolate spheroidals for sphere). Simple pedagogical 2D example of moving line (metranome like).
+* Punjani, A., & Fleet, D. J. (2021). 3D variability analysis: Resolving continuous flexibility and discrete heterogeneity from single particle cryo-EM. Journal of Structural Biology, 213(2), 107702. http://doi.org/10.1016/j.jsb.2021.107702
+  * examples include: solving multiple dimensions of heterogeneity, high resolution flexible motion of small proteins, multiple high resolution modes of bending in a sodium ion channel, symmetric and asymmetric flexible motion at high resolution, large flexible motions of large complexes, directly resolving discrete heterogeneity. In practice the software implementation is fast and thus practically allows for a high amount of components (8+ vs 2-3).
+* Tagare, H. D., Kucukelbir, A., Sigworth, F. J., Wang, H., & Rao, M. (2015). Directly reconstructing principal components of heterogeneous particles from cryo-EM images. Journal of Structural Biology, 191(2), 245–262. http://doi.org/10.1016/j.jsb.2015.05.007
+  * detailed theoretical/analytical analysis of the Fourier slice theorem for covaniances: how do we estimate how pixels in 3D are correlating with each other when all we haev is information on their 2D projections? Rich in mathematical details.
+
+### Deep generative 3D reconstruction
+* Punjani, A., & Fleet, D. (2021). 3D Flexible Refinement : Structure and Motion of Flexible Proteins from Cryo-EM. BioRxiv, 1–21. http://doi.org/10.1101/2021.04.22.440893
+  * Auto-decoder approach using one 3D reference map (learned from data), modified by vector field (convection, also learned from data). Each particle has its own convection (latent variable learned from data). Nice discussion of design choices that inspired confidence and is useful for methods developers in this area.
+
+#### Variational Autoencoders
 * Doersch, C. (2016). Tutorial on Variational Autoencoders, 1–23.
 * Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., & Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
 * Zhong, E. D., Bepler, T., Davis, J. H., & Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images, 1–20.
@@ -228,6 +246,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Ludike, S. J., & Wah Chiu. (2002). Image restoration in sets of noisy electron micrographs. In Proceedings IEEE International Symposium on Biomedical Imaging (pp. 745–748). IEEE. http://doi.org/10.1109/ISBI.2002.1029365
 * Penczek, P. A. (2010). Fundamentals of Three-Dimensional Reconstruction from Projections. In Methods in Enzymology (1st ed., Vol. 482, pp. 1–33). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82001-4
 * Penczek, P. A. (2010). Image restoration in cryo-electron microscopy. Methods in Enzymology (1st ed., Vol. 482). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82002-6
+
+
 
 ## Tomography
 * Natterer, F. (1986). VII: Mathematical Tools. In The Mathematics of Computerized Tomography (pp. 180–212).
