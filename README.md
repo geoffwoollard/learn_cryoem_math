@@ -212,6 +212,12 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
   * modified FSC with real space masking done at end. Fourier shell still taken of each half map, but then goes back to real space and applies mask before correlation. Have to do an inverse FT for each shell, but can be parallelized.
 * van Heel, M., & Schatz, M. (2020). Information: to Harvest, to Have and to Hold, 1–43.
 
+### B-factor
+* Rosenthal, P. B., & Henderson, R. (2003). Optimal Determination of Particle Orientation, Absolute Hand, and Contrast Loss in Single-particle Electron Cryomicroscopy. Journal of Molecular Biology, 333(4), 721–745. http://doi.org/10.1016/j.jmb.2003.07.013
+  * Classic paper that studies "amplitude spectrum" B-factor, which can be computed from a map: "the loss of contrast in the map at high resolution [depends on ...] causes such as radiation damage, imaging imperfections, and errors in the reconstruction procedure." Includes good "Theoretical Background" section on "Guinier analysis", "Loss of contrast", and "Contrast restoration".
+ * Singer, A. (2021). Wilson Statistics : Derivation , Generalization , and Applications to Electron Cryomicroscopy. BioRxiv, 1–16.
+   * "the first rigorous mathematical derivation of Wilson statistics", which is the high frequency regime of the power spectra (Guinier is the low frequency)
+
 ### Ewald Sphere
 * Wolf M, DeRosier DJ, Grigorieff N. (2006) Ewald sphere correction for single-particle electron microscopy. Ultramicroscopy 4-5: 376-82.
 * Leong, P. A., Yu, X., Zhou, Z. H., & Jensen, G. J. (2010). Correcting for the Ewald Sphere in High-Resolution Single-Particle Reconstructions. In Methods in Enzymology (1st ed., Vol. 482, pp. 369–380). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82015-4
