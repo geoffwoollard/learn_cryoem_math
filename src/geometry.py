@@ -34,7 +34,7 @@ def rotate_map_3d(map_3d, rot, order=1, xyz=None):
 
 def cmask_3d(index,radius,array,do_shell=False,shell_thickness=1):
   '''
-  make a binary circular mask, or ring (variable thickness). 
+  make a binary spherical shell mask (variable thickness). 
   '''
   a,b,c = index
   nx0,nx1,nx2 = array.shape

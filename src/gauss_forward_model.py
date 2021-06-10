@@ -12,6 +12,7 @@ def make_map_3d(atoms,xyz,N,sigma,method='batch_grid',cutoff=8):
     (thus grid pts we know are emptry can be not even passed in, 
     as long as we have a way to reshape xyz to the grid again)
   """
+  a = -1/(2*sigma**2)
 
   if method == 'batch_grid':
     map_3d = np.zeros(xyz.shape[0])
@@ -25,7 +26,6 @@ def make_map_3d(atoms,xyz,N,sigma,method='batch_grid',cutoff=8):
   else:
     C = 1/np.sqrt(2*np.pi*sigma**2)
     diff = xyz.reshape(-1,3,1) - atoms[:3,:].reshape(1,3,-1)
-    a = -1/(2*sigma**2)
     map_3d = (C**3*np.exp(a*((diff**2).sum(1))).sum(1).reshape(N,N,N))
 
   return(map_3d)
