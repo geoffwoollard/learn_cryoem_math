@@ -1,0 +1,12 @@
+created: 2021-06-10 00:55:14.806591
+group:
+  description: Refinement mask that was used.
+  name: mask
+  title: Mask
+  type: mask
+results:
+  mask_refine:
+    metafile: '>cryosparc_P9_J209_005_volume_mask_refine.cs'
+    num_items: 1
+    type: volume.blob
+version: v2.15.0

@@ -1,0 +1,40 @@
+created: 2021-06-10 00:55:14.800640
+group:
+  description: ''
+  name: volume
+  title: Refined density map volume
+  type: volume
+results:
+  map:
+    metafile: '>cryosparc_P9_J209_005_volume_map.cs'
+    num_items: 1
+    type: volume.blob
+  map_half_A:
+    metafile: '>cryosparc_P9_J209_005_volume_map_half_A.cs'
+    num_items: 1
+    type: volume.blob
+  map_half_B:
+    metafile: '>cryosparc_P9_J209_005_volume_map_half_B.cs'
+    num_items: 1
+    type: volume.blob
+  map_sharp:
+    metafile: '>cryosparc_P9_J209_005_volume_map_sharp.cs'
+    num_items: 1
+    type: volume.blob
+  mask_fsc:
+    metafile: '>cryosparc_P9_J209_005_volume_mask_fsc.cs'
+    num_items: 1
+    type: volume.blob
+  mask_fsc_auto:
+    metafile: '>cryosparc_P9_J209_005_volume_mask_fsc_auto.cs'
+    num_items: 1
+    type: volume.blob
+  mask_refine:
+    metafile: '>cryosparc_P9_J209_005_volume_mask_refine.cs'
+    num_items: 1
+    type: volume.blob
+  precision:
+    metafile: '>cryosparc_P9_J209_005_volume_precision.cs'
+    num_items: 1
+    type: volume.blob
+version: v2.15.0

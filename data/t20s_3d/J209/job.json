@@ -1,0 +1,1889 @@
+{
+    "running_at": {
+        "$date": 1623285244808
+    }, 
+    "uid": "J209", 
+    "experiment_worker_path": null, 
+    "output_group_images": {
+        "volume": "60c162efb6ea280db6eb7a35"
+    }, 
+    "killed_at": null, 
+    "queue_status": null, 
+    "job_type": "homo_refine_new", 
+    "status_num": 25, 
+    "completed_at": {
+        "$date": 1623286514792
+    }, 
+    "project_uid": "P9", 
+    "last_exported": {
+        "$date": 1623281896516
+    }, 
+    "enable_bench": false, 
+    "queued_to_gpu": false, 
+    "project_uid_num": 9, 
+    "started_at": {
+        "$date": 1623285239195
+    }, 
+    "waiting_at": null, 
+    "interactive_port": null, 
+    "params_spec": {}, 
+    "uid_num": 209, 
+    "errors_build_inputs": {}, 
+    "title": "New Job J209", 
+    "params_base": {
+        "refine_scale_reset": {
+            "title": "Reset input per-particle scale", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 32, 
+            "advanced": true, 
+            "desc": "Reset input per-particle scale factors to 1.0 at the start of the job."
+        }, 
+        "crg_min_res_A": {
+            "title": "Minimum Fit Res (A)", 
+            "section": "refine_crg", 
+            "value": 10, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 55, 
+            "advanced": false, 
+            "desc": "The minimum resolution to use during refinement of image aberrations."
+        }, 
+        "crg_plot_binfactor": {
+            "title": "Binning to apply to plots", 
+            "section": "refine_crg", 
+            "value": 1, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 54, 
+            "advanced": true, 
+            "desc": "Binning makes it easier to see tilt/trefoil/tetrafoil etc in the data plots, but does not change the results"
+        }, 
+        "refine_res_align_max": {
+            "title": "Maximum align resolution (A)", 
+            "section": "refine", 
+            "value": null, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 13, 
+            "advanced": false, 
+            "desc": "Manual override for maximum resolution that is used for alignment. This value is normally set by the GS-FSC"
+        }, 
+        "refine_N_v_zp_factor": {
+            "title": "Volume zeropad factor", 
+            "section": "refine", 
+            "value": 1, 
+            "hidden": true, 
+            "type": "number", 
+            "order": 7, 
+            "advanced": false, 
+            "desc": "Zeropadding used during alignment"
+        }, 
+        "refine_symmetry_do_align": {
+            "title": "Do symmetry alignment", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 10, 
+            "advanced": true, 
+            "desc": "Align the input structure to the symmetry axes"
+        }, 
+        "refine_dynamic_mask_near_ang": {
+            "title": "Dynamic mask near (A)", 
+            "section": "refine", 
+            "value": 6.0, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 41, 
+            "advanced": true, 
+            "desc": "Controls extent to which mask is expanded. At the near distance, the mask value is 1.0 (in A)"
+        }, 
+        "refine_ignore_anisomag": {
+            "title": "Ignore anisomag", 
+            "section": "refine", 
+            "value": false, 
+            "hidden": true, 
+            "type": "boolean", 
+            "order": 27, 
+            "advanced": true, 
+            "desc": "Ignore the anisomag"
+        }, 
+        "refine_num_final_iterations": {
+            "title": "Number of extra final passes", 
+            "section": "refine", 
+            "value": 0, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 12, 
+            "advanced": true, 
+            "desc": "Number of extra passes through the data to do after the GS-FSC resolution has stopped improving"
+        }, 
+        "refine_batchsize_epsilon": {
+            "title": "Batchsize epsilon", 
+            "section": "refine", 
+            "value": 0.001, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 30, 
+            "advanced": true, 
+            "desc": "Controls batch size when autotuning batchsizes. Set closer to zero for larger batches"
+        }, 
+        "random_seed": {
+            "title": "Random seed", 
+            "section": "random", 
+            "value": null, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 62, 
+            "advanced": true, 
+            "desc": "Set to null to auto generate."
+        }, 
+        "refine_res_init": {
+            "title": "Initial lowpass resolution (A)", 
+            "section": "refine", 
+            "value": 30, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 14, 
+            "advanced": true, 
+            "desc": "Applied to input structure"
+        }, 
+        "refine_skip_premult": {
+            "title": "Skip interpolant premult", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 22, 
+            "advanced": true, 
+            "desc": "Leave this as true"
+        }, 
+        "refine_scale_min": {
+            "title": "Minimize over per-particle scale", 
+            "section": "refine", 
+            "value": false, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 33, 
+            "advanced": true, 
+            "desc": "Minimize over per-particle scale at each iteration of refinement. The optimal scale will be used for backprojection as well, and will be written out at each iteration"
+        }, 
+        "crg_do_spherical": {
+            "title": "Fit Spherical Aberration", 
+            "section": "refine_crg", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 58, 
+            "advanced": false, 
+            "desc": "Whether to fit spherical aberration."
+        }, 
+        "refine_noise_init_sigmascale": {
+            "title": "Noise initial sigma-scale", 
+            "section": "refine", 
+            "value": 3, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 38, 
+            "advanced": true, 
+            "desc": "Scale factor initially applied to the base noise estimate"
+        }, 
+        "refine_ctf_global_refine": {
+            "title": "Optimize per-group CTF params", 
+            "section": "refine_crg", 
+            "value": false, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 52, 
+            "advanced": true, 
+            "desc": "Optimize the per-exposure-group CTF parameters (for higher-order aberrations) at each iteration of refinement. The optimal CTF will be used for backprojection as well, and will be written out at each iteration. CTF refinement will start only once refinement with current CTF values converges. Beware that with small/disordered proteins, CTF refinement may actually make resolutions worse."
+        }, 
+        "refine_compute_batch_size": {
+            "title": "GPU batch size of images", 
+            "section": "refine", 
+            "value": null, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 46, 
+            "advanced": true, 
+            "desc": "Batch size of images to process at a time on the GPU. If you run out of GPU memory, try setting this to a small number to override the auto-detect procedure."
+        }, 
+        "refine_ignore_tetra": {
+            "title": "Ignore tetra", 
+            "section": "refine", 
+            "value": false, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 26, 
+            "advanced": true, 
+            "desc": "Ignore the tetra"
+        }, 
+        "refine_clip": {
+            "title": "Enforce non-negativity", 
+            "section": "refine", 
+            "value": false, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 20, 
+            "advanced": true, 
+            "desc": "Clip negative density. Probably should be false"
+        }, 
+        "refine_do_init_scale_est": {
+            "title": "Re-estimate greyscale level of input reference", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 11, 
+            "advanced": true, 
+            "desc": ""
+        }, 
+        "crg_compute_batch_size": {
+            "title": "GPU batch size of images", 
+            "section": "refine_crg", 
+            "value": null, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 61, 
+            "advanced": true, 
+            "desc": ""
+        }, 
+        "refine_ignore_tilt": {
+            "title": "Ignore tilt", 
+            "section": "refine", 
+            "value": false, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 24, 
+            "advanced": true, 
+            "desc": "Ignore the tilt"
+        }, 
+        "refine_highpass_res": {
+            "title": "Highpass resolution (A)", 
+            "section": "refine", 
+            "value": null, 
+            "hidden": true, 
+            "type": "number", 
+            "order": 17, 
+            "advanced": true, 
+            "desc": ""
+        }, 
+        "refine_scale_start_iter": {
+            "title": "Scale min/use start iter", 
+            "section": "refine", 
+            "value": 0, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 34, 
+            "advanced": true, 
+            "desc": "Iteration to start minimizing over per-particle scale"
+        }, 
+        "refine_noise_initw": {
+            "title": "Noise initw", 
+            "section": "refine", 
+            "value": 200, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 37, 
+            "advanced": true, 
+            "desc": "Weight of the initial noise estimate (units of # of images)"
+        }, 
+        "refine_dynamic_mask_use_abs": {
+            "title": "Dynamic mask use absolute value", 
+            "section": "refine", 
+            "value": false, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 44, 
+            "advanced": true, 
+            "desc": "Include negative regions if they are more negative than the threshold"
+        }, 
+        "prepare_window_dataset": {
+            "title": "Window dataset (real-space)", 
+            "section": "prepare", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 0, 
+            "advanced": false, 
+            "desc": ""
+        }, 
+        "refine_FSC_weight": {
+            "title": "FSC Weighting", 
+            "section": "refine", 
+            "value": "fsc_loosemask", 
+            "hidden": true, 
+            "type": "string", 
+            "order": 18, 
+            "advanced": true, 
+            "desc": ""
+        }, 
+        "refine_batch_random": {
+            "title": "Use random ordering of particles", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 28, 
+            "advanced": true, 
+            "desc": "Whether to refine particles in random order. If False, particles are read and processed in order of input."
+        }, 
+        "crg_do_tetrafoil": {
+            "title": "Fit Tetrafoil", 
+            "section": "refine_crg", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 59, 
+            "advanced": false, 
+            "desc": "Whether to fit beam tetrafoil."
+        }, 
+        "refine_mask": {
+            "title": "Mask (dynamic, static, null)", 
+            "section": "refine", 
+            "value": "dynamic", 
+            "hidden": true, 
+            "type": "string", 
+            "order": 39, 
+            "advanced": false, 
+            "desc": "Type of masking to use. Either \"dynamic\", \"static\", or \"null\""
+        }, 
+        "prepare_window_inner_radius": {
+            "title": "Window inner radius", 
+            "section": "prepare", 
+            "value": 0.85, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 1, 
+            "advanced": true, 
+            "desc": ""
+        }, 
+        "refine_dynamic_mask_start_res": {
+            "title": "Dynamic mask start resolution (A)", 
+            "section": "refine", 
+            "value": 12, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 43, 
+            "advanced": false, 
+            "desc": "Map resolution at which to start dynamic masking (in A)"
+        }, 
+        "crg_num_plots": {
+            "title": "Num. groups to plot", 
+            "section": "refine_crg", 
+            "value": 3, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 53, 
+            "advanced": false, 
+            "desc": "Number of exposure groups to make plots for. After this many, stop plotting to save time."
+        }, 
+        "refine_dynamic_mask_far_ang": {
+            "title": "Dynamic mask far  (A)", 
+            "section": "refine", 
+            "value": 14.0, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 42, 
+            "advanced": true, 
+            "desc": "Controls extent to which mask is expanded. At the far distance the mask value becomes 0.0 (in A)"
+        }, 
+        "refine_window": {
+            "title": "Window structure in real space", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 21, 
+            "advanced": true, 
+            "desc": "Softly window the structure in real space with a spherical window. Should be true"
+        }, 
+        "refine_batchsize_snrfactor": {
+            "title": "Batchsize snrfactor", 
+            "section": "refine", 
+            "value": 50.0, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 31, 
+            "advanced": true, 
+            "desc": "Specifies the desired improvement in SNR from the images when autotuning batchsizes. Directly multiplies the number of images in the batch"
+        }, 
+        "refine_symmetry": {
+            "title": "Symmetry", 
+            "section": "refine", 
+            "value": "C1", 
+            "hidden": false, 
+            "type": "string", 
+            "order": 9, 
+            "advanced": false, 
+            "desc": "Symmetry String (C, D, I, O, T). E.g. C1, D7, C4, etc"
+        }, 
+        "crg_do_anisomag": {
+            "title": "Fit Anisotropic Mag.", 
+            "section": "refine_crg", 
+            "value": false, 
+            "hidden": true, 
+            "type": "boolean", 
+            "order": 60, 
+            "advanced": false, 
+            "desc": "Whether to fit beam anisotropic magnification."
+        }, 
+        "refine_bnb_params": {
+            "title": "BnB Params", 
+            "section": "refine", 
+            "value": "3D", 
+            "hidden": true, 
+            "type": "string", 
+            "order": 19, 
+            "advanced": true, 
+            "desc": ""
+        }, 
+        "refine_dynamic_mask_thresh_factor": {
+            "title": "Dynamic mask threshold (0-1)", 
+            "section": "refine", 
+            "value": 0.2, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 40, 
+            "advanced": true, 
+            "desc": "Level set threshold for selecting regions that are included in the dynamic mask. Probably don't need to change this"
+        }, 
+        "refine_gs_resplit": {
+            "title": "Force re-do GS split", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 16, 
+            "advanced": true, 
+            "desc": "Force re-splitting the particles into two random gold-standard halves. If this is not set, split is preserved from input alignments (if connected)"
+        }, 
+        "crg_do_trefoil": {
+            "title": "Fit Trefoil", 
+            "section": "refine_crg", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 57, 
+            "advanced": false, 
+            "desc": "Whether to fit beam trefoil."
+        }, 
+        "refine_N_cmp": {
+            "title": "Refinement box size (voxels)", 
+            "section": "refine", 
+            "value": null, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 3, 
+            "advanced": false, 
+            "desc": "The volume size to use for refinement. Default: raw particle size"
+        }, 
+        "crl_min_res_A": {
+            "title": "Minimum Fit Res (A)", 
+            "section": "refine_crl", 
+            "value": 20, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 49, 
+            "advanced": false, 
+            "desc": "The minimum resolution to use during refinement of image aberrations."
+        }, 
+        "crg_do_tilt": {
+            "title": "Fit Tilt", 
+            "section": "refine_crg", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 56, 
+            "advanced": false, 
+            "desc": "Whether to fit beam tilt."
+        }, 
+        "refine_batchsize_init": {
+            "title": "Initial batchsize", 
+            "section": "refine", 
+            "value": 0, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 29, 
+            "advanced": true, 
+            "desc": "Number of images used in the initial iteration. Set to zero to autotune"
+        }, 
+        "refine_res_gsfsc_split": {
+            "title": "GSFSC split resolution (A)", 
+            "section": "refine", 
+            "value": 20, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 15, 
+            "advanced": true, 
+            "desc": "Resolution beyond which two GS-FSC halves are independent"
+        }, 
+        "crl_df_range": {
+            "title": "Defocus Search Range (A +/-)", 
+            "section": "refine_crl", 
+            "value": 2000, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 50, 
+            "advanced": false, 
+            "desc": "Defocus search range in Angstroms, searching both above and below the input defocus by this amount"
+        }, 
+        "refine_defocus_refine": {
+            "title": "Optimize per-particle defocus", 
+            "section": "refine_crl", 
+            "value": false, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 47, 
+            "advanced": true, 
+            "desc": "Minimize over per-particle defocus at each iteration of refinement. The optimal defocus will be used for backprojection as well, and will be written out at each iteration. Defocus refinement will start only once refinement with current defocus values converges. Beware that with small/disordered proteins, defocus refinement may actually make resolutions worse."
+        }, 
+        "refine_N_p_zp": {
+            "title": "Particle ZT size E-step (pixels)", 
+            "section": "refine", 
+            "value": null, 
+            "hidden": true, 
+            "type": "number", 
+            "order": 4, 
+            "advanced": false, 
+            "desc": "Particle zeropad/truncation during alignment. Default: raw particle size"
+        }, 
+        "refine_N_p_bp": {
+            "title": "Particle ZT size M-step (pixels)", 
+            "section": "refine", 
+            "value": null, 
+            "hidden": true, 
+            "type": "number", 
+            "order": 5, 
+            "advanced": false, 
+            "desc": "Particle zeropad/truncation during backprojection. Default: raw particle size"
+        }, 
+        "intermediate_plots": {
+            "title": "Show plots from intermediate steps", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 45, 
+            "advanced": false, 
+            "desc": "Hide plots from intermediate steps to speed up processing."
+        }, 
+        "crl_compute_batch_size": {
+            "title": "GPU batch size of images", 
+            "section": "refine_crl", 
+            "value": null, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 51, 
+            "advanced": true, 
+            "desc": ""
+        }, 
+        "refine_interp_kernel": {
+            "title": "Interpolation kernel", 
+            "section": "refine", 
+            "value": "linear10", 
+            "hidden": true, 
+            "type": "string", 
+            "order": 8, 
+            "advanced": false, 
+            "desc": "Interpolation used during alignment"
+        }, 
+        "refine_ignore_trefoil": {
+            "title": "Ignore trefoil", 
+            "section": "refine", 
+            "value": false, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 25, 
+            "advanced": true, 
+            "desc": "Ignore the trefoil"
+        }, 
+        "compute_use_ssd": {
+            "title": "Cache particle images on SSD", 
+            "section": "compute_settings", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 63, 
+            "advanced": false, 
+            "desc": "Use the SSD to cache particles. Speeds up processing significantly."
+        }, 
+        "refine_noise_model": {
+            "title": "Noise model (white, symmetric or coloured)", 
+            "section": "refine", 
+            "value": "symmetric", 
+            "hidden": false, 
+            "type": "string", 
+            "order": 35, 
+            "advanced": true, 
+            "desc": "Noise model to be used. Valid options are white, coloured or symmetric. Symmetric is the default, meaning coloured with radial symmetry"
+        }, 
+        "crl_num_plots": {
+            "title": "Num. particles to plot", 
+            "section": "refine_crl", 
+            "value": 3, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 48, 
+            "advanced": false, 
+            "desc": "Number of particles to make plots for. After this many, stop plotting to save time."
+        }, 
+        "refine_ignore_dc": {
+            "title": "Ignore DC component", 
+            "section": "refine", 
+            "value": true, 
+            "hidden": false, 
+            "type": "boolean", 
+            "order": 23, 
+            "advanced": true, 
+            "desc": "Ignore the DC component of images. Should be true"
+        }, 
+        "refine_N_v": {
+            "title": "Volume stored size (voxels)", 
+            "section": "refine", 
+            "value": null, 
+            "hidden": true, 
+            "type": "number", 
+            "order": 6, 
+            "advanced": false, 
+            "desc": "The size to store the volume during refinement. Default: raw particle size"
+        }, 
+        "prepare_window_outer_radius": {
+            "title": "Window outer radius", 
+            "section": "prepare", 
+            "value": 0.99, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 2, 
+            "advanced": true, 
+            "desc": ""
+        }, 
+        "refine_noise_priorw": {
+            "title": "Noise priorw", 
+            "section": "refine", 
+            "value": 50, 
+            "hidden": false, 
+            "type": "number", 
+            "order": 36, 
+            "advanced": true, 
+            "desc": "Weight of the prior for estimating noise (units of # of images)"
+        }
+    }, 
+    "resources_allocated": {}, 
+    "is_experiment": false, 
+    "ui_tile_images": [
+        {
+            "num_rows": 1, 
+            "num_cols": 1, 
+            "name": "volume", 
+            "fileid": "60c162efb6ea280db6eb7a37"
+        }, 
+        {
+            "num_rows": 1, 
+            "num_cols": 1, 
+            "name": "fsc", 
+            "fileid": "60c162f0b6ea280db6eb7a39"
+        }
+    ], 
+    "tokens_acquired_at": 1623285237.627072, 
+    "job_dir": "J209", 
+    "bench": {}, 
+    "deleted": false, 
+    "run_on_master_direct": false, 
+    "version": "v2.15.0", 
+    "parents": [
+        "J207"
+    ], 
+    "queued_to_hostname": false, 
+    "output_result_groups": [
+        {
+            "num_items": 95796, 
+            "description": "All particles that were processed, including alignments", 
+            "title": "All particles", 
+            "passthrough": "particles", 
+            "contains": [
+                {
+                    "passthrough": false, 
+                    "group_name": "particles", 
+                    "type": "particle.alignments3D", 
+                    "uid": "J209-R0", 
+                    "name": "alignments3D"
+                }, 
+                {
+                    "passthrough": false, 
+                    "group_name": "particles", 
+                    "type": "particle.ctf", 
+                    "uid": "J209-R1", 
+                    "name": "ctf"
+                }, 
+                {
+                    "passthrough": true, 
+                    "group_name": "particles", 
+                    "type": "particle.blob", 
+                    "uid": "J209-R2", 
+                    "name": "blob"
+                }, 
+                {
+                    "passthrough": true, 
+                    "group_name": "particles", 
+                    "type": "particle.alignments2D", 
+                    "uid": "J209-R3", 
+                    "name": "alignments2D"
+                }, 
+                {
+                    "passthrough": true, 
+                    "group_name": "particles", 
+                    "type": "particle.location", 
+                    "uid": "J209-R4", 
+                    "name": "location"
+                }, 
+                {
+                    "passthrough": true, 
+                    "group_name": "particles", 
+                    "type": "particle.pick_stats", 
+                    "uid": "J209-R5", 
+                    "name": "pick_stats"
+                }
+            ], 
+            "name": "particles", 
+            "type": "particle", 
+            "uid": "J209-G0"
+        }, 
+        {
+            "num_items": 1, 
+            "description": "", 
+            "title": "Refined density map volume", 
+            "passthrough": false, 
+            "contains": [
+                {
+                    "passthrough": false, 
+                    "group_name": "volume", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R6", 
+                    "name": "map"
+                }, 
+                {
+                    "passthrough": false, 
+                    "group_name": "volume", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R7", 
+                    "name": "map_sharp"
+                }, 
+                {
+                    "passthrough": false, 
+                    "group_name": "volume", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R8", 
+                    "name": "map_half_A"
+                }, 
+                {
+                    "passthrough": false, 
+                    "group_name": "volume", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R9", 
+                    "name": "map_half_B"
+                }, 
+                {
+                    "passthrough": false, 
+                    "group_name": "volume", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R10", 
+                    "name": "mask_refine"
+                }, 
+                {
+                    "passthrough": false, 
+                    "group_name": "volume", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R11", 
+                    "name": "mask_fsc"
+                }, 
+                {
+                    "passthrough": false, 
+                    "group_name": "volume", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R12", 
+                    "name": "mask_fsc_auto"
+                }, 
+                {
+                    "passthrough": false, 
+                    "group_name": "volume", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R13", 
+                    "name": "precision"
+                }
+            ], 
+            "name": "volume", 
+            "type": "volume", 
+            "uid": "J209-G1"
+        }, 
+        {
+            "num_items": 1, 
+            "description": "Refinement mask that was used.", 
+            "title": "Mask", 
+            "passthrough": false, 
+            "contains": [
+                {
+                    "passthrough": false, 
+                    "group_name": "mask", 
+                    "type": "volume.blob", 
+                    "uid": "J209-R14", 
+                    "name": "mask_refine"
+                }
+            ], 
+            "name": "mask", 
+            "type": "mask", 
+            "uid": "J209-G2"
+        }
+    ], 
+    "type": "homo_refine_new", 
+    "launched_at": {
+        "$date": 1623285237633
+    }, 
+    "run_as_user": null, 
+    "status": "completed", 
+    "workspace_uids": [
+        "W12"
+    ], 
+    "ui_tile_height": 1, 
+    "job_sig": "7045245066654386417748929477382562515581691738346691856109706668433214699859654450825865833941100657451139126627931667820935096281286393930163157465491493274594881106730386890290965074140248682683167797709527581913397503943717510891293578360052804365768942265745866842098443386640643674468671857198684206029396790524957293040878625080360689723752229251212220392882119195746138983575565491945720448185412737687523664549452069678724995714380886036995410759380547003773646995307023097267174353934926033292095949510059149874701609344313294126247365059327549002350325513523091617897605080682212634120416057708901961914580", 
+    "created_by_job_uid": null, 
+    "cloned_from": "J208", 
+    "queued_to_lane": "", 
+    "created_by_user_id": "5e41e154b6ea28116cefa6ec", 
+    "errors_run": [], 
+    "PID_main": 3510, 
+    "failed_at": null, 
+    "last_scheduled_at": null, 
+    "input_slot_groups": [
+        {
+            "name": "particles", 
+            "title": "Particle stacks", 
+            "repeat_allowed": false, 
+            "connections": [
+                {
+                    "slots": [
+                        {
+                            "job_uid": "J207", 
+                            "group_name": "particles_class_1", 
+                            "version": "F", 
+                            "result_name": "blob", 
+                            "slot_name": "blob", 
+                            "result_type": "particle.blob"
+                        }, 
+                        {
+                            "job_uid": "J207", 
+                            "group_name": "particles_class_1", 
+                            "version": "F", 
+                            "result_name": "ctf", 
+                            "slot_name": "ctf", 
+                            "result_type": "particle.ctf"
+                        }, 
+                        {
+                            "job_uid": "J207", 
+                            "group_name": "particles_class_1", 
+                            "version": "F", 
+                            "result_name": "alignments3D", 
+                            "slot_name": "alignments3D", 
+                            "result_type": "particle.alignments3D"
+                        }, 
+                        {
+                            "job_uid": "J207", 
+                            "group_name": "particles_class_1", 
+                            "version": "F", 
+                            "result_name": "alignments2D", 
+                            "slot_name": null, 
+                            "result_type": "particle.alignments2D"
+                        }, 
+                        {
+                            "job_uid": "J207", 
+                            "group_name": "particles_class_1", 
+                            "version": "F", 
+                            "result_name": "location", 
+                            "slot_name": null, 
+                            "result_type": "particle.location"
+                        }, 
+                        {
+                            "job_uid": "J207", 
+                            "group_name": "particles_class_1", 
+                            "version": "F", 
+                            "result_name": "pick_stats", 
+                            "slot_name": null, 
+                            "result_type": "particle.pick_stats"
+                        }
+                    ], 
+                    "job_uid": "J207", 
+                    "group_name": "particles_class_1"
+                }
+            ], 
+            "count_max": Infinity, 
+            "slots": [
+                {
+                    "optional": false, 
+                    "type": "particle.blob", 
+                    "description": "", 
+                    "name": "blob", 
+                    "title": "Particle data blobs"
+                }, 
+                {
+                    "optional": false, 
+                    "type": "particle.ctf", 
+                    "description": "", 
+                    "name": "ctf", 
+                    "title": "Particle ctf parameters"
+                }, 
+                {
+                    "optional": true, 
+                    "type": "particle.alignments3D", 
+                    "description": "", 
+                    "name": "alignments3D", 
+                    "title": "Particle 3D alignments (optional)"
+                }
+            ], 
+            "type": "particle", 
+            "count_min": 1, 
+            "description": "Particle stacks to use. Multiple stacks will be concatenated."
+        }, 
+        {
+            "name": "volume", 
+            "title": "Initial volume", 
+            "repeat_allowed": false, 
+            "connections": [
+                {
+                    "slots": [
+                        {
+                            "job_uid": "J207", 
+                            "slot_name": "map", 
+                            "version": "F", 
+                            "result_name": "map", 
+                            "group_name": "volume_class_1", 
+                            "result_type": "volume.blob"
+                        }
+                    ], 
+                    "job_uid": "J207", 
+                    "group_name": "volume_class_1"
+                }
+            ], 
+            "count_max": 1, 
+            "slots": [
+                {
+                    "optional": false, 
+                    "type": "volume.blob", 
+                    "description": "", 
+                    "name": "map", 
+                    "title": "Initial volume raw data"
+                }
+            ], 
+            "type": "volume", 
+            "count_min": 1, 
+            "description": ""
+        }, 
+        {
+            "name": "mask", 
+            "title": "Static mask", 
+            "repeat_allowed": false, 
+            "connections": [], 
+            "count_max": 1, 
+            "slots": [
+                {
+                    "optional": false, 
+                    "type": "volume.blob", 
+                    "description": "", 
+                    "name": "mask", 
+                    "title": "Initial volume raw data"
+                }
+            ], 
+            "type": "mask", 
+            "count_min": 0, 
+            "description": ""
+        }
+    ], 
+    "resources_needed": {
+        "slots": {
+            "GPU": 1, 
+            "RAM": 3, 
+            "CPU": 4
+        }, 
+        "fixed": {
+            "SSD": true
+        }
+    }, 
+    "no_check_inputs_ready": false, 
+    "job_dir_size": 2709480010, 
+    "heartbeat_at": {
+        "$date": 1623286511031
+    }, 
+    "tokens_requested_at": null, 
+    "PID_workers": [], 
+    "queue_message": null, 
+    "queued_job_hash": null, 
+    "params_secs": {
+        "refine_crl": {
+            "desc": "", 
+            "order": 2, 
+            "title": "Defocus Refinement"
+        }, 
+        "prepare": {
+            "desc": "", 
+            "order": 0, 
+            "title": "Particle preprocessing"
+        }, 
+        "random": {
+            "desc": "", 
+            "order": 4, 
+            "title": "Random Seeds"
+        }, 
+        "refine_crg": {
+            "desc": "", 
+            "order": 3, 
+            "title": "Global CTF Refinement"
+        }, 
+        "refine": {
+            "desc": "", 
+            "order": 1, 
+            "title": "Homogeneous Refinement"
+        }, 
+        "compute_settings": {
+            "desc": "", 
+            "order": 5, 
+            "title": "Compute settings"
+        }
+    }, 
+    "num_tokens": 1, 
+    "ui_layouts": {}, 
+    "queued_at": {
+        "$date": 1623281898677
+    }, 
+    "created_at": {
+        "$date": 1623281880428
+    }, 
+    "token_acquired_at": null, 
+    "children": [], 
+    "ui_tile_width": 2, 
+    "queue_index": null, 
+    "output_results": [
+        {
+            "num_items": [
+                11764, 
+                53702, 
+                95796, 
+                95796, 
+                95796, 
+                95796
+            ], 
+            "uid": "J209-R0", 
+            "name": "alignments3D", 
+            "title": "Refined alignments", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "split", 
+                    "u4"
+                ], 
+                [
+                    "shift", 
+                    "2f4"
+                ], 
+                [
+                    "pose", 
+                    "3f4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ], 
+                [
+                    "error", 
+                    "f4"
+                ], 
+                [
+                    "error_min", 
+                    "f4"
+                ], 
+                [
+                    "resid_pow", 
+                    "f4"
+                ], 
+                [
+                    "slice_pow", 
+                    "f4"
+                ], 
+                [
+                    "image_pow", 
+                    "f4"
+                ], 
+                [
+                    "cross_cor", 
+                    "f4"
+                ], 
+                [
+                    "alpha", 
+                    "f4"
+                ], 
+                [
+                    "alpha_min", 
+                    "f4"
+                ], 
+                [
+                    "weight", 
+                    "f4"
+                ], 
+                [
+                    "pose_ess", 
+                    "f4"
+                ], 
+                [
+                    "shift_ess", 
+                    "f4"
+                ], 
+                [
+                    "class_posterior", 
+                    "f4"
+                ], 
+                [
+                    "class", 
+                    "u4"
+                ], 
+                [
+                    "class_ess", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "particles", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_particles.cs", 
+                "J209/cryosparc_P9_J209_001_particles.cs", 
+                "J209/cryosparc_P9_J209_002_particles.cs", 
+                "J209/cryosparc_P9_J209_003_particles.cs", 
+                "J209/cryosparc_P9_J209_004_particles.cs", 
+                "J209/cryosparc_P9_J209_005_particles.cs"
+            ], 
+            "type": "particle.alignments3D", 
+            "description": "3D alignments including pose, shift, stats, classification scores, etc."
+        }, 
+        {
+            "num_items": [
+                11764, 
+                53702, 
+                95796, 
+                95796, 
+                95796, 
+                95796
+            ], 
+            "uid": "J209-R1", 
+            "name": "ctf", 
+            "title": "Refined CTF", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "type", 
+                    "O"
+                ], 
+                [
+                    "exp_group_id", 
+                    "u4"
+                ], 
+                [
+                    "accel_kv", 
+                    "f4"
+                ], 
+                [
+                    "cs_mm", 
+                    "f4"
+                ], 
+                [
+                    "amp_contrast", 
+                    "f4"
+                ], 
+                [
+                    "df1_A", 
+                    "f4"
+                ], 
+                [
+                    "df2_A", 
+                    "f4"
+                ], 
+                [
+                    "df_angle_rad", 
+                    "f4"
+                ], 
+                [
+                    "phase_shift_rad", 
+                    "f4"
+                ], 
+                [
+                    "scale", 
+                    "f4"
+                ], 
+                [
+                    "scale_const", 
+                    "f4"
+                ], 
+                [
+                    "shift_A", 
+                    "2f4"
+                ], 
+                [
+                    "tilt_A", 
+                    "2f4"
+                ], 
+                [
+                    "trefoil_A", 
+                    "2f4"
+                ], 
+                [
+                    "tetra_A", 
+                    "4f4"
+                ], 
+                [
+                    "anisomag", 
+                    "4f4"
+                ], 
+                [
+                    "bfactor", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "particles", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_particles.cs", 
+                "J209/cryosparc_P9_J209_001_particles.cs", 
+                "J209/cryosparc_P9_J209_002_particles.cs", 
+                "J209/cryosparc_P9_J209_003_particles.cs", 
+                "J209/cryosparc_P9_J209_004_particles.cs", 
+                "J209/cryosparc_P9_J209_005_particles.cs"
+            ], 
+            "type": "particle.ctf", 
+            "description": "Refined particle CTF values"
+        }, 
+        {
+            "num_items": [
+                95796
+            ], 
+            "uid": "J209-R2", 
+            "name": "blob", 
+            "title": "Passthrough blob", 
+            "passthrough": true, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "idx", 
+                    "u4"
+                ], 
+                [
+                    "shape", 
+                    "2u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ], 
+                [
+                    "sign", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0
+            ], 
+            "group_name": "particles", 
+            "metafiles": [
+                "J209/P9_J209_passthrough_particles.cs"
+            ], 
+            "type": "particle.blob", 
+            "description": "Passthrough from input particles.blob (slot_name)"
+        }, 
+        {
+            "num_items": [
+                95796
+            ], 
+            "uid": "J209-R3", 
+            "name": "alignments2D", 
+            "title": "Passthrough alignments2D", 
+            "passthrough": true, 
+            "min_fields": [
+                [
+                    "split", 
+                    "u4"
+                ], 
+                [
+                    "shift", 
+                    "2f4"
+                ], 
+                [
+                    "pose", 
+                    "f4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ], 
+                [
+                    "error", 
+                    "f4"
+                ], 
+                [
+                    "error_min", 
+                    "f4"
+                ], 
+                [
+                    "resid_pow", 
+                    "f4"
+                ], 
+                [
+                    "slice_pow", 
+                    "f4"
+                ], 
+                [
+                    "image_pow", 
+                    "f4"
+                ], 
+                [
+                    "cross_cor", 
+                    "f4"
+                ], 
+                [
+                    "alpha", 
+                    "f4"
+                ], 
+                [
+                    "alpha_min", 
+                    "f4"
+                ], 
+                [
+                    "weight", 
+                    "f4"
+                ], 
+                [
+                    "pose_ess", 
+                    "f4"
+                ], 
+                [
+                    "shift_ess", 
+                    "f4"
+                ], 
+                [
+                    "class_posterior", 
+                    "f4"
+                ], 
+                [
+                    "class", 
+                    "u4"
+                ], 
+                [
+                    "class_ess", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0
+            ], 
+            "group_name": "particles", 
+            "metafiles": [
+                "J209/P9_J209_passthrough_particles.cs"
+            ], 
+            "type": "particle.alignments2D", 
+            "description": "Passthrough from input particles.alignments2D (result_name)"
+        }, 
+        {
+            "num_items": [
+                95796
+            ], 
+            "uid": "J209-R4", 
+            "name": "location", 
+            "title": "Passthrough location", 
+            "passthrough": true, 
+            "min_fields": [
+                [
+                    "micrograph_uid", 
+                    "u8"
+                ], 
+                [
+                    "exp_group_id", 
+                    "u4"
+                ], 
+                [
+                    "micrograph_path", 
+                    "O"
+                ], 
+                [
+                    "micrograph_shape", 
+                    "2u4"
+                ], 
+                [
+                    "center_x_frac", 
+                    "f4"
+                ], 
+                [
+                    "center_y_frac", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0
+            ], 
+            "group_name": "particles", 
+            "metafiles": [
+                "J209/P9_J209_passthrough_particles.cs"
+            ], 
+            "type": "particle.location", 
+            "description": "Passthrough from input particles.location (result_name)"
+        }, 
+        {
+            "num_items": [
+                95796
+            ], 
+            "uid": "J209-R5", 
+            "name": "pick_stats", 
+            "title": "Passthrough pick_stats", 
+            "passthrough": true, 
+            "min_fields": [
+                [
+                    "ncc_score", 
+                    "f4"
+                ], 
+                [
+                    "power", 
+                    "f4"
+                ], 
+                [
+                    "template_idx", 
+                    "u4"
+                ], 
+                [
+                    "angle_rad", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0
+            ], 
+            "group_name": "particles", 
+            "metafiles": [
+                "J209/P9_J209_passthrough_particles.cs"
+            ], 
+            "type": "particle.pick_stats", 
+            "description": "Passthrough from input particles.pick_stats (result_name)"
+        }, 
+        {
+            "num_items": [
+                1, 
+                1, 
+                1, 
+                1, 
+                1, 
+                1
+            ], 
+            "uid": "J209-R6", 
+            "name": "map", 
+            "title": "Filtered refined map", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "volume", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_volume_map.cs", 
+                "J209/cryosparc_P9_J209_001_volume_map.cs", 
+                "J209/cryosparc_P9_J209_002_volume_map.cs", 
+                "J209/cryosparc_P9_J209_003_volume_map.cs", 
+                "J209/cryosparc_P9_J209_004_volume_map.cs", 
+                "J209/cryosparc_P9_J209_005_volume_map.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }, 
+        {
+            "num_items": [
+                1, 
+                1, 
+                1, 
+                1, 
+                1, 
+                1
+            ], 
+            "uid": "J209-R7", 
+            "name": "map_sharp", 
+            "title": "Sharpened, filtered refined map", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "volume", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_volume_map_sharp.cs", 
+                "J209/cryosparc_P9_J209_001_volume_map_sharp.cs", 
+                "J209/cryosparc_P9_J209_002_volume_map_sharp.cs", 
+                "J209/cryosparc_P9_J209_003_volume_map_sharp.cs", 
+                "J209/cryosparc_P9_J209_004_volume_map_sharp.cs", 
+                "J209/cryosparc_P9_J209_005_volume_map_sharp.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }, 
+        {
+            "num_items": [
+                1, 
+                1, 
+                1, 
+                1, 
+                1, 
+                1
+            ], 
+            "uid": "J209-R8", 
+            "name": "map_half_A", 
+            "title": "Unfiltered halfmap A", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "volume", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_volume_map_half_A.cs", 
+                "J209/cryosparc_P9_J209_001_volume_map_half_A.cs", 
+                "J209/cryosparc_P9_J209_002_volume_map_half_A.cs", 
+                "J209/cryosparc_P9_J209_003_volume_map_half_A.cs", 
+                "J209/cryosparc_P9_J209_004_volume_map_half_A.cs", 
+                "J209/cryosparc_P9_J209_005_volume_map_half_A.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }, 
+        {
+            "num_items": [
+                1, 
+                1, 
+                1, 
+                1, 
+                1, 
+                1
+            ], 
+            "uid": "J209-R9", 
+            "name": "map_half_B", 
+            "title": "Unfiltered halfmap B", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "volume", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_volume_map_half_B.cs", 
+                "J209/cryosparc_P9_J209_001_volume_map_half_B.cs", 
+                "J209/cryosparc_P9_J209_002_volume_map_half_B.cs", 
+                "J209/cryosparc_P9_J209_003_volume_map_half_B.cs", 
+                "J209/cryosparc_P9_J209_004_volume_map_half_B.cs", 
+                "J209/cryosparc_P9_J209_005_volume_map_half_B.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }, 
+        {
+            "num_items": [
+                1, 
+                1, 
+                1, 
+                1, 
+                1, 
+                1
+            ], 
+            "uid": "J209-R10", 
+            "name": "mask_refine", 
+            "title": "Refinement mask", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "volume", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_001_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_002_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_003_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_004_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_005_volume_mask_refine.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }, 
+        {
+            "num_items": [
+                1, 
+                1, 
+                1, 
+                1, 
+                1, 
+                1
+            ], 
+            "uid": "J209-R11", 
+            "name": "mask_fsc", 
+            "title": "FSC mask loose", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "volume", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_volume_mask_fsc.cs", 
+                "J209/cryosparc_P9_J209_001_volume_mask_fsc.cs", 
+                "J209/cryosparc_P9_J209_002_volume_mask_fsc.cs", 
+                "J209/cryosparc_P9_J209_003_volume_mask_fsc.cs", 
+                "J209/cryosparc_P9_J209_004_volume_mask_fsc.cs", 
+                "J209/cryosparc_P9_J209_005_volume_mask_fsc.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }, 
+        {
+            "num_items": [
+                1
+            ], 
+            "uid": "J209-R12", 
+            "name": "mask_fsc_auto", 
+            "title": "FSC mask auto", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                5
+            ], 
+            "group_name": "volume", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_005_volume_mask_fsc_auto.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }, 
+        {
+            "num_items": [
+                1
+            ], 
+            "uid": "J209-R13", 
+            "name": "precision", 
+            "title": "Precision of structure factors", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                5
+            ], 
+            "group_name": "volume", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_005_volume_precision.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }, 
+        {
+            "num_items": [
+                1, 
+                1, 
+                1, 
+                1, 
+                1, 
+                1
+            ], 
+            "uid": "J209-R14", 
+            "name": "mask_refine", 
+            "title": "Mask", 
+            "passthrough": false, 
+            "min_fields": [
+                [
+                    "path", 
+                    "O"
+                ], 
+                [
+                    "shape", 
+                    "3u4"
+                ], 
+                [
+                    "psize_A", 
+                    "f4"
+                ]
+            ], 
+            "versions": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "group_name": "mask", 
+            "metafiles": [
+                "J209/cryosparc_P9_J209_000_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_001_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_002_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_003_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_004_volume_mask_refine.cs", 
+                "J209/cryosparc_P9_J209_005_volume_mask_refine.cs"
+            ], 
+            "type": "volume.blob", 
+            "description": ""
+        }
+    ], 
+    "PID_monitor": 3509, 
+    "cluster_job_id": null, 
+    "description": "Enter a description.", 
+    "interactive_hostname": "", 
+    "errors_build_params": {}, 
+    "interactive": false
+}

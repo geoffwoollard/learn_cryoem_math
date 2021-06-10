@@ -1,0 +1,32 @@
+created: 2021-06-10 00:55:14.794530
+group:
+  description: All particles that were processed, including alignments
+  name: particles
+  title: All particles
+  type: particle
+results:
+  alignments2D:
+    metafile: '>P9_J209_passthrough_particles.cs'
+    num_items: 95796
+    type: particle.alignments2D
+  alignments3D:
+    metafile: '>cryosparc_P9_J209_005_particles.cs'
+    num_items: 95796
+    type: particle.alignments3D
+  blob:
+    metafile: '>P9_J209_passthrough_particles.cs'
+    num_items: 95796
+    type: particle.blob
+  ctf:
+    metafile: '>cryosparc_P9_J209_005_particles.cs'
+    num_items: 95796
+    type: particle.ctf
+  location:
+    metafile: '>P9_J209_passthrough_particles.cs'
+    num_items: 95796
+    type: particle.location
+  pick_stats:
+    metafile: '>P9_J209_passthrough_particles.cs'
+    num_items: 95796
+    type: particle.pick_stats
+version: v2.15.0
