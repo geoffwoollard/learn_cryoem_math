@@ -223,7 +223,11 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Leong, P. A., Yu, X., Zhou, Z. H., & Jensen, G. J. (2010). Correcting for the Ewald Sphere in High-Resolution Single-Particle Reconstructions. In Methods in Enzymology (1st ed., Vol. 482, pp. 369–380). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82015-4
 * Russo CJ, Henderson R. (2018) Ewald sphere correction using a single side-band image processing algorithm. Ultramicroscopy: 26-33.
 
-### Variational Autoencoders
+### Deep generative 3D reconstruction
+* Punjani, A., & Fleet, D. (2021). 3D Flexible Refinement : Structure and Motion of Flexible Proteins from Cryo-EM. BioRxiv, 1–21. http://doi.org/10.1101/2021.04.22.440893
+  * Auto-decoder approach using one 3D reference map (learned from data), modified by vector field (convection, also learned from data). Each particle has its own convection (latent variable learned from data). Nice discussion of design choices that inspired confidence and is useful for methods developers in this area.
+
+#### Variational Autoencoders
 * Doersch, C. (2016). Tutorial on Variational Autoencoders, 1–23.
 * Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., & Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
 * Zhong, E. D., Bepler, T., Davis, J. H., & Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images, 1–20.
@@ -234,6 +238,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Ludike, S. J., & Wah Chiu. (2002). Image restoration in sets of noisy electron micrographs. In Proceedings IEEE International Symposium on Biomedical Imaging (pp. 745–748). IEEE. http://doi.org/10.1109/ISBI.2002.1029365
 * Penczek, P. A. (2010). Fundamentals of Three-Dimensional Reconstruction from Projections. In Methods in Enzymology (1st ed., Vol. 482, pp. 1–33). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82001-4
 * Penczek, P. A. (2010). Image restoration in cryo-electron microscopy. Methods in Enzymology (1st ed., Vol. 482). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82002-6
+
+
 
 ## Tomography
 * Natterer, F. (1986). VII: Mathematical Tools. In The Mathematics of Computerized Tomography (pp. 180–212).
