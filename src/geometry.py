@@ -30,4 +30,19 @@ def rotate_map_3d(map_3d, rot, order=1, xyz=None):
     xyz = coords.coords_n_by_d(N=N,d=3) # xyz points cooresponding to the voxel coordinates
   xyz_rot = (rot.T.dot(xyz.T) + N//2)
   map_3d_rot = map_coordinates(map_3d,xyz_rot,order=order).reshape(N,N,N) # reshaped coresponding to xyz. TODO if use mask can do custom reshape
-  return map_3d_rot 
+  return map_3d_rot
+
+def cmask_3d(index,radius,array,do_shell=False,shell_thickness=1):
+  '''
+  make a binary circular mask, or ring (variable thickness). 
+  '''
+  a,b,c = index
+  nx0,nx1,nx2 = array.shape
+  x0,x1,x2 = np.ogrid[-a:nx0-a,-b:nx1-b,-c:nx1-c]
+  r2 = x0*x0+x1*x1+x2*x2
+  mask = r2 <= radius*radius
+  if do_shell:
+    mask_outer = mask
+    mask_inner = r2 <= (radius-shell_thickness)*(radius-shell_thickness)
+    mask = np.logical_xor(mask_outer,mask_inner)
+  return(mask)
