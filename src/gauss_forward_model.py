@@ -22,6 +22,7 @@ def make_map_3d(atoms,xyz,N,sigma,method='batch_grid',cutoff=8):
       dist2 = (((r - atoms))**2).sum(0)
       mask = dist2 < cutoff2
       map_3d[grid_idx] += np.exp(a*dist2[mask]).sum() # TODO **a after?
+      # TODO: norm C
 
   else:
     C = 1/np.sqrt(2*np.pi*sigma**2)
@@ -30,12 +31,24 @@ def make_map_3d(atoms,xyz,N,sigma,method='batch_grid',cutoff=8):
 
   return(map_3d)
 
-def make_map_2d(atoms_2d,xy,N,sigma):
+def make_map_2d(atoms_2d,xy,N,sigma,method='batch_grid',cutoff=8):
   assert atoms_2d.shape[0] == 2
   C = 1/np.sqrt(2*np.pi*sigma**2)
-  diff = xy.reshape(-1,2,1) - atoms_2d[:2,:].reshape(1,2,-1)
   a = -1/(2*sigma**2)
-  map_2d = (C**2*np.exp(a*((diff**2).sum(1))).sum(1).reshape(N,N))
+  if method == 'batch_grid':
+    map_2d = np.zeros(xy.shape[0])
+    cutoff2 = cutoff*cutoff
+    for grid_idx in range(xy.shape[0]):
+      r = xy[grid_idx].reshape(2,1)
+      dist2 = (((r - atoms_2d))**2).sum(0)
+      mask = dist2 < cutoff2
+      map_2d[grid_idx] += np.exp(a*dist2[mask]).sum() # TODO **a after?
+      # TODO: norm C
+
+  else:
+    diff = xy.reshape(-1,2,1) - atoms_2d[:2,:].reshape(1,2,-1)
+  
+    map_2d = (C**2*np.exp(a*((diff**2).sum(1))).sum(1).reshape(N,N))
   return(map_2d)
 
 @njit(parallel=True)
