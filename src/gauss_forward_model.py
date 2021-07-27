@@ -48,7 +48,9 @@ def make_map_2d(atoms_2d,xy,N,sigma,method='batch_grid',batch_size=1000,cutoff=8
       r = xy[grid_idx:end].reshape(effective_batch_size,2,1)
       dist2 = (((r - atoms_2d))**2).sum(1)
       mask = dist2 < cutoff2
-      map_2d[grid_idx:end] += (np.exp(a*dist2)*mask).sum(-1) # TODO **a after?
+      map_2d[grid_idx:end] += (np.exp(a*dist2)*mask).sum(-1) # no masking because atoms have different voxels in masks in cutoff. cast to float and multiply
+      #if batch_size == 1: map_2d[grid_idx:end] += np.exp(a*dist2[mask]).sum(-1)
+      # TODO **a after?
       # TODO: norm C
   else:
     diff = xy.reshape(-1,2,1) - atoms_2d[:2,:].reshape(1,2,-1)
