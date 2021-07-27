@@ -31,23 +31,27 @@ def make_map_3d(atoms,xyz,N,sigma,method='batch_grid',cutoff=8):
 
   return(map_3d)
 
-def make_map_2d(atoms_2d,xy,N,sigma,method='batch_grid',cutoff=8):
-  assert atoms_2d.shape[0] == 2
+def make_map_2d(atoms_2d,xy,N,sigma,method='batch_grid',batch_size=1000,cutoff=8):
+  ndim, n_atoms = atoms_2d.shape
+  assert ndim == 2
   C = 1/np.sqrt(2*np.pi*sigma**2)
   a = -1/(2*sigma**2)
+  n_pts = xy.shape[0]
   if method == 'batch_grid':
-    map_2d = np.zeros(xy.shape[0])
+    map_2d = np.zeros(n_pts)
     cutoff2 = cutoff*cutoff
-    for grid_idx in range(xy.shape[0]):
-      r = xy[grid_idx].reshape(2,1)
-      dist2 = (((r - atoms_2d))**2).sum(0)
+    atoms_2d = atoms_2d.reshape(1,2,n_atoms)
+    for grid_idx in range(0,n_pts,batch_size):
+      end = min(grid_idx+batch_size,n_pts)
+      residual = grid_idx+batch_size - end
+      effective_batch_size = batch_size - (residual)
+      r = xy[grid_idx:end].reshape(effective_batch_size,2,1)
+      dist2 = (((r - atoms_2d))**2).sum(1)
       mask = dist2 < cutoff2
-      map_2d[grid_idx] += np.exp(a*dist2[mask]).sum() # TODO **a after?
+      map_2d[grid_idx:end] += (np.exp(a*dist2)*mask).sum(-1) # TODO **a after?
       # TODO: norm C
-
   else:
     diff = xy.reshape(-1,2,1) - atoms_2d[:2,:].reshape(1,2,-1)
-  
     map_2d = (C**2*np.exp(a*((diff**2).sum(1))).sum(1).reshape(N,N))
   return(map_2d)
 
