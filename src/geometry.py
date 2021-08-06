@@ -32,7 +32,7 @@ def rotate_map_3d(map_3d, rot, order=1, xyz=None):
   map_3d_rot = map_coordinates(map_3d,xyz_rot,order=order).reshape(N,N,N) # reshaped coresponding to xyz. TODO if use mask can do custom reshape
   return map_3d_rot
 
-def cmask_3d(index,radius,array,do_shell=False,shell_thickness=1):
+def cmask_3d(index,radius,array,do_shell=False,shell_thickness=1, return_outer=False):
   '''
   make a binary spherical shell mask (variable thickness). 
   '''
@@ -43,6 +43,8 @@ def cmask_3d(index,radius,array,do_shell=False,shell_thickness=1):
   mask = r2 <= radius*radius
   if do_shell:
     mask_outer = mask
+    if return_outer:
+      return outer
     mask_inner = r2 <= (radius-shell_thickness)*(radius-shell_thickness)
     mask = np.logical_xor(mask_outer,mask_inner)
   return(mask)
