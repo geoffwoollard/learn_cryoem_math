@@ -112,7 +112,7 @@ Th 12 Aug 2021& \tiny{5 PM PDT} & blur/sharpen & \tiny{Guest: Radostin Danev (ch
  \hline
 Th 19 Aug 2021& \tiny{9 AM PDT} & blur/sharpen & \tiny{GNC, 4 Data processing. 4.3 CTF estimation and image correction (restoration)} \\
  \hline
-Th 26 Aug 2021& \tiny{9 AM PDT} & blur/sharpen &  GNC, 4 Data processing (4.4, 4.5) \\ 
+Th 26 Aug 2021& \tiny{9 AM PDT} & blur/sharpen &  \tiny{GNC, 4 Data processing. 4.4 Merging data from structurally homogeneous subsets)} \\ 
  \hline
 Th 2 Sept 2021& \tiny{9 AM PDT} & blur/sharpen & Office hours  \\ 
  \hline
@@ -215,41 +215,24 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 \pagebreak
 
-\subsection{12 Aug 2021 - blur - Glaeser, Nogales \& Chiu (GNC), 3 Data Processing (4.3)}
+\subsection{19 Aug 2021 - blur/sharpen - Glaeser, Nogales \& Chiu (GNC), 3 Data Processing (4.4)}
 \textendash {Pre-reading}
 \begin{itemize}
-	\item Himes, Benjamin A,  and Nikolaus Grigorieff. (2021). 4.3 CTF estimation and image correction (restoration).
+	\item Basil J Greber. (2021). 4.4 Merging data from structurally homogeneous subsets.
 \end{itemize}
 \textendash {Questions}
 \begin{enumerate}
-	\item In what sense was the CTF applied to the image of Einstein in Fig 4.6B?
-	\item How does w in Eq 4.2 affect the 1D plot of the CTF?
-	\item Plug the Scherzer defocus $(\Delta Z = - \sqrt{C_s\lambda})$ into the wave aberration of the CTF in Eq 4.3 
-	$(\gamma = 2\pi [ \frac{C_s}{4}\lambda^3 s^4 - \frac{\Delta Z}{2}\lambda s^2 ])$. Can you rework things to make $\gamma = 2 \pi [x^2 + x]$? If so, what is $x$? Is the Scherzer defocus under or over focused?
-	\item 4.3.1: The authors mention {\it "The sinusoidal modulations, sometimes referred to as Thon rings, form a characteristic pattern of rings or ellipses observed in computer-generated power spectra. They can be used to determine the defocus and astigmatism to within about 100 $\AA$ [...]. Once a reconstruction has been determined, the defocus parameters can be further refined and other, less significant errors can be measured and corrected (section 4.8). A full correction is therefore an iterative process that starts with an initial estimation of defocus and astigmatism from the electron micrographs themselves, without reference to a 3D reconstruction.}
-
-In your experience with data processing, how much are par particle defoci adjusted vs whole micrograph defocus? How much variability in defocus is there in a micrograph? What else could cause an estimate of defocus to be different vs the physical height of the specimen? How precise and reproducible are CTF estimation algorithms?
-
-	\item 4.3.1: Have you noticed CTF estimation failing? In what cases? Have you been able to fix things by changing default parameters?
-	\item 4.3.1: McMullan et al (2015) estimated that "water molecules, each with a molecular mass of 18 Da, move an RMS distance of $ \sim 1 \AA$ for each $e^-/\AA^2$" What would happen if water molecules moved more or less?
-		\begin{itemize}
-			\item McMullan, G., Vinothkumar, K. R., \& Henderson, R. (2015). Thon rings from amorphous ice and implications of beam-induced Brownian motion in single particle electron cryo-microscopy. Ultramicroscopy, 158, 26--32. \url{http://doi.org/10.1016/j.ultramic.2015.05.017}
-		\end{itemize}
-	\item 4.3.2: Consider Eqs. 4.7-4.9. What happens at the spatial frequencies where the CTF is zero? How does the image behave at spatial frequencies very close to $(s_x,s_y)$, where the CTF is non zero? How does this change when the SNR is more or less? Useful link: \url{http://www.bio.brandeis.edu/~shaikh/lab/ctf.htm}.
-		\begin{enumerate}
-			\item Consider the behaviour at one point  $(s_x^\prime,s_y^\prime)$
-			\item Assume there are four images. Thus $M=4$, and our measurements at the point we are interested in are: $X_1(s_x^\prime,s_y^\prime), X_2(s_x^\prime,s_y^\prime), X_3(s_x^\prime,s_y^\prime), X_4(s_x^\prime,s_y^\prime)$, where each $X_i = CTF_i \cdot F_i + N_i$
-			\item Assume that the CTFs are: $ CTF_1(s_x^\prime,s_y^\prime)=0.1, CTF_2(s_x^\prime,s_y^\prime)=0.2, CTF_3(s_x^\prime,s_y^\prime)=-0.1, CTF_4(s_x^\prime,s_y^\prime)=-0.2 $
-			\item Assume that the (random) noise at each image at the $(s_x^\prime,s_y^\prime)$ is: $N_1(s_x^\prime,s_y^\prime)=1, N_2(s_x^\prime,s_y^\prime)=1, N_3(s_x^\prime,s_y^\prime)=-1, N_4(s_x^\prime,s_y^\prime)=1 $ 
-			\item Assume the signal is the same (because the images are aligned): $F_1(s_x^\prime,s_y^\prime)= F_2(s_x^\prime,s_y^\prime)=F_3(s_x^\prime,s_y^\prime)=F_4(s_x^\prime,s_y^\prime)=1 $ 
-			\item Work out the numerator in Eq. 4.9 by multiplying the CTF by the measurement
-			\item Work out the denomenator in Eq. 4.9 by multiplying the CTF by the measurement
-			\item Using Eq. 4.7 work out $|F(s_x^\prime,s_y^\prime)|$, assuming $SNR(s_x^\prime,s_y^\prime)=1$.
-			\item Repeat this calculation, but doubling the values of the CTFs: $0.2, 0.4, -0.2, -0.4$. What happens to our estimate of F as the magnitude of the CTFs are larger?
-			\item Repeat this calculation, with CTFs all equal to $1$. As M gets larger, what will happen to $\sum_i CTF_i^2$ vs $1/SNR$?
-		\end{enumerate}
-	\item 4.3.2 Consider Eq. 4.10 $D_W =D_P +2\frac{\lambda}{d}\Delta Z.$ The text works out a calculation: $D_W = 200 \AA + 2 \frac{0.0224 \AA}{2 \AA}10000 \AA = 200 \AA + 224 \AA \sim 400 \AA$. Calculate the limiting resolution d for box sizes and specimen diameters you are working with. Do you think box size may be a limiting factor among practitioners? (Note: reference wavelengths of fast electrons for convenience: 0.0388 $\AA$ 100 keV, 0.0274 $\AA$ at 200 keV, and 0.0224 $\AA$ at 300 keV).
+	\item 4.4.1.2: why does "retrieving all the information needed to fill the 3D Fourier transform requires more views for a larger particle"?
+	\item 4.4.1.2: How exactly do the effects of better alignment estimation and more views "cancel each other out"? See Eq. A 11 in Hederson, 1995. %TODO work through appendix
+	\item 4.4.1.3: How many particles of apoferritin are needed to reach $3 \ \AA$? What's the record for the least amount of particles? How does this compare to theoretical estimates?
+	\item 4.4.1.3: Why are low molecular weight specimens difficult? What parameters should be tweaked inside of algorithms to make things work for them, and why?
+	\item 4.4.1.4: Henderson-Rosenthal plots are $\log$[particle number] vs $1/d^2$, while ResLog plots are vs $1/d$. Do they address the same question? Why the $1/d^2$ vs $1/d$?
+	\item 4.4.2.1: What information about the particle alignments (e.g. from 2D classification) is used in 3D reconstruction (in various software packages)? Note that this may not be widely known, require looking at the original publications, and reading the current source code, if available.
+	\item 4.4.2.2: Do you have any experience using packages that implement algebraic methods (ART, SIRT), such as IMAGIC? What was your experience?
+	\item Have you tried out the same dataset in different data processing software? What was your experience?
 \end{enumerate}
+
+
 
 %\subsection{Summer 2021}
 %By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogales will hopefully be out, and we can see how it looks. We could also plan some lectures.
@@ -1021,5 +1004,42 @@ Access Passcode: \texttt{\&vX6zAi1@f}
 	\item Section 3.2.4: Why aren't people getting good structures at 100 keV now? What would enable 100 keV energies to yield high resolution structures?
 	\item Section 3.2.4: To have roughly the same "shape" of CTF at low resolution (which affects the visibility of particles), how should the defocus be adjusted with the beam energy?
 \end{enumerate}
+
+\subsection{12 Aug 2021 - blur - Glaeser, Nogales \& Chiu (GNC), 3 Data Processing (4.3)}
+\textendash {Pre-reading}
+\begin{itemize}
+	\item Himes, Benjamin A,  and Nikolaus Grigorieff. (2021). 4.3 CTF estimation and image correction (restoration).
+\end{itemize}
+\textendash {Questions}
+\begin{enumerate}
+	\item In what sense was the CTF applied to the image of Einstein in Fig 4.6B?
+	\item How does w in Eq 4.2 affect the 1D plot of the CTF?
+	\item Plug the Scherzer defocus $(\Delta Z = - \sqrt{C_s\lambda})$ into the wave aberration of the CTF in Eq 4.3 
+	$(\gamma = 2\pi [ \frac{C_s}{4}\lambda^3 s^4 - \frac{\Delta Z}{2}\lambda s^2 ])$. Can you rework things to make $\gamma = 2 \pi [x^2 + x]$? If so, what is $x$? Is the Scherzer defocus under or over focused?
+	\item 4.3.1: The authors mention {\it "The sinusoidal modulations, sometimes referred to as Thon rings, form a characteristic pattern of rings or ellipses observed in computer-generated power spectra. They can be used to determine the defocus and astigmatism to within about 100 $\AA$ [...]. Once a reconstruction has been determined, the defocus parameters can be further refined and other, less significant errors can be measured and corrected (section 4.8). A full correction is therefore an iterative process that starts with an initial estimation of defocus and astigmatism from the electron micrographs themselves, without reference to a 3D reconstruction.}
+
+In your experience with data processing, how much are par particle defoci adjusted vs whole micrograph defocus? How much variability in defocus is there in a micrograph? What else could cause an estimate of defocus to be different vs the physical height of the specimen? How precise and reproducible are CTF estimation algorithms?
+
+	\item 4.3.1: Have you noticed CTF estimation failing? In what cases? Have you been able to fix things by changing default parameters?
+	\item 4.3.1: McMullan et al (2015) estimated that "water molecules, each with a molecular mass of 18 Da, move an RMS distance of $ \sim 1 \AA$ for each $e^-/\AA^2$" What would happen if water molecules moved more or less?
+		\begin{itemize}
+			\item McMullan, G., Vinothkumar, K. R., \& Henderson, R. (2015). Thon rings from amorphous ice and implications of beam-induced Brownian motion in single particle electron cryo-microscopy. Ultramicroscopy, 158, 26--32. \url{http://doi.org/10.1016/j.ultramic.2015.05.017}
+		\end{itemize}
+	\item 4.3.2: Consider Eqs. 4.7-4.9. What happens at the spatial frequencies where the CTF is zero? How does the image behave at spatial frequencies very close to $(s_x,s_y)$, where the CTF is non zero? How does this change when the SNR is more or less? Useful link: \url{http://www.bio.brandeis.edu/~shaikh/lab/ctf.htm}.
+		\begin{enumerate}
+			\item Consider the behaviour at one point  $(s_x^\prime,s_y^\prime)$
+			\item Assume there are four images. Thus $M=4$, and our measurements at the point we are interested in are: $X_1(s_x^\prime,s_y^\prime), X_2(s_x^\prime,s_y^\prime), X_3(s_x^\prime,s_y^\prime), X_4(s_x^\prime,s_y^\prime)$, where each $X_i = CTF_i \cdot F_i + N_i$
+			\item Assume that the CTFs are: $ CTF_1(s_x^\prime,s_y^\prime)=0.1, CTF_2(s_x^\prime,s_y^\prime)=0.2, CTF_3(s_x^\prime,s_y^\prime)=-0.1, CTF_4(s_x^\prime,s_y^\prime)=-0.2 $
+			\item Assume that the (random) noise at each image at the $(s_x^\prime,s_y^\prime)$ is: $N_1(s_x^\prime,s_y^\prime)=1, N_2(s_x^\prime,s_y^\prime)=1, N_3(s_x^\prime,s_y^\prime)=-1, N_4(s_x^\prime,s_y^\prime)=1 $ 
+			\item Assume the signal is the same (because the images are aligned): $F_1(s_x^\prime,s_y^\prime)= F_2(s_x^\prime,s_y^\prime)=F_3(s_x^\prime,s_y^\prime)=F_4(s_x^\prime,s_y^\prime)=1 $ 
+			\item Work out the numerator in Eq. 4.9 by multiplying the CTF by the measurement
+			\item Work out the denomenator in Eq. 4.9 by multiplying the CTF by the measurement
+			\item Using Eq. 4.7 work out $|F(s_x^\prime,s_y^\prime)|$, assuming $SNR(s_x^\prime,s_y^\prime)=1$.
+			\item Repeat this calculation, but doubling the values of the CTFs: $0.2, 0.4, -0.2, -0.4$. What happens to our estimate of F as the magnitude of the CTFs are larger?
+			\item Repeat this calculation, with CTFs all equal to $1$. As M gets larger, what will happen to $\sum_i CTF_i^2$ vs $1/SNR$?
+		\end{enumerate}
+	\item 4.3.2 Consider Eq. 4.10 $D_W =D_P +2\frac{\lambda}{d}\Delta Z.$ The text works out a calculation: $D_W = 200 \AA + 2 \frac{0.0224 \AA}{2 \AA}10000 \AA = 200 \AA + 224 \AA \sim 400 \AA$. Calculate the limiting resolution d for box sizes and specimen diameters you are working with. Do you think box size may be a limiting factor among practitioners? (Note: reference wavelengths of fast electrons for convenience: 0.0388 $\AA$ 100 keV, 0.0274 $\AA$ at 200 keV, and 0.0224 $\AA$ at 300 keV).
+\end{enumerate}
+
 
 \end{document}  
