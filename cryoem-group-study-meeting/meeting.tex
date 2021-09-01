@@ -215,26 +215,23 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\pagebreak
 
-\subsection{19 Aug 2021 - blur/sharpen - Guest: Basil Greber (chapter author) Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.4)}
+\pagebreak
+\subsection{2 Sept 2021 - blur - Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.5)}
 \textendash {Pre-reading}
 \begin{itemize}
-	\item Basil J Greber. (2021). 4.4 Merging data from structurally homogeneous subsets.
+	\item Xiao-chen Bai. (2021). 4.5 3D classification of structurally heterogeneous particles
 \end{itemize}
 \textendash {Questions}
 \begin{enumerate}
-	\item 4.4.1.2: why does "retrieving all the information needed to fill the 3D Fourier transform requires more views for a larger particle"?
-	\item 4.4.1.2: How exactly do the effects of better alignment estimation and more views "cancel each other out"? See Eq. A 11 in Hederson, 1995. %TODO work through appendix
-	\item 4.4.1.3: How many particles of apoferritin are needed to reach $3 \ \AA$? What's the record for the least amount of particles? How does this compare to theoretical estimates?
-	\item 4.4.1.3: Why are low molecular weight specimens difficult? What parameters should be tweaked inside of algorithms to make things work for them, and why?
-	\item 4.4.1.4: Henderson-Rosenthal plots are $\log$[particle number] vs $1/d^2$, while ResLog plots are vs $1/d$. Do they address the same question? Why the $1/d^2$ vs $1/d$?
-	\item 4.4.2.1: What information about the particle alignments (e.g. from 2D classification) is used in 3D reconstruction (in various software packages)? Note that this may not be widely known, require looking at the original publications, and reading the current source code, if available.
-	\item 4.4.2.2: Do you have any experience using packages that implement algebraic methods (ART, SIRT), such as IMAGIC? What was your experience?
-	\item Have you tried out the same dataset in different data processing software? What was your experience?
+	\item 4.5.2: Consider the following statement "the user is required to provide the number of possible structures in the data, which is difficult to predict in most cases" Do you agree? Why or why not? If you have some idea of "the number of possible structures in the data", but use the "wrong number", what might happen?
+	\item 4.5.2: How much junk do you typically have in your sample? How much can you remove during data processing?
+	\item 4.5.3: Draw a cartoon representing how particle subtraction is done. 
+	\item 4.5.3: Consider Figure 4.18. What happens if the "rigid region" is kind of flexible?
+	\item 4.5.4: What types of problems is symmetry expansion suitable for?
+	\item 4.5.5: What is the difference between "masked 3D refinement" and "masked 3D classification"? When would we use one over the other?
+	\item What new approaches were not covered in this chapter? What has your experience been like with them?
 \end{enumerate}
-
-
 
 %\subsection{Summer 2021}
 %By this time the anticipated textbook by Wah Chiu, Robert Glaeser, and Eva Nogales will hopefully be out, and we can see how it looks. We could also plan some lectures.
@@ -1043,5 +1040,21 @@ In your experience with data processing, how much are par particle defoci adjust
 	\item 4.3.2 Consider Eq. 4.10 $D_W =D_P +2\frac{\lambda}{d}\Delta Z.$ The text works out a calculation: $D_W = 200 \AA + 2 \frac{0.0224 \AA}{2 \AA}10000 \AA = 200 \AA + 224 \AA \sim 400 \AA$. Calculate the limiting resolution d for box sizes and specimen diameters you are working with. Do you think box size may be a limiting factor among practitioners? (Note: reference wavelengths of fast electrons for convenience: 0.0388 $\AA$ 100 keV, 0.0274 $\AA$ at 200 keV, and 0.0224 $\AA$ at 300 keV).
 \end{enumerate}
 
+\subsection{26 Aug 2021 - blur/sharpen - Guest: Basil Greber (chapter author) Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.4)}
+\textendash {Pre-reading}
+\begin{itemize}
+	\item Basil J Greber. (2021). 4.4 Merging data from structurally homogeneous subsets.
+\end{itemize}
+\textendash {Questions}
+\begin{enumerate}
+	\item 4.4.1.2: why does "retrieving all the information needed to fill the 3D Fourier transform requires more views for a larger particle"?
+	\item 4.4.1.2: How exactly do the effects of better alignment estimation and more views "cancel each other out"? See Eq. A 11 in Hederson, 1995. %TODO work through appendix
+	\item 4.4.1.3: How many particles of apoferritin are needed to reach $3 \ \AA$? What's the record for the least amount of particles? How does this compare to theoretical estimates?
+	\item 4.4.1.3: Why are low molecular weight specimens difficult? What parameters should be tweaked inside of algorithms to make things work for them, and why?
+	\item 4.4.1.4: Henderson-Rosenthal plots are $\log$[particle number] vs $1/d^2$, while ResLog plots are vs $1/d$. Do they address the same question? Why the $1/d^2$ vs $1/d$?
+	\item 4.4.2.1: What information about the particle alignments (e.g. from 2D classification) is used in 3D reconstruction (in various software packages)? Note that this may not be widely known, require looking at the original publications, and reading the current source code, if available.
+	\item 4.4.2.2: Do you have any experience using packages that implement algebraic methods (ART, SIRT), such as IMAGIC? What was your experience?
+	\item Have you tried out the same dataset in different data processing software? What was your experience?
+\end{enumerate}
 
 \end{document}  
