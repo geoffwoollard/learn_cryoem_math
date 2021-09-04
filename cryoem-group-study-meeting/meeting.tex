@@ -11,6 +11,8 @@
 \usepackage{ulem}
 \usepackage{listings}
 \usepackage{url}
+\usepackage{longtable}
+
 \lstset{frameround=fttt,language=Python,breaklines=true}
 
 
@@ -34,7 +36,7 @@ Given the current distribution of our global audience (90\%+  in North America a
 
 \begin{center}
 \small
- \begin{tabular}{|| c c c p{90mm} ||} 
+ \begin{longtable}{|| c c c p{90mm} ||} 
  \hline
  Date & Time & Stream & Topic \\ [0.5ex] 
  \hline\hline
@@ -138,7 +140,7 @@ Th 11 Nov 2021& \tiny{9 AM PDT} & blur/sharpen &\tiny{GNC, 6 Model building and 
  \hline
  ... 2021 ... & ... &  ... & ...  \\ 
  \hline
-\end{tabular}
+\end{longtable}
 \end{center}
 
 \pagebreak
@@ -215,7 +217,6 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-
 \pagebreak
 \subsection{2 Sept 2021 - blur - Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.5)}
 \textendash {Pre-reading}
@@ -231,6 +232,22 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item 4.5.4: What types of problems is symmetry expansion suitable for?
 	\item 4.5.5: What is the difference between "masked 3D refinement" and "masked 3D classification"? When would we use one over the other?
 	\item What new approaches were not covered in this chapter? What has your experience been like with them?
+\end{enumerate}
+
+\subsection{16 Sept 2021 - blur/sharpen - Guest: Alexis Rohou (chapter author) Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.7)}
+\textendash {Pre-reading}
+\begin{itemize}
+	\item Alexis Rohou. (2021). 4.7 B factors and map sharpening 
+\end{itemize}
+\textendash {Questions}
+\begin{enumerate}
+	\item 4.7.1: Spend some time studying Figure 4.25. Why does the curve attenuate with a B-factor vs ideal? What is happening in the Fourier transform of the map, when the noise floor is reached (at $\sim 3.0,2.1 \AA$ in this figure)? Why is the noise floor constant? Does the attenuation from the B-factor necessarily imply a loss of signal? Why or why not?
+	\item 4.7.4: What are some reasons that the intensity of the radial averaged amplitude spectrum would be lower at high resolution, compared with an ideal case. What exactly would the ideal case represent? For a particular specimen under consideration, how do we compute the ideal radial averaged amplitude spectrum?
+	\item 4.7.5: Sketch the radial amplitude profiles (cf. Fig 4.25) corresponding to the different trends in Fig 4.27.
+	\item 4.7.5: If there are non-linearities in a ResLog ($\AA^{-2} vs \log N$ plot, what might be the cause?
+	\item 4.7.6: What happens in "over sharpening", and how can it be prevented?
+	\item 4.7.7: Look up one of the references in the paragraph that starts with "Several algorithms have been proposed to overcome these limitations". After studying this chapter, see if you can follow the logic of the algorithm.
+	\item 4.7.7: Discuss why the B-factor as estimated from the amplitude spectrum vs a ResLog plot would be different.
 \end{enumerate}
 
 %\subsection{Summer 2021}
