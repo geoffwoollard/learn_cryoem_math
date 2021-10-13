@@ -130,7 +130,7 @@ Th 30 Sept 2021& \tiny{9 AM PDT} & sharpen & \tiny{Guest: Philip Baldwin. Wilson
  \hline
   Th 14 Oct 2021& \tiny{9 AM PDT} & sharpen & \tiny{GNC, 4 Data processing. 4.8 Optical aberrations and Ewald sphere curvature (part 2)}  \\ 
  \hline
-Th 21 Oct 2021& \tiny{9 AM PDT} & blur/sharpen & \tiny{GNC, 5 Map Validation. 5.2 Measures of resolution: FSC and local resolution}  \\ 
+Th 21 Oct 2021& \tiny{9 AM PDT} & blur/sharpen & \tiny{Guest: Steven Ludtke. GNC, 5 Map Validation. 5.2 Measures of resolution: FSC and local resolution}  \\ 
  \hline
 Th 28 Oct 2021& \tiny{9 AM PDT} & blur/sharpen & \tiny{GNC, 5 Map Validation. 5.3 Recognizing the effect of bias and over-fitting}  \\ 
  \hline
@@ -223,21 +223,19 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{7 Oct 2021 - sharpen - Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.8) (part 1)}
+\subsection{14 Oct 2021 - sharpen - Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.8) (part 2)}
 \textendash {Pre-reading}
-\begin{itemize}
-	\item Jasenko Zivanov, Takanori Nakane and Sjors Scheres (2021). 4.8 Optical aberrations and Ewald sphere curvature.
-\end{itemize}
+\begin{enumerate}
+	\item Jasenko Zivanov, Takanori Nakane and Sjors Scheres (2021). 4.8 Optical aberrations and Ewald sphere curvature. Sections 4.8.4 and 4.8.5.
+	\item 1.2.2 The electron accumulates information as it passes through a specimen in Robert Glaser (2021). 1.2 Recovery of 3D structures from images of weak-phase objects.
+	\item DeRosier, D. J. (2000). Correction of high-resolution data for curvature of the Ewald sphere. Ultramicroscopy, 81(2), 83-98. \url{http://doi.org/10.1016/S0304-3991(99)00120-5}
+\end{enumerate}
 \textendash {Questions}
 \begin{enumerate}
-	\item 4.8.1: What do all the terms in Eq. 4.11 mean? Where do they come from?
-	\item 4.8.1: Consider this excerpt "we perform an approximation that is common in cryo-EM, but not in material science: we assume that the structure factors are proportional to each other and that their ratio is independent of frequency." What exactly does this assumption physically imply about how electrons are interacting with the specimen and being imaged?
-	\item 4.8.1: Work from Eq. 4.11 to 4.12 line by line. What is assumed at each step?
-	\item 4.8.1: What does it mean that the CTF is "complex valued". What assumptions underly the typical case of the real values CTF?
-	\item 4.8.2: Unpack Figure 4.28 and 4.29. What do these plots mean, and what aspect of cryo-EM data/models is similar in form to them?
-	\item 4.8.3: Consider Figure Figure 4.30. If this is rotationally averaged, what will happen?
-	\item 4.8.3: Work through equations 4.13. What is the main take home lesson they illustrate?
-	\item 4.8.3: Consider Figure 4.31. What happens if we don't correct for axial coma induced by beam tilt?
+	\item 1.2.2: Work through the derivation of Equation 1.3. What do $h,v,e,V(x,y,z),dz,\mu(x,y)$, and $\Lambda$ refer to? What would their units be? For different types of specimens, how would their values change?
+	\item 4.8.4: What exactly happens in the last step of the derivation of Eq. 4.15? What is $F\Big(s_x,s_y,\frac{\lambda}{2}(s_x^2 + s_y^2)\Big)$ a Fourier transform of?
+	\item 4.8.4: Figure 4.32 claims that $s_z =- \lambda s^2/2$. Derive this, starting from the picture of the Ewald sphere. {\it Hint:} The angle $\angle OCT$ is very small, and there's a small angle approximation made in the derivation, for the distance TS. 
+	\item Examine Figure 4.33, and discuss when "Ewald sphere correction can safely be ignored for macromolecular complexes".
 \end{enumerate}
 %\textendash{Meeting Recording} \\
 %{\tiny \url{https://ubc.zoom.us/rec/share/AyBvLBkT9TQOQiy1lcbTY_3Uf1tPKb0dR_QmhxtbkQc0qYRkZftPnTApyg_fUQJp.JZtpR7MLF7z_EDR4}} \\
@@ -1113,5 +1111,23 @@ Access Passcode: \texttt{xLQ6=4F*}
 %\textendash {Questions}
 %\begin{enumerate}
 %\end{enumerate}
+
+\subsection{7 Oct 2021 - sharpen - Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.8) (part 1)}
+\textendash {Pre-reading}
+\begin{itemize}
+	\item Jasenko Zivanov, Takanori Nakane and Sjors Scheres (2021). 4.8 Optical aberrations and Ewald sphere curvature. Sections 4.8.1-4.8.3.
+	\item \url{https://en.wikipedia.org/wiki/Zernike_polynomials}
+\end{itemize}
+\textendash {Questions}
+\begin{enumerate}
+	\item 4.8.1: What do all the terms in Eq. 4.11 mean? Where do they come from?
+	\item 4.8.1: Consider this excerpt "we perform an approximation that is common in cryo-EM, but not in material science: we assume that the structure factors are proportional to each other and that their ratio is independent of frequency." What exactly does this assumption physically imply about how electrons are interacting with the specimen and being imaged?
+	\item 4.8.1: Work from Eq. 4.11 to 4.12 line by line. What is assumed at each step?
+	\item 4.8.1: What does it mean that the CTF is "complex valued". What assumptions underly the typical case of the real values CTF?
+	\item 4.8.2: Unpack Figure 4.28 and 4.29. What do these plots mean, and what aspect of cryo-EM data/models is similar in form to them?
+	\item 4.8.3: Consider Figure Figure 4.30. If this is rotationally averaged, what will happen?
+	\item 4.8.3: Work through equations 4.13. What is the main take home lesson they illustrate?
+	\item 4.8.3: Consider Figure 4.31. What happens if we don't correct for axial coma induced by beam tilt?
+\end{enumerate}
 
 \end{document}  
