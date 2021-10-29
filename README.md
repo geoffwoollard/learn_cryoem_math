@@ -14,9 +14,6 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 
 **NB: If there is a particular computational aspect of cryoEM analysis that you are curious about, feel free to request (via [Issues](https://github.com/geoffwoollard/learn_cryoem_math/issues) in this repo) some learning materials. I will do my best to develop some code and data to play with for interactive learning.**
 
-# Testimonials
-I am a PhD student with a biochemistry background, and have been working with NMR for the past 7 years before finally deciding to join a cryo-EM lab for post-doc. I have had zero cryo-EM experience before joining the study group. Since I started attending the meetings, I learned a ton of cryo-EM theory both from the readings and from talking to experts. Learning the theory has given me more confidence to go into my post-doc in a few months while switching fields. I really enjoy the spirit of discussion in the group. Going through some of the mathematical portion of the textbook [Single-particle Cryo-EM of Biological Macromolecules] has been especially helpful to me with understanding/imagining what is happening in the microscope, making it less like a “black box”.
-
 # Resources
 ## Online Resources
 * Jensen, G. J. (2014). Getting Started in Cryo-EM. Retrieved from http://cryo-em-course.caltech.edu/videos
