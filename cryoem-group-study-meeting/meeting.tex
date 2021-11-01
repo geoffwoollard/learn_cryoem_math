@@ -232,14 +232,24 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{28 Oct 2021 - Blur/Sharpen - Office hours}
-%\textendash {Pre-reading}
-%\begin{enumerate}
-%	\item Steven Ludtke (2021). 5.2 Measures of resolution: FSC and local resolution
-%\end{enumerate}
+\subsection{4 Nov 2021 - blur/sharpen - Glaeser, Nogales \& Chiu (GNC), 5 Map Validation (5.3)}
+
+\textendash {Pre-reading}
+\begin{enumerate}
+	\item Tim Grant and Peter Rosenthal (2021). 5.3 Recognizing the effect of bias and over-fitting
+\end{enumerate}
 \textendash {Questions}
 \begin{itemize}
-	\item Why should cryoEM practitioners learn more about theory? And how do you do it?
+	\item 5.3.1: what is reference bias (or model bias)? Have you encountered it in your own data? If so, what happened?
+	\item 5.3.1: what is over-fitting (or over-refinement)? Have you encountered it in your own data? If so, what happened?
+	\item 5.3.1: Three contributing factors to map bias are mentioned. Spell out how exactly how these factors might influence map bias in detail. What happens to the data as it flows through cryoEM data processing algorithm? "This map bias problem can potentially affect several important steps during image analysis. Its significance for any particular structure determination problem depends on the {\bf [1] size of the particle}, which is the major determinant of signal in the image, but is also influenced by {\bf [2] heterogeneity and flexibility} and also {\bf [3] sample preparation and imaging conditions} that reduce signal and alignment accuracy" (p. 5.12).
+	\item 5.3.2.1: Consider the following statement "It is also essential that the image averages obtained in the subsequent 2D and 3D classification and averaging steps reveal information beyond the resolution limit used to filter the selection template. [...] Absence of high-resolution features in image averages may suggest that the template is only finding matches in the noise up to the limit of the data included in the alignment and the outcome is simply the result of model bias." Is there something you can look for in the existing software packages you use to ensure this is the case? 
+	\item 5.3.2.2: Consider Figure 5.6. What non-protein like features have you observed in 2D classes?
+	\item 5.3.2.3: If you have ever performed a til-pair analysis, what was your experience like? How long did it take, what conclusions did you draw, and how confident were you in them?
+	\item 5.3.3.1: Consider Figure 5.8. What is the difference between the curve with red dots and the curve with blue dots? Why does the blue dot curve drop to zero at $10  \AA$ resolution in panel B but not panel A?
+	\item 5.3.4: Consider Figure 5.9. For your specimen, could you see if over-fitting was happening by looking at slices of the density? 
+	\item 5.3.4: Consider the following statement: "Because the FSC is a global resolution indicator, its use as a global filter during refinement treats all parts of a map in the same way. It may prevent over-fitting in the strongest, best resolved parts of the map which define the resolution limit of map features used in refinement. However, filtering to the global resolution limit may leave excessive noise in the poorly resolved regions of a map. Iterative refinement may result in the local build-up of spurious features in these weak regions that can still lead to incorrect biological interpretation and also contributes to poorer alignment parameters in each iteration." How do the methods mentioned to overcome this limitation do so?
+	
 \end{itemize}
 %\textendash{Meeting Recording} \\
 %{\tiny \url{https://ubc.zoom.us/rec/share/fZzzdjCxKEk6GWPKzTKSr4ngCfJoja_OxoJGX7x0_y4rscGfvcUh4YUXxZnNKBZc.rPCBs5661FbNTXC4}} \\
@@ -1070,7 +1080,6 @@ In your experience with data processing, how much are par particle defoci adjust
 {\tiny \url{https://utoronto.zoom.us/rec/share/hvkUzMRMQNC7MR9QKulXTeDrvbf0loy6R492MEAm5MA2XkxyoGErGDnn2Pz5p27j.bzGSELDYYPDehKwz}} \\
 Access Passcode: \texttt{Dm14.p3O8V}
 
-\newpage
 \subsection{16 Sept 2021 - blur/sharpen - Guest: Alexis Rohou (chapter author) Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.7)}
 \textendash {Pre-reading}
 \begin{itemize}
@@ -1090,8 +1099,6 @@ Access Passcode: \texttt{Dm14.p3O8V}
 {\tiny \url{https://ubc.zoom.us/rec/share/AyBvLBkT9TQOQiy1lcbTY_3Uf1tPKb0dR_QmhxtbkQc0qYRkZftPnTApyg_fUQJp.JZtpR7MLF7z_EDR4}} \\
 Access Passcode: \texttt{xLQ6=4F*}
 
-
-\newpage
 \subsection{23 Sept 2021 - blur - Glaeser, Nogales \& Chiu (GNC), 4 Data Processing (4.5)}
 \textendash {Pre-reading}
 \begin{itemize}
@@ -1165,5 +1172,11 @@ Access Passcode: \texttt{xLQ6=4F*}
 \textendash{Meeting Recording} \\
 {\tiny \url{https://ubc.zoom.us/rec/share/fZzzdjCxKEk6GWPKzTKSr4ngCfJoja_OxoJGX7x0_y4rscGfvcUh4YUXxZnNKBZc.rPCBs5661FbNTXC4}} \\
 Access Passcode: \texttt{jT1\%n6Oj}
+
+\subsection{28 Oct 2021 - Blur/Sharpen - Office hours}
+\textendash {Questions}
+\begin{itemize}
+	\item Why should cryoEM practitioners learn more about theory? And how do you do it?
+\end{itemize}
 
 \end{document}  
