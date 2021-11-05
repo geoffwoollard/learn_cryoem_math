@@ -114,6 +114,10 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Abdi, H. (2007). The Eigen-Decomposition: Eigenvalues and Eigenvectors. Encyclopedia of Measurements and Statistics, 1–10.
   * Helpful for math in Grob et al (2013)
 
+### Geometry
+* eigenchris (2017). Tensors For Beginners. Youtube. https://youtu.be/8ptMTLzV4-I
+  * 19 part video seris (each ~ 10 min) on tensors, forward and backward transformations, vectors, covectors, linear maps, metric tensors, bilinear forms, tensor products, kronecker product, raising/lowering indexes
+
 ### Complex Random Variables
 * Halliwell, L. J. (2015). Complex random variables, 1–66.
 * Miller, S. L., & Childers, D. (2012). Pairs of Random Variables. In Probability and Random Processes (pp. 177–243). Elsevier. http://doi.org/10.1016/B978-0-12-386981-4.50008-4
