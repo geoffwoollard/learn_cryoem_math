@@ -136,15 +136,19 @@ Th 28 Oct 2021& \tiny{9 AM PDT} & blur/sharpen & Office hours   \\
  \hline
 Th 4 Nov 2021& \tiny{9 AM PDT} & blur/sharpen &  \tiny{GNC, 5 Map Validation. 5.3 Recognizing the effect of bias and over-fitting} \\ 
  \hline % note PST on the next week, vancouver switches to pst 7 nov 2021 https://time.is/Vancouver
-Th 11 Nov 2021 & \tiny{9 AM PST} & blur/sharpen &\tiny{GNC, 5 Map Validation. 5.4 Estimates of alignment accuracy}  \\ 
+Th 11 Nov 2021 & & & Remembrance day. No meeting.  \\ 
  \hline
-Th 18 Nov 2021& \tiny{9 AM PST} & blur/sharpen & GNC, 6 Model building and validation (6.2, 6.3)  \\ 
+ Th 18 Nov 2021 & \tiny{9 AM PST} & blur/sharpen &\tiny{GNC, 5 Map Validation. 5.4 Estimates of alignment accuracy}  \\ 
  \hline
-Th 25 Nov 2021 & \tiny{9 AM PST} & blur/sharpen &\tiny{GNC, 6 Model building and validation. \newline 6.4 Quality evaluation of cryo-EM map-derived models}\\ 
+Th 25 Nov 2021& \tiny{9 AM PST} & blur/sharpen & GNC, 6 Model building and validation (6.2, 6.3)  \\ 
  \hline
-Th 2 Dec 2021& \tiny{9 AM PST} & blur/sharpen &\tiny{GNC, 6 Model building and validation. \newline 6.5 How algorithms from crystallography are helping electron cryo-microscopy} \\ [1ex]  
+Th 2 Dec 2021 & \tiny{9 AM PST} & blur/sharpen &\tiny{GNC, 6 Model building and validation. \newline 6.4 Quality evaluation of cryo-EM map-derived models}\\ 
  \hline
- ... 2021 ... & ... &  ... & ...  \\ 
+Th 9 Dec 2021& \tiny{9 AM PST} & blur/sharpen &\tiny{GNC, 6 Model building and validation. \newline 6.5 How algorithms from crystallography are helping electron cryo-microscopy} \\ \hline
+Th 16 Dec 2021& \tiny{9 AM PST} & blur/sharpen & Christmas Party! \\ 
+[1ex]  
+ \hline
+ ... 2022 ... & ... &  ... & ...  \\ 
  \hline
 \end{longtable}
 \end{center}
@@ -232,25 +236,21 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{4 Nov 2021 - blur/sharpen - Glaeser, Nogales \& Chiu (GNC), 5 Map Validation (5.3)}
+\subsection{18 Nov 2021 - blur/sharpen - Glaeser, Nogales \& Chiu (GNC), 5 Map Validation (5.3)}
 
 \textendash {Pre-reading}
-\begin{enumerate}
-	\item Tim Grant and Peter Rosenthal (2021). 5.3 Recognizing the effect of bias and over-fitting
-\end{enumerate}
-\textendash {Questions}
 \begin{itemize}
-	\item 5.3.1: what is reference bias (or model bias)? Have you encountered it in your own data? If so, what happened?
-	\item 5.3.1: what is over-fitting (or over-refinement)? Have you encountered it in your own data? If so, what happened?
-	\item 5.3.1: Three contributing factors to map bias are mentioned. Spell out how exactly how these factors might influence map bias in detail. What happens to the data as it flows through cryoEM data processing algorithm? "This map bias problem can potentially affect several important steps during image analysis. Its significance for any particular structure determination problem depends on the {\bf [1] size of the particle}, which is the major determinant of signal in the image, but is also influenced by {\bf [2] heterogeneity and flexibility} and also {\bf [3] sample preparation and imaging conditions} that reduce signal and alignment accuracy" (p. 5.12).
-	\item 5.3.2.1: Consider the following statement "It is also essential that the image averages obtained in the subsequent 2D and 3D classification and averaging steps reveal information beyond the resolution limit used to filter the selection template. [...] Absence of high-resolution features in image averages may suggest that the template is only finding matches in the noise up to the limit of the data included in the alignment and the outcome is simply the result of model bias." Is there something you can look for in the existing software packages you use to ensure this is the case? 
-	\item 5.3.2.2: Consider Figure 5.6. What non-protein like features have you observed in 2D classes?
-	\item 5.3.2.3: If you have ever performed a til-pair analysis, what was your experience like? How long did it take, what conclusions did you draw, and how confident were you in them?
-	\item 5.3.3.1: Consider Figure 5.8. What is the difference between the curve with red dots and the curve with blue dots? Why does the blue dot curve drop to zero at $10  \AA$ resolution in panel B but not panel A?
-	\item 5.3.4: Consider Figure 5.9. For your specimen, could you see if over-fitting was happening by looking at slices of the density? 
-	\item 5.3.4: Consider the following statement: "Because the FSC is a global resolution indicator, its use as a global filter during refinement treats all parts of a map in the same way. It may prevent over-fitting in the strongest, best resolved parts of the map which define the resolution limit of map features used in refinement. However, filtering to the global resolution limit may leave excessive noise in the poorly resolved regions of a map. Iterative refinement may result in the local build-up of spurious features in these weak regions that can still lead to incorrect biological interpretation and also contributes to poorer alignment parameters in each iteration." How do the methods mentioned to overcome this limitation do so?
-	
+	\item J Bernard Heymann (2021). 5.4 Estimates of alignment accuracy
 \end{itemize}
+\textendash {Questions}
+\begin{enumerate}
+	\item 5.4: How is estimating and address alignment accuracy a chicken-and-egg causality dilemma?
+	\item 5.4.1: Work through equation 5.2. What data are the symbols S and N referring to? What is the difference between 1 and 2? Is what situations would $\Omega$ refer to "single voxels, shells, or whole images in frequency space"?
+	\item 5.4.2: What might be the cause of the gradual vs abrupt drop of error in Figure 5.11 A (translation) and B (rotation)?
+	\item 5.4.3: What do each of the panels of Figure 5.12 mean?
+	\item: 5.4.6: What is the difference between particle "precision" and "accuracy" (Vargas et al, 2016)? If you have some data processing results handy that compute these metrics (e.g. in CryoSPARC), compare them. What is happening to your data inside the algorithm? 
+	\item 5.5: How could computational methods developers study how reconstruction algorithms handle alignment accuracy during algorithmic development?
+\end{enumerate}
 %\textendash{Meeting Recording} \\
 %{\tiny \url{https://ubc.zoom.us/rec/share/fZzzdjCxKEk6GWPKzTKSr4ngCfJoja_OxoJGX7x0_y4rscGfvcUh4YUXxZnNKBZc.rPCBs5661FbNTXC4}} \\
 %Access Passcode: \texttt{jT1\%n6Oj}
@@ -1177,6 +1177,26 @@ Access Passcode: \texttt{jT1\%n6Oj}
 \textendash {Questions}
 \begin{itemize}
 	\item Why should cryoEM practitioners learn more about theory? And how do you do it?
+\end{itemize}
+
+\subsection{4 Nov 2021 - blur/sharpen - Glaeser, Nogales \& Chiu (GNC), 5 Map Validation (5.3)}
+
+\textendash {Pre-reading}
+\begin{enumerate}
+	\item Tim Grant and Peter Rosenthal (2021). 5.3 Recognizing the effect of bias and over-fitting
+\end{enumerate}
+\textendash {Questions}
+\begin{itemize}
+	\item 5.3.1: what is reference bias (or model bias)? Have you encountered it in your own data? If so, what happened?
+	\item 5.3.1: what is over-fitting (or over-refinement)? Have you encountered it in your own data? If so, what happened?
+	\item 5.3.1: Three contributing factors to map bias are mentioned. Spell out how exactly how these factors might influence map bias in detail. What happens to the data as it flows through cryoEM data processing algorithm? "This map bias problem can potentially affect several important steps during image analysis. Its significance for any particular structure determination problem depends on the {\bf [1] size of the particle}, which is the major determinant of signal in the image, but is also influenced by {\bf [2] heterogeneity and flexibility} and also {\bf [3] sample preparation and imaging conditions} that reduce signal and alignment accuracy" (p. 5.12).
+	\item 5.3.2.1: Consider the following statement "It is also essential that the image averages obtained in the subsequent 2D and 3D classification and averaging steps reveal information beyond the resolution limit used to filter the selection template. [...] Absence of high-resolution features in image averages may suggest that the template is only finding matches in the noise up to the limit of the data included in the alignment and the outcome is simply the result of model bias." Is there something you can look for in the existing software packages you use to ensure this is the case? 
+	\item 5.3.2.2: Consider Figure 5.6. What non-protein like features have you observed in 2D classes?
+	\item 5.3.2.3: If you have ever performed a til-pair analysis, what was your experience like? How long did it take, what conclusions did you draw, and how confident were you in them?
+	\item 5.3.3.1: Consider Figure 5.8. What is the difference between the curve with red dots and the curve with blue dots? Why does the blue dot curve drop to zero at $10  \AA$ resolution in panel B but not panel A?
+	\item 5.3.4: Consider Figure 5.9. For your specimen, could you see if over-fitting was happening by looking at slices of the density? 
+	\item 5.3.4: Consider the following statement: "Because the FSC is a global resolution indicator, its use as a global filter during refinement treats all parts of a map in the same way. It may prevent over-fitting in the strongest, best resolved parts of the map which define the resolution limit of map features used in refinement. However, filtering to the global resolution limit may leave excessive noise in the poorly resolved regions of a map. Iterative refinement may result in the local build-up of spurious features in these weak regions that can still lead to incorrect biological interpretation and also contributes to poorer alignment parameters in each iteration." How do the methods mentioned to overcome this limitation do so?
+	
 \end{itemize}
 
 \end{document}  
