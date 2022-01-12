@@ -109,6 +109,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Sauter, N. K., Kern, J., Yano, J., & Holton, J. M. (2020). Towards the spatial resolution of metalloprotein charge states by detailed modeling of XFEL crystallographic diffraction. Acta Crystallographica Section D: Structural Biology, 76, 176–192. http://doi.org/10.1107/S2059798320000418
 * Jensen, G. J., & Vos, M. (2020). Electron Microscopy University. Retrieved from https://em-learning.com/
   * includes a whole section of videos on detectors. A good introduction to detector physics.
+*  Brunton, Steve. (2021). Fourier Analysis. https://youtube.com/playlist?list=PLMrJAkhIeNNT_Xh3Oy0Y4LTj0Oxo8GqsC
+  * Youtube play list. Fourier basics. Code in matlab and python. Fourier series. Complex Fourier series. Gibbs. Convolution. Parseval's. DFT. FFT. Denoising with FFT. Derivatives wtih FFT. PDEs wtih FFT. Spectrogram. Uncertainty. Image compression. Wavelets. Laplace.
 
 ### Linear Algebra
 * Abdi, H. (2007). The Eigen-Decomposition: Eigenvalues and Eigenvectors. Encyclopedia of Measurements and Statistics, 1–10.
