@@ -65,6 +65,13 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
     * 6.6 Archiving structures and data. EMPIAR, EMDB, PDB. Data validation. Sample sequence and ligands. OneDep. Metadata.
 
 ## Math
+
+### Rotations
+* Quine, J. R. (n.d.). Mathematical techniques in structural biology, 1–86.
+  * Good gentle introduction from structural biologists on orthonormal rotations. Derivation of familiar properties of rotations. Exercises.
+* Hartley, R., Trumpf, J., Dai, Y., & Li, H. (2013). Rotation Averaging. International Journal of Computer Vision, 103(3), 267–305. http://doi.org/10.1007/s11263-012-0601-0
+  * Long review on rotational encodings. Encodings are mainly $\mathcal{R}^{3x3}$, (axis-angle, quaternions). SO(3) is discussed from concepts from Lie groups, and differential geometry. Distance measures are derived for different encodings and focus on the Frobenius norm of the coordinates in that encoding, and the angle/gendesic. Three basic computer vision problem types are considered: 1. averaring multiple rotations into a single "average rotation", 2. estimating how to convert between frames from multiple rotations pairs (e.g. from calibrated cameras), and 3. estimating mutliple rotations from difference frames from sparse relative rotations between paris of frames.
+
 ### Fourier
 * Lighthill, M. J. (1958). An Introduction to Fourier Analysis and Generalised Functions. An Introduction to Fourier Analysis and Generalised Functions. Cambridge University Press. http://doi.org/10.1017/CBO9781139171427.001
   * subtelties about delta functions. Helps for not getting confused between discrete and continous FT 
