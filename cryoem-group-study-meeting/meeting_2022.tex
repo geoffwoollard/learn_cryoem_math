@@ -142,14 +142,32 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \begin{enumerate}
 	\item Han, X., Terashi, G., Christoffer, C., Chen, S., \& Kihara, D. (2021). VESPER: global and local cryo-EM map alignment using local density vectors. Nature Communications, 12(1). \url{http://doi.org/10.1038/s41467-021-22401-y}
 \end{enumerate}
-%\textendash {Questions}
-%\begin{enumerate}
-%	\item 
-%\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Consider Figure 1 and the Z-score results. When aligning two different maps, and getting DOT scores, how would one re-scale to a Z-score? And to what end?
+	\item Have you developed any algorithms that start from aligned maps? where did the initial alignment arise from?
+	\item How do you compare aligning ?by eye? with the algorithms mentioned in the paper, such as the popular fitmap in Chimera. what do you think you are doing in your mind, and how would you break it down into algorithmic steps?
+	\item Figure 2i (and text on last paragraph of p. 4) shows a case where VESPR did not perform well. two different proteins were predicted to be close in shape ?because they have an overall similar shape and also because these maps are largely hollow inside, and thus inconsistency inside the maps were not much penalized?. Relate this to the DOT score. What other approaches would not suffer from this?
+	
+	\item In Table 2 there are some cases where the RMSD goes up (worse alignment) with finer grained sampling (rotation angle and translation). Why might this be happening?
+	\item In the Discussion, the authors explain intuitively how cross correlation (CC) and their DOT score result in different alignments: {\it In CC, positions with large absolute density values, such as those in a high-density region in a map, influence more to the overall CC value. On the other hand, for the DOT score the contribution of each aligned position pair is essentially the same because the vectors are normalized to the same length. But this also means that the DOT score can be affected by changes in local gradient caused by small structure variations.}
+	
+	Consider the following cases and think through how the result might be different.
+	\begin{enumerate}
+		\item Continuous conformational heterogeneity: Blurred out flexible region with partial density.
+		\item Discrete conformational heterogeneity: Mixed discrete states in one map vs one of the partners.
+		\item Hinge like displacement (local rigid-body transformation of a domain).
+		\item Two maps +/- domain.
+	\end{enumerate}
+	\item What do you think of the opinion in the Discussion: {\it Note that, in general, the optimal parameter setting for a method differs for each map and the purpose of the computation. Thus, a perfectly fair comparison is not possible, and the comparison shown in this work is to characterize the performance of VESPER but not to rank the methods.} Hint: see {\bf Responses to Comments by Reviewer \#2}, p. 10.
+	\item The authors chose a $7 \AA$ grid spacing. Why? How do you suspect the performance of VESPER to change with other grid spacings? Does the method require the same grid spacing when comparing maps? Hint: read the section {\bf Exploration of parameter combinations.}
+	\item Reviewer \#1 asked the authors to justify what map-to-map alignment is useful. Why would a researcher want to align maps (vs model-to-model and model-to-map)?
+\end{enumerate}
 %\textendash{Meeting Recording} \\
 %{\tiny \url{https://ubc.zoom.us/rec/share/fZzzdjCxKEk6GWPKzTKSr4ngCfJoja_OxoJGX7x0_y4rscGfvcUh4YUXxZnNKBZc.rPCBs5661FbNTXC4}} \\
 %Access Passcode: \texttt{jT1\%n6Oj}
 
+\pagebreak
 \subsection{28 Jan 2022 - Guest: Qinwen (Wendy) Huang - Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM}
 
 \textendash {Pre-reading}
@@ -196,6 +214,8 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item Penczek, P. A. (2010). Resolution Measures in Molecular Electron Microscopy. In Methods in Enzymology (1st ed., Vol. 482, pp. 73?100). Elsevier Inc. \url{http://doi.org/10.1016/S0076-6879(10)82003-8}
 	\item Ede, J. M. (2020). Review: Deep learning in electron microscopy. ArXiv. \url{http://doi.org/10.1088/2632-2153/abd614}
 	\item  Qinwen Huang, Ye Zhou, Hsuan-Fu Liu, \& Alberto Bartesaghi (2021). Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM \url{https://www.mlsb.io/papers_2021/MLSB2021_Weakly_Supervised_Learning_for.pdf}
+	\item Zhu, D., Wang, X., Fang, Q., Etten, J. L. Van, Rossmann, M. G., Rao, Z., \& Zhang, X. (n.d.). Pushing the resolution limit by correcting the Ewald reconstructions. Nature Communications, (2018), 1-7. \url{http://doi.org/10.1038/s41467-018-04051-9}
+	\item Maji, S., Liao, H., Dashti, A., Mashayekhi, G., Ourmazd, A., \& Frank, J. (2020). Propagation of Conformational Coordinates across Angular Space in Mapping the Continuum of States from Cryo-EM Data by Manifold Embedding. Journal of Chemical Information and Modeling, 60(5), 2484?2491. \url{http://doi.org/10.1021/acs.jcim.9b01115}
 \end{enumerate}
 
 \subsection{Advanced microscopy}
