@@ -44,7 +44,7 @@ Meetings are generally on Thursdays (morning Pacific time, afternoon Eastern tim
   \hline
  Fri 28 Jan 2022 & \tiny{9:15 AM PST}  & \tiny{Guest: Qinwen (Wendy) Huang - Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM} \\ 
  \hline
- Fri 4 Feb 2022 & \tiny{9 AM PST}  & advanced rotations \\ 
+ Fri 4 Feb 2022 & \tiny{9 AM PST}  & Rotations - encoding of S0(3) \\ 
  \hline
  Fri 11 Feb 2022 & \tiny{9 AM PST}  & mathy cryoem paper  \\ 
  \hline
@@ -136,53 +136,35 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{21 Jan 2022 - VESPER: global and local cryo-EM map alignment using local density vectors.}
-
-\textendash {Pre-reading}
+\subsection{4 Feb 2022 - Rotations - encoding of S0(3)}
+\textendash{Pre-reading}
 \begin{enumerate}
-	\item Han, X., Terashi, G., Christoffer, C., Chen, S., \& Kihara, D. (2021). VESPER: global and local cryo-EM map alignment using local density vectors. Nature Communications, 12(1). \url{http://doi.org/10.1038/s41467-021-22401-y}
-\end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item Consider Figure 1 and the Z-score results. When aligning two different maps, and getting DOT scores, how would one re-scale to a Z-score? And to what end?
-	\item Have you developed any algorithms that start from aligned maps? where did the initial alignment arise from?
-	\item How do you compare aligning ?by eye? with the algorithms mentioned in the paper, such as the popular fitmap in Chimera. what do you think you are doing in your mind, and how would you break it down into algorithmic steps?
-	\item Figure 2i (and text on last paragraph of p. 4) shows a case where VESPR did not perform well. two different proteins were predicted to be close in shape ?because they have an overall similar shape and also because these maps are largely hollow inside, and thus inconsistency inside the maps were not much penalized?. Relate this to the DOT score. What other approaches would not suffer from this?
-	
-	\item In Table 2 there are some cases where the RMSD goes up (worse alignment) with finer grained sampling (rotation angle and translation). Why might this be happening?
-	\item In the Discussion, the authors explain intuitively how cross correlation (CC) and their DOT score result in different alignments: {\it In CC, positions with large absolute density values, such as those in a high-density region in a map, influence more to the overall CC value. On the other hand, for the DOT score the contribution of each aligned position pair is essentially the same because the vectors are normalized to the same length. But this also means that the DOT score can be affected by changes in local gradient caused by small structure variations.}
-	
-	Consider the following cases and think through how the result might be different.
-	\begin{enumerate}
-		\item Continuous conformational heterogeneity: Blurred out flexible region with partial density.
-		\item Discrete conformational heterogeneity: Mixed discrete states in one map vs one of the partners.
-		\item Hinge like displacement (local rigid-body transformation of a domain).
-		\item Two maps +/- domain.
-	\end{enumerate}
-	\item What do you think of the opinion in the Discussion: {\it Note that, in general, the optimal parameter setting for a method differs for each map and the purpose of the computation. Thus, a perfectly fair comparison is not possible, and the comparison shown in this work is to characterize the performance of VESPER but not to rank the methods.} Hint: see {\bf Responses to Comments by Reviewer \#2}, p. 10.
-	\item The authors chose a $7 \AA$ grid spacing. Why? How do you suspect the performance of VESPER to change with other grid spacings? Does the method require the same grid spacing when comparing maps? Hint: read the section {\bf Exploration of parameter combinations.}
-	\item Reviewer \#1 asked the authors to justify what map-to-map alignment is useful. Why would a researcher want to align maps (vs model-to-model and model-to-map)?
-\end{enumerate}
-%\textendash{Meeting Recording} \\
-%{\tiny \url{https://ubc.zoom.us/rec/share/fZzzdjCxKEk6GWPKzTKSr4ngCfJoja_OxoJGX7x0_y4rscGfvcUh4YUXxZnNKBZc.rPCBs5661FbNTXC4}} \\
-%Access Passcode: \texttt{jT1\%n6Oj}
-
-\pagebreak
-\subsection{28 Jan 2022 - Guest: Qinwen (Wendy) Huang - Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM}
-
-\textendash {Pre-reading}
-\begin{enumerate}
-	\item Qinwen Huang, Ye Zhou, Hsuan-Fu Liu, \& Alberto Bartesaghi (2021). Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM \url{https://www.mlsb.io/papers_2021/MLSB2021_Weakly_Supervised_Learning_for.pdf}
+	\item \url{https://en.wikipedia.org/wiki/Euler_angles#Rotation_matrix}
+	\item \href{http://www.close-range.com/docs/Computing_Euler_angles_from_a_rotation_matrix.pdf}{Gregory G. Slabaugh. Computing Euler angles from a rotation matrix}
+	\item \href{https://www.coursera.org/lecture/robotics-flight/axis-angle-representations-for-rotations-4hTtQ}{Axis/Angle Representations for Rotations}
+	\item \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4. Orthogonal Transformations and Rotations in Mathematical Techniques in Structural Biology, pp. 25-31}
+    	\item \href{https://youtu.be/d4EgbgTm0Bg}{Visualizing quaternions (4d numbers) with stereographic projection}
+	\item \href{https://youtu.be/zjMuIxRvygQ}{Quaternions and 3d rotation, explained interactively}
+	\item \href{https://eater.net/quaternions/}{Visualizing quaternions An explorable video series}
+	\item \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Wiki: Quaternions and spatial rotation}
+	\item \href{https://maxime-tournier.github.io/notes/quaternions.html}{Maxime Tournier's Research Notes. Quaternions}
 \end{enumerate}
 
 \textendash {Questions}
 \begin{enumerate}
-	\item This paper exploits analytical likelihood-prior-posterior conjugacy between gaussian distributions. How could we extend this to Poisson noise with Poisson-Gamma conjugacy? What would be Poisson, and what would be Gamma?
+	\item Problems (especially 4, 6, 7) from \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4.5 Problems  in {\it  Mathematical Techniques in Structural Biology},  pp. 30-31}
+	\item Implement the pseudo-code in Figure 1 of \href{http://www.close-range.com/docs/Computing_Euler_angles_from_a_rotation_matrix.pdf}{Gregory G. Slabaugh. Computing Euler angles from a rotation matrix}, and use it to compute the Euler angles from a rotation matrix.
+	\item all problems from \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4.5 Problems in {\it Mathematical Techniques in Structural Biology},  pp. 30-31}
+	\item Go to the \href{https://eater.net/quaternions/video/doublecover}{doublecover} interactive, and select the 4D tab on the bottom. Find the quaternion that corresponds to a rotation of 90 deg in the cw direction about the z axis.
+	\item Quaterions can be used to describe the rotation of the point $ r= \langle r_x,r_y,r_x \rangle \in \mathbb{R}^3$ about angle $\theta$ in the direction of vector $\langle q_x,q_y,q_z \rangle$ as follows. $p_{rotated} = q*p*q^{-1}$, where $q = \langle \cos(\theta/2),q_x\sin(\theta/2),q_y\sin(\theta/2),q_j\sin(\theta/2)\rangle$ and \\ $q^{-1}=\langle \cos(-\theta/2),q_x\sin(-\theta/2),q_y\sin(-\theta/2),q_z\sin(-\theta/2) \rangle$ encode the rotation; $\vec r$ is represented as the quaternion $p=(0,r_x,r_y,r_z)$. Question: using pencil and paper, compute the rotation of the point $ r=\langle1,0,0\rangle$ about the z-axis by $\theta=180^{\circ}$ (ccw or cw, it's the same for this angle). Do you get $r=\langle-1,0,0\rangle$? You will have to use the quaternion multiplication table ($ij=k$, etc.), and know how to interconvert quaternions to cartesian 3D vectors.
+	\item Study the sections \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion to and from the matrix representation}{Conversion to and from the matrix representation} and \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Performance_comparisons}{Performance comparisons} on the wiki page for \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Quaternions and spatial rotation}. If we want to rotate many xyz points in space with a 3D rotation, what is the efficient way to do this? Taking into account interconversions between different rotation conventions (Euler angles, rotation matrices, axis-angle, and quaternions) how should we efficiently store rotations versus do rotations?
+	\item Besides storing and doing rotations, we have to search over rotations. Wikipedia has a section on \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Differentiation_with_respect_to_the_rotation_quaternion}{Differentiation with respect to the rotation quaternion}. Unpack the equation for $\frac{\partial {\bf p'}}{\partial {\bf q}}$. Would this equation ever be useful in cryoEM? When would we want to estimate the rotation by optimization, and how would we do so with this equation?
 \end{enumerate}
+
 
 \pagebreak
 \section{Reading list}
-\subsection{Advanced treatment of rotations}
+\subsection{Advanced treatment of rigid-body rotations (SO(3))}
 
 \textendash {Pre-reading}
 \begin{enumerate}
@@ -216,6 +198,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item  Qinwen Huang, Ye Zhou, Hsuan-Fu Liu, \& Alberto Bartesaghi (2021). Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM \url{https://www.mlsb.io/papers_2021/MLSB2021_Weakly_Supervised_Learning_for.pdf}
 	\item Zhu, D., Wang, X., Fang, Q., Etten, J. L. Van, Rossmann, M. G., Rao, Z., \& Zhang, X. (n.d.). Pushing the resolution limit by correcting the Ewald reconstructions. Nature Communications, (2018), 1-7. \url{http://doi.org/10.1038/s41467-018-04051-9}
 	\item Maji, S., Liao, H., Dashti, A., Mashayekhi, G., Ourmazd, A., \& Frank, J. (2020). Propagation of Conformational Coordinates across Angular Space in Mapping the Continuum of States from Cryo-EM Data by Manifold Embedding. Journal of Chemical Information and Modeling, 60(5), 2484?2491. \url{http://doi.org/10.1021/acs.jcim.9b01115}
+	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). CryoDRGN2 : Ab initio neural reconstruction of 3D protein structures from real cryo-EM images. Iccv, 4066?4075.
 \end{enumerate}
 
 \subsection{Advanced microscopy}
@@ -250,7 +233,45 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 \pagebreak
 \section{Past Meetings}
-\pagebreak
+\subsection{21 Jan 2022 - VESPER: global and local cryo-EM map alignment using local density vectors.}
+
+\textendash {Pre-reading}
+\begin{enumerate}
+	\item Han, X., Terashi, G., Christoffer, C., Chen, S., \& Kihara, D. (2021). VESPER: global and local cryo-EM map alignment using local density vectors. Nature Communications, 12(1). \url{http://doi.org/10.1038/s41467-021-22401-y}
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Consider Figure 1 and the Z-score results. When aligning two different maps, and getting DOT scores, how would one re-scale to a Z-score? And to what end?
+	\item Have you developed any algorithms that start from aligned maps? where did the initial alignment arise from?
+	\item How do you compare aligning ?by eye? with the algorithms mentioned in the paper, such as the popular fitmap in Chimera. what do you think you are doing in your mind, and how would you break it down into algorithmic steps?
+	\item Figure 2i (and text on last paragraph of p. 4) shows a case where VESPR did not perform well. two different proteins were predicted to be close in shape ?because they have an overall similar shape and also because these maps are largely hollow inside, and thus inconsistency inside the maps were not much penalized?. Relate this to the DOT score. What other approaches would not suffer from this?
+	
+	\item In Table 2 there are some cases where the RMSD goes up (worse alignment) with finer grained sampling (rotation angle and translation). Why might this be happening?
+	\item In the Discussion, the authors explain intuitively how cross correlation (CC) and their DOT score result in different alignments: {\it In CC, positions with large absolute density values, such as those in a high-density region in a map, influence more to the overall CC value. On the other hand, for the DOT score the contribution of each aligned position pair is essentially the same because the vectors are normalized to the same length. But this also means that the DOT score can be affected by changes in local gradient caused by small structure variations.}
+	
+	Consider the following cases and think through how the result might be different.
+	\begin{enumerate}
+		\item Continuous conformational heterogeneity: Blurred out flexible region with partial density.
+		\item Discrete conformational heterogeneity: Mixed discrete states in one map vs one of the partners.
+		\item Hinge like displacement (local rigid-body transformation of a domain).
+		\item Two maps +/- domain.
+	\end{enumerate}
+	\item What do you think of the opinion in the Discussion: {\it Note that, in general, the optimal parameter setting for a method differs for each map and the purpose of the computation. Thus, a perfectly fair comparison is not possible, and the comparison shown in this work is to characterize the performance of VESPER but not to rank the methods.} Hint: see {\bf Responses to Comments by Reviewer \#2}, p. 10.
+	\item The authors chose a $7 \AA$ grid spacing. Why? How do you suspect the performance of VESPER to change with other grid spacings? Does the method require the same grid spacing when comparing maps? Hint: read the section {\bf Exploration of parameter combinations.}
+	\item Reviewer \#1 asked the authors to justify what map-to-map alignment is useful. Why would a researcher want to align maps (vs model-to-model and model-to-map)?
+\end{enumerate}
+
+\subsection{28 Jan 2022 - Guest: Qinwen (Wendy) Huang - Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM}
+
+\textendash {Pre-reading}
+\begin{enumerate}
+	\item Qinwen Huang, Ye Zhou, Hsuan-Fu Liu, \& Alberto Bartesaghi (2021). Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM \url{https://www.mlsb.io/papers_2021/MLSB2021_Weakly_Supervised_Learning_for.pdf}
+\end{enumerate}
+
+\textendash {Questions}
+\begin{enumerate}
+	\item This paper exploits analytical likelihood-prior-posterior conjugacy between gaussian distributions. How could we extend this to Poisson noise with Poisson-Gamma conjugacy? What would be Poisson, and what would be Gamma?
+\end{enumerate}
 
 
 \end{document}  
