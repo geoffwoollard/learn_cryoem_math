@@ -46,7 +46,7 @@ Meetings are generally on Thursdays (morning Pacific time, afternoon Eastern tim
  \hline
  Fri 4 Feb 2022 & \tiny{9 AM PST}  & Rotations - encoding of S0(3) \\ 
  \hline
- Fri 11 Feb 2022 & \tiny{9 AM PST}  & mathy cryoem paper  \\ 
+ Fri 11 Feb 2022 & \tiny{9 AM PST}  & CryoDRGN2 \\ 
  \hline
  Fri 18 Feb 2022 & \tiny{9 AM PST}  &  advanced rotations \\ 
  \hline
@@ -136,31 +136,32 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{4 Feb 2022 - Rotations - encoding of S0(3)}
+\subsection{11 Feb 2022 - CryoDRGN2}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item \url{https://en.wikipedia.org/wiki/Euler_angles#Rotation_matrix}
-	\item \href{http://www.close-range.com/docs/Computing_Euler_angles_from_a_rotation_matrix.pdf}{Gregory G. Slabaugh. Computing Euler angles from a rotation matrix}
-	\item \href{https://www.coursera.org/lecture/robotics-flight/axis-angle-representations-for-rotations-4hTtQ}{Axis/Angle Representations for Rotations}
-	\item \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4. Orthogonal Transformations and Rotations in Mathematical Techniques in Structural Biology, pp. 25-31}
-    	\item \href{https://youtu.be/d4EgbgTm0Bg}{Visualizing quaternions (4d numbers) with stereographic projection}
-	\item \href{https://youtu.be/zjMuIxRvygQ}{Quaternions and 3d rotation, explained interactively}
-	\item \href{https://eater.net/quaternions/}{Visualizing quaternions An explorable video series}
-	\item \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Wiki: Quaternions and spatial rotation}
-	\item \href{https://maxime-tournier.github.io/notes/quaternions.html}{Maxime Tournier's Research Notes. Quaternions}
+	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). CryoDRGN2 : Ab initio neural reconstruction of 3D protein structures from real cryo-EM images. Iccv, 4066-4075.
 \end{enumerate}
 
 \textendash {Questions}
 \begin{enumerate}
-	\item Problems (especially 4, 6, 7) from \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4.5 Problems  in {\it  Mathematical Techniques in Structural Biology},  pp. 30-31}
-	\item Implement the pseudo-code in Figure 1 of \href{http://www.close-range.com/docs/Computing_Euler_angles_from_a_rotation_matrix.pdf}{Gregory G. Slabaugh. Computing Euler angles from a rotation matrix}, and use it to compute the Euler angles from a rotation matrix.
-	\item all problems from \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4.5 Problems in {\it Mathematical Techniques in Structural Biology},  pp. 30-31}
-	\item Go to the \href{https://eater.net/quaternions/video/doublecover}{doublecover} interactive, and select the 4D tab on the bottom. Find the quaternion that corresponds to a rotation of 90 deg in the cw direction about the z axis.
-	\item Quaterions can be used to describe the rotation of the point $ r= \langle r_x,r_y,r_x \rangle \in \mathbb{R}^3$ about angle $\theta$ in the direction of vector $\langle q_x,q_y,q_z \rangle$ as follows. $p_{rotated} = q*p*q^{-1}$, where $q = \langle \cos(\theta/2),q_x\sin(\theta/2),q_y\sin(\theta/2),q_j\sin(\theta/2)\rangle$ and \\ $q^{-1}=\langle \cos(-\theta/2),q_x\sin(-\theta/2),q_y\sin(-\theta/2),q_z\sin(-\theta/2) \rangle$ encode the rotation; $\vec r$ is represented as the quaternion $p=(0,r_x,r_y,r_z)$. Question: using pencil and paper, compute the rotation of the point $ r=\langle1,0,0\rangle$ about the z-axis by $\theta=180^{\circ}$ (ccw or cw, it's the same for this angle). Do you get $r=\langle-1,0,0\rangle$? You will have to use the quaternion multiplication table ($ij=k$, etc.), and know how to interconvert quaternions to cartesian 3D vectors.
-	\item Study the sections \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion to and from the matrix representation}{Conversion to and from the matrix representation} and \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Performance_comparisons}{Performance comparisons} on the wiki page for \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Quaternions and spatial rotation}. If we want to rotate many xyz points in space with a 3D rotation, what is the efficient way to do this? Taking into account interconversions between different rotation conventions (Euler angles, rotation matrices, axis-angle, and quaternions) how should we efficiently store rotations versus do rotations?
-	\item Besides storing and doing rotations, we have to search over rotations. Wikipedia has a section on \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Differentiation_with_respect_to_the_rotation_quaternion}{Differentiation with respect to the rotation quaternion}. Unpack the equation for $\frac{\partial {\bf p'}}{\partial {\bf q}}$. Would this equation ever be useful in cryoEM? When would we want to estimate the rotation by optimization, and how would we do so with this equation?
+	\item Write out a schematic (computational graph) of CryoDRGN2. What goes into and out of the encoder and decoder?
+	\item How could cross validation be encorporated into CryoDRGN? What would count as "out of distribution" for various computational workflows, and how would CryoDRGN perform? 
 \end{enumerate}
 
+\subsection{4 Feb 2022 - SO(3) - encoding of S0(3)}
+\textendash{Pre-reading}
+\begin{enumerate}
+		\item (2013). Hartley et al., Rotation Averaging. \url{https://link.springer.com/content/pdf/10.1007/s11263-012-0601-0.pdf}
+			\begin{itemize}
+			\item Distance between rotations
+			\item SO(3) encoding
+			\end{itemize}
+\end{enumerate}
+
+\textendash {Questions}
+\begin{enumerate}
+	\item Table 2 Relationship between the different metrics on SO(3): Code up the various metrics ($d_{chord}, d_{quat}$) and numerically verify these relationships on some (arbitrary) rotations
+\end{enumerate}
 
 \pagebreak
 \section{Reading list}
@@ -172,18 +173,17 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item (2020). A Smooth Representation of Belief over SO(3) for Deep Rotation Learning with Uncertainty. \url{https://arxiv.org/pdf/2006.01031.pdf}
 	\item (2021). Eliminating Topological Errors in Neural Network Rotation Estimation Using Self-selecting Ensembles. \url{https://dl.acm.org/doi/pdf/10.1145/3450626.3459882}
 	\item (2021). On the Continuity of Rotation Representations in Neural Networks. \url{https://arxiv.org/pdf/1812.07035.pdf}
-	\item (2013). Rotation Averaging. \url{https://link.springer.com/content/pdf/10.1007/s11263-012-0601-0.pdf}
 	\item (2021). Learning Rotation Invariant Features for Cryogenic Electron Microscopy Image Reconstruction. \url{https://arxiv.org/pdf/2101.03549.pdf}
 	\item (2020). SE(3)-Transformers: 3D Roto-Translation Equivariant Attention Networks. \url{https://arxiv.org/pdf/2006.10503.pdf}
 	\item Falorsi, L., de Haan, P., Davidson, T. R., \& Forré, P. (2020). Reparameterizing distributions on Lie groups. AISTATS 2019 - 22nd International Conference on Artificial Intelligence and Statistics, 89. \url{https://arxiv.org/pdf/1903.02958.pdf}
+	\item (2020). Dmitry Kostyaev. Hands on Tutorials: Better rotation representations for accurate pose estimation. Towards Data Science. \url{https://towardsdatascience.com/better-rotation-representations-for-accurate-pose-estimation-e890a7e1317f}
+	\begin{itemize}
+		\item Optimization
+		\item SO(3) encoding
+	\end{itemize}
+	
 \end{enumerate}
-%\textendash {Questions}
-%\begin{enumerate}
-%	\item 
-%\end{enumerate}
-%\textendash{Meeting Recording} \\
-%{\tiny \url{https://ubc.zoom.us/rec/share/fZzzdjCxKEk6GWPKzTKSr4ngCfJoja_OxoJGX7x0_y4rscGfvcUh4YUXxZnNKBZc.rPCBs5661FbNTXC4}} \\
-%Access Passcode: \texttt{jT1\%n6Oj}
+
 
 
 \subsection{Assorted mathy cryoem papers}
@@ -195,10 +195,9 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item Katsevich, E., Katsevich, A., \& Singer, A. (2015). Covariance matrix estimation for the cryo-em heterogeneity problem. SIAM Journal on Imaging Sciences, 8(1), 126?185. \url{http://doi.org/10.1137/130935434}
 	\item Penczek, P. A. (2010). Resolution Measures in Molecular Electron Microscopy. In Methods in Enzymology (1st ed., Vol. 482, pp. 73?100). Elsevier Inc. \url{http://doi.org/10.1016/S0076-6879(10)82003-8}
 	\item Ede, J. M. (2020). Review: Deep learning in electron microscopy. ArXiv. \url{http://doi.org/10.1088/2632-2153/abd614}
-	\item  Qinwen Huang, Ye Zhou, Hsuan-Fu Liu, \& Alberto Bartesaghi (2021). Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM \url{https://www.mlsb.io/papers_2021/MLSB2021_Weakly_Supervised_Learning_for.pdf}
 	\item Zhu, D., Wang, X., Fang, Q., Etten, J. L. Van, Rossmann, M. G., Rao, Z., \& Zhang, X. (n.d.). Pushing the resolution limit by correcting the Ewald reconstructions. Nature Communications, (2018), 1-7. \url{http://doi.org/10.1038/s41467-018-04051-9}
 	\item Maji, S., Liao, H., Dashti, A., Mashayekhi, G., Ourmazd, A., \& Frank, J. (2020). Propagation of Conformational Coordinates across Angular Space in Mapping the Continuum of States from Cryo-EM Data by Manifold Embedding. Journal of Chemical Information and Modeling, 60(5), 2484?2491. \url{http://doi.org/10.1021/acs.jcim.9b01115}
-	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). CryoDRGN2 : Ab initio neural reconstruction of 3D protein structures from real cryo-EM images. Iccv, 4066?4075.
+	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). CryoDRGN2 : Ab initio neural reconstruction of 3D protein structures from real cryo-EM images. Iccv, 4066-4075.
 \end{enumerate}
 
 \subsection{Advanced microscopy}
@@ -273,5 +272,28 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item This paper exploits analytical likelihood-prior-posterior conjugacy between gaussian distributions. How could we extend this to Poisson noise with Poisson-Gamma conjugacy? What would be Poisson, and what would be Gamma?
 \end{enumerate}
 
+\subsection{4 Feb 2022 - SO(3) - encoding of S0(3)}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item \url{https://en.wikipedia.org/wiki/Euler_angles#Rotation_matrix}
+	\item \href{http://www.close-range.com/docs/Computing_Euler_angles_from_a_rotation_matrix.pdf}{Gregory G. Slabaugh. Computing Euler angles from a rotation matrix}
+	\item \href{https://www.coursera.org/lecture/robotics-flight/axis-angle-representations-for-rotations-4hTtQ}{Axis/Angle Representations for Rotations}
+	\item \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4. Orthogonal Transformations and Rotations in Mathematical Techniques in Structural Biology, pp. 25-31}
+    	\item \href{https://youtu.be/d4EgbgTm0Bg}{Visualizing quaternions (4d numbers) with stereographic projection}
+	\item \href{https://youtu.be/zjMuIxRvygQ}{Quaternions and 3d rotation, explained interactively}
+	\item \href{https://eater.net/quaternions/}{Visualizing quaternions An explorable video series}
+	\item \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Wiki: Quaternions and spatial rotation}
+	\item \href{https://maxime-tournier.github.io/notes/quaternions.html}{Maxime Tournier's Research Notes. Quaternions}
+\end{enumerate}
+
+\textendash {Questions}
+\begin{enumerate}
+	\item Problems (e.g. problem 7) from \href{https://accio.github.io/AMIDD/assets/2020/04/JRQuine-MathBiophysicsBook.pdf}{Quine, JR. 4.5 Problems  in {\it  Mathematical Techniques in Structural Biology},  pp. 30-31}
+	\item Implement the pseudo-code in Figure 1 of \href{http://www.close-range.com/docs/Computing_Euler_angles_from_a_rotation_matrix.pdf}{Gregory G. Slabaugh. Computing Euler angles from a rotation matrix}, and use it to compute the Euler angles from a rotation matrix.
+	\item Go to the \href{https://eater.net/quaternions/video/doublecover}{doublecover} interactive, and select the 4D tab on the bottom. Find the quaternion that corresponds to a rotation of 90 deg in the cw direction about the z axis.
+	\item Quaterions can be used to describe the rotation of the point $ r= \langle r_x,r_y,r_x \rangle \in \mathbb{R}^3$ about angle $\theta$ in the direction of vector $\langle q_x,q_y,q_z \rangle$ as follows. $p_{rotated} = q*p*q^{-1}$, where $q = \langle \cos(\theta/2),q_x\sin(\theta/2),q_y\sin(\theta/2),q_j\sin(\theta/2)\rangle$ and \\ $q^{-1}=\langle \cos(-\theta/2),q_x\sin(-\theta/2),q_y\sin(-\theta/2),q_z\sin(-\theta/2) \rangle$ encode the rotation; $\vec r$ is represented as the quaternion $p=(0,r_x,r_y,r_z)$. Question: using pencil and paper, compute the rotation of the point $ r=\langle1,0,0\rangle$ about the z-axis by $\theta=180^{\circ}$ (ccw or cw, it's the same for this angle). Do you get $r=\langle-1,0,0\rangle$? You will have to use the quaternion multiplication table ($ij=k$, etc.), and know how to interconvert quaternions to cartesian 3D vectors.
+	\item Study the sections \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion to and from the matrix representation}{Conversion to and from the matrix representation} and \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Performance_comparisons}{Performance comparisons} on the wiki page for \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Quaternions and spatial rotation}. If we want to rotate many xyz points in space with a 3D rotation, what is the efficient way to do this? Taking into account interconversions between different rotation conventions (Euler angles, rotation matrices, axis-angle, and quaternions) how should we efficiently store rotations versus do rotations?
+	\item Besides storing and doing rotations, we have to search over rotations. Wikipedia has a section on \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Differentiation_with_respect_to_the_rotation_quaternion}{Differentiation with respect to the rotation quaternion}. Unpack the equation for $\frac{\partial {\bf p'}}{\partial {\bf q}}$. Would this equation ever be useful in cryoEM? When would we want to estimate the rotation by optimization, and how would we do so with this equation?
+\end{enumerate}
 
 \end{document}  
