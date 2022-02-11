@@ -46,7 +46,7 @@ Meetings are generally on Thursdays (morning Pacific time, afternoon Eastern tim
  \hline
  Fri 4 Feb 2022 & \tiny{9 AM PST}  & Rotations - encoding of S0(3) \\ 
  \hline
- Fri 11 Feb 2022 & \tiny{9 AM PST}  & CryoDRGN2 \\ 
+ Fri 11 Feb 2022 & \tiny{9 AM PST}  & \tiny{Baldwin \& Penczek, 2007. Transformations in SPARX and EMAN2}\\ 
  \hline
  Fri 18 Feb 2022 & \tiny{9 AM PST}  &  advanced rotations \\ 
  \hline
@@ -136,19 +136,21 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{11 Feb 2022 - CryoDRGN2}
+
+\subsection{11 Feb 2022 - Transformations in SPARX and EMAN2}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). CryoDRGN2 : Ab initio neural reconstruction of 3D protein structures from real cryo-EM images. Iccv, 4066-4075.
+	\item (2007). Baldwin, P. R., \& Penczek, P. A. The Transform Class in SPARX and EMAN2. Journal of Structural Biology, 157(1), 250-261. \url{http://doi.org/10.1016/j.jsb.2006.06.002}
+	\begin{enumerate}
+		\item 2.1.1. Internal representations and usage
+		\item 2.2. Composition of rotations, distance between rotations, volume element for rotation parameters
+		\item 2.2.1. Composition of rotations
+		\item 2.2.2. The similarity between rotations; metric
+		\item 2.2.3. Volume element
+	\end{enumerate}
 \end{enumerate}
 
-\textendash {Questions}
-\begin{enumerate}
-	\item Write out a schematic (computational graph) of CryoDRGN2. What goes into and out of the encoder and decoder?
-	\item How could cross validation be encorporated into CryoDRGN? What would count as "out of distribution" for various computational workflows, and how would CryoDRGN perform? 
-\end{enumerate}
-
-\subsection{4 Feb 2022 - SO(3) - encoding of S0(3)}
+\subsection{18 Feb 2022 - SO(3) - encoding of S0(3)}
 \textendash{Pre-reading}
 \begin{enumerate}
 		\item (2013). Hartley et al., Rotation Averaging. \url{https://link.springer.com/content/pdf/10.1007/s11263-012-0601-0.pdf}
@@ -157,10 +159,20 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 			\item SO(3) encoding
 			\end{itemize}
 \end{enumerate}
-
 \textendash {Questions}
 \begin{enumerate}
 	\item Table 2 Relationship between the different metrics on SO(3): Code up the various metrics ($d_{chord}, d_{quat}$) and numerically verify these relationships on some (arbitrary) rotations
+\end{enumerate}
+
+\subsection{March/April 2022 - Guest: Ellen Zhong. CryoDRGN2}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). CryoDRGN2 : Ab initio neural reconstruction of 3D protein structures from real cryo-EM images. Iccv, 4066-4075.
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Write out a schematic (computational graph) of CryoDRGN2. What goes into and out of the encoder and decoder?
+	\item How could cross validation be encorporated into CryoDRGN? What would count as "out of distribution" for various computational workflows, and how would CryoDRGN perform? 
 \end{enumerate}
 
 \pagebreak
@@ -169,7 +181,10 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 \textendash {Pre-reading}
 \begin{enumerate}
-	\item (2007). Baldwin, P. R., \& Penczek, P. A. The Transform Class in SPARX and EMAN2. Journal of Structural Biology, 157(1), 250?261. \url{http://doi.org/10.1016/j.jsb.2006.06.002}
+	\item (2022). Bingham Policy Parameterization for 3D Rotations in Reinforcement Learning. \url{https://arxiv.org/pdf/2202.03957.pdf}
+		\begin{itemize}
+		\item SO(3) distribution
+	\end{itemize}
 	\item Orthogonal Procrustes problem \url{https://en.wikipedia.org/wiki/Orthogonal_Procrustes_problem}
 	\item (2021). Brofos, J. A., Brubaker, M. A., \& Lederman, R. R. Manifold Density Estimation via Generalized Dequantization. \url{https://arxiv.org/pdf/2102.07143.pdf}
 	\item (2017). State Estimation for Robotics. State Estimation for Robotics. Cambridge: Cambridge University Press. \url{http://doi.org/10.1017/9781316671528}
