@@ -137,45 +137,28 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \section{Upcoming Meetings}
 
 
-\subsection{11 Feb 2022 - Transformations in SPARX and EMAN2}
+\subsection{25 Feb 2022 - SO(3) - encoding of S0(3)}
 \textendash{Pre-reading}
-\begin{enumerate}
-	\item (2007). Baldwin, P. R., \& Penczek, P. A. The Transform Class in SPARX and EMAN2. Journal of Structural Biology, 157(1), 250-261. \url{http://doi.org/10.1016/j.jsb.2006.06.002}
-	\begin{enumerate}
-		\item 2.1. Eulerian angles in different conventions
-		\item 2.1.1. Internal representations and usage
-		\item 2.2. Composition of rotations, distance between rotations, volume element for rotation parameters
-		\item 2.2.1. Composition of rotations
-		\item 2.2.2. The similarity between rotations; metric
-		\item 2.2.3. Volume element
-		\item 2.3. Quasi-uniform sampling of rotation parameters
-	\end{enumerate}
-\end{enumerate}
-
-\textendash {Questions}
-\begin{enumerate}
-	\item 2.1: Compare eq. 7 to the treatment in \url{https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle}. What is $\hat n \hat n$?
-	\item 2.1: Show that eq. 8 follows from eq. 7.
-	\item 2.1.1: Compute the RHS of eq 17. Multiply two 4x4 matrices of the form eq. 16 and show they are still of the form in eq. 16. What is the new translation of $\bar M $?
-	\item 2.2: Derive eqs. 18,19,20,21
-	\item 2.2: Derive eq. 23 and the accompanying equation for $(d \hat n)^2$ in the paragraph that follows.
-	\item 2.3: Unpack eq. 27. $\delta \theta = \arctan(1/R)$.
-	\item 2.3: Connect Figure 1 to eqs. 28,29.
-	\item What other ways are there to do uniform sampling on the sphere? 
-\end{enumerate}
-
-\subsection{18 Feb 2022 - SO(3) - encoding of S0(3)}
-\textendash{Pre-reading}
-\begin{enumerate}
+\begin{itemize}
 		\item (2013). Hartley et al., Rotation Averaging. \url{https://link.springer.com/content/pdf/10.1007/s11263-012-0601-0.pdf}
-			\begin{itemize}
-			\item Distance between rotations
-			\item SO(3) encoding
-			\end{itemize}
-\end{enumerate}
+			\begin{enumerate}
+			\item Introduction
+			\item Previous Work on Rotation Averaging
+			\item Alternative Pictures of Rotation Space
+			\item Distance Measures on SO(3)
+			\item Single Rotation Averaging
+			\end{enumerate}
+\end{itemize}
 \textendash {Questions}
 \begin{enumerate}
+	\item Does the rotation averaging problem arise in cryo-EM? If so, where? What about the conjugate and multiple rotating averaging problems?
 	\item Table 2 Relationship between the different metrics on SO(3): Code up the various metrics ($d_{chord}, d_{quat}$) and numerically verify these relationships on some (arbitrary) rotations
+	\item A ball in SO(3) is defined in the appendix. To build some intuition, compute the angular distance between $R_1$ and $R_2$ that are (1) about the same axis and differ by angle $\theta$; (2) rotate the same angle (e.g. 5 degrees), but about axes that sweep from the Z-axis, down to the X-axis, through the ZX plane. Relate (1) and (2) to the ball.
+	\item Draw a picture illustrating {\bf Proposition 2}.
+	\item Code up Algorithm 1 for several rotations. How do you do the $\log$ and $\exp$ in step 3 and 7? Does your mean seem "in the middle"?
+%	\item How would you use the "{\bf Closed-Form Algorithm}" that follows {\bf Corollary 2} to solve the rotation averaging problem?
+	\item We can average together quaternions to get a new quaterion. This is a solution to the rotation averaging problem using what distance? 
+	
 \end{enumerate}
 
 \subsection{March/April 2022 - Guest: Ellen Zhong. CryoDRGN2}
@@ -327,6 +310,33 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item Quaterions can be used to describe the rotation of the point $ r= \langle r_x,r_y,r_x \rangle \in \mathbb{R}^3$ about angle $\theta$ in the direction of vector $\langle q_x,q_y,q_z \rangle$ as follows. $p_{rotated} = q*p*q^{-1}$, where $q = \langle \cos(\theta/2),q_x\sin(\theta/2),q_y\sin(\theta/2),q_j\sin(\theta/2)\rangle$ and \\ $q^{-1}=\langle \cos(-\theta/2),q_x\sin(-\theta/2),q_y\sin(-\theta/2),q_z\sin(-\theta/2) \rangle$ encode the rotation; $\vec r$ is represented as the quaternion $p=(0,r_x,r_y,r_z)$. Question: using pencil and paper, compute the rotation of the point $ r=\langle1,0,0\rangle$ about the z-axis by $\theta=180^{\circ}$ (ccw or cw, it's the same for this angle). Do you get $r=\langle-1,0,0\rangle$? You will have to use the quaternion multiplication table ($ij=k$, etc.), and know how to interconvert quaternions to cartesian 3D vectors.
 	\item Study the sections \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion to and from the matrix representation}{Conversion to and from the matrix representation} and \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Performance_comparisons}{Performance comparisons} on the wiki page for \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{Quaternions and spatial rotation}. If we want to rotate many xyz points in space with a 3D rotation, what is the efficient way to do this? Taking into account interconversions between different rotation conventions (Euler angles, rotation matrices, axis-angle, and quaternions) how should we efficiently store rotations versus do rotations?
 	\item Besides storing and doing rotations, we have to search over rotations. Wikipedia has a section on \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Differentiation_with_respect_to_the_rotation_quaternion}{Differentiation with respect to the rotation quaternion}. Unpack the equation for $\frac{\partial {\bf p'}}{\partial {\bf q}}$. Would this equation ever be useful in cryoEM? When would we want to estimate the rotation by optimization, and how would we do so with this equation?
+\end{enumerate}
+
+\subsection{11 Feb 2022 - Transformations in SPARX and EMAN2}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item (2007). Baldwin, P. R., \& Penczek, P. A. The Transform Class in SPARX and EMAN2. Journal of Structural Biology, 157(1), 250-261. \url{http://doi.org/10.1016/j.jsb.2006.06.002}
+	\begin{enumerate}
+		\item 2.1. Eulerian angles in different conventions
+		\item 2.1.1. Internal representations and usage
+		\item 2.2. Composition of rotations, distance between rotations, volume element for rotation parameters
+		\item 2.2.1. Composition of rotations
+		\item 2.2.2. The similarity between rotations; metric
+		\item 2.2.3. Volume element
+		\item 2.3. Quasi-uniform sampling of rotation parameters
+	\end{enumerate}
+\end{enumerate}
+
+\textendash {Questions}
+\begin{enumerate}
+	\item 2.1: Compare eq. 7 to the treatment in \url{https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle}. What is $\hat n \hat n$?
+	\item 2.1: Show that eq. 8 follows from eq. 7.
+	\item 2.1.1: Compute the RHS of eq 17. Multiply two 4x4 matrices of the form eq. 16 and show they are still of the form in eq. 16. What is the new translation of $\bar M $?
+	\item 2.2: Derive eqs. 18,19,20,21
+	\item 2.2: Derive eq. 23 and the accompanying equation for $(d \hat n)^2$ in the paragraph that follows.
+	\item 2.3: Unpack eq. 27. $\delta \theta = \arctan(1/R)$.
+	\item 2.3: Connect Figure 1 to eqs. 28,29.
+	\item What other ways are there to do uniform sampling on the sphere? 
 \end{enumerate}
 
 \end{document}  
