@@ -40,25 +40,25 @@ Meetings are generally on Thursdays (morning Pacific time, afternoon Eastern tim
  \hline
  Date & Time  & Topic \\ [0.5ex] 
  \hline\hline
- Fri 21 Jan 2022 & \tiny{9 AM PST}  & mathy cryoem paper \\ 
+ Fri 21 Jan 2022 & \tiny{9 AM PST}  & Mathy cryoem paper: VESPER (Han et al., 2021) \\ 
   \hline
  Fri 28 Jan 2022 & \tiny{9:15 AM PST}  & \tiny{Guest: Qinwen (Wendy) Huang - Weakly Supervised Learning for Joint Image Denoising and Protein Localization in Cryo-EM} \\ 
  \hline
  Fri 4 Feb 2022 & \tiny{9 AM PST}  & Rotations - encoding of S0(3) \\ 
  \hline
- Fri 11 Feb 2022 & \tiny{9 AM PST}  & \tiny{Baldwin \& Penczek, 2007. Transformations in SPARX and EMAN2}\\ 
+ Fri 11 Feb 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper.: Transformations in SPARX and EMAN2 (Baldwin \& Penczek, 2007)}\\ 
  \hline
- Fri 18 Feb 2022 & \tiny{9 AM PST}  &  advanced rotations \\ 
+ Fri 18 Feb 2022 & \tiny{9 AM PST}  &  no meeting \\ 
  \hline
- Fri 25 Feb 2022 & \tiny{9 AM PST}  & mathy cryoem paper \\ 
+ Fri 25 Feb 2022 & \tiny{9 AM PST}  &  Rotating Averaging (Hartley et al., 2013)\\ 
  \hline
- Fri 4 Mar 2022 & \tiny{9 AM PST}  & advanced rotations \\ 
+ Fri 4 Mar 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: End-to-end orientation estimation from 2D cryo-EM images (Lian et al., 2022)} \\ 
  \hline
- Fri 11 Mar 2022 & \tiny{9 AM PST}  & mathy cryoem paper \\ 
+ Fri 11 Mar 2022 & \tiny{9 AM PST}  & advanced rotations \\ 
  \hline
- Fri 18 Mar 2022 & \tiny{9 AM PST}  & advanced rotations \\ 
+ Fri 18 Mar 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: Cryofold (Zhong et al., 2021)} \\ 
  \hline
- Fri 25 Mar 2022 & \tiny{9 AM PST}  & mathy cryoem paper \\ 
+ Fri 25 Mar 2022 & \tiny{9 AM PST}  &  advanced rotations \\ 
   \hline
 \end{longtable}
 \end{center}
@@ -137,31 +137,26 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-
-\subsection{25 Feb 2022 - SO(3) - encoding of S0(3)}
+\subsection{4 March 2021- End-to-end orientation estimation from 2D cryo-EM images}
 \textendash{Pre-reading}
-\begin{itemize}
-		\item (2013). Hartley et al., Rotation Averaging. \url{https://link.springer.com/content/pdf/10.1007/s11263-012-0601-0.pdf}
-			\begin{enumerate}
-			\item Introduction
-			\item Previous Work on Rotation Averaging
-			\item Alternative Pictures of Rotation Space
-			\item Distance Measures on SO(3)
-			\item Single Rotation Averaging
-			\end{enumerate}
-\end{itemize}
-\textendash {Questions}
 \begin{enumerate}
-	\item {\bf See accompanying notebook I made} \url{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/nb/rotation_averaging.ipynb}
-	\item Does the rotation averaging problem arise in cryo-EM? If so, where? What about the conjugate and multiple rotating averaging problems?
-	\item 4.1.5: Table 2 Relationship between the different metrics on SO(3): Code up the various metrics ($d_{chord}, d_{quat}$) and numerically verify these relationships on some (arbitrary) rotations
-	\item A ball in SO(3) is defined in the appendix. To build some intuition, compute the angular distance between $R_1$ and $R_2$ that are (1) about the same axis and differ by angle $\theta$; (2) rotate the same angle (e.g. 5 degrees), but about axes that sweep from the Z-axis, down to the X-axis, through the ZX plane. Relate (1) and (2) to the ball.
-	\item Draw a picture illustrating {\bf Proposition 2}.
-	\item 5.3: Code up Algorithm 1 for several rotations. How do you do the $\log$ and $\exp$ in step 3 and 7? Does your mean seem "in the middle"?
-%	\item How would you use the "{\bf Closed-Form Algorithm}" that follows {\bf Corollary 2} to solve the rotation averaging problem?
-	\item We can average together quaternions to get a new quaterion. This is a solution to the rotation averaging problem using what distance? 
-	
+	\item Lian, R., Huang, B., Wang, L., Liu, Q., Lin, Y., \& Ling, H. (2022). End-to-end orientation estimation from 2D cryo-EM images. Acta Crystallographica Section D Structural Biology, 78(2), 174?186. http://doi.org/10.1107/s2059798321011761
 \end{enumerate}
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item
+%\end{enumerate}
+
+
+\subsection{18 March 2021- Cryofold}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). Exploring generative atomic models in cryo-EM reconstruction, (Figure 1), 1-13.
+\end{enumerate}
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item
+%\end{enumerate}
 
 \subsection{March/April 2022 - Guest: Ellen Zhong. CryoDRGN2}
 \textendash{Pre-reading}
@@ -177,8 +172,18 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \subsection{March/April 2022 - Guest: Roy Lederman.}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Lederman, R. R. (2017). Numerical Algorithms for the Computation of Generalized Prolate Spheroidal Functions. ArXiv, (1), 1?23.
-	\item Lederman, R. R., \& Singer, A. (2017). Continuously heterogeneous hyper-objects in cryo-EM and 3-D movies of many temporal dimensions, 1?33.
+	\item Lederman, R. R. (2017). Numerical Algorithms for the Computation of Generalized Prolate Spheroidal Functions. ArXiv, (1), 1-23.
+	\item Lederman, R. R., \& Singer, A. (2017). Continuously heterogeneous hyper-objects in cryo-EM and 3-D movies of many temporal dimensions, 1-33.
+\end{enumerate}
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item 
+%\end{enumerate}
+
+\subsection{May/June 2022 - Guest: Nina Miolane.}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Donnat, C., Levy, A., Poitevin, F., \& Miolane, N. (2022). Deep Generative Modeling for Volume Reconstruction in Cryo-Electron Microscopy, 1-26.
 \end{enumerate}
 %\textendash {Questions}
 %\begin{enumerate}
@@ -219,6 +224,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 \textendash {Pre-reading}
 \begin{enumerate}
+
 	\item Tagare, H. D., Kucukelbir, A., Sigworth, F. J., Wang, H., \& Rao, M. (2015). Directly reconstructing principal components of heterogeneous particles from cryo-EM images. Journal of Structural Biology, 191(2), 245?262. \url{http://doi.org/10.1016/j.jsb.2015.05.007}
 	\item Zivanov, J., Nakane, T., \& Scheres, S. H. W. (2019). A Bayesian approach to beam-induced motion correction in cryo-EM single-particle analysis. IUCrJ, 6(1), 5?17. \url{http://doi.org/10.1107/S205225251801463X}
 	\item Katsevich, E., Katsevich, A., \& Singer, A. (2015). Covariance matrix estimation for the cryo-em heterogeneity problem. SIAM Journal on Imaging Sciences, 8(1), 126-185. \url{http://doi.org/10.1137/130935434}
@@ -350,6 +356,31 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item 2.3: Unpack eq. 27. $\delta \theta = \arctan(1/R)$.
 	\item 2.3: Connect Figure 1 to eqs. 28,29.
 	\item What other ways are there to do uniform sampling on the sphere? 
+\end{enumerate}
+
+\subsection{25 Feb 2022 - SO(3) - encoding of S0(3)}
+\textendash{Pre-reading}
+\begin{itemize}
+		\item (2013). Hartley et al., Rotation Averaging. \url{https://link.springer.com/content/pdf/10.1007/s11263-012-0601-0.pdf}
+			\begin{enumerate}
+			\item Introduction
+			\item Previous Work on Rotation Averaging
+			\item Alternative Pictures of Rotation Space
+			\item Distance Measures on SO(3)
+			\item Single Rotation Averaging
+			\end{enumerate}
+\end{itemize}
+\textendash {Questions}
+\begin{enumerate}
+	\item {\bf See accompanying notebook I made} \url{https://github.com/geoffwoollard/learn_cryoem_math/blob/master/nb/rotation_averaging.ipynb}
+	\item Does the rotation averaging problem arise in cryo-EM? If so, where? What about the conjugate and multiple rotating averaging problems?
+	\item 4.1.5: Table 2 Relationship between the different metrics on SO(3): Code up the various metrics ($d_{chord}, d_{quat}$) and numerically verify these relationships on some (arbitrary) rotations
+	\item A ball in SO(3) is defined in the appendix. To build some intuition, compute the angular distance between $R_1$ and $R_2$ that are (1) about the same axis and differ by angle $\theta$; (2) rotate the same angle (e.g. 5 degrees), but about axes that sweep from the Z-axis, down to the X-axis, through the ZX plane. Relate (1) and (2) to the ball.
+	\item Draw a picture illustrating {\bf Proposition 2}.
+	\item 5.3: Code up Algorithm 1 for several rotations. How do you do the $\log$ and $\exp$ in step 3 and 7? Does your mean seem "in the middle"?
+%	\item How would you use the "{\bf Closed-Form Algorithm}" that follows {\bf Corollary 2} to solve the rotation averaging problem?
+	\item We can average together quaternions to get a new quaterion. This is a solution to the rotation averaging problem using what distance? 
+	
 \end{enumerate}
 
 \end{document}  
