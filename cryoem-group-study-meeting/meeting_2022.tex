@@ -139,15 +139,31 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 \subsection{4 March 2021- End-to-end orientation estimation from 2D cryo-EM images}
 \textendash{Pre-reading}
-\begin{enumerate}
+\begin{itemize}
 	\item Lian, R., Huang, B., Wang, L., Liu, Q., Lin, Y., \& Ling, H. (2022). End-to-end orientation estimation from 2D cryo-EM images. Acta Crystallographica Section D Structural Biology, 78(2), 174?186. http://doi.org/10.1107/s2059798321011761
+\end{itemize}
+\textendash {Questions}
+\begin{enumerate}
+	\item 1. Introduction: Discuss the problem setup in Figure 1. What are the inputs and output of their method? What sort of specimens (flexibility, symmetry, etc) would it be suitable for?
+	\item 2.4 Network architecture: Do you understand the network architecture? Draw a schematic (in more details than Figure 2) of the architecture and point out the "256 feature maps with spatial dimensions 16 x 16" and "2048 feature maps with spatial dimensions 4x4".
+	\item 2.5. Loss functions: engage with this claim: "A straightforward loss function is the L1/L2 distance between the predicted normalized quaternion and the ground truth". Consider the distances for rotations defined in Hartley et al (see past meeting on 24 Feb 2021, \ref{meeting:2022_0224})
+	\item 2.5: What is the connection between Eqs 11 and 12? Consider the Taylor expansions of $\cos$ and $\arccos$
+	\item 2.5: The authors cite {\it Manhardt et al., 2019} in support of the claim "Naively regressing the annotated orientations often ends up with predicting an orientation that is closest to all results in the symmetry group". Look up this reference, and learn how it supports their claim.
+	\item 2.6. Data sets: Given the datasets they used to demonstrate the feasibility of their method, in what scenarios could the method be applied?
+	\item 2.7: How does the differentiable projection process enter into their method?
+	\item 2.8: How is the RMSE in Eq 16 different from the reprojection loss in Eq. 13 and 14?
+	\item 3.1 Orientation estimation from synthetic cryo-EM images: Consider Figures 3 and 4. What are the main take-homes? 
+	\item 3.1: How does the surrounding area (nearby particles) in Figure 4d (real experimental data) affect the optimization, given the formulation of the RMSE and loss?
+	\item 3.3. Cross-validation tests for w: Study Figures 6 and 7. What story do they tell?
+	\item 3.4. How is SNR defined here (cf. method section on cryoSPARC)? 
+	\item: 3.4: What is the influence of different noise levels? How much is too much noise? Is the noise in Figures 8 and 9 realistic to empirical data? How close is the sim-to-real gap here?
+	\item 3.5. Comparison of different representations of 3D orientations: why do you think quaternions performed better than axis-angle?
+	\item 3.6. 3D reconstruction using network estimation: What is your impression of the visual results shown in Figure 11a-d?
+	\item 4.3. Evaluation metric and reconstruction quality: How could we "modify the training objective by adding another loss term based on FSC"?
+	\item 4.4. Handling real cryo-EM images: how could we "efficiently process larger network inputs without significantly increasing the computational cost"?
 \end{enumerate}
-%\textendash {Questions}
-%\begin{enumerate}
-%	\item
-%\end{enumerate}
 
-
+\pagebreak
 \subsection{18 March 2021- Cryofold}
 \textendash{Pre-reading}
 \begin{enumerate}
@@ -359,6 +375,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \end{enumerate}
 
 \subsection{25 Feb 2022 - SO(3) - encoding of S0(3)}
+\label{meeting:2022_0224}
 \textendash{Pre-reading}
 \begin{itemize}
 		\item (2013). Hartley et al., Rotation Averaging. \url{https://link.springer.com/content/pdf/10.1007/s11263-012-0601-0.pdf}
