@@ -56,7 +56,7 @@ Fri 4 Mar 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: End-to-end orienta
  \hline
 Fri 11 Mar 2022 & \tiny{9 AM PST}  & \tiny{Guest: Lys Sanz Moreta - Deep Probabilistic Programming and 3D Protein Structure (Moreta et al, 2019; Moreta et al 2020)} \\ 
  \hline
-Fri 18 Mar 2022 & \tiny{9 AM PST}  & advanced rotations \\ 
+Fri 18 Mar 2022 & \tiny{9 AM PST}  & CryoAI \\ 
  \hline
 Fri 25 Mar 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: Cryofold (Zhong et al., 2021)} \\ 
  \hline
@@ -140,38 +140,16 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \section{Upcoming Meetings}
 
 
-\subsection{11 March 2022 - Guest: Lys Sanz Moreta}
+
+\subsection{18 March 2022 - CryoAI}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Moreta, L. S., Al-Sibahi, A. S., Theobald, D., Bullock, W., Rommes, B. N., Manoukian, A., \& Hamelryck, T. (2019). A Probabilistic Programming Approach to Protein Structure Superposition. 2019 IEEE Conference on Computational Intelligence in Bioinformatics and Computational Biology, CIBCB 2019. \url{http://doi.org/10.1109/CIBCB.2019.8791469}
-	\item Moreta, L. S., Al-Sibahi, A. S., \& Hamelryck, T. (2020). Bayesian protein superposition using Hamiltonian Monte Carlo. Proceedings - IEEE 20th International Conference on Bioinformatics and Bioengineering, BIBE 2020, 1, 1?11. \url{http://doi.org/10.1109/BIBE50027.2020.00009}
-\end{enumerate}
-\textendash {Questions}
-\begin{itemize}
-	\item Moreta et al, 2019
-	\begin{enumerate}
-		\item II. METHODS. A.: Overall model: Consider Eq. 1. What types of conformational heterogenity does this model capture?
-		\item II.A.: What is the form of the matrix-normal distribution, and how do the covariance matrices ${\bf U}, {\bf V}$ govern this distribution?
-		\item II. B. Bayesian posterior: Where did the covariance matrix ${\bf V}$ go?
-		\item II. C. Prior for the mean structure: What do you think of the prior of ${\bf M}$? Would it make sense to put in more knowledge about how proteins are folded polymer-chains of covalently bonded atoms?
-		\item II. D. Prior over the rotation: Why do Eqs. 7-9 result in a uniform rotation over the sphere? How can we define a measure of uniformity on SO(3)?
-		\item II. E. Prior over the translation: Consider Eq. 11. Some alignment algorithms assume that structures share a centre of mass, and first translate to a shared centre of mass before optimizing over rotation. In what sort of scenarios would having a probabilistic model for translation help alignment? What do you think of the magnitude of covariance in Eq. 11?
-		\item II. F. Prior over U: How exactly is ${\bf U}$ sampled? Which elements are dependent and which independent?
-		\item II. G. Likelihood: Why does "the matrix-normal likelihood of THESEUS [reduce] to a product of univariate Student?s t-distributions."
-		\item II.G.: Unpack the right hand side of Eq. 13, so that you understand each term and could in principle code it up.
-		\item II. I. Initialization: The authors choose to initialize ${\bf u} = (0.9, 0.1, 0.9)$. Why is this near the identity matrix (ie., no rotation)? Would other choices be suitable?
-		\item II. J. Maximum a-posteriori optimization: How exactly does Pyro perform MAP? Look up the documentation to Pyro?s AutoDelta guide.
-		\item III. MATERIALS. Proteins: What do you think of the choice of an NMR ensemble? Does it match their modelling choices?
-		\item IV. RESULTS. Consider Table I. The "Length (Amino Acids)" are variable. How does the algorithm handle this?
-		\item IV. Consider Figure 2. Are you satisfied with the results?
+	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
 	\end{enumerate}
-	\item Moreta et al, 2020
-	\begin{enumerate}
-		\item What does The No-U-Turn Sampler (NUTS) add to Hamiltonian Monte Carlo (HMC)?
-		
-	\end{enumerate}
-	
-\end{itemize}
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item
+%\end{enumerate}
 
 \pagebreak
 
@@ -411,7 +389,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	
 \end{enumerate}
 
-\subsection{4 March 2021- End-to-end orientation estimation from 2D cryo-EM images}
+\subsection{4 March 2022 - End-to-end orientation estimation from 2D cryo-EM images}
 \textendash{Pre-reading}
 \begin{itemize}
 	\item Lian, R., Huang, B., Wang, L., Liu, Q., Lin, Y., \& Ling, H. (2022). End-to-end orientation estimation from 2D cryo-EM images. Acta Crystallographica Section D Structural Biology, 78(2), 174?186. http://doi.org/10.1107/s2059798321011761
@@ -436,5 +414,39 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 	\item 4.3. Evaluation metric and reconstruction quality: How could we "modify the training objective by adding another loss term based on FSC"?
 	\item 4.4. Handling real cryo-EM images: how could we "efficiently process larger network inputs without significantly increasing the computational cost"?
 \end{enumerate}
+
+\subsection{11 March 2022 - Guest: Lys Sanz Moreta}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Moreta, L. S., Al-Sibahi, A. S., Theobald, D., Bullock, W., Rommes, B. N., Manoukian, A., \& Hamelryck, T. (2019). A Probabilistic Programming Approach to Protein Structure Superposition. 2019 IEEE Conference on Computational Intelligence in Bioinformatics and Computational Biology, CIBCB 2019. \url{http://doi.org/10.1109/CIBCB.2019.8791469}
+	\item Moreta, L. S., Al-Sibahi, A. S., \& Hamelryck, T. (2020). Bayesian protein superposition using Hamiltonian Monte Carlo. Proceedings - IEEE 20th International Conference on Bioinformatics and Bioengineering, BIBE 2020, 1, 1?11. \url{http://doi.org/10.1109/BIBE50027.2020.00009}
+\end{enumerate}
+\textendash {Questions}
+\begin{itemize}
+	\item Moreta et al, 2019
+	\begin{enumerate}
+		\item II. METHODS. A.: Overall model: Consider Eq. 1. What types of conformational heterogenity does this model capture?
+		\item II.A.: What is the form of the matrix-normal distribution, and how do the covariance matrices ${\bf U}, {\bf V}$ govern this distribution?
+		\item II. B. Bayesian posterior: Where did the covariance matrix ${\bf V}$ go?
+		\item II. C. Prior for the mean structure: What do you think of the prior of ${\bf M}$? Would it make sense to put in more knowledge about how proteins are folded polymer-chains of covalently bonded atoms?
+		\item II. D. Prior over the rotation: Why do Eqs. 7-9 result in a uniform rotation over the sphere? How can we define a measure of uniformity on SO(3)?
+		\item II. E. Prior over the translation: Consider Eq. 11. Some alignment algorithms assume that structures share a centre of mass, and first translate to a shared centre of mass before optimizing over rotation. In what sort of scenarios would having a probabilistic model for translation help alignment? What do you think of the magnitude of covariance in Eq. 11?
+		\item II. F. Prior over U: How exactly is ${\bf U}$ sampled? Which elements are dependent and which independent?
+		\item II. G. Likelihood: Why does "the matrix-normal likelihood of THESEUS [reduce] to a product of univariate Student?s t-distributions."
+		\item II.G.: Unpack the right hand side of Eq. 13, so that you understand each term and could in principle code it up.
+		\item II. I. Initialization: The authors choose to initialize ${\bf u} = (0.9, 0.1, 0.9)$. Why is this near the identity matrix (ie., no rotation)? Would other choices be suitable?
+		\item II. J. Maximum a-posteriori optimization: How exactly does Pyro perform MAP? Look up the documentation to Pyro's AutoDelta guide.
+		\item III. MATERIALS. Proteins: What do you think of the choice of an NMR ensemble? Does it match their modelling choices?
+		\item IV. RESULTS. Consider Table I. The "Length (Amino Acids)" are variable. How does the algorithm handle this?
+		\item IV. Consider Figure 2. Are you satisfied with the results?
+	\end{enumerate}
+	\item Moreta et al, 2020
+	\begin{enumerate}
+		\item What does The No-U-Turn Sampler (NUTS) add to Hamiltonian Monte Carlo (HMC)?
+		
+	\end{enumerate}
+	
+\end{itemize}
+
 
 \end{document}  
