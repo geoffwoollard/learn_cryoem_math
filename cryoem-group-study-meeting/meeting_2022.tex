@@ -56,11 +56,13 @@ Fri 4 Mar 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: End-to-end orienta
  \hline
 Fri 11 Mar 2022 & \tiny{9 AM PST}  & \tiny{Guest: Lys Sanz Moreta - Deep Probabilistic Programming and 3D Protein Structure (Moreta et al, 2019; Moreta et al 2020)} \\ 
  \hline
-Fri 18 Mar 2022 & \tiny{9 AM PST}  & CryoAI \\ 
+Fri 18 Mar 2022 & \tiny{9 AM PST}  & CryoAI - Part I, overview \\ 
  \hline
-Fri 25 Mar 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: Cryofold (Zhong et al., 2021)} \\ 
+Fri 25 Mar 2022 & \tiny{9 AM PST}  & CryoAI - Part II, supplementary material \\ 
  \hline
- Fri 25 Mar 2022 & \tiny{9 AM PST}  &  advanced rotations \\ 
+Fri 1 April 2022 & \tiny{9 AM PST}  & CryoAI - Part III, assorted refrences\\ 
+ \hline
+Fri 8 April 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: Cryofold (Zhong et al., 2021)} \\ 
   \hline
 \end{longtable}
 \end{center}
@@ -139,9 +141,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-
-
-\subsection{18 March 2022 - CryoAI}
+\subsection{25 March 2022 - CryoAI - Part II, supplementary material}
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
@@ -151,28 +151,33 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 %	\item
 %\end{enumerate}
 
-\pagebreak
-
-\subsection{TBD - Cryofold}
+\subsection{1 April 2022 - CryoAI - Part III, assorted references}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). Exploring generative atomic models in cryo-EM reconstruction, (Figure 1), 1-13.
+	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
+	\end{enumerate}
+	
+\pagebreak
+
+\subsection{8 April 2022 - Cryofold}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). Exploring generative atomic models in cryo-EM reconstruction, 1-13.
 \end{enumerate}
 %\textendash {Questions}
 %\begin{enumerate}
 %	\item
 %\end{enumerate}
 
-\subsection{March/April 2022 - Guest: Ellen Zhong. CryoDRGN2}
+\subsection{May/June 2022 - Guest: Nina Miolane.}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). CryoDRGN2 : Ab initio neural reconstruction of 3D protein structures from real cryo-EM images. Iccv, 4066-4075.
+	\item Donnat, C., Levy, A., Poitevin, F., \& Miolane, N. (2022). Deep Generative Modeling for Volume Reconstruction in Cryo-Electron Microscopy, 1-26.
 \end{enumerate}
-\textendash {Questions}
-\begin{enumerate}
-	\item Write out a schematic (computational graph) of CryoDRGN2. What goes into and out of the encoder and decoder?
-	\item How could cross validation be encorporated into CryoDRGN? What would count as "out of distribution" for various computational workflows, and how would CryoDRGN perform? 
-\end{enumerate}
+%\textendash {Questions}
+%\begin{enumerate}
+%	\item 
+%\end{enumerate}
 
 \subsection{March/April 2022 - Guest: Roy Lederman.}
 \textendash{Pre-reading}
@@ -185,15 +190,27 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 %	\item 
 %\end{enumerate}
 
-\subsection{May/June 2022 - Guest: Nina Miolane.}
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item Donnat, C., Levy, A., Poitevin, F., \& Miolane, N. (2022). Deep Generative Modeling for Volume Reconstruction in Cryo-Electron Microscopy, 1-26.
-\end{enumerate}
+\subsection{Summer 2022? - Guest: David Silva. MD simulations and 2D cryo-EM measurements}
+%\textendash{Pre-reading}
+%\begin{enumerate}
+%	\item 
+%\end{enumerate}
 %\textendash {Questions}
 %\begin{enumerate}
 %	\item 
 %\end{enumerate}
+
+
+\subsection{Summer 2022? - Guest: Ellen Zhong. CryoDRGN2}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). CryoDRGN2 : Ab initio neural reconstruction of 3D protein structures from real cryo-EM images. Iccv, 4066-4075.
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Write out a schematic (computational graph) of CryoDRGN2. What goes into and out of the encoder and decoder?
+	\item How could cross validation be encorporated into CryoDRGN? What would count as "out of distribution" for various computational workflows, and how would CryoDRGN perform? 
+\end{enumerate}
 
 \pagebreak
 \section{Reading list}
@@ -449,6 +466,12 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \textendash{Meeting Recording} \\
 {\tiny \url{https://ubc.zoom.us/rec/share/IhUJnNpL-n-XCt8OMOB5a1b3XiNgJUBEv7oQAnVqEVXWa79yubR_DG7c3rAHCnNk.1Xul52lwhvisRzw0}} \\
 Access Passcode: \texttt{ujd\&kq5\%}
+
+\subsection{18 March 2022 - CryoAI - Part I, overview}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
+	\end{enumerate}
 
 
 \end{document}  
