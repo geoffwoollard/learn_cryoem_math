@@ -46,7 +46,7 @@ Fri 28 Jan 2022 & \tiny{9:15 AM PST}  & \tiny{Guest: Qinwen (Wendy) Huang - Weak
  \hline
 Fri 4 Feb 2022 & \tiny{9 AM PST}  & Rotations - encoding of S0(3) \\ 
  \hline
-Fri 11 Feb 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper.: Transformations in SPARX and EMAN2 (Baldwin \& Penczek, 2007)}\\ 
+Fri 11 Feb 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: Transformations in SPARX and EMAN2 (Baldwin \& Penczek, 2007)}\\ 
  \hline
 Fri 18 Feb 2022 & \tiny{9 AM PST}  &  no meeting \\ 
  \hline
@@ -60,12 +60,13 @@ Fri 18 Mar 2022 & \tiny{9 AM PST}  & CryoAI - Part I, overview \\
  \hline
 Fri 25 Mar 2022 & \tiny{9 AM PST}  & CryoAI - Part II, supplementary material \\ 
  \hline
-Fri 1 April 2022 & \tiny{9 AM PST}  & CryoAI - Part III, assorted refrences\\ 
+ Fri 1 April 2022 & \tiny{9 AM PST}  &  \tiny{Guest: Andrew Hanson - Discovering Quaternion Applications}\\ 
  \hline
 Fri 8 April 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: Cryofold (Zhong et al., 2021)} \\ 
   \hline
 \end{longtable}
 \end{center}
+%Fri 1 April 2022 & \tiny{9 AM PST}  & CryoAI - Part III, assorted refrences\\ 
 
 \pagebreak
 \section{General Information}
@@ -141,21 +142,21 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{25 March 2022 - CryoAI - Part II, supplementary material}
-\textendash{Pre-reading}
-\begin{enumerate}
-	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
-	\end{enumerate}
-%\textendash {Questions}
-%\begin{enumerate}
-%	\item
-%\end{enumerate}
 
-\subsection{1 April 2022 - CryoAI - Part III, assorted references}
-\textendash{Pre-reading}
+
+%\subsection{1 April 2022 - CryoAI - Part III, assorted references}
+%\textendash{Pre-reading}
+%\begin{enumerate}
+%	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
+%	\end{enumerate}
+
+\subsection{1 April 2022 - Guest: Andrew Hanson. Discovering Quaternion Applications}
+\textendash{Reference Material}
 \begin{enumerate}
-	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
+	\item Hanson, A. J. (2020). The quaternion-based spatial-coordinate and orientation-frame alignment problems. Acta Crystallographica Section A: Foundations and Advances, 76, 432?457. \url{http://doi.org/10.1107/S2053273320002648}
+	\item Hanson, Andrew, J. (2006). Visualizing Quaternions. \url{http://doi.org/0-12-088400-3}
 	\end{enumerate}
+
 	
 \pagebreak
 
@@ -473,5 +474,19 @@ Access Passcode: \texttt{ujd\&kq5\%}
 	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
 	\end{enumerate}
 
+\subsection{25 March 2022 - CryoAI - Part II, supplementary material}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
+	\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item A. Experimental Details. How are the simulated datasets be different from empirical data? How could simulated datasets be more challenging and narrow the sim to real gap?
+	\item C.1 Electrostatic Potentials in Fourier Space: Why does the radial average of $|\hat V({\bf k}))|$ differ over only 2 orders of magnitude, while the central slice differs over 5, that is, 1000 fold more?
+	\item D.1 Handedness Ambiguity in cryo-EM: Prove $F R_i = \tilde R_i F$. Note that left multiplying by a diagonal matrix (here $F$) is a row multiplication, and right multiplying is a column multiplication. Also note that $\cos(\theta + \pi) = -\cos(\theta)$ and $\sin(\theta + \pi) = -\sin(\theta)$.
+	\item D.1: Follow the derivation, line by line.
+	\item D.2 Spurious Planar Symmetries and Symmetrized Loss: What would the loss / energy landscape look like for higher symmetries, e.g. $C_n, D_n; \  n \in \{2, 3, ..., 8, ....\}$?
+	\item F.1 Full Evaluation of Poses: Consider Figure S8 and discuss the use cases of cryoAI. How do you think practitioners will use amortized inference in practice? Consider the use cases of {\it ab initio} versus iterative refinement.
+\end{enumerate}
 
 \end{document}  
