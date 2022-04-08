@@ -77,7 +77,7 @@ Meetings from 2020-2021 are archived \href{https://github.com/geoffwoollard/lear
 
 \subsection{Audience and Streams}
 
-Feel free to share this document and direct people to sign up at \url{https://forms.gle/BUeUW14vV4pyQbDDA} so I have the emails in one place. Online meeting links are emailed to those on this list. {\bf Please join the Slack group and ask questions there, rather than emailing me.}
+Feel free to share this document and direct people to sign up at \url{https://forms.gle/BUeUW14vV4pyQbDDA} so I have the emails in one place. Online meeting links are emailed to those on this list. {\bf Please join the Slack group \url{https://cryoemstudygroup.slack.com/} and ask questions there, rather than emailing me.} Here is a link to join \url{https://join.slack.com/t/cryoemstudygroup/shared_invite/zt-171mmkqdd-KORjSqcss~A6HNUbOtCpbQ}. If the link is expired, please remind me to update it.
 
 \subsection{Audience}
 In 2022, I am catering to a computational methods development audience. I see this group as a way for computational methods developers to get together in a "pre-competitive" learning environment.
@@ -150,25 +150,24 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 %	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
 %	\end{enumerate}
 
-\subsection{1 April 2022 - Guest: Andrew Hanson. Discovering Quaternion Applications}
-\textendash{Reference Material}
-\begin{enumerate}
-	\item Hanson, A. J. (2020). The quaternion-based spatial-coordinate and orientation-frame alignment problems. Acta Crystallographica Section A: Foundations and Advances, 76, 432?457. \url{http://doi.org/10.1107/S2053273320002648}
-	\item Hanson, Andrew, J. (2006). Visualizing Quaternions. \url{http://doi.org/0-12-088400-3}
-	\end{enumerate}
-
-	
-\pagebreak
 
 \subsection{8 April 2022 - Cryofold}
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item Zhong, E. D., Lerer, A., Davis, J. H., \& Berger, B. (2021). Exploring generative atomic models in cryo-EM reconstruction, 1-13.
 \end{enumerate}
-%\textendash {Questions}
-%\begin{enumerate}
-%	\item
-%\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Figure 2: What parameters are learned and what are fixed during training?
+	\item Eq 3: Unpack the equation -- what do all the terms refer to?
+	\item 4.2 Heterogeneous reconstruction: compare and contrast Cryofold with other methods for heterogeneous reconstruction.
+	\item 4.3 Local minima: "A major shortcoming of this atomic reconstruction approach is the existence of many local minima of the loss function that do not approximate the true atomic coordinates." What might a local minima look like and why exactly do they exist?
+	\item 5. Results: Architecture and training: What might you want to change/investigate about training?
+	\item Are you surprised at the results presented in "5.1 Homogeneous reconstruction", "5.2 Heterogeneous reconstruction", Figures 3-5? Why or why not? What is the main story?
+	\item 6 Discussion: What prior beliefs do you have of you sample, and how strongly are these held? 
+	\item 6 Discussion: How do you validate these methods?
+\end{enumerate}
+	
 
 \subsection{May/June 2022 - Guest: Nina Miolane.}
 \textendash{Pre-reading}
@@ -247,7 +246,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 \textendash {Pre-reading}
 \begin{enumerate}
-
+	\item Zehni, M., \& Zhao, Z. (2021). UVTOMO-GAN: An adversarial learning based approach for unknown view x-ray tomographic reconstruction. Proceedings - International Symposium on Biomedical Imaging, 2021-April, 1812--1816. \url{http://doi.org/10.1109/ISBI48211.2021.9433970}
 	\item Tagare, H. D., Kucukelbir, A., Sigworth, F. J., Wang, H., \& Rao, M. (2015). Directly reconstructing principal components of heterogeneous particles from cryo-EM images. Journal of Structural Biology, 191(2), 245?262. \url{http://doi.org/10.1016/j.jsb.2015.05.007}
 	\item Zivanov, J., Nakane, T., \& Scheres, S. H. W. (2019). A Bayesian approach to beam-induced motion correction in cryo-EM single-particle analysis. IUCrJ, 6(1), 5?17. \url{http://doi.org/10.1107/S205225251801463X}
 	\item Katsevich, E., Katsevich, A., \& Singer, A. (2015). Covariance matrix estimation for the cryo-em heterogeneity problem. SIAM Journal on Imaging Sciences, 8(1), 126-185. \url{http://doi.org/10.1137/130935434}
@@ -488,5 +487,12 @@ Access Passcode: \texttt{ujd\&kq5\%}
 	\item D.2 Spurious Planar Symmetries and Symmetrized Loss: What would the loss / energy landscape look like for higher symmetries, e.g. $C_n, D_n; \  n \in \{2, 3, ..., 8, ....\}$?
 	\item F.1 Full Evaluation of Poses: Consider Figure S8 and discuss the use cases of cryoAI. How do you think practitioners will use amortized inference in practice? Consider the use cases of {\it ab initio} versus iterative refinement.
 \end{enumerate}
+
+\subsection{1 April 2022 - Guest: Andrew Hanson. Discovering Quaternion Applications}
+\textendash{Reference Material}
+\begin{enumerate}
+	\item Hanson, A. J. (2020). The quaternion-based spatial-coordinate and orientation-frame alignment problems. Acta Crystallographica Section A: Foundations and Advances, 76, 432?457. \url{http://doi.org/10.1107/S2053273320002648}
+	\item Hanson, Andrew, J. (2006). Visualizing Quaternions. \url{http://doi.org/0-12-088400-3}
+	\end{enumerate}
 
 \end{document}  
