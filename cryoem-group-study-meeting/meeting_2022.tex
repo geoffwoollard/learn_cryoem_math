@@ -61,12 +61,13 @@ Fri 18 Mar 2022 & \tiny{9 AM PST}  & CryoAI - Part I, overview \\
 Fri 25 Mar 2022 & \tiny{9 AM PST}  & CryoAI - Part II, supplementary material \\ 
  \hline
  Fri 1 April 2022 & \tiny{9 AM PST}  &  \tiny{Guest: Andrew Hanson - Discovering Quaternion Applications}\\ 
- \hline
+\hline
 Fri 8 April 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: Cryofold (Zhong et al., 2021)} \\ 
-  \hline
+\hline
+Fri 28 April 2022 & \tiny{9 AM PST}  &  \tiny{Mathy cryoem paper: Molecular Prior - Wilson Statistics (Gilles \& Singer, 2022)} \\ 
+\hline
 \end{longtable}
 \end{center}
-%Fri 1 April 2022 & \tiny{9 AM PST}  & CryoAI - Part III, assorted refrences\\ 
 
 \pagebreak
 \section{General Information}
@@ -142,6 +143,10 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
+\subsection{28 April 2022 - Molecular Prior - Wilson Statistics}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Gilles, M. A., \& Singer, A. (2022). A Molecular Prior Distribution for Bayesian Inference Based on Wilson Statistics, 1?11.
 
 
 %\subsection{1 April 2022 - CryoAI - Part III, assorted references}
@@ -494,5 +499,18 @@ Access Passcode: \texttt{ujd\&kq5\%}
 	\item Hanson, A. J. (2020). The quaternion-based spatial-coordinate and orientation-frame alignment problems. Acta Crystallographica Section A: Foundations and Advances, 76, 432?457. \url{http://doi.org/10.1107/S2053273320002648}
 	\item Hanson, Andrew, J. (2006). Visualizing Quaternions. \url{http://doi.org/0-12-088400-3}
 	\end{enumerate}
+
+\end{enumerate}
+\textendash {Questions}
+\begin{enumerate}
+	\item Figure 2: What parameters are learned and what are fixed during training?
+	\item Eq 3: Unpack the equation -- what do all the terms refer to?
+	\item 4.2 Heterogeneous reconstruction: compare and contrast Cryofold with other methods for heterogeneous reconstruction.
+	\item 4.3 Local minima: "A major shortcoming of this atomic reconstruction approach is the existence of many local minima of the loss function that do not approximate the true atomic coordinates." What might a local minima look like and why exactly do they exist?
+	\item 5. Results: Architecture and training: What might you want to change/investigate about training?
+	\item Are you surprised at the results presented in "5.1 Homogeneous reconstruction", "5.2 Heterogeneous reconstruction", Figures 3-5? Why or why not? What is the main story?
+	\item 6 Discussion: What prior beliefs do you have of you sample, and how strongly are these held? 
+	\item 6 Discussion: How do you validate these methods?
+\end{enumerate}
 
 \end{document}  
