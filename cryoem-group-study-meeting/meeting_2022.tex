@@ -66,6 +66,10 @@ Fri 8 April 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem paper: Cryofold (Zhong 
 \hline
 Fri 29 April 2022 & \tiny{9 AM PST}  &  \tiny{Mathy cryoem paper: Molecular Prior - Wilson Statistics (Gilles \& Singer, 2022)} \\ 
 \hline
+Fri 13 May 2022 & \tiny{9 AM PST}  &  \tiny{Mathy cryoem paper: Molecular Prior - Wilson Statistics (Gilles \& Singer, 2022) II} \\ 
+\hline
+Fri 27 May 2022 & \tiny{9 AM PST}  &  \tiny{Guests: Ngan Nguyen and Feng Liang, Differentiable Electron Microscopy Simulation (Ngan et al. 2022)} \\ 
+\hline
 \end{longtable}
 \end{center}
 
@@ -143,11 +147,21 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{13 May 2022 - Molecular Prior - Wilson Statistics II}
+\subsection{27 May 2022 - Guests: Ngan Nguyen and Feng Liang, Differentiable Electron Microscopy Simulation}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Gilles, M. A., \& Singer, A. (2022). A Molecular Prior Distribution for Bayesian Inference Based on Wilson Statistics, 1?11.
-	\item \url{https://github.com/ma-gilles/wilson_prior}
+	\item Nguyen, N., Liang, F., Engel, D., Bohak, C., Wonka, P., Ropinski, T., \& Viola, I. (2022). Differentiable Electron Microscopy Simulation: Methods and Applications for Visualization, (1), 1--22. \url{http://arxiv.org/abs/2205.04464}
+\end{enumerate}
+
+\textendash{Questions}
+\begin{enumerate}
+	\item In the focal frequency loss (FFL) in Eq. 2, what is the mean over? What is the "normalize" over in $w$ (see paragraph of text below Eq. 2)? Does it have a probabilistic interpretation (i.e. is it the log loss of some distribution)?
+	\item In what dose regimes is the parametric form they use of the MTF appropriate? What happens at high dose or low dose? When would the MTF not be circularly symmetric?
+	%\item In Algorithm 1, when are the parameters $\Theta_D$ used?
+	\item In Algorithm 1, what happens in the step $I_{p_n} \leftarrow\leftarrow I_{p_n}$?
+	\item In Algorithm 2, how do they compute line 12: $loss \leftarrow (I_n,P, ll)$? 
+	\item What do you think are the bottle necks in the performance in Table 2? What could in principle be sped up through parallelization, and what is intrinsically sequential in an advanced simulator?
+	\item How exactly does the TEM simulator use the multi-slice method?
 \end{enumerate}
 
 \pagebreak
@@ -526,6 +540,13 @@ Access Passcode: \texttt{ujd\&kq5\%}
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item Gilles, M. A., \& Singer, A. (2022). A Molecular Prior Distribution for Bayesian Inference Based on Wilson Statistics, 1?11.
+\end{enumerate}
+
+\subsection{13 May 2022 - Molecular Prior - Wilson Statistics II}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Gilles, M. A., \& Singer, A. (2022). A Molecular Prior Distribution for Bayesian Inference Based on Wilson Statistics, 1?11.
+	\item \url{https://github.com/ma-gilles/wilson_prior}
 \end{enumerate}
 
 
