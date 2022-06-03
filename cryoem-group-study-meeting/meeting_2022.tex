@@ -70,6 +70,8 @@ Fri 13 May 2022 & \tiny{9 AM PST}  &  \tiny{Mathy cryoem paper: Molecular Prior 
 \hline
 Fri 27 May 2022 & \tiny{9 AM PST}  &  \tiny{Guests: Ngan Nguyen and Feng Liang, Differentiable Electron Microscopy Simulation (Ngan et al. 2022)} \\ 
 \hline
+Fri 3 Jun 2022 & \tiny{9 AM PST}  & Stochastic gradients (Schulman et al., 2015) \\ 
+\hline
 \end{longtable}
 \end{center}
 
@@ -147,21 +149,11 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{27 May 2022 - Guests: Ngan Nguyen and Feng Liang, Differentiable Electron Microscopy Simulation}
+\subsection{3 June 2022 - Stochastic Gradients (Schulman et al., 2015)}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Nguyen, N., Liang, F., Engel, D., Bohak, C., Wonka, P., Ropinski, T., \& Viola, I. (2022). Differentiable Electron Microscopy Simulation: Methods and Applications for Visualization, (1), 1--22. \url{http://arxiv.org/abs/2205.04464}
-\end{enumerate}
+	\item Schulman, J., Heess, N., Weber, T., \& Abbeel, P. (2015). Gradient estimation using stochastic computation graphs. Advances in Neural Information Processing Systems, 2015-Janua, 3528?3536. \url{https://arxiv.org/abs/1506.05254}
 
-\textendash{Questions}
-\begin{enumerate}
-	\item In the focal frequency loss (FFL) in Eq. 2, what is the mean over? What is the "normalize" over in $w$ (see paragraph of text below Eq. 2)? Does it have a probabilistic interpretation (i.e. is it the log loss of some distribution)?
-	\item In what dose regimes is the parametric form they use of the MTF appropriate? What happens at high dose or low dose? When would the MTF not be circularly symmetric?
-	%\item In Algorithm 1, when are the parameters $\Theta_D$ used?
-	\item In Algorithm 1, what happens in the step $I_{p_n} \leftarrow\leftarrow I_{p_n}$?
-	\item In Algorithm 2, how do they compute line 12: $loss \leftarrow SL(I_n,P, ll)$? 
-	\item What do you think are the bottle necks in the performance in Table 2? What could in principle be sped up through parallelization, and what is intrinsically sequential in an advanced simulator?
-	\item How exactly does the TEM simulator use the multi-slice method?
 \end{enumerate}
 
 \pagebreak
@@ -170,8 +162,6 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 %\begin{enumerate}
 %	\item Levy, A., Poitevin, F., Martel, J., Nashed, Y., Peck, A., Miolane, N., Ratner, D., Dunne, M., \& Wetzstein, G. (2022). CryoAI: Amortized Inference of Poses for Ab Initio Reconstruction of 3D Molecular Volumes from Real Cryo-EM Images. \url{http://doi.org/10.48550/arXiv.2203.08138}
 %	\end{enumerate}
-
-
 
 	
 
@@ -549,5 +539,25 @@ Access Passcode: \texttt{ujd\&kq5\%}
 	\item \url{https://github.com/ma-gilles/wilson_prior}
 \end{enumerate}
 
+\subsection{27 May 2022 - Guests: Ngan Nguyen and Feng Liang, Differentiable Electron Microscopy Simulation}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Nguyen, N., Liang, F., Engel, D., Bohak, C., Wonka, P., Ropinski, T., \& Viola, I. (2022). Differentiable Electron Microscopy Simulation: Methods and Applications for Visualization, (1), 1--22. \url{http://arxiv.org/abs/2205.04464}
+\end{enumerate}
+
+\textendash{Questions}
+\begin{enumerate}
+	\item In the focal frequency loss (FFL) in Eq. 2, what is the mean over? What is the "normalize" over in $w$ (see paragraph of text below Eq. 2)? Does it have a probabilistic interpretation (i.e. is it the log loss of some distribution)?
+	\item In what dose regimes is the parametric form they use of the MTF appropriate? What happens at high dose or low dose? When would the MTF not be circularly symmetric?
+	%\item In Algorithm 1, when are the parameters $\Theta_D$ used?
+	\item In Algorithm 1, what happens in the step $I_{p_n} \leftarrow\leftarrow I_{p_n}$?
+	\item In Algorithm 2, how do they compute line 12: $loss \leftarrow SL(I_n,P, ll)$? 
+	\item What do you think are the bottle necks in the performance in Table 2? What could in principle be sped up through parallelization, and what is intrinsically sequential in an advanced simulator?
+	\item How exactly does the TEM simulator use the multi-slice method?
+\end{enumerate}
+
+\textendash{Meeting Recording} \\
+{\tiny \url{https://ubc.zoom.us/rec/share/Nxqm3qRFrowV_bQIjKp9y4qESTcnVziP20hYHYxNBPvQ1zudFCAA7thofsZqsuBi.4ZUgIN3GQEyXf6oh}} \\
+Access Passcode: \texttt{jNv5P+qv}
 
 \end{document}  
