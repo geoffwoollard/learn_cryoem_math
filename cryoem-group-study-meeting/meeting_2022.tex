@@ -72,6 +72,8 @@ Fri 27 May 2022 & \tiny{9 AM PST}  &  \tiny{Guests: Ngan Nguyen and Feng Liang, 
 \hline
 Fri 3 Jun 2022 & \tiny{9 AM PST}  & Stochastic gradients (Schulman et al., 2015) \\ 
 \hline
+Fri 10 Jun 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem papers: ManifoldEM} \\ 
+\hline
 \end{longtable}
 \end{center}
 
@@ -149,11 +151,17 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{3 June 2022 - Stochastic Gradients (Schulman et al., 2015)}
+\subsection{10 June 2022 - ManifoldEM}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Schulman, J., Heess, N., Weber, T., \& Abbeel, P. (2015). Gradient estimation using stochastic computation graphs. Advances in Neural Information Processing Systems, 2015-Janua, 3528?3536. \url{https://arxiv.org/abs/1506.05254}
-
+	\item Seitz, E., Acosta-Reyes, F., Maji, S., Schwander, P., \& Frank, J. (2022). Recovery of Conformational Continuum from Single-particle Cryo-EM Images: Optimization of ManifoldEM Informed by Ground Truth. IEEE Transactions on Computational Imaging, PP, 1--1. \url{http://doi.org/10.1109/tci.2022.3174801}
+	\item Dashti, Ali and Schwander, Peter and Langlois, Robert and Fung, Russell and Li, Wen and Hosseinizadeh, Ahmad and Liao, Hstau Y. and Pallesen, Jesper and Sharma, Gyanesh and Stupina, Vera A. and Simon, Anne E. and Dinman, Jonathan D. and Frank, Joachim and Ourmazd, Abbas (2014). Trajectories of the ribosome as a Brownian nanomachine. Proceedings of the National Academy of Sciences of the United States of America, 111(49), 17492--17497. \url{http://doi.org/10.1073/pnas.1419276111}
+\end{enumerate}
+\textendash{Questions}
+\begin{enumerate}
+	\item How do diffusion maps work (cf. Dashti et al, PNAS, 2014)?
+	\item How does ManifoldEM compare and contrast against other methods to study continuous heterogeneity?
+	\item What synthetic data sets were considered in Seitz et al, 2022?
 \end{enumerate}
 
 \pagebreak
@@ -559,5 +567,16 @@ Access Passcode: \texttt{ujd\&kq5\%}
 \textendash{Meeting Recording} \\
 {\tiny \url{https://ubc.zoom.us/rec/share/Nxqm3qRFrowV_bQIjKp9y4qESTcnVziP20hYHYxNBPvQ1zudFCAA7thofsZqsuBi.4ZUgIN3GQEyXf6oh}} \\
 Access Passcode: \texttt{jNv5P+qv}
+
+\subsection{3 June 2022 - Stochastic Gradients (Schulman et al., 2015)}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Schulman, J., Heess, N., Weber, T., \& Abbeel, P. (2015). Gradient estimation using stochastic computation graphs. Advances in Neural Information Processing Systems, 2015-Janua, 3528?3536. \url{https://arxiv.org/abs/1506.05254}
+\end{enumerate}
+\textendash{Questions}
+\begin{enumerate}
+	\item What distributions do not have continuous parameters? If, in a simulator, the parameters come out of a discrete distribution, and then are used as parameters of a continuous distribution, does this violate the assumptions in Schulman et al.?
+	\item Consider a simple example of one pixel, going through Poisson and then Gaussian (noise) distributions, where the sampled Poisson random variable is the mean for the Gaussian. What does the estimated gradient look like?
+\end{enumerate}
 
 \end{document}  
