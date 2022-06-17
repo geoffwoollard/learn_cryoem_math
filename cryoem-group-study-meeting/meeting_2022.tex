@@ -74,6 +74,8 @@ Fri 3 Jun 2022 & \tiny{9 AM PST}  & Stochastic gradients (Schulman et al., 2015)
 \hline
 Fri 10 Jun 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem papers: ManifoldEM} \\ 
 \hline
+Fri 17 Jun 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryo-EM paper: Cooling on Ensembles (Bock and Grubmüller)} \\ 
+\hline
 \end{longtable}
 \end{center}
 
@@ -151,25 +153,15 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{10 June 2022 - ManifoldEM}
+\subsection{10 June 2022 - Mathy cryo-EM paper: Cooling on Ensembles (Bock and Grubmüller)}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Seitz, E., Acosta-Reyes, F., Maji, S., Schwander, P., \& Frank, J. (2022). Recovery of Conformational Continuum from Single-particle Cryo-EM Images: Optimization of ManifoldEM Informed by Ground Truth. IEEE Transactions on Computational Imaging, PP, 1--1. \url{http://doi.org/10.1109/tci.2022.3174801}
-	\item Dashti, Ali and Schwander, Peter and Langlois, Robert and Fung, Russell and Li, Wen and Hosseinizadeh, Ahmad and Liao, Hstau Y. and Pallesen, Jesper and Sharma, Gyanesh and Stupina, Vera A. and Simon, Anne E. and Dinman, Jonathan D. and Frank, Joachim and Ourmazd, Abbas (2014). Trajectories of the ribosome as a Brownian nanomachine. Proceedings of the National Academy of Sciences of the United States of America, 111(49), 17492--17497. \url{http://doi.org/10.1073/pnas.1419276111}
-	\item Oliver Oswald. Laplace-Beltrami Operator Intuition, YouTube, 2021. \url{https://youtu.be/ZSh5d03YsEM}
-	\item de la Porte, J., Herbst, B. M., Hereman, W., \& van der Walt, S. J. An Introduction to Diffusion Maps. \url{https://inside.mines.edu/~whereman/talks/delaPorte-Herbst-Hereman-vanderWalt-DiffusionMaps-PRASA2008.pdf}
-\end{enumerate}
+	\item Bock, L. V., \& Grubmüller, H. (2022). Effects of cryo-EM cooling on structural ensembles. Nature Communications, 13(1). \url{http://doi.org/10.1038/s41467-022-29332-2}
+	\end{enumerate}
 \textendash{Questions}
 \begin{enumerate}
-	\item How do diffusion maps work (cf. SI section "Manifold Embedding by Diffusion Map" of Dashti et al, PNAS, 2014)?
-	\item How does ManifoldEM compare and contrast against other methods to study continuous heterogeneity?
-	\item What synthetic data sets were considered in Seitz et al, 2022?
-	\item Consider the references in the SI of Dashti et al, PNAS, 2014. What mathematical perspectives / subject areas are they from? Besides cryo-EM, what other applications are there for this type of mathematics?
-	\item How should you (biologically) interpret the movies in Dashti et al, PNAS, 2014? {\it These movies consist of a sequence of NLSA reconstructed snapshots, ordered along the minimum-energy path in the energy landscape (Movies S1--S5).} (p. 2, SI). What is the biological meaning of a circular manifold (cf. Figure 3, and discussion in SI section "Patching together information from different orientations").
-	\item {\it Reconstruction of the energy landscape for all 320 projection directions requires ?7 d on the same cluster.}, (SI section "Computational expense and scaling" of Dashti et al, PNAS, 2014). How long would practitioners be typically willing to wait for computational results that are highly informative and interpretable?
-	\item How is the uncertainly propagated or otherwise accounted for in the ManifoldEM computational pipeline (see SI section "Number of Conformational Classes" of Dashti et al, PNAS, 2014)?
-	\item Overall, how interpretable is ManifoldEM to you? What makes it more/less interpretable? How much of its interpretability depends on your understanding of the technique, and how much is intrinsic to the technique itself?
-\end{enumerate}
+	\item Why is liquid cryo-EM deemed infeasible in the introduction? See: Liao, H.-G., \& Zheng, H. (2016). Liquid Cell Transmission Electron Microscopy. Annual Review of Physical Chemistry, 67(1), 719?747. \url{http://doi.org/10.1146/annurev-physchem-040215-112501}
+	\end{enumerate}
 
 \pagebreak
 %\subsection{1 April 2022 - CryoAI - Part III, assorted references}
@@ -584,6 +576,26 @@ Access Passcode: \texttt{jNv5P+qv}
 \begin{enumerate}
 	\item What distributions do not have continuous parameters? If, in a simulator, the parameters come out of a discrete distribution, and then are used as parameters of a continuous distribution, does this violate the assumptions in Schulman et al.?
 	\item Consider a simple example of one pixel, going through Poisson and then Gaussian (noise) distributions, where the sampled Poisson random variable is the mean for the Gaussian. What does the estimated gradient look like?
+\end{enumerate}
+
+\subsection{10 June 2022 - ManifoldEM}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Seitz, E., Acosta-Reyes, F., Maji, S., Schwander, P., \& Frank, J. (2022). Recovery of Conformational Continuum from Single-particle Cryo-EM Images: Optimization of ManifoldEM Informed by Ground Truth. IEEE Transactions on Computational Imaging, PP, 1--1. \url{http://doi.org/10.1109/tci.2022.3174801}
+	\item Dashti, Ali and Schwander, Peter and Langlois, Robert and Fung, Russell and Li, Wen and Hosseinizadeh, Ahmad and Liao, Hstau Y. and Pallesen, Jesper and Sharma, Gyanesh and Stupina, Vera A. and Simon, Anne E. and Dinman, Jonathan D. and Frank, Joachim and Ourmazd, Abbas (2014). Trajectories of the ribosome as a Brownian nanomachine. Proceedings of the National Academy of Sciences of the United States of America, 111(49), 17492--17497. \url{http://doi.org/10.1073/pnas.1419276111}
+	\item Oliver Oswald. Laplace-Beltrami Operator Intuition, YouTube, 2021. \url{https://youtu.be/ZSh5d03YsEM}
+	\item de la Porte, J., Herbst, B. M., Hereman, W., \& van der Walt, S. J. An Introduction to Diffusion Maps. \url{https://inside.mines.edu/~whereman/talks/delaPorte-Herbst-Hereman-vanderWalt-DiffusionMaps-PRASA2008.pdf}
+\end{enumerate}
+\textendash{Questions}
+\begin{enumerate}
+	\item How do diffusion maps work (cf. SI section "Manifold Embedding by Diffusion Map" of Dashti et al, PNAS, 2014)?
+	\item How does ManifoldEM compare and contrast against other methods to study continuous heterogeneity?
+	\item What synthetic data sets were considered in Seitz et al, 2022?
+	\item Consider the references in the SI of Dashti et al, PNAS, 2014. What mathematical perspectives / subject areas are they from? Besides cryo-EM, what other applications are there for this type of mathematics?
+	\item How should you (biologically) interpret the movies in Dashti et al, PNAS, 2014? {\it These movies consist of a sequence of NLSA reconstructed snapshots, ordered along the minimum-energy path in the energy landscape (Movies S1--S5).} (p. 2, SI). What is the biological meaning of a circular manifold (cf. Figure 3, and discussion in SI section "Patching together information from different orientations").
+	\item {\it Reconstruction of the energy landscape for all 320 projection directions requires $\sim$7 d on the same cluster.}, (SI section "Computational expense and scaling" of Dashti et al, PNAS, 2014). How long would practitioners be typically willing to wait for computational results that are highly informative and interpretable?
+	\item How is the uncertainly propagated or otherwise accounted for in the ManifoldEM computational pipeline (see SI section "Number of Conformational Classes" of Dashti et al, PNAS, 2014)?
+	\item Overall, how interpretable is ManifoldEM to you? What makes it more/less interpretable? How much of its interpretability depends on your understanding of the technique, and how much is intrinsic to the technique itself?
 \end{enumerate}
 
 \end{document}  
