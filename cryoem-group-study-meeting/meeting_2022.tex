@@ -76,6 +76,8 @@ Fri 10 Jun 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryoem papers: ManifoldEM} \\
 \hline
 Fri 17 Jun 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryo-EM paper: Cooling on Ensembles (Bock and Grubmüller)} \\ 
 \hline
+Fri 8 July 2022 & \tiny{9 AM PST}  & \tiny{Mathy cryo-EM paper: Radiation damage to organic and inorganic specimens in the TEM (Egerton, 2019)} \\ 
+\hline
 \end{longtable}
 \end{center}
 
@@ -153,15 +155,15 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 \pagebreak
 \section{Upcoming Meetings}
 
-\subsection{10 June 2022 - Mathy cryo-EM paper: Cooling on Ensembles (Bock and Grubmüller)}
+\subsection{8 July 2022 - Mathy cryo-EM paper: Radiation damage to organic and inorganic specimens in the TEM (Egerton, 2019)}
 \textendash{Pre-reading}
 \begin{enumerate}
-	\item Bock, L. V., \& Grubmüller, H. (2022). Effects of cryo-EM cooling on structural ensembles. Nature Communications, 13(1). \url{http://doi.org/10.1038/s41467-022-29332-2}
+	\item Egerton, R. F. (2019). Radiation damage to organic and inorganic specimens in the TEM. Micron, 119(November 2018), 72--87. http://doi.org/10.1016/j.micron.2019.01.005
 	\end{enumerate}
-\textendash{Questions}
-\begin{enumerate}
-	\item Why is liquid cryo-EM deemed infeasible in the introduction? See: Liao, H.-G., \& Zheng, H. (2016). Liquid Cell Transmission Electron Microscopy. Annual Review of Physical Chemistry, 67(1), 719?747. \url{http://doi.org/10.1146/annurev-physchem-040215-112501}
-	\end{enumerate}
+%\textendash{Questions}
+%\begin{itemize}
+%	\item
+%\end{itemize}
 
 \pagebreak
 %\subsection{1 April 2022 - CryoAI - Part III, assorted references}
@@ -172,7 +174,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 
 	
 
-\subsection{May/June 2022 - Guest: Nina Miolane.}
+\subsection{Summer 2022? - Guest: Nina Miolane.}
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item Donnat, C., Levy, A., Poitevin, F., \& Miolane, N. (2022). Deep Generative Modeling for Volume Reconstruction in Cryo-Electron Microscopy, 1-26.
@@ -182,7 +184,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 %	\item 
 %\end{enumerate}
 
-\subsection{March/April 2022 - Guest: Roy Lederman.}
+\subsection{Summer 2022? - Guest: Roy Lederman.}
 \textendash{Pre-reading}
 \begin{enumerate}
 	\item Lederman, R. R. (2017). Numerical Algorithms for the Computation of Generalized Prolate Spheroidal Functions. ArXiv, (1), 1-23.
@@ -193,7 +195,7 @@ We will use the Slack channel 'cryoem\_study\_group' for asynchronous chat. Plea
 %	\item 
 %\end{enumerate}
 
-\subsection{Summer 2022? - Guest: David Silva. MD simulations and 2D cryo-EM measurements}
+\subsection{Fall 2022? - Guest: David Silva. MD simulations and 2D cryo-EM measurements}
 %\textendash{Pre-reading}
 %\begin{enumerate}
 %	\item 
@@ -597,5 +599,33 @@ Access Passcode: \texttt{jNv5P+qv}
 	\item How is the uncertainly propagated or otherwise accounted for in the ManifoldEM computational pipeline (see SI section "Number of Conformational Classes" of Dashti et al, PNAS, 2014)?
 	\item Overall, how interpretable is ManifoldEM to you? What makes it more/less interpretable? How much of its interpretability depends on your understanding of the technique, and how much is intrinsic to the technique itself?
 \end{enumerate}
+
+\subsection{10 June 2022 - Mathy cryo-EM paper: Cooling on Ensembles (Bock and Grubmüller)}
+\textendash{Pre-reading}
+\begin{enumerate}
+	\item Bock, L. V., \& Grubmüller, H. (2022). Effects of cryo-EM cooling on structural ensembles. Nature Communications, 13(1). \url{http://doi.org/10.1038/s41467-022-29332-2}
+	\end{enumerate}
+\textendash{Questions}
+\begin{itemize}
+	\item Introduction
+	\begin{enumerate}
+		\item Why is liquid cryo-EM deemed infeasible in the introduction? See: Liao, H.-G., \& Zheng, H. (2016). Liquid Cell Transmission Electron Microscopy. Annual Review of Physical Chemistry, 67(1), 719?747. \url{http://doi.org/10.1146/annurev-physchem-040215-112501}
+	\end{enumerate}
+	\item Temperature drop during plunge-freezing
+	\begin{enumerate}
+		\item Figure 1 panel a: What is the take home message of this Figure? Why is there a change between "ensemble before cooling", "ensemble after instance cooling", and "ensemble after slow gradual cooling"?
+		\item Figure 1 panel b,c,d: Is there anything unintuitive about the cooling rates? This plots are predicted from theory; how quantitatively accurate would you expect these predictions to be?
+		\item Will a sample cool quicker if it is in the middle of a the thin aqueous layer, or near the air-water ($\rightarrow$ cryogen-water) interface?
+	\end{enumerate}
+	\item Effects of different cooling rates on the ensemble.
+	\begin{enumerate}
+		\item How closely accurate is the temperature scale in a MD simulation (how closely does it correspond to experimental measurements)? In what ways is the temperature accuracy important for the conclusions of this study?
+		\item Figure 2: How quantitatively different is the structural heterogenity in a cryo-EM structure, compared to a room temperature strucure?
+		\item Why might we expect the rmsf of atoms in the centre to be smaller than atoms away from the centre? Besides rmsf, are the different measures of heterogeneity that might tell a different story?
+		\item What types of heterogeneity does cooling cause? 
+		\item Figure S4: How quantitatively large is the difference of backbone and side chain angle heterogeneity before/after cooling? How does this compare with how an atomic model (i.e. cryo-EM structure published on the PDB) might be interpreted?
+	\end{enumerate}
+	
+\end{itemize}
 
 \end{document}  
