@@ -220,7 +220,7 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 
 ### 2D Classification
 * Rao, R., Moscovich, A., & Singer, A. (2020). Wasserstein K-Means for Clustering Tomographic Projections, (2016), 1–11.
-  * The use a displacement/transport based loss, in place of the typical pixel based loss (e.g. L2). They propose an rotationally invariant k-means alignment algorithm. A fast approximation to the earthmover's distance is employed, which is based on a weighted L1 distance between wavlet transforms. Compared with the Gaussin white noise case, where the L2 loss can be converted to a normalized probability, there is no such analytically convenient probabilitic transformation/interpretation with the Wasserstein loss. The appendix proves a useful result that provides a bound on how the L2 loss can be well behaved for smooth signals.
+  * The authors use a displacement/transport based loss, in place of the typical pixel based loss (e.g. L2). They propose an rotationally invariant k-means alignment algorithm. A fast approximation to the earthmover's distance is employed, which is based on a weighted L1 distance between wavlet transforms. Compared with the Gaussin white noise case, where the L2 loss can be converted to a normalized probability, there is no such analytically convenient probabilitic transformation/interpretation with the Wasserstein loss. The appendix proves a useful result that provides a bound on how the L2 loss can be well behaved for smooth signals.
 
 ### Resolution (FSC, SSNR, etc)
 * Harauz G, van Heel M. (1986) Exact filters for general geometry three dimensional reconstruction. Optik (Stuttg) 4: 146-156.
