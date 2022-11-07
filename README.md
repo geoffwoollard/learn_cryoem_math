@@ -217,6 +217,11 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305–325).
   * Superb! Very good place to start. Very pedagogical treatment and motivation of the EM algorithm, in real space under Gaussian stats. 1D case (shifts) discussed first to motivate 2D case (shits and rotation). Care taken to explain what the motation means (subscripts, what is a vector, what is a scalar, etc.). Notebooks used to make the textbook are available on this repo by permission from the authors. 
   
+
+### 2D Classification
+* Rao, R., Moscovich, A., & Singer, A. (2020). Wasserstein K-Means for Clustering Tomographic Projections, (2016), 1–11.
+  * The use a displacement/transport based loss, in place of the typical pixel based loss (e.g. L2). They propose an rotationally invariant k-means alignment algorithm. A fast approximation to the earthmover's distance is employed, which is based on a weighted L1 distance between wavlet transforms. Compared with the Gaussin white noise case, where the L2 loss can be converted to a normalized probability, there is no such analytically convenient probabilitic transformation/interpretation with the Wasserstein loss. The appendix proves a useful result that provides a bound on how the L2 loss can be well behaved for smooth signals.
+
 ### Resolution (FSC, SSNR, etc)
 * Harauz G, van Heel M. (1986) Exact filters for general geometry three dimensional reconstruction. Optik (Stuttg) 4: 146-156.
 * Penczek, P. A. (2010). Resolution Measures in Molecular Electron Microscopy. In Methods in Enzymology (1st ed., Vol. 482, pp. 73–100). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82003-8
