@@ -215,7 +215,7 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Tagare, H. D., Barthel, A., & Sigworth, F. J. (2010). An adaptive Expectation–Maximization algorithm with GPU implementation for electron cryomicroscopy. Journal of Structural Biology, 171(3), 256–265. http://doi.org/10.1016/j.jsb.2010.06.004
 * Scheres, S. H. W. (2010). Classification of Structural Heterogeneity by Maximum-Likelihood Methods. In Methods in Enzymology (1st ed., Vol. 482, pp. 295–320). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82012-9
 * Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305–325).
-  * Superb! Very good place to start. Very pedagogical treatment and motivation of the EM algorithm, in real space under Gaussian stats. 1D case (shifts) discussed first to motivate 2D case (shits and rotation). Care taken to explain what the motation means (subscripts, what is a vector, what is a scalar, etc.). Notebooks used to make the textbook are available on this repo by permission from the authors. 
+  * Superb! Very good place to start. Very pedagogical treatment and motivation of the EM algorithm, in real space under Gaussian stats. 1D case (shifts) discussed first to motivate 2D case (shits and rotation). Care taken to explain what the notation means (subscripts, what is a vector, what is a scalar, etc.). Notebooks used to make the textbook are available on this repo by permission from the authors. 
   
 
 ### 2D Classification
