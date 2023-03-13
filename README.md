@@ -215,8 +215,13 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Tagare, H. D., Barthel, A., & Sigworth, F. J. (2010). An adaptive Expectation–Maximization algorithm with GPU implementation for electron cryomicroscopy. Journal of Structural Biology, 171(3), 256–265. http://doi.org/10.1016/j.jsb.2010.06.004
 * Scheres, S. H. W. (2010). Classification of Structural Heterogeneity by Maximum-Likelihood Methods. In Methods in Enzymology (1st ed., Vol. 482, pp. 295–320). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82012-9
 * Nelson, P. C. (2019). Chapter 12 : Single Particle Reconstruction in Cryo-electron Microscopy. In Physical Models of Living Systems (pp. 305–325).
-  * Superb! Very good place to start. Very pedagogical treatment and motivation of the EM algorithm, in real space under Gaussian stats. 1D case (shifts) discussed first to motivate 2D case (shits and rotation). Care taken to explain what the motation means (subscripts, what is a vector, what is a scalar, etc.). Notebooks used to make the textbook are available on this repo by permission from the authors. 
+  * Superb! Very good place to start. Very pedagogical treatment and motivation of the EM algorithm, in real space under Gaussian stats. 1D case (shifts) discussed first to motivate 2D case (shits and rotation). Care taken to explain what the notation means (subscripts, what is a vector, what is a scalar, etc.). Notebooks used to make the textbook are available on this repo by permission from the authors. 
   
+
+### 2D Classification
+* Rao, R., Moscovich, A., & Singer, A. (2020). Wasserstein K-Means for Clustering Tomographic Projections, (2016), 1–11.
+  * The authors use a displacement/transport based loss, in place of the typical pixel based loss (e.g. L2). They propose an rotationally invariant k-means alignment algorithm. A fast approximation to the Earthmover's distance is employed, which is based on a weighted L1 distance between wavelet transforms. Compared with the Gaussian white noise case, where the L2 loss can be converted to a normalized probability, there is no such analytically convenient probabilitic transformation/interpretation with the Wasserstein loss. The appendix proves a useful result that provides a bound on how the L2 loss can be well behaved for smooth signals.
+
 ### Resolution (FSC, SSNR, etc)
 * Harauz G, van Heel M. (1986) Exact filters for general geometry three dimensional reconstruction. Optik (Stuttg) 4: 146-156.
 * Penczek, P. A. (2010). Resolution Measures in Molecular Electron Microscopy. In Methods in Enzymology (1st ed., Vol. 482, pp. 73–100). Elsevier Inc. http://doi.org/10.1016/S0076-6879(10)82003-8
@@ -248,12 +253,17 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Punjani, A., & Fleet, D. (2021). 3D Flexible Refinement : Structure and Motion of Flexible Proteins from Cryo-EM. BioRxiv, 1–21. http://doi.org/10.1101/2021.04.22.440893
   * Auto-decoder approach using one 3D reference map (learned from data), modified by vector field (convection, also learned from data). Each particle has its own convection (latent variable learned from data). Nice discussion of design choices that inspired confidence and is useful for methods developers in this area.
 
-#### Variational Autoencoders
-* Doersch, C. (2016). Tutorial on Variational Autoencoders, 1–23.
+#### (Variational) Autoencoders
+* Rosenbaum, D., Garnelo, M., Zielinski, M., Beattie, C., Clancy, E., Huber, A., … Adler, J. (2021). Inferring a Continuous Distribution of Atom Coordinates from Cryo-EM Images using VAEs. ArXiv, 1–15.
+  * The authors propose a method that learns a conformational ensemble from synthetic cryo-EM measurements using a VAE approach with a multilayer perceptrons (MLP) neural network architecture and all distributions are Gaussian. They learn the 3D pose and conformation of an coarse grained atomic representation, where each amino acid residue is one Gaussian sphere. The global pose is the output from a deep encoder, after transforming to a $3\times 3$ rotation matrix by Gram-Schmidt orthogonalization. The conformational heterogenity is modelled with minimal inductive bias by a deep encoder that independently rotates and translates a residue independently of the others. After this, they regularize the output of the conformational encoder and keep it close to the reference conformation with a backbone continuity loss.
+* Nashed, Y., Peck, A., Martel, J., Levy, A., Koo, B., Wetzstein, G., … Poitevin, F. (2022). Heterogeneous reconstruction of deformable atomic models in Cryo-EM.
+  * The authors demonstrate that the anisotropic network model modes could capture the heterogeneity of adenylate kinase transitioning between open and closed states. A continuous trajectory was discreatly sampled in 50 states with a tool in a molecular viewer program to generate synthetic data. An autoencoder was used to estimate the up to 14 normal mode components, where the estimated values were used in a physics decoder. Other latent variables (rotation, CTF defocus, open conformation of atomic model) were provided and not inferred. The physics decoder represented the full atomic model with multiple Gaussians with atom-type specific parameters from established tabulated values. The elastic network model is computed on a subset of atoms, and then interpolated for the remaining atoms, avoiding the expensive diagonalization of the 3N × 3N Hessian, where N is the number of atoms.
 * Bepler, T., Zhong, E. D., Kelley, K., Brignole, E., & Berger, B. (2019). Explicitly disentangling image content from translation and rotation with spatial-VAE, (NeurIPS 2019).
 * Zhong, E. D., Bepler, T., Davis, J. H., & Berger, B. (2019). Reconstructing continuous distributions of 3D protein structure from cryo-EM images, 1–20.
 * Miolane, N., Poitevin, F., Holmes, S., & Li, Y. T. (2019). Estimation of orientation and camera parameters from cryo-electron microscopy images with variational autoencoders and generative adversarial networks. ArXiv.
   * Ribosome (one simulated dataset in same 2D pose, three empirical datasets from different 2D classes) analyzed with a VAE-GAN architecture. In latent space, defocus and rotations are disentagled (in unsupervised way).
+* Doersch, C. (2016). Tutorial on Variational Autoencoders, 1–23.
+
   
 ### Reconstruction
 * Ludike, S. J., & Wah Chiu. (2002). Image restoration in sets of noisy electron micrographs. In Proceedings IEEE International Symposium on Biomedical Imaging (pp. 745–748). IEEE. http://doi.org/10.1109/ISBI.2002.1029365
