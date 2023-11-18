@@ -141,6 +141,29 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Bishop CM. (2006) Pattern Recognition and Machine Learning. Springer Berlin / Heidelberg
 * Hastie T, Tibshirani R, Friedman J. (2008) The Elements of Statistical Learning: Data Mining, Inference, and Prediction. https://web.stanford.edu/~hastie/ElemStatLearn/ (free PDF download)
 
+### Optimal Transport
+* Gabriel Peyré, Marco Cuturi (2016). Computational Optimal Transport (2016). Foundations and Trends in Machine Learning, vol. 11, no. 5-6, pp. 355-607, 2019. https://arxiv.org/abs/1803.00567
+  * Monograph / short textbook primer on optimal transport theory
+  * arxiv version is on v4, updated 2020.
+  * Sections on Theoretical Foundations, Algorithm Foundations, Entropic Regularization, Semidiscrete, W1, Variational Wasserstein Problems (e.g. differentiating Wasserstein loss), etc.
+  * Many good youtube videos by authors covering similar material in summer schools
+  * Good place to start
+* Rémi Flamary, Nicolas Courty, Alexandre Gramfort, Mokhtar Z. Alaya, Aurélie Boisbunon, Stanislas Chambon, Laetitia Chapel, Adrien Corenflos, Kilian Fatras, Nemo Fournier, Léo Gautheron, Nathalie T.H. Gayraud, Hicham Janati, Alain Rakotomamonjy, Ievgen Redko, Antoine Rolet, Antony Schutz, Vivien Seguy, Danica J. Sutherland, Romain Tavenard, Alexander Tong, Titouan Vayer. POT Python Optimal Transport library. Journal of Machine Learning Research, 22(78):1−8, 2021.
+  * https://pythonot.github.io/
+  * Active repository of optimal transport solvers, including unbalanced, partial, wassertein-gromov, entropic regularization, etc.
+* Singer, A., & Yang, R. (2023). Alignment of Density Maps in Wasserstein Distance. http://arxiv.org/abs/2305.12310
+  * https://github.com/RuiyiYang/BOTalign/tree/main
+  * Global alignment of density maps using Bayesian optimization followed by local search. For the Bayesian optimization approach the landscape is fitted with Gaussian processes, and empirical experiments are done with an L2 based voxel loss, and a optimal transport W1-wavelet approximation (so fast to evaluate). The local search uses a Nelder-Mead, and a L2 based loss performs empirically better (for the local refinement) than W1. The authors discuss why, and discuss around how things could fail for heterogeneous maps. A distance suitable for aligning heterogeneous maps is left to future work.
+  * The contributions of this paper go beyond using W1, and include a whole BO optimizaiton approach for a global search for optimal rotation. In particular, see section "3.2 Gaussian Process Interpolant as Surrogate".
+* Riahi, A. T., Woollard, G., Poitevin, F., Condon, A., & Duc, K. D. (2022). AlignOT: An optimal transport based algorithm for fast 3D alignment with applications to cryogenic electron microscopy density maps. http://arxiv.org/
+  * Alignment of maps using transport based approach. Results show larger basin of attraction over some methods (e.g. out of box parameters of Chimera's fitmap, which employs a voxel correlation based loss), but not suitable for global alignment.
+  * Algorithm
+    * fits a point cloud of into map density uisng the topology representing network algorithm (TRN)
+    * computes a transport plan to get a point to point correspondence
+    * randomly selects a point
+    * does gradient descent on the rotation, in the direction of minimizing the distance/displacement between the point (which now has a correspondence to the unrotated reference) and the uncrotated reference.
+  * Note that the gradient descent does not refer directly to the Wasserstein loss, but the transport plan is used to make a correspondence, which is different at each iteration.
+
 ## Physics (electon optics, lenses, detector)
 * Shaw, R. (1978). Evaluating the efficient of imaging processes. Reports on Progress in Physics, 41(7), 1103–1155. http://doi.org/10.1088/0034-4885/41/7/003
 * Rabbani, M., Van Metter, R., & Shaw, R. (1987). Detective quantum efficiency of imaging systems with amplifying and scattering mechanisms. Journal of the Optical Society of America A, 4(5), 895. http://doi.org/10.1364/JOSAA.4.000895
