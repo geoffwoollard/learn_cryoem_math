@@ -163,6 +163,10 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
     * randomly selects a point
     * does gradient descent on the rotation, in the direction of minimizing the distance/displacement between the point (which now has a correspondence to the unrotated reference) and the uncrotated reference.
   * Note that the gradient descent does not refer directly to the Wasserstein loss, but the transport plan is used to make a correspondence, which is different at each iteration.
+* Riahi, A. T., Zhang, C., Chen, J., Condon, A., & Duc, K. D. (2023). EMPOT: partial alignment of density maps and rigid body fitting using unbalanced Gromov-Wasserstein divergence. https://arxiv.org/abs/2311.00850
+  * Global alignment suitable when one map has missing density.
+  * Use of unbalanced Gromov-Wasserstein divergence to get transport plan, then use Kabash algorithm to find optimal rotation and translation from this transport plan.
+  * Section on "Application for atomic model building" that fits in alphafold model into an experimental, even through the atomic model has missing density from the experimental map.
 
 ## Physics (electon optics, lenses, detector)
 * Shaw, R. (1978). Evaluating the efficient of imaging processes. Reports on Progress in Physics, 41(7), 1103–1155. http://doi.org/10.1088/0034-4885/41/7/003
