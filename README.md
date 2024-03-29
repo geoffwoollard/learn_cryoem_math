@@ -277,6 +277,15 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
   * detailed theoretical/analytical analysis of the Fourier slice theorem for covaniances: how do we estimate how pixels in 3D are correlating with each other when all we haev is information on their 2D projections? Rich in mathematical details.
 
 ### Deep generative 3D reconstruction
+* Shi, B., Zhang, K., Fleet, D. J., McLeod, R. A., Dwayne Miller, R. J., & Howe, J. Y. (2024). Deep generative priors for biomolecular 3D heterogeneous reconstruction from cryo-EM projections. Journal of Structural Biology, 216(2), 108073. http://doi.org/10.1016/j.jsb.2024.108073
+  * VAE approaches, with three types of generative priors (Variational Mixture of Posteriors, non-parametric exemplar-based, latent score-based generative models) used to infer heterogenity. The task focuses only on estimating heterogeneity (known pose, ctf).
+  * Analysis methods are
+    * map-to-map distance via FSC
+    * In order to align ground truth latent to the learned latent embedding, an Affine transformation was optimized to tranform between them. See Eq. 10.
+    * pairwise distance difference: this involves access to ground truth and estimated latents on images. Two pairwise matrices of distance in latent space are made: one for ground truth latent and one with latent embeddings. I.e. the elements of these matrices are the L2 distance between a pair of latent vectors. The Frobenius norm between these matrices is the overall distance metric. See Eq. 11. 
+    * Within-cluster variance: multiple images had the same ground truth het latent (different poses, ctfs, etc). The latent embedding of these images had some variance among them, and this was quantified via RMSD, and the dispersion was visualized in a joint density plot
+    * Point grid deformation: for discrate states, a center of each discrete state was computed by an arethmetical mean of the latent encodings. Then vectors were visualized on every discrete latent state in a plot. The magnitude of the vector is the distance between each center and the ground truth state. The direction of the vector is from the angle between the ground truth latent and the centre in PCA-map space.
+  * Results show "representation with better conserved pairwise distances, less deformed latent distributions and lower within-cluster variances makes the latent space a more likely pseudo-conformational landscape to explore structural heterogeneity and infer potential biological reaction pathways"
 * Punjani, A., & Fleet, D. (2021). 3D Flexible Refinement : Structure and Motion of Flexible Proteins from Cryo-EM. BioRxiv, 1–21. http://doi.org/10.1101/2021.04.22.440893
   * Auto-decoder approach using one 3D reference map (learned from data), modified by vector field (convection, also learned from data). Each particle has its own convection (latent variable learned from data). Nice discussion of design choices that inspired confidence and is useful for methods developers in this area.
 
