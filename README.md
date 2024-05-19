@@ -25,7 +25,11 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
   * Pedagogical step-by-step introduction to math
 * Shen, P., Iwasa, J., Thuesen, A., Thoms, J., & Mayson, P. (2020). CryoEM 101. Retrieved from https://cryoem101.org/
   * Visual animations help build intuition
-
+* MRC Laboratory of Molecular Biology. 2023 Cryo-EM Course. (8 Dec 2023) https://youtube.com/playlist?list=PLQbPquAyEw4e8urWaUGLtjIzgdsq8urif&si=r56CRR8DH069NU60
+  * Influential publications in the historical development of cryo-EM - Richard Henderson. Historical overview of seminar papers, with focus on under-represented ones.
+    * Early years: 1987-1950.
+    * Introduction of negative staining (1959)
+    * MRC-LMB 1968-1971: 3D reconstructions
   
 ## CryoEM Textbooks
 * Frank, J. (1996). Electron Microscopy of Macromolecular Assemblies. In Three-Dimensional Electron Microscopy of Macromolecular Assemblies (pp. 12–53). Elsevier. http://doi.org/10.1016/B978-012265040-6/50002-3
