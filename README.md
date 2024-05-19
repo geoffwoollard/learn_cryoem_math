@@ -214,6 +214,14 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Datta, A., Ban, Y., Ding, M., Chee, S. W., Shi, J., & Loh, N. D. (2019). ReCoDe: A Data Reduction and Compression Description for High Throughput Time-Resolved Electron Microscopy.
 * Kirkland, E. J. (2020). Advanced Computing in Electron Microscopy. Cham: Springer International Publishing. http://doi.org/10.1007/978-3-030-33260-0
   * Superb textbook! Very pedagical treatment of physics and computation. Emphasis on TEM and SEM as well as materials science and biological cryoEM. Computer programs are available online accompanying the text. Derivation and analysis of: wave equation for fast electrons, multislice (thick specimens). Important details about appropriate discretizations (rules of thumb and the reason why) and other matters surrounding numerical computations.
+  * Chapter 2: The Transmission Electron Microscope
+    * overviews parts of TEM (and STEM), and explains “reciprocity” between them. See fig 2.7
+      *  TEM’s point source -> specimen diffraction -> objective lens focusing -> converging on the detector
+      * STEM’s point detector <- specimen rastering from focused probe <- objective lens focusing of incoming beam <- electron source
+    * physical explanation of spherical abberation, including deviations from spherical surface. Gives equations relating phase error (chi = delta 2 pi / lambda), angular deviations (chi = power series of alpha), and spatial frequency (alpha = k lambda)
+    * aberrations and there idealized theoretical limits, and practical realization in hardware, including correction are explained, including history / literature review on hardware aberration correction (multipole)
+      * In section “2.8 More Aberrations”, there’s a pedagogical explanation of expanding the phase error into a basis. The emphasis is on the mathematically convenient complex angle (omega = alpha_x + i alpha_y), and a double power series expansion in omega and its complex conjugate.
+      * Table 2.1 relates aberration symbols for shift, defocus, two/three/etc-fold astigmatism, axial coma, axial star, rosette, etc. This relates to Zernike polynomials (on the circle) and a reference is given for that basis expansion.
 * Nakane, T., Kotecha, A., Sente, A., McMullan, G., Masiulis, S., Brown, P. M. G. E., … Scheres, S. H. W. (2020). Single-particle cryo-EM at atomic resolution. BioRxiv, 2020.05.22.110189. http://doi.org/10.1101/2020.05.22.110189
   * electron-event representation data format for electron counting
 * Saxton, W. O. (2020). Advances in Imaging and Electron Physics: Computer Techniques for Image Processing in Electron Microscopy. (M. Hÿtch & P. W. Hawkes, Eds.).
