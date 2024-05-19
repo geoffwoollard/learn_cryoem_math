@@ -26,7 +26,8 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Shen, P., Iwasa, J., Thuesen, A., Thoms, J., & Mayson, P. (2020). CryoEM 101. Retrieved from https://cryoem101.org/
   * Visual animations help build intuition
 * MRC Laboratory of Molecular Biology. 2023 Cryo-EM Course. (8 Dec 2023) https://youtube.com/playlist?list=PLQbPquAyEw4e8urWaUGLtjIzgdsq8urif&si=r56CRR8DH069NU60
-  * Influential publications in the historical development of cryo-EM - Richard Henderson. Historical overview of seminar papers, with focus on under-represented ones.
+  * Richard Henderson. Influential publications in the historical development of cryo-EM.
+    * Historical overview of seminar papers, with focus on under-represented ones.
     * Thematically: Early years: 1987-1950; Introduction of negative staining (1959); MRC-LMB 1968-1971: 3D reconstructions; Contrast transfer function correction; Bob Glaeser - radiation damage - Taylor, Chiu, Downing; Phase plates - Unwin, Davev; FEG sources, initially for STEM; Zemlin tablear - coma free alignment; Development of plunge-freezing (Dubochet); First three cryoEM 3D structures (1985 - 1986); Higher energy TEM initiatives (1 - 3 MeV); Electron cryostallography, 2D xtals; Helical and filament images of tau; tomography
     * Geographically (1970s-1980s era): Munich/Martinsteid (Walter Hoppe, J. Gassman, Joachim Frank, Michael Radamacher); Groningen (Erni van Bruggen, Marin van Heel, Egbert Borkema, Bettina Boettcher); Bizentrum, Basel in 1970s (Dubochet, Aebi, Engel, Kistler, Sjostrand, Smith, Kellemberger)
   
