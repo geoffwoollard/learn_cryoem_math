@@ -30,6 +30,11 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
     * Historical overview of seminar papers, with focus on under-represented ones.
     * Thematically: Early years: 1987-1950; Introduction of negative staining (1959); MRC-LMB 1968-1971: 3D reconstructions; Contrast transfer function correction; Bob Glaeser - radiation damage - Taylor, Chiu, Downing; Phase plates - Unwin, Davev; FEG sources, initially for STEM; Zemlin tablear - coma free alignment; Development of plunge-freezing (Dubochet); First three cryoEM 3D structures (1985 - 1986); Higher energy TEM initiatives (1 - 3 MeV); Electron cryostallography, 2D xtals; Helical and filament images of tau; tomography
     * Geographically (1970s-1980s era): Munich/Martinsteid (Walter Hoppe, J. Gassman, Joachim Frank, Michael Radamacher); Groningen (Erni van Bruggen, Marin van Heel, Egbert Borkema, Bettina Boettcher); Bizentrum, Basel in 1970s (Dubochet, Aebi, Engel, Kistler, Sjostrand, Smith, Kellemberger)
+* Anjum, Dalaver H. (2023). Lecture # 1 Basics of TEM Transmission Electron Microscope. https://youtu.be/605jkp-snJo?si=qft4LwGy_caHG12I
+  * Overview of TEM and STEM, including different imaging modes (BF/DF).
+  * Geometric optics (cross product of electron in B-field) explanation of electron corkscrew path as it interacts with magnetic field
+  * Good situation of introduction, in terms of what deeper levels of theory are neglected
+
   
 ## CryoEM Textbooks
 * Frank, J. (1996). Electron Microscopy of Macromolecular Assemblies. In Three-Dimensional Electron Microscopy of Macromolecular Assemblies (pp. 12–53). Elsevier. http://doi.org/10.1016/B978-012265040-6/50002-3
