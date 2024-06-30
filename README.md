@@ -16,6 +16,10 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 
 # Resources
 ## Online Resources
+* John Rodenburg (circa 2013). Tutorials in Transmission Electron Microscopy. https://www.rodenburg.org/index.html
+  * Concise, and intuitive text and diagrams about how TEM works. Written by a pioneer of electron ptychography.
+  * Theory of wave interference: A not-too mathematical introduction.
+  * TEM Tutorial guide: How to learn to use a transmission electron microscope (TEM) quickly and efficiently. The guide assumes no knowledge of the technique. Ideal for new graduate students in materials science and/or biology who need to use a microscope on a day-to-day basis.
 * Jensen, G. J. (2014). Getting Started in Cryo-EM. Retrieved from http://cryo-em-course.caltech.edu/videos
    * Recommended place to start for total beginners. Coursera style.
 * MRC-LMB Electron Cryo-microscopy Course 2017 (recorded lectures). Retrieved from https://www2.mrc-lmb.cam.ac.uk/research/scientific-training/electron-microscopy/
