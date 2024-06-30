@@ -16,6 +16,10 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 
 # Resources
 ## Online Resources
+* Eric Stach. MSE 640 Transmission Electron Microscopy and Crystalline Imperfections. https://nanohub.org/resources/4092
+  * Graduate level course (slides and video lectures; 16 lecttures of 40-50 min each) taught by Brookhaven National Laboratory.
+  * Focuses on diffraction optics principles, including math, underlying various spectrosocpy (EELS) and imaging (diffraction contrast imaging, TEM, STEM).
+  * Math focuses on electricity and magnetism equations, geometric optics, and crystallography
 * John Rodenburg (circa 2013). Tutorials in Transmission Electron Microscopy. https://www.rodenburg.org/index.html
   * Concise, and intuitive text and diagrams about how TEM works. Written by a pioneer of electron ptychography.
   * Theory of wave interference: A not-too mathematical introduction.
