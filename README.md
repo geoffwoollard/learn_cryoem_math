@@ -16,9 +16,6 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 
 # Resources
 ## Online Resources
-* Hébert, Cécile & Alexander, Duncan. (circa 2020). Transmission electron microscopy for materials science. https://www.coursera.org/lecture/microscopy/welcome-from-the-teacher-xEgpX?utm_source=link&utm_medium=page_share&utm_content=vlp&utm_campaign=top_button
-  * 30 hr Coursera course from École Polytechnique Fédérale de Lausanne
-  * Topics: Ewald sphere, reciptocal lattice, kinematical scattering, dynamical effects, phase contrast
 * Stach, Eric. (2008). MSE 640 Transmission Electron Microscopy and Crystalline Imperfections. https://nanohub.org/resources/4092
   * Graduate level course (slides and video lectures; 16 lecttures of 40-50 min each) taught by Brookhaven National Laboratory.
   * Focuses on diffraction optics principles, including math, underlying various spectrosocpy (EELS) and imaging (diffraction contrast imaging, TEM, STEM).
@@ -36,6 +33,9 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
   * Pedagogical step-by-step introduction to math
 * Shen, P., Iwasa, J., Thuesen, A., Thoms, J., & Mayson, P. (2020). CryoEM 101. Retrieved from https://cryoem101.org/
   * Visual animations help build intuition
+* Hébert, Cécile & Alexander, Duncan. (circa 2020). Transmission electron microscopy for materials science. https://www.coursera.org/lecture/microscopy/welcome-from-the-teacher-xEgpX?utm_source=link&utm_medium=page_share&utm_content=vlp&utm_campaign=top_button
+  * 30 hr Coursera course from École Polytechnique Fédérale de Lausanne
+  * Topics: Ewald sphere, reciptocal lattice, kinematical scattering, dynamical effects, phase contrast
 * MRC Laboratory of Molecular Biology. 2023 Cryo-EM Course. (8 Dec 2023) https://youtube.com/playlist?list=PLQbPquAyEw4e8urWaUGLtjIzgdsq8urif&si=r56CRR8DH069NU60
   * Richard Henderson. Influential publications in the historical development of cryo-EM.
     * Historical overview of seminar papers, with focus on under-represented ones.
