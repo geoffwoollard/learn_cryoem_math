@@ -91,7 +91,12 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
   * Good gentle introduction from structural biologists on orthonormal rotations. Derivation of familiar properties of rotations. Exercises.
 * Hartley, R., Trumpf, J., Dai, Y., & Li, H. (2013). Rotation Averaging. International Journal of Computer Vision, 103(3), 267–305. http://doi.org/10.1007/s11263-012-0601-0
   * Long review on rotational encodings. Encodings are mainly $\mathcal{R}^{3x3}$, (axis-angle, quaternions). SO(3) is discussed from concepts from Lie groups, and differential geometry. Distance measures are derived for different encodings and focus on the Frobenius norm of the coordinates in that encoding, and the angle/gendesic. Three basic computer vision problem types are considered: 1. averaring multiple rotations into a single "average rotation", 2. estimating how to convert between frames from multiple rotations pairs (e.g. from calibrated cameras), and 3. estimating mutliple rotations from difference frames from sparse relative rotations between paris of frames.
-
+* Mecharithm - Robotics and Mechatronics (2023). Fundamentals of Robotics Course. https://youtube.com/playlist?list=PLlqdnFs9xNwpD9zJr8BgAbfHH3AyixTqt&si=bs14qIYQV1OFmBys
+   * 21 video youtube playlist on rotation convention, degrees of freedom, quaternions, constriants, angular velocities
+   * Exponential Coordinates in Robotics | Fundamentals of Robotics | Lesson 9. (28 min). https://youtu.be/I2p1lCcmOsM?si=2OgJ-weZ5UJtnYY0
+      * 28 min Pedagogical (non rigerous) derivation of so(3), the Li Algebra of SO(3). Exponential map, logarith map, singularities, actual examples of axis angles and rotation for a robotic arm constraint problem.
+   * Cayley-Rodrigues Parameters in Robotics | Fundamentals of Robotics | Lesson 13. 12 min. https://youtu.be/gfqYTZ9s26o?si=MXbx9g13AxF52CIW
+      * Three parameter [r] in so(3), with conversions for going from between r and R in both directions, and relation to omega_hat theta axis angle representation.
 ### Fourier
 * Lighthill, M. J. (1958). An Introduction to Fourier Analysis and Generalised Functions. An Introduction to Fourier Analysis and Generalised Functions. Cambridge University Press. http://doi.org/10.1017/CBO9781139171427.001
   * subtelties about delta functions. Helps for not getting confused between discrete and continous FT 
