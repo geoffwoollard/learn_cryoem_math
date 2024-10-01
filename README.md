@@ -27,7 +27,7 @@ In this repo I would like to open up the black box of cryoEM computation, and ex
 * Jensen, G. J. (2014). Getting Started in Cryo-EM. Retrieved from http://cryo-em-course.caltech.edu/videos
    * Recommended place to start for total beginners. Coursera style.
 * MRC-LMB Electron Cryo-microscopy Course 2017 (recorded lectures). Retrieved from https://www2.mrc-lmb.cam.ac.uk/research/scientific-training/electron-microscopy/
-* Jensen, G. J., & Vos, M. (2020). Electron Microscopy University. Retrieved from https://em-learning.com/
+* Jensen, G. J., & Vos, M. (2020). Electron Microscopy University. Retrieved from https://www.thermofisher.com/ca/en/home/electron-microscopy/life-sciences/learning-center/cryo-em-university.html
   * 70 hours of videos. From intro to very advanced. Theoretical white board lectures and videos of someone operating the microscope. Includes important concepts hard to find elsewhere (vacuum theory, heuristics of data collection / experimental design).
 * Sigworth, F., & Tagare, H. (2020). Cryo-EM Principles. Retrieved from https://cryoemprinciples.yale.edu/
   * Pedagogical step-by-step introduction to math
