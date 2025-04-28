@@ -1,5 +1,5 @@
 # Goal
-Learn the mathematics of single particle electron cryomicroscopy (cryoEM)
+Learn the mathematics of single particle electron cryomicroscopy (cryoEM).
 
 # Why?
 We can see living atoms with electrons. Electron microscopes use hundreds of thousands of volts to speed up single electrons to three quarters the speed of light. At such high speeds electrons have picometer wavelengths and can resolve the distances between atoms in biomolecules. Electron cryomicroscopy (cryoEM) won the 2017 Nobel prize in Chemistry, and pharmaceutical companies have invested in this technology for applications like structure based drug design. 
